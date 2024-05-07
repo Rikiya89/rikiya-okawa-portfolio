@@ -12,7 +12,7 @@ const Projects = () => {
         <ProjectCard
           src="/portfolio_no1.webp"
           title="Portfolio Website"
-          description="私の最初のポートフォリオサイトです。HTML、SCSS、JavaScriptで作られたこのサイトは、直感的なナビゲーションと魅力的なビジュアルを通じ、私のデジタルアートとウェブ開発のスキルを紹介しています!"
+          description="私の最初のポートフォリオサイトです。HTML、SCSS、JavaScriptで作られたこのサイトは、直感的なナビゲーションと魅力的なビジュアルを通じ、私のスキルや私がこれまでに取り組んできたプロジェクトの中から選りすぐりの作品を展示しています。それぞれのプロジェクトには、その背景情報や使用した技術、プロジェクトの目標と達成した成果を詳細に説明しています!"
           url="https://www.rikiya-okawa963.jp/index.html/"  // Example project URL
         />
         <ProjectCard
