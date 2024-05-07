@@ -18,7 +18,7 @@ const Projects = () => {
         <ProjectCard
           src="/weather_app.webp"
           title="React Weather App"
-          description="Explore the React Weather App—your sleek guide to global weather. This app blends real-time weather insights with stunning GSAP animations, creating an engaging user experience in every forecast. Navigate cities effortlessly and watch weather patterns unfold in an interactive showcase crafted with React."
+          description="Explore the React Weather App, a perfect fusion of design and technology. Developed using React and JavaScript, this app utilizes weather and latitude-longitude APIs to deliver accurate, real-time weather forecasts. Navigate cities effortlessly and experience weather patterns interactively in a sleek, intuitive interface designed for optimal user engagement."
           url="https://relaxed-youtiao-4c1124.netlify.app/"  // Example project URL
         />
         <ProjectCard
