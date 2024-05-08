@@ -48,12 +48,14 @@ return (
     >
         こんにちは、大川力也です。2015年11月に神田外語学院を卒業し、2017年6月にグロスモントカレッジでデジタルアートの学位を取得しました。日本に帰国後、コストコホールセールで1年間働き、その後アコーホテルズで3年間働きました。その後も勉強を続け、2022年9月にデジタルハリウッド東京校でUI/UXデザインを専攻し卒業しました。現在は、Web制作の分野で情熱を持って仕事をしています。
     </motion.p>
-    {/* <motion.a
+    <motion.a
+        href="https://www.linkedin.com/in/rikiya-okawa369/"
+        target="_blank"
         variants={slideInFromLeft(1)}
         className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
     >
         Learn More!
-    </motion.a> */}
+    </motion.a>
     </div>
 
     <motion.div

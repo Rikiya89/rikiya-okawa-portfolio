@@ -41,12 +41,12 @@ const Projects = () => {
           description="Dive into my TouchDesigner creation—a blend of visual art and technical mastery. Each node tells a story with GLSL shaders and TOPs that animate water's essence. Experience my craft through each transformative interaction, where fluid dynamics and digital artistry merge into an engaging visual experience."
           url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         />
-        <ProjectCard
+        {/* <ProjectCard
           src="/iphone14_clonewebsite.webp"
           title="iPhone 14 Clone 3D Website"
           description="Explore my 3D React portfolio—a symphony of code and design. Every click is a journey, with GSAP animations bringing the experience to life. It’s where my developer story unfolds, one interaction at a time."
           url="https://apple-iphone3d-website.netlify.app/"  // Example project URL
-        />
+        /> */}
       </div>
   
     </div>

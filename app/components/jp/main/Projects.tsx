@@ -41,12 +41,12 @@ const Projects = () => {
           description="視覚芸術と技術的な熟練が融合したTouchDesignerの作品に飛び込んでみてください。水の本質をアニメーション化するGLSLシェーダーとTOPで、ノードごとにストーリーを語ります。流体ダイナミクスとデジタル芸術性が融合して魅力的なビジュアル体験となる、変幻自在のインタラクションを通して私の技術を体験してください。"
           url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         />
-        <ProjectCard
+        {/* <ProjectCard
           src="/iphone14_clonewebsite.webp"
           title="iPhone 14 Clone 3D Website"
           description="Explore my 3D React portfolio—a symphony of code and design. Every click is a journey, with GSAP animations bringing the experience to life. It’s where my developer story unfolds, one interaction at a time."
           url="https://apple-iphone3d-website.netlify.app/"  // Example project URL
-        />
+        /> */}
       </div>
   
     </div>

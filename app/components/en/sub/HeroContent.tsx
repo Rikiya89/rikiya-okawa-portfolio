@@ -48,12 +48,14 @@ return (
     >
         Hello! My name is Rikiya Okawa, and I graduated from Kanda Institute of Foreign Languages in November 2015. I completed my degree in Digital Arts at Grossmont College in June 2017. After returning to Japan, I worked for Costco Wholesale for a year and then for Accor Hotels for three years. I continued my studies and graduated from Digital Hollywood Tokyo in September 2022, specialising in UI/UX design. At the moment, I&apos;m really enjoying working in the world of web production.
     </motion.p>
-    {/* <motion.a
+    <motion.a
+        href="https://www.linkedin.com/in/rikiya-okawa369/"
+        target="_blank"
         variants={slideInFromLeft(1)}
         className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
     >
         Learn More!
-    </motion.a> */}
+    </motion.a>
     </div>
 
     <motion.div
