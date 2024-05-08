@@ -12,12 +12,12 @@ const Navbar = () => {
   return (
     <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
       <div className="flex items-center justify-between h-full">
-        <a href="#home" className="flex items-center">
+        <a href="#about-me" className="flex items-center">
           <Image
             src="/NavLogo.webp"
             alt="logo"
-            width={60}
-            height={60}
+            width={45}
+            height={45}
             className="cursor-pointer hover:animate-slowspin"
           />
           <span className="font-bold ml-[10px] hidden md:block text-gray-300 text-xl">
@@ -78,6 +78,9 @@ const Navbar = () => {
             </a>
             <a href="#projects" className="block text-white p-4">
               Projects
+            </a>
+            <a href="/jp" className="block text-white p-4">
+              Japanese
             </a>
           </div>
         )}

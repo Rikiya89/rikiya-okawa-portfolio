@@ -46,7 +46,7 @@ return (
         variants={slideInFromLeft(0.8)}
         className="text-lg text-gray-400 my-5 max-w-[600px]"
     >
-        Hello, I&apos; Rikiya Okawa. After returning to Japan, I worked at Costco Wholesale for about a year, then at AccorHotels for three years, and studied UI/UX Design at Digital Hollywood Tokyo until September 2022.
+        Hello! My name is Rikiya Okawa, and I graduated from Kanda Institute of Foreign Languages in November 2015. I completed my degree in Digital Arts at Grossmont College in June 2017. After returning to Japan, I worked for Costco Wholesale for a year and then for Accor Hotels for three years. I continued my studies and graduated from Digital Hollywood Tokyo in September 2022, specialising in UI/UX design. At the moment, I&apos;m really enjoying working in the world of web production.
     </motion.p>
     {/* <motion.a
         variants={slideInFromLeft(1)}
