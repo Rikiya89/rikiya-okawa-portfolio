@@ -61,6 +61,9 @@ const Navbar = () => {
             <a href="#projects" className="cursor-pointer">
               Projects
             </a>
+            <a href="/jp" className="cursor-pointer">
+              Japanese
+            </a>
           </div>
         </div>
 
