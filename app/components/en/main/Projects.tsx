@@ -12,41 +12,41 @@ const Projects = () => {
         <ProjectCard
           src="/portfolio_no1.webp"
           title="Portfolio Website"
-          description="Dive into a seamless blend of design and development in my interactive portfolio. Crafted with HTML, SCSS, and JavaScript, this site showcases my digital art and web development skills through intuitive navigation and engaging visuals. Connect and discover my projects in a sleek, user-friendly format."
+          description="Explore a harmonious fusion of design and coding in my interactive portfolio. Created using HTML, SCSS, and JavaScript, this website displays my digital art and web development prowess via user-friendly navigation and captivating visuals. Engage with and explore my projects in a streamlined, accessible layout."
           url="https://www.rikiya-okawa963.jp/index.html/"  // Example project URL
         />
         <ProjectCard
           src="/weather_app.webp"
           title="React Weather App"
-          description="Explore the React Weather App, a perfect fusion of design and technology. Developed using React and JavaScript, this app utilizes weather and latitude-longitude APIs to deliver accurate, real-time weather forecasts. Navigate cities effortlessly and experience weather patterns interactively in a sleek, intuitive interface designed for optimal user engagement."
+          description="Discover the React Weather App, an ideal blend of aesthetics and functionality. Crafted with React and JavaScript, this application leverages weather and geographic APIs to provide precise, real-time weather updates. Search cities seamlessly and view weather trends interactively through a modern, user-friendly interface engineered for peak user interaction."
           url="https://relaxed-youtiao-4c1124.netlify.app/"  // Example project URL
         />
         <ProjectCard
           src="/iphone14_clonewebsite.webp"
           title="iPhone 14 Clone 3D Website"
-          description="Explore my 3D React portfolio—a symphony of code and design. Every click reveals GSAP-powered animations, unfolding my developer story through interactive and creative showcases. Experience the seamless blend of technology and art in every interaction."
+          description="Explore my 3D React portfolio—a harmony of programming and aesthetics. Each click unveils GSAP-driven animations, narrating my development journey through engaging and innovative displays. Witness the flawless integration of technology and creativity in every interaction."
           url="https://apple-iphone3d-website.netlify.app/"  // Example project URL
         />
       </div>
-      <div className="2xl:w-full 2xl:gap-10 2xl:px-10 2xl:justify-center 2xl:flex xl:w-full xl:gap-10 xl:px-10 xl:justify-center xl:flex lg:w-full lg:gap-10 lg:px-10 lg:justify-center lg:flex md:px-10 md:w-full md:gap-10 md:justify-center md:flex-row md:flex sm:flex sm:gap-10 sm:flex-col 2xl:mt-8 xl:mt-8 lg:mt-8 md:mt-8 sm:mt-8">
+      <div className="2xl:w-full 2xl:gap-10 2xl:px-10 2xl:justify-center 2xl:flex xl:w-full xl:gap-10 xl:px-10 xl:justify-center xl:flex lg:w-full lg:gap-10 lg:px-10 lg:justify-center lg:flex md:px-10 md:w-full md:gap-10 md:justify-center md:flex-row md:flex sm:flex sm:gap-10 sm:flex-col">
       <ProjectCard
           src="/guardians.webp"
           title="GUARDIANS OF THE MOON"
-          description="For my graduation, I created a VR game and interactive video using Unity and TouchDesigner to improve a VR/AR facility's services. The game was built with Unity and C# over a month, using free assets from the Unity Asset Store. Interactive real-world responses were developed in a week with TouchDesigner."
+          description="For my graduation project, I developed a VR game and interactive video with Unity and TouchDesigner to enhance services at a VR/AR center. The game was crafted using Unity and C# within a month, employing complimentary assets from the Unity Asset Store. Real-time interactive responses were created in a week using TouchDesigner."
           url="https://youtu.be/odmsk90MzCU?si=SvEUa8QElgOH_6Tx"
         />
       <ProjectCard
           src="/water_drops_culpture.webp"
           title="Water Drop Effect"
-          description="Dive into my TouchDesigner creation—a blend of visual art and technical mastery. Each node tells a story with GLSL shaders and TOPs that animate water's essence. Experience my craft through each transformative interaction, where fluid dynamics and digital artistry merge into an engaging visual experience."
+          description="Explore my TouchDesigner masterpiece—a fusion of visual artistry and technical expertise. Every node unfolds a narrative with GLSL shaders and TOPs that capture the essence of water. Engage with my work through each transformative encounter, where fluid dynamics and digital creativity converge into a captivating visual journey."
           url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
         />
-        {/* <ProjectCard
-          src="/iphone14_clonewebsite.webp"
-          title="iPhone 14 Clone 3D Website"
-          description="Explore my 3D React portfolio—a symphony of code and design. Every click is a journey, with GSAP animations bringing the experience to life. It’s where my developer story unfolds, one interaction at a time."
-          url="https://apple-iphone3d-website.netlify.app/"  // Example project URL
-        /> */}
+        <ProjectCard
+          src="/of.webp"
+          title="The Art of Dynamic Mesh"
+          description="Discover my openFrameworks project—a blend of technical prowess and visual creativity. See how image processing and mesh dynamics weave a compelling story of light and movement. Every vertex and line interlace, revealing a ballet of algorithmic elegance and artistic flair in a stunning visual spectacle."
+          url="https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="  // Example project URL
+        />
       </div>
   
     </div>
