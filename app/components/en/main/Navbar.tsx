@@ -19,7 +19,7 @@ const Navbar = () => {
             height={45}
             className="cursor-pointer hover:animate-slowspin"
           />
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300 text-xl">
+          <span className="font-bold ml-[10px] hidden md:block text-gray-300 text-2xl font-panno">
             Rikiya Okawa
           </span>
         </a>
@@ -50,17 +50,17 @@ const Navbar = () => {
 
         {/* Menu Items - always visible on PC */}
         <div className="hidden md:flex w-[500px] items-center justify-between">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-200 md:mx-4">
-            <a href="#about-me" className="cursor-pointer">
+          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
+            <a href="#about-me" className="cursor-pointer font-panno text-lg">
               About me
             </a>
-            <a href="#skills" className="cursor-pointer">
+            <a href="#skills" className="cursor-pointer font-panno text-lg">
               Skills
             </a>
-            <a href="#projects" className="cursor-pointer">
+            <a href="#projects" className="cursor-pointer font-panno text-lg">
               Projects
             </a>
-            <a href="/jp" className="cursor-pointer">
+            <a href="/jp" className="cursor-pointer font-panno text-lg">
               Japanese
             </a>
           </div>
@@ -69,16 +69,16 @@ const Navbar = () => {
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href="#about-me" className="block text-white p-4">
+            <a href="#about-me" className="block text-white p-4 font-panno text-lg">
               About me
             </a>
-            <a href="#skills" className="block text-white p-4">
+            <a href="#skills" className="block text-white p-4 font-panno text-lg">
               Skills
             </a>
-            <a href="#projects" className="block text-white p-4">
+            <a href="#projects" className="block text-white p-4 font-panno text-lg">
               Projects
             </a>
-            <a href="/jp" className="block text-white p-4">
+            <a href="/jp" className="block text-white p-4 font-panno text-lg">
               Japanese
             </a>
           </div>

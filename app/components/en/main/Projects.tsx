@@ -5,21 +5,22 @@ import ProjectCard from "../sub/ProjectCard";
 const Projects = () => {
   return (
     <div className="flex flex-col items-center justify-center py-20" id="projects">
-      <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20">
+      <h1 className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20 font-panno 
+      lg:text-4xl md:text-4xl sm:text-4xl">
         My Projects
       </h1>
       <div className="2xl:max-w-7xl 2xl:gap-10 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:gird 
       xl:max-w-7xl xl:grid-cols-3 xl:gap-10 xl:px-10 xl:justify-items-center xl:justify-center xl:grid 
       lg:max-w-7xl lg:grid-cols-2 lg:gap-10 lg:px-10 lg:justify-items-center lg:justify-center lg:grid 
       md:max-w-2xl md:grid-cols-2 md:gap-10 md:px-10 md:justify-items-center md:justify-center md:flex 
-      sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex">
+      sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex font-panno">
           <ProjectCard
             src="/portfolio_no1.webp"
             title="Portfolio Website"
             description="Explore a harmonious fusion of design and coding in my interactive portfolio. 
             Created using HTML, SCSS, and JavaScript, this website displays my digital art and web development prowess via user-friendly navigation and captivating visuals. 
             Engage with and explore my projects in a streamlined, accessible layout."
-            url="https://www.rikiya-okawa963.jp/index.html/"  // Example project URL
+            url="https://www.rikiya-okawa963.jp/index.html/"
           />
           <ProjectCard
             src="/weather_app.webp"
@@ -27,7 +28,7 @@ const Projects = () => {
             description="Discover the React Weather App, an ideal blend of aesthetics and functionality. 
             Crafted with React and JavaScript, this application leverages weather and geographic APIs to provide precise, real-time weather updates. 
             Search cities seamlessly and view weather trends interactively through a modern, user-friendly interface engineered for peak user interaction."
-            url="https://relaxed-youtiao-4c1124.netlify.app/"  // Example project URL
+            url="https://relaxed-youtiao-4c1124.netlify.app/"
           />
           <ProjectCard
             src="/iphone14_clonewebsite.webp"
@@ -35,7 +36,7 @@ const Projects = () => {
             description="Explore my 3D React portfolio—a harmony of programming and aesthetics. 
             Each click unveils GSAP-driven animations, narrating my development journey through engaging and innovative displays. 
             Witness the flawless integration of technology and creativity in every interaction."
-            url="https://apple-iphone3d-website.netlify.app/"  // Example project URL
+            url="https://apple-iphone3d-website.netlify.app/"
           />
         <ProjectCard
             src="/guardians.webp"

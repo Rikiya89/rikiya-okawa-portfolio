@@ -23,7 +23,7 @@ return (
         className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
     >
         <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-        <h1 className="Welcome-text text-[13px]">
+        <h1 className="Welcome-text text-[15px] font-panno">
             Rikiya Okawa Portfolio
         </h1>
     </motion.div>
@@ -31,11 +31,11 @@ return (
     <motion.div
         variants={slideInFromLeft(0.5)}
         className="flex flex-col gap-6 mt-6 
-        2xl:text-6xl xl:text-5xl 
-        lg:text-4xl md:text-3xl 
-        sm:text-3xl font-bold 
+        2xl:text-7xl xl:text-6xl 
+        lg:text-5xl md:text-4xl 
+        sm:text-4xl font-bold 
         text-white max-w-[600px] 
-        w-auto h-auto"
+        w-auto h-auto font-panno"
     >
         <span>
         Providing
@@ -49,7 +49,7 @@ return (
 
     <motion.p
         variants={slideInFromLeft(0.8)}
-        className="text-lg text-gray-400 my-5 max-w-[600px]"
+        className="text-[21px] text-gray-400 my-5 max-w-[600px] font-panno"
     >
         Hello! My name is Rikiya Okawa, and I graduated from Kanda Institute of Foreign Languages in November 2015. 
         I completed my degree in Digital Arts at Grossmont College in June 2017. After returning to Japan, I worked for Costco Wholesale for a year and then for Accor Hotels for three years. 
@@ -59,7 +59,7 @@ return (
         href="https://www.linkedin.com/in/rikiya-okawa369/"
         target="_blank"
         variants={slideInFromLeft(1)}
-        className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+        className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg"
     >
         Learn More!
     </motion.a>
