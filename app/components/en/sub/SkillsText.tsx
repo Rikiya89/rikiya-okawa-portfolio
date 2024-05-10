@@ -9,9 +9,9 @@ const SkillText = () => {
     <div className='w-full h-auto flex flex-col items-center justify-center'>
 <motion.div
           variants={slideInFromTop}
-          className="Welcome-box py-[9px] px-[9px] border border-[#7042f88b] opacity-[0.9]"
+          className="Welcome-box py-[9px] px-[9px] border border-[#9cb2ff] opacity-[0.9]"
         >
-          <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5 " />
+          <SparklesIcon className="text-[#ba9cff] mr-[10px] h-5 w-5 " />
           <h1 className="Welcome-text text-lg font-panno">
             Think better with creative technology
           </h1>
@@ -26,7 +26,7 @@ const SkillText = () => {
         variants={slideInFromRight(0.5)}
         className='text-2xl text-gray-200 mb-10 mt-[10px] text-center font-panno'
         >
-            Never miss a task, deadline or idea
+            Design the Future, Code the New
         </motion.div>
     </div>
   )
