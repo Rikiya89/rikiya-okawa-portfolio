@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
 import StarsCanvas from "@/components/en/main/StarBackground";
@@ -8,10 +7,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Rikiya Okawa Portfolio",
   description: "Web developer with over a year of experience, currently advancing skills in React.JS, Next.JS, TypeScript, and GLSL. Engaged in digital content creation using Unity and TouchDesigner, skilled in openframeworks and p5js. Fluent in Japanese, English, and conversational French. Avid about generative art, sacred geometry, and the fusion of music, art, and technology. Aspiring creative technologist.",
-  keywords:"大川力也,大川 力也,おおかわ りきや,オオカワ リキヤ,おおかわりきや,オオカワリキヤ,Rikiya Okawa, Ricky Okawa, Ricky O'kawa" 
+  keywords: ["大川力也", "大川 力也", "おおかわ りきや", "オオカワ リキヤ", "おおかわりきや", "オオカワリキヤ", "Rikiya Okawa", "Ricky Okawa", "Ricky O'kawa"],
+  links: [
+    { rel: 'stylesheet', href: 'https://use.typekit.net/aid6kcc.css' }
+  ]
 };
 
 export default function RootLayout({
@@ -26,8 +28,8 @@ export default function RootLayout({
       >
         <StarsCanvas />
         <Navbar />
-        <Analytics/>
-        <SpeedInsights/>
+        <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>
