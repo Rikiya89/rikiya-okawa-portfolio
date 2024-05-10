@@ -12,7 +12,8 @@ interface Props {
 
 const ProjectCard = ({ src, title, description, url }: Props) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80">
+    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 
+    2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80">
       <Link href={url} passHref legacyBehavior>
         <a target="_blank" rel="noopener noreferrer" className="block">
           <div className="relative">

@@ -19,7 +19,7 @@ const Navbar = () => {
             height={45}
             className="cursor-pointer hover:animate-slowspin"
           />
-          <span className="font-bold ml-[10px] hidden md:block text-gray-300 text-2xl font-panno">
+          <span className="Welcome-text font-bold ml-[10px] hidden md:block text-gray-300 text-2xl font-panno">
             Rikiya Okawa
           </span>
         </a>
