@@ -1,6 +1,4 @@
 "use client";
-// Navbar.tsx
-// Navbar.tsx
 
 import { useState } from 'react';
 import { Socials } from '@/constants';

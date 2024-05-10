@@ -30,7 +30,12 @@ return (
 
     <motion.div
         variants={slideInFromLeft(0.5)}
-        className="flex flex-col gap-6 mt-6 2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-3xl font-bold text-white max-w-[600px] w-auto h-auto"
+        className="flex flex-col gap-6 mt-6 
+        2xl:text-6xl xl:text-5xl 
+        lg:text-4xl md:text-3xl 
+        sm:text-3xl font-bold 
+        text-white max-w-[600px] 
+        w-auto h-auto"
     >
         <span>
         Providing
@@ -46,7 +51,9 @@ return (
         variants={slideInFromLeft(0.8)}
         className="text-lg text-gray-400 my-5 max-w-[600px]"
     >
-        Hello! My name is Rikiya Okawa, and I graduated from Kanda Institute of Foreign Languages in November 2015. I completed my degree in Digital Arts at Grossmont College in June 2017. After returning to Japan, I worked for Costco Wholesale for a year and then for Accor Hotels for three years. I continued my studies and graduated from Digital Hollywood Tokyo in September 2022, specialising in UI/UX design. At the moment, I&apos;m really enjoying working in the world of web production.
+        Hello! My name is Rikiya Okawa, and I graduated from Kanda Institute of Foreign Languages in November 2015. 
+        I completed my degree in Digital Arts at Grossmont College in June 2017. After returning to Japan, I worked for Costco Wholesale for a year and then for Accor Hotels for three years. 
+        I continued my studies and graduated from Digital Hollywood Tokyo in September 2022, specialising in UI/UX design. At the moment, I&apos;m really enjoying working in the world of web production.
     </motion.p>
     <motion.a
         href="https://www.linkedin.com/in/rikiya-okawa369/"
