@@ -56,8 +56,7 @@ return (
         I continued my studies and graduated from Digital Hollywood Tokyo in September 2022, specialising in UI/UX design. At the moment, I&apos;m really enjoying working in the world of web production.
     </motion.p>
     <motion.a
-        href="https://www.linkedin.com/in/rikiya-okawa369/"
-        target="_blank"
+        href="/aboutme"
         variants={slideInFromLeft(1)}
         className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg"
     >
