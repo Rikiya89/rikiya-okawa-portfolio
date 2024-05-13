@@ -66,7 +66,7 @@ const Navbar = () => {
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href="#about-me" className="block text-white p-4 font-panno text-lg">
+            <a href="/en" className="block text-white p-4 font-panno text-lg">
               About me
             </a>
             <a href="en/#skills" className="block text-white p-4 font-panno text-lg">
