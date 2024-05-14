@@ -56,7 +56,7 @@ const Navbar = () => {
             <a href="/jp#projects" className="cursor-pointer font-panno text-lg">
               Projects
             </a>
-            <a href="/en" className="cursor-pointer font-panno text-lg">
+            <a href="/aboutme" className="cursor-pointer font-panno text-lg">
               English
             </a>
           </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href="#about-me" className="block text-white p-4 font-panno text-lg">
+            <a href="/jp" className="block text-white p-4 font-panno text-lg">
               About me
             </a>
             <a href="jp/#skills" className="block text-white p-4 font-panno text-lg">
@@ -74,7 +74,7 @@ const Navbar = () => {
             <a href="jp/#projects" className="block text-white p-4 font-panno text-lg">
               Projects
             </a>
-            <a href="/en" className="block text-white p-4 font-panno text-lg">
+            <a href="/aboutme" className="block text-white p-4 font-panno text-lg">
               English
             </a>
           </div>
