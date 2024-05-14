@@ -6,7 +6,7 @@ const Projects = () => {
   return (
     <div className="flex flex-col items-center justify-center py-20" id="projects">
       <h1 className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20 font-panno 
-      lg:text-4xl md:text-4xl sm:text-4xl">
+      lg:text-4xl md:text-4xl sm:text-4xl md:px-8 sm:px-8">
         My Projects
       </h1>
       <div className="2xl:max-w-7xl 2xl:gap-10 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:gird 
