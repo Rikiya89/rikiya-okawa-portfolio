@@ -1,5 +1,4 @@
 "use client";
-// Navbar.tsx
 
 import { useState } from 'react';
 import { Socials } from '@/constants';
@@ -11,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10" id='about-me'>
       <div className="flex items-center justify-between h-full">
-        <a href="/en" className="flex items-center">
+        <a href="/jp" className="flex items-center">
           <Image
             src="/NavLogo.webp"
             alt="logo"
@@ -51,14 +50,14 @@ const Navbar = () => {
         {/* Menu Items - always visible on PC */}
         <div className="hidden md:flex w-[500px] items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href="/en#skills" className="cursor-pointer font-panno text-lg">
+            <a href="/jp#skills" className="cursor-pointer font-panno text-lg">
               Skills
             </a>
-            <a href="/en#projects" className="cursor-pointer font-panno text-lg">
+            <a href="/jp#projects" className="cursor-pointer font-panno text-lg">
               Projects
             </a>
-            <a href="/jp" className="cursor-pointer font-panno text-lg">
-              Japanese
+            <a href="/en" className="cursor-pointer font-panno text-lg">
+              English
             </a>
           </div>
         </div>
@@ -69,14 +68,14 @@ const Navbar = () => {
             <a href="#about-me" className="block text-white p-4 font-panno text-lg">
               About me
             </a>
-            <a href="en/#skills" className="block text-white p-4 font-panno text-lg">
+            <a href="jp/#skills" className="block text-white p-4 font-panno text-lg">
               Skills
             </a>
-            <a href="en/#projects" className="block text-white p-4 font-panno text-lg">
+            <a href="jp/#projects" className="block text-white p-4 font-panno text-lg">
               Projects
             </a>
-            <a href="/jp" className="block text-white p-4 font-panno text-lg">
-              Japanese
+            <a href="/en" className="block text-white p-4 font-panno text-lg">
+              English
             </a>
           </div>
         )}

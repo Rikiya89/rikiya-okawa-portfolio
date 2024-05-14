@@ -15,7 +15,7 @@ return (
 <motion.div
     initial="hidden"
     animate="visible"
-    className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
+    className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] md:px-8 sm:px-8"
 >
     <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
     <motion.div
@@ -57,8 +57,7 @@ return (
         現在は、Web制作の分野で情熱を持って仕事をしています。
     </motion.p>
     <motion.a
-        href="https://www.linkedin.com/in/rikiya-okawa369/"
-        target="_blank"
+        href="/about-me_jp"
         variants={slideInFromLeft(1)}
         className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg"
     >
