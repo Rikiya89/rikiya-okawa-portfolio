@@ -44,7 +44,7 @@ const Projects = () => {
             description="For my graduation project, I developed a VR game and interactive video with Unity and TouchDesigner to enhance services at a VR/AR center. 
             The game was crafted using Unity and C# within a month, employing complimentary assets from the Unity Asset Store. 
             Real-time interactive responses were created in a week using TouchDesigner."
-            url="https://youtu.be/odmsk90MzCU?si=SvEUa8QElgOH_6Tx"
+            url="/guardians_en"
           />
         <ProjectCard
             src="/water_drops_culpture.webp"

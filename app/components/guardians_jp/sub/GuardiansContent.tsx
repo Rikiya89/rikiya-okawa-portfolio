@@ -50,7 +50,7 @@ const GuardiansContent = () => {
                                     w-auto h-auto font-panno text-center"
                     >
                         <span>
-                            Graduation Work<br /> - GUARDIANS OF THE MOON -
+                            卒業制作<br /> - GUARDIANS OF THE MOON -
                         </span>
                     </motion.div>
                 </div>

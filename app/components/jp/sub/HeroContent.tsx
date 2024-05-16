@@ -70,7 +70,7 @@ return (
     className="w-full h-full 2xl:flex xl:flex lg:flex md:hidden sm:hidden justify-center items-center"
     >
     <Image
-        src="/mainIconsdark.svg"
+        src="img/mainIconsdark.svg"
         alt="work icons"
         height={650}
         width={650}
