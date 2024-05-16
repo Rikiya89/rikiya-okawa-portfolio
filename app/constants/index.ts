@@ -2,17 +2,17 @@
 export const Socials = [
   {
     name: "Instagram",
-    src: "/instagram.svg",
+    src: "/img/instagram.svg",
     link: "https://www.instagram.com/ricky_o_369/"
   },
   {
     name: "X",
-    src: "/x.svg",
+    src: "/img/x.svg",
     link: "https://twitter.com/recodinghewold"
   },
   {
     name: "Linkedin",
-    src: "/linkedin.svg",
+    src: "/img/linkedin.svg",
     link: "https://www.linkedin.com/in/rikiya-okawa369/"
   },
 ];
