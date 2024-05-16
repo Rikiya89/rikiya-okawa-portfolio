@@ -56,7 +56,7 @@ const Navbar = () => {
             <a href="/jp#projects" className="cursor-pointer font-panno text-lg">
               Projects
             </a>
-            <a href="/aboutme" className="cursor-pointer font-panno text-lg">
+            <a href="/guardians_en" className="cursor-pointer font-panno text-lg">
               English
             </a>
           </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <a href="jp/#projects" className="block text-white p-4 font-panno text-lg">
               Projects
             </a>
-            <a href="/aboutme" className="block text-white p-4 font-panno text-lg">
+            <a href="/guardians_en" className="block text-white p-4 font-panno text-lg">
               English
             </a>
           </div>
