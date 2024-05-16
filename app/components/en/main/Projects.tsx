@@ -15,7 +15,7 @@ const Projects = () => {
       md:max-w-2xl md:grid-cols-2 md:gap-10 md:px-10 md:justify-items-center md:justify-center md:flex 
       sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex font-panno">
           <ProjectCard
-            src="/portfolio_no1.webp"
+            src="/img/portfolio_no1.webp"
             title="Portfolio Website"
             description="Explore a harmonious fusion of design and coding in my interactive portfolio. 
             Created using HTML, SCSS, and JavaScript, this website displays my digital art and web development prowess via user-friendly navigation and captivating visuals. 
@@ -23,7 +23,7 @@ const Projects = () => {
             url="https://www.rikiya-okawa963.jp/index.html/"
           />
           <ProjectCard
-            src="/weather_app.webp"
+            src="/img/weather_app.webp"
             title="React Weather App"
             description="Discover the React Weather App, an ideal blend of aesthetics and functionality. 
             Crafted with React and JavaScript, this application leverages weather and geographic APIs to provide precise, real-time weather updates. 
@@ -31,7 +31,7 @@ const Projects = () => {
             url="https://relaxed-youtiao-4c1124.netlify.app/"
           />
           <ProjectCard
-            src="/iphone14_clonewebsite.webp"
+            src="/img/iphone14_clonewebsite.webp"
             title="iPhone 14 Clone 3D Website"
             description="Explore my 3D React portfolio—a harmony of programming and aesthetics. 
             Each click unveils GSAP-driven animations, narrating my development journey through engaging and innovative displays. 
@@ -39,7 +39,7 @@ const Projects = () => {
             url="https://apple-iphone3d-website.netlify.app/"
           />
         <ProjectCard
-            src="/guardians.webp"
+            src="/img/guardians.webp"
             title="GUARDIANS OF THE MOON"
             description="For my graduation project, I developed a VR game and interactive video with Unity and TouchDesigner to enhance services at a VR/AR center. 
             The game was crafted using Unity and C# within a month, employing complimentary assets from the Unity Asset Store. 
@@ -47,7 +47,7 @@ const Projects = () => {
             url="/guardians_en"
           />
         <ProjectCard
-            src="/water_drops_culpture.webp"
+            src="/img/water_drops_culpture.webp"
             title="Water Drop Effect"
             description="Explore my TouchDesigner masterpiece—a fusion of visual artistry and technical expertise. 
             Every node unfolds a narrative with GLSL shaders and TOPs that capture the essence of water. 
@@ -55,7 +55,7 @@ const Projects = () => {
             url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           />
           <ProjectCard
-            src="/of.webp"
+            src="/img/of.webp"
             title="The Art of Dynamic Mesh"
             description="Discover my openFrameworks project—a blend of technical prowess and visual creativity. 
             See how image processing and mesh dynamics weave a compelling story of light and movement. 

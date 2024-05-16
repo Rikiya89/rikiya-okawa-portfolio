@@ -27,7 +27,7 @@ const AboutMeContent = () => {
                     className="flex"
                 >
                     <Image
-                        src="img/profile.webp"
+                        src="/img/profile.webp"
                         alt="profile icons"
                         height={650}
                         width={650}

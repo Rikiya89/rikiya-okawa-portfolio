@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between h-full">
         <a href="#about-me" className="flex items-center">
           <Image
-            src="/NavLogo.webp"
+            src="/img/NavLogo.webp"
             alt="logo"
             width={45}
             height={45}

@@ -15,7 +15,7 @@ const Projects = () => {
       md:max-w-2xl md:grid-cols-2 md:gap-10 md:px-10 md:justify-items-center md:justify-center md:flex 
       sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex">
         <ProjectCard
-          src="/portfolio_no1.webp"
+          src="/img/portfolio_no1.webp"
           title="Portfolio Website"
           description="これは私の最初のポートフォリオサイトです。HTML、SCSS、JavaScriptを使用して構築されたこのサイトは、
           直感的なナビゲーションと魅力的なビジュアルで、私の技術と過去に取り組んだプロジェクトの中から厳選した作品を紹介しています。
@@ -23,7 +23,7 @@ const Projects = () => {
           url="https://www.rikiya-okawa963.jp/index.html/" 
         />
         <ProjectCard
-          src="/weather_app.webp"
+          src="/img/weather_app.webp"
           title="React Weather App"
           description="デザインと技術の理想的な結合、React Weather Appを体験してください。
           ReactとJavaScriptで構築されたこのアプリケーションは、天気と地理座標のAPIを活用して、正確な実時間の気象予報を提供します。
@@ -31,7 +31,7 @@ const Projects = () => {
           url="https://relaxed-youtiao-4c1124.netlify.app/"  
         />
         <ProjectCard
-          src="/iphone14_clonewebsite.webp"
+          src="/img/iphone14_clonewebsite.webp"
           title="iPhone 14 Clone 3D Website"
           description="iPhone 14をテーマにした私の3D Reactポートフォリオを探索してください。
           各インタラクションは、iPhone 14の精巧なデザインと機能性を表現する活動的なアニメーションで構成されています。
@@ -39,7 +39,7 @@ const Projects = () => {
           url="https://apple-iphone3d-website.netlify.app/"  
         />
         <ProjectCard
-            src="/guardians.webp"
+            src="/img/guardians.webp"
             title="GUARDIANS OF THE MOON"
             description="卒業プロジェクトとして、VR・AR施設のサービス向上を目指し、UnityとTouchDesignerを使用してVRゲームとインタラクティブ映像を製作しました。
             VRゲームはUnityとC#を利用し、Unityアセットストアからの無料アセットを使用しています。このゲームの開発期間は約1ヶ月でした。
@@ -47,7 +47,7 @@ const Projects = () => {
             url="https://youtu.be/odmsk90MzCU?si=SvEUa8QElgOH_6Tx"
           />
         <ProjectCard
-            src="/water_drops_culpture.webp"
+            src="/img/water_drops_culpture.webp"
             title="Water Drop Effect"
             description="視覚芸術と技術的巧みさが一体となったTouchDesignerの作品を体験してください。
             GLSLシェーダーとTOPを使用して水の本質を描くアニメーションで、各ノードが物語を伝えます。
@@ -55,7 +55,7 @@ const Projects = () => {
             url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           />
           <ProjectCard
-            src="/of.webp"
+            src="/img/of.webp"
             title="The Art of Dynamic Mesh"
             description="私のopenFrameworksプロジェクトをご覧ください—技術的な能力と視覚的な創造力の融合です。
             画像処理とメッシュダイナミクスがどのようにして光と動きの魅力的な物語を紡ぎ出すかを確認してください。
