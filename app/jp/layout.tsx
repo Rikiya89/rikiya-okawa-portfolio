@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Rikiya Okawa Portfolio",
-  description: "Web developer with over a year of experience, currently advancing skills in React.JS, Next.JS, TypeScript, and GLSL. Engaged in digital content creation using Unity and TouchDesigner, skilled in openframeworks and p5js. Fluent in Japanese, English, and conversational French. Avid about generative art, sacred geometry, and the fusion of music, art, and technology. Aspiring creative technologist.",
+  description: "ウェブ開発で1年以上経験を積んでいて、今はReact.JS、Next.JS、TypeScript、GLSLのスキルをどんどん伸ばしているところです。UnityやTouchDesignerを使ってデジタルコンテンツ制作にも携わっていて、openFrameworksやp5.jsも得意です。日本語、英語はもちろん、フランス語も会話できます。ジェネラティブアートや神聖幾何学、音楽とアートとテクノロジーの融合みたいなものにすごく興味があって、 クリエイティブテクノロジストを目指して日々研鑽しています。",
   keywords: ["大川力也", "大川 力也", "おおかわ りきや", "オオカワ リキヤ", "おおかわりきや", "オオカワリキヤ", "Rikiya Okawa", "Ricky Okawa", "Ricky O'kawa"],
   links: [
     { rel: 'stylesheet', href: 'https://use.typekit.net/aid6kcc.css' }
