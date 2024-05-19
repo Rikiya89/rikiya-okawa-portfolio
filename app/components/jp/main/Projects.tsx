@@ -44,7 +44,7 @@ const Projects = () => {
             description="卒業プロジェクトとして、VR・AR施設のサービス向上を目指し、UnityとTouchDesignerを使用してVRゲームとインタラクティブ映像を製作しました。
             VRゲームはUnityとC#を利用し、Unityアセットストアからの無料アセットを使用しています。このゲームの開発期間は約1ヶ月でした。
             また、TouchDesignerを活用した実空間でのインタラクティブな演出は約1週間で完成しました。"
-            url="https://youtu.be/odmsk90MzCU?si=SvEUa8QElgOH_6Tx"
+            url="/guardians_jp"
           />
         <ProjectCard
             src="/img/water_drops_culpture.webp"
