@@ -62,6 +62,15 @@ const Projects = () => {
             各頂点と線が絡み合い、アルゴリズムの優雅さと芸術的な才能が融合した驚くべき視覚的なスペクタクルを創出します。"
             url="https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           />
+          <ProjectCard
+            src="/img/heart.webp"
+            title="Pulse of Reflection"
+            description="視覚的芸術と技術的専門知識が融合したTouchDesigner作品です。
+            各ノードはCHOPsとTOPsを駆使して反射するハートをアニメーション化し、流れるようなダイナミックな動きを作り出します。
+            指数関数を使用したLFO CHOPによって、ハートに命が吹き込まれ、その反射面が強調されています。
+            動的なモーションとデジタルクリエイティビティが交錯する魅力的な視覚体験をお楽しみください。"
+            url="https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          />
       </div>
     </div>
   );
