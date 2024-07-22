@@ -83,7 +83,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.4)}
                         className="text-[18px] text-gray-400 font-panno py-3"
                     >
-                        Currently, as a Web Engineer at Fivestar Interactive Inc., I use HTML5, CSS/SCSS, JavaScript, and Node.js to create responsive, 
+                        Currently, as a Web Engineer, I use HTML5, CSS/SCSS, JavaScript, and Node.js to create responsive, 
                         engaging websites that exceed client expectations and enhance user engagement.
                     </motion.p>
                     <motion.p

@@ -81,7 +81,7 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.4)}
                         className="text-[15px] text-gray-400 py-3"
                     >
-                            現在、Fivestar Interactive Inc.でWebエンジニアとして、HTML5、CSS/SCSS、JavaScript、Node.jsを駆使して、クライアントの期待を超え、
+                            現在は、Webエンジニアとして、HTML5、CSS/SCSS、JavaScript、Node.jsを駆使して、クライアントの期待を超え、
                             ユーザーエンゲージメントを向上させるレスポンシブで魅力的なウェブサイトを作成しています。
                     </motion.p>
                     <motion.p
