@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import StarsCanvas from "@/components/jp/main/StarBackground";
 import Navbar from "@/components/en/main/Navbar";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +24,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Add the Google site verification meta tag here */}
+        <meta name="google-site-verification" content="0x6NOOUrWuEeZrK7sjkHwyHAQunhVK59S0oqA4-QHKM" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+        {metadata.links.map((link) => (
+          <link key={link.href} rel={link.rel} href={link.href} />
+        ))}
+      </head>
       <body
         className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
