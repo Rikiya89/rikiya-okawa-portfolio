@@ -1,10 +1,10 @@
 // app/lib/projects.ts
 export type Project = {
-  slug?: string;    // 内部詳細（/clientworks/[slug]）に行くときに使用（任意）
+  slug: string;
   title: string;
   description: string;
   src: string;
-  url?: string;     // 外部リンク（任意）
+  url?: string;
 };
 
 export const projects: Project[] = [
@@ -36,7 +36,7 @@ export const projects: Project[] = [
 ];
 
 export async function getProject(slug: string) {
-  const p = projects.find((x) => x.slug === slug);
+  const p = projects.find(x => x.slug === slug);
   if (!p) throw new Error(`Project not found: ${slug}`);
   return p;
 }

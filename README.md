@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Codex Tasks
+
+- See today’s summary: [CODEX_TODAY_TASKS.md](./CODEX_TODAY_TASKS.md)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

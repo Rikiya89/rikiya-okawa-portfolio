@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
   return (
     <main className="container mx-auto px-5 py-12">
-      <ProjectDetail slug={params.slug} />
+      <ProjectDetail slug={params.slug} inModal={false} />
     </main>
   );
 }
