@@ -25,6 +25,38 @@ export const projects: Project[] = [
     url: "https://www.vans.co.jp/",
   },
   {
+    slug: "guardians-of-the-moon",
+    title: "GUARDIANS OF THE MOON",
+    description:
+      "卒業プロジェクト。UnityとTouchDesignerでVRゲームとインタラクティブ映像を製作。約1ヶ月でVR、約1週間で映像を完成。",
+    src: "/img/guardians.webp",
+    url: "/guardians_jp",
+  },
+  {
+    slug: "water-drop-effect",
+    title: "Water Drop Effect",
+    description:
+      "TouchDesigner作品。GLSLシェーダーとTOPで水の本質を描くアニメーション。",
+    src: "/img/water_drops_culpture.webp",
+    url: "https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
+    slug: "the-art-of-dynamic-mesh",
+    title: "The Art of Dynamic Mesh",
+    description:
+      "openFrameworks。画像処理とメッシュダイナミクスの表現研究。",
+    src: "/img/of.webp",
+    url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
+    slug: "pulse-of-reflection",
+    title: "Pulse of Reflection",
+    description:
+      "TouchDesigner。CHOP/TOPで反射するハートをアニメーション化。指数関数LFOで生命感を付与。",
+    src: "/img/heart.webp",
+    url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
     slug: "iphone14-clone-3d",
     title: "iPhone 14 Clone 3D Website",
     description:

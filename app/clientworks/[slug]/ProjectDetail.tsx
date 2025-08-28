@@ -17,14 +17,18 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
   }, [slug]);
 
   const handleVisit = () => {
-    const go = () => router.push(`/clientworks/${slug}/description`);
+    const go = () => router.push(`/clientworks/${slug}/description${inModal ? "?from=modal" : ""}`);
     if (inModal && modalCtl) modalCtl.closeWith(go); else go();
   };
 
   const handleBackToList = () => {
-    if (inModal && modalCtl) modalCtl.closeWith(() => router.back());
-    else if (inModal) router.back();
-    else router.push("/clientworks");
+    if (inModal && modalCtl) {
+      // Close modal and navigate to plain list page
+      modalCtl.closeWith(() => router.replace("/clientworks"));
+    } else {
+      // From direct page, just go to list page without modal
+      router.replace("/clientworks");
+    }
   };
 
   if (!project) return <div className="text-white">Loading...</div>;

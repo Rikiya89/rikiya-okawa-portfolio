@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { getProject } from "@/lib/projects";
 import { getProjectDetails } from "@/lib/projectDetails";
 import Link from "next/link";
+import Image from "next/image";
 import { PageTransition, TransitionLink } from "@/components/common/PageTransition";
+import DescriptionActions from "@/components/clientworks/DescriptionActions";
 
 type Params = { params: { slug: string } };
 
@@ -21,10 +23,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function DescriptionPage({ params }: Params) {
   const p = await getProject(params.slug);
   const details = await getProjectDetails(params.slug);
+  const visitHref = p.slug === "vans-official" ? "https://www.vans.co.jp/" : p.url;
 
   return (
     <main className="container mx-auto px-5 py-12 text-white">
       <PageTransition>
+      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-8">
+        <Image src={p.src} alt={p.title} fill className="object-cover" priority />
+      </div>
       <div className="mb-8">
         <h1 className="text-3xl font-semibold font-panno">{details?.title ?? p.title}</h1>
         {details?.role && <p className="mt-2 text-white/80">{details.role}</p>}
@@ -67,19 +73,7 @@ export default async function DescriptionPage({ params }: Params) {
         </section>
       )}
 
-      <div className="flex gap-3">
-        <TransitionLink href={`/clientworks/${params.slug}`} className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg inline-block px-6">
-          Back
-        </TransitionLink>
-        {p.url && (
-          <Link href={p.url} target="_blank" className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
-            Visit Website
-          </Link>
-        )}
-        <TransitionLink href="/clientworks" className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
-          Back to list
-        </TransitionLink>
-      </div>
+      <DescriptionActions slug={params.slug} visitHref={visitHref ?? undefined} />
       </PageTransition>
     </main>
   );

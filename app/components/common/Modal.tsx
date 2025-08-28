@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 type ModalControl = { closeWith: (fn: () => void) => void };
 const ModalControlContext = createContext<ModalControl | null>(null);
@@ -12,18 +11,22 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [entered, setEntered] = useState(false);
 
   const close = () => {
     if (isClosing) return;
     setIsClosing(true);
-    // Navigate back after the exit animation completes
-    setTimeout(() => router.back(), 280);
+    // Restore body scroll and immediately navigate to list to avoid stale URL
+    document.body.style.overflow = 'auto';
+    router.replace("/clientworks");
   };
 
   const closeWith = (fn: () => void) => {
     if (isClosing) return;
     setIsClosing(true);
-    setTimeout(fn, 280);
+    // Immediately restore body scroll
+    document.body.style.overflow = 'auto';
+    setTimeout(fn, 320);
   };
 
   // ESC キーで閉じる
@@ -37,41 +40,56 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   // 初回フォーカスをモーダル内へ
   useEffect(() => {
-    const id = requestAnimationFrame(() => panelRef.current?.focus());
+    const id = requestAnimationFrame(() => {
+      panelRef.current?.focus();
+      setEntered(true);
+    });
     
     // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
     
     return () => {
       cancelAnimationFrame(id);
+      // Always restore body scroll when component unmounts
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  // Additional cleanup on unmount to ensure body scroll is restored
+  useEffect(() => {
+    return () => {
       document.body.style.overflow = 'auto';
     };
   }, []);
 
   return (
     <div
-      className="fixed inset-0 z-[70] flex items-center justify-center"
+      className={
+        "fixed inset-0 z-[70] flex items-center justify-center " +
+        ((isClosing || !entered) ? "pointer-events-none" : "pointer-events-auto")
+      }
       onClick={close}
       aria-label="Modal overlay"
     >
       {/* Backdrop */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isClosing ? 0 : 1 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        className="absolute inset-0 bg-[#0300145e] backdrop-blur-md"
+      <div
+        className={
+          "absolute inset-0 bg-[#0300145e] backdrop-blur-md transition-opacity duration-300 ease-out " +
+          ((isClosing || !entered) ? "opacity-0" : "opacity-100")
+        }
       />
 
       {/* Panel */}
-      <motion.div
+      <div
         ref={panelRef}
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
-        initial={{ y: 24, opacity: 0, scale: 0.98 }}
-        animate={{ y: isClosing ? 24 : 0, opacity: isClosing ? 0 : 1, scale: isClosing ? 0.98 : 1 }}
-        transition={{ duration: 0.28, ease: [0.6, 0.6, 0, 1] }}
-        className="relative z-10 w-[min(100vw-2rem,1000px)] max-h-[85vh] overflow-y-auto rounded-2xl bg-[#030014] border border-[#7042f861] pt-14 px-6 pb-6 shadow-lg shadow-[#2A0E61]/50 opacity-[0.95] backdrop-blur-md"
+        className={
+          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[85vh] overflow-y-auto rounded-2xl bg-[#030014] border border-[#7042f861] pt-14 px-6 pb-6 shadow-lg shadow-[#2A0E61]/50 opacity-[0.95] backdrop-blur-md " +
+          "transition-all duration-300 ease-out " +
+          ((isClosing || !entered) ? "translate-y-6 scale-[0.98] opacity-0" : "translate-y-0 scale-100 opacity-100")
+        }
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -86,7 +104,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         <ModalControlContext.Provider value={{ closeWith }}>
           {children}
         </ModalControlContext.Provider>
-      </motion.div>
+      </div>
     </div>
   );
 }
