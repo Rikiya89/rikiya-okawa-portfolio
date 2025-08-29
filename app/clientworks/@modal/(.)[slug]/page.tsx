@@ -3,7 +3,7 @@ import ProjectDetail from "../../[slug]/ProjectDetail";
 
 export default function InterceptedModal({ params }: { params: { slug: string } }) {
   return (
-    <Modal>
+    <Modal key={params.slug}>
       <ProjectDetail slug={params.slug} inModal />
     </Modal>
   );
