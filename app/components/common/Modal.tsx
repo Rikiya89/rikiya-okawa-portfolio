@@ -21,16 +21,14 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     console.log('Modal closing animation started');
     document.body.style.overflow = 'auto';
     
+    // Force aggressive route reset to clear Next.js routing state
+    window.history.replaceState(null, '', '/clientworks');
+    router.refresh();
+    
     // Wait for the ultra-beautiful cinematic masterpiece to complete
     setTimeout(() => {
       console.log('Ultra-beautiful cinematic masterpiece complete, hiding modal');
       setShouldRender(false);
-      
-      // Navigate after modal is hidden
-      setTimeout(() => {
-        console.log('Navigating to clientworks');
-        router.replace("/clientworks");
-      }, 200);
     }, 1000); // Match ultra-beautiful animation duration
   };
 
@@ -38,6 +36,10 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     if (isClosing) return;
     setIsClosing(true);
     document.body.style.overflow = 'auto';
+    
+    // Force aggressive route reset to clear Next.js routing state
+    window.history.replaceState(null, '', '/clientworks');
+    router.refresh();
     
     // Wait for the ultra-beautiful cinematic masterpiece to complete
     setTimeout(() => {
