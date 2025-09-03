@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import StarsCanvas from "@/components/jp/main/StarBackground";
+import dynamic from "next/dynamic";
+const StarsCanvas = dynamic(() => import("@/components/jp/main/StarBackground"), { ssr: false });
 import Navbar from "@/components/en/main/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";

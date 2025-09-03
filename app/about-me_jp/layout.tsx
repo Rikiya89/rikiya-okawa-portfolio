@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import StarsCanvas from "@/components/about-me_jp/main/StarBackground";
+import dynamic from "next/dynamic";
+const StarsCanvas = dynamic(() => import("@/components/about-me_jp/main/StarBackground"), { ssr: false });
 import Navbar from "@/components/about-me_jp/main/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
