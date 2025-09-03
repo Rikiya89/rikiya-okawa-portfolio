@@ -2,47 +2,81 @@
 
 import React, { useRef, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Points, PointMaterial, Preload } from "@react-three/drei";
+import { Points, PointMaterial, Sparkles } from "@react-three/drei";
 import { AdditiveBlending } from 'three';
-// Import the Mesh type from 'three' for correct typings
 import { Mesh } from 'three';
 // @ts-ignore
 import * as random from "maath/random/dist/maath-random.esm";
 
 const StarBackground = (props: any) => {
-  // Properly type the ref as a Mesh
-  const ref = useRef<Mesh>(null);
-  const [sphere] = useState(() => {
-    const data = new Float32Array(5000);
-    random.inSphere(data, { radius: 1.2 });
+  const refBack = useRef<Mesh>(null);
+  const refMid = useRef<Mesh>(null);
+  const refFore = useRef<Mesh>(null);
+
+  const [back] = useState(() => {
+    const data = new Float32Array(3000);
+    random.inSphere(data, { radius: 1.25 });
+    return data;
+  });
+  const [mid] = useState(() => {
+    const data = new Float32Array(2000);
+    random.inSphere(data, { radius: 1.15 });
+    return data;
+  });
+  const [fore] = useState(() => {
+    const data = new Float32Array(700);
+    random.inSphere(data, { radius: 1.05 });
     return data;
   });
 
-  useFrame((state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 10;
-      ref.current.rotation.y -= delta / 15;
+  useFrame((_, delta) => {
+    if (refBack.current) {
+      refBack.current.rotation.x -= delta / 20;
+      refBack.current.rotation.y -= delta / 30;
+    }
+    if (refMid.current) {
+      refMid.current.rotation.x -= delta / 12;
+      refMid.current.rotation.y -= delta / 18;
+    }
+    if (refFore.current) {
+      refFore.current.rotation.x -= delta / 8;
+      refFore.current.rotation.y -= delta / 12;
     }
   });
 
   return (
     <group rotation={[0, 0, Math.PI / 6]}>
-      <Points
-        ref={ref}
-        positions={sphere}
-        stride={3}
-        frustumCulled
-        {...props}
-      >
+      <Points ref={refBack} positions={back} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="rgba(106, 90, 205,0.8)"
-          size={0.003}
-          sizeAttenuation={true}
+          color="rgba(106, 90, 205, 0.28)"
+          size={0.0018}
+          sizeAttenuation
           depthWrite={false}
           blending={AdditiveBlending}
         />
       </Points>
+      <Points ref={refMid} positions={mid} stride={3} frustumCulled {...props}>
+        <PointMaterial
+          transparent
+          color="rgba(106, 90, 205,0.8)"
+          size={0.0026}
+          sizeAttenuation
+          depthWrite={false}
+          blending={AdditiveBlending}
+        />
+      </Points>
+      <Points ref={refFore} positions={fore} stride={3} frustumCulled {...props}>
+        <PointMaterial
+          transparent
+          color="#b9a8ff"
+          size={0.0048}
+          sizeAttenuation
+          depthWrite={false}
+          blending={AdditiveBlending}
+        />
+      </Points>
+      <Sparkles count={26} scale={1.6} size={2.4} speed={0.22} opacity={0.55} color="#c9b7ff" />
     </group>
   );
 };
