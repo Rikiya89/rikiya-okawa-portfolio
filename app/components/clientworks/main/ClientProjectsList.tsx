@@ -42,9 +42,11 @@ const ClientProjectsList = () => {
         <ClientProjects
           src="/img/vans.webp"
           title="VANS Official Website"
-          description={`VANS公式サイトの運用・改修、LP（ランディングページ）制作、ニュース更新を担当しました。フロントエンドは HTML／SCSS／JavaScript で実装し、Node.js＋Gulp によるビルドフローを構築・運用しました。`}
+          description={`VANS公式サイトの運用・保守。
+            LP制作やニュース更新を担当。`}
           url="https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ"
           slug="vans-official"
+          centerText
         />
 
         <ClientProjects

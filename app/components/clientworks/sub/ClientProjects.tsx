@@ -11,9 +11,10 @@ export interface Props {
   description: string;
   url?: string;   // optional
   slug?: string;  // optional
+  centerText?: boolean; // optional: center description text
 }
 
-export default function ClientProjects({ src, title, description, url, slug }: Props) {
+export default function ClientProjects({ src, title, description, url, slug, centerText }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
 
@@ -32,7 +33,7 @@ export default function ClientProjects({ src, title, description, url, slug }: P
       </div>
       <div className="relative p-4">
         <h3 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h3>
-        <p className="mt-2 text-gray-300 line-clamp-3">{description}</p>
+        <p className={`mt-2 text-gray-300 line-clamp-3 whitespace-pre-line ${centerText ? "text-center" : ""}`}>{description}</p>
       </div>
     </>
   );

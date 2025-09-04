@@ -19,8 +19,9 @@ export const projects: Project[] = [
   {
     slug: "vans-official",
     title: "VANS Official Website",
-    description:
-      "VANS公式サイトの運用・改修、LP制作、ニュース更新。HTML/SCSS/JS + Node.js/Gulp。",
+    description: `VANS公式サイトの運用・保守。
+キャンペーンLP制作やニュース更新を担当。
+HTML / SCSS / JavaScript / Node.js / Gulp`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
   },

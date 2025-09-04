@@ -46,7 +46,7 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
         <Image src={p.src} alt={p.title} fill className="object-cover" priority />
       </div>
       <h1 className="mt-6 text-3xl font-semibold text-white">{p.title}</h1>
-      <p className="mt-3 text-white/80 leading-7">{p.description}</p>
+      <p className="mt-3 text-white/80 leading-7 whitespace-pre-line">{p.description}</p>
       <div className="mt-6 flex gap-3">
         {inModal ? (
           <button
