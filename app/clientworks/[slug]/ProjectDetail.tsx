@@ -6,6 +6,7 @@ import { getProject } from "@/lib/projects";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
 import { useEffect, useState } from "react";
+import ProjectModalContent from "@/components/common/ProjectModalContent";
 
 export default function ProjectDetail({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
   const [project, setProject] = useState<any>(null);
@@ -41,35 +42,15 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
 
   const p = project;
   return (
-    <article>
-      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden">
-        <Image src={p.src} alt={p.title} fill className="object-cover" priority />
-      </div>
-      <h1 className="mt-6 text-3xl font-semibold text-white">{p.title}</h1>
-      <p className="mt-3 text-white/80 leading-7 whitespace-pre-line">{p.description}</p>
-      <div className="mt-6 flex gap-3">
-        {inModal ? (
-          <button
-            onClick={handleVisit}
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg inline-block px-6"
-          >
-            Visit
-          </button>
-        ) : (
-          <Link
-            href={`/clientworks/${slug}/description`}
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg inline-block px-6"
-          >
-            Visit
-          </Link>
-        )}
-        <button
-          onClick={handleBackToList}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg inline-block px-6"
-        >
-          Back to list
-        </button>
-      </div>
-    </article>
+    <ProjectModalContent
+      title={p.title}
+      description={p.description}
+      src={p.src}
+      visitHref={inModal ? undefined : `/clientworks/${slug}/description`}
+      onVisit={inModal ? handleVisit : undefined}
+      onClose={handleBackToList}
+      visitText="Visit"
+      closeText="Back to list"
+    />
   );
 }
