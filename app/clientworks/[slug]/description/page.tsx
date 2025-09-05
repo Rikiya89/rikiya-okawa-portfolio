@@ -5,23 +5,33 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageTransition, TransitionLink } from "@/components/common/PageTransition";
 import DescriptionActions from "@/components/clientworks/DescriptionActions";
+import { notFound } from "next/navigation";
 
 type Params = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const base = await getProject(params.slug);
-  const details = await getProjectDetails(params.slug);
-  const title = details?.title ?? base.title;
-  const desc = base.description;
-  return {
-    title: `${title} | Project Description`,
-    description: desc,
-    openGraph: { title: `${title} | Project Description`, description: desc, images: [base.src] },
-  };
+  try {
+    const base = await getProject(params.slug);
+    const details = await getProjectDetails(params.slug);
+    const title = details?.title ?? base.title;
+    const desc = base.description;
+    return {
+      title: `${title} | Project Description`,
+      description: desc,
+      openGraph: { title: `${title} | Project Description`, description: desc, images: [base.src] },
+    };
+  } catch {
+    return { title: `Client Works`, description: `Project not found` };
+  }
 }
 
 export default async function DescriptionPage({ params }: Params) {
-  const p = await getProject(params.slug);
+  let p;
+  try {
+    p = await getProject(params.slug);
+  } catch {
+    notFound();
+  }
   const details = await getProjectDetails(params.slug);
   const visitHref = p.slug === "vans-official" ? "https://www.vans.co.jp/" : p.url;
 

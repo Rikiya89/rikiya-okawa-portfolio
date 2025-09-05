@@ -7,7 +7,7 @@ type ModalControl = { closeWith: (fn: () => void) => void };
 const ModalControlContext = createContext<ModalControl | null>(null);
 export const useModalControl = () => useContext(ModalControlContext);
 
-export default function Modal({ children }: { children: React.ReactNode }) {
+export default function Modal({ children, resetPath = "/clientworks", refreshOnClose = true, skipUrlUpdate = false }: { children: React.ReactNode; resetPath?: string; refreshOnClose?: boolean; skipUrlUpdate?: boolean }) {
   const router = useRouter();
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [isClosing, setIsClosing] = useState(false);
@@ -21,9 +21,14 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     console.log('Modal closing animation started');
     document.body.style.overflow = 'auto';
     
-    // Force aggressive route reset to clear Next.js routing state
-    window.history.replaceState(null, '', '/clientworks');
-    router.refresh();
+    // For intercepted route modals, update Next router state immediately to base path
+    if (skipUrlUpdate) {
+      router.replace(resetPath);
+    } else {
+      // Optionally update URL immediately to clear parallel modal state
+      window.history.replaceState(null, '', resetPath);
+      if (refreshOnClose) router.refresh();
+    }
     
     // Wait for the ultra-beautiful cinematic masterpiece to complete
     setTimeout(() => {
@@ -37,9 +42,14 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     setIsClosing(true);
     document.body.style.overflow = 'auto';
     
-    // Force aggressive route reset to clear Next.js routing state
-    window.history.replaceState(null, '', '/clientworks');
-    router.refresh();
+    // For intercepted route modals, update Next router state immediately to base path
+    if (skipUrlUpdate) {
+      router.replace(resetPath);
+    } else {
+      // Optionally update URL immediately to clear parallel modal state
+      window.history.replaceState(null, '', resetPath);
+      if (refreshOnClose) router.refresh();
+    }
     
     // Wait for the ultra-beautiful cinematic masterpiece to complete
     setTimeout(() => {

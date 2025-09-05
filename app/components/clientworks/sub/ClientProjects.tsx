@@ -20,14 +20,14 @@ export default function ClientProjects({ src, title, description, url, slug, cen
 
   const CardInner = (
     <>
-      <div className="relative">
+      <div className="relative aspect-[16/9] w-full">
         <div className="absolute inset-0 bg-black/15" />
         <Image
           src={src}
           alt={title}
-          width={1000}
-          height={1000}
-          className="w-full object-contain"
+          fill
+          className="object-cover"
+          sizes="(min-width: 1536px) 384px, (min-width: 1024px) 384px, (min-width: 640px) 45vw, 90vw"
           style={{ opacity: 0.72 }}
         />
       </div>

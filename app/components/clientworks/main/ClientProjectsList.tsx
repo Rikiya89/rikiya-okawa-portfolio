@@ -32,18 +32,18 @@ const ClientProjectsList = () => {
       >
 
         <ClientProjects
-          src="/img/weather_app.webp"
-          title="React Weather App"
-          description={`デザインと技術の理想的な結合、React Weather Appを体験してください。ReactとJavaScriptで構築されたこのアプリケーションは、天気と地理座標のAPIを活用して、正確な実時間の気象予報を提供します。市間をスムーズに移動し、直感的なインターフェイスを通じて気象パターンをインタラクティブに探ることができます。`}
-          url="https://relaxed-youtiao-4c1124.netlify.app/"
-          slug="react-weather-app"
+          src="/img/timberland.webp"
+          title="Timberland Official Website"
+          description={`Timberland公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
+          url="https://www.timberland.co.jp/"
+          slug="timerland-official"
+          centerText
         />
 
         <ClientProjects
           src="/img/vans.webp"
           title="VANS Official Website"
-          description={`VANS公式サイトの運用・保守。
-            LP制作やニュース更新を担当。`}
+          description={`VANS公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
           url="https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ"
           slug="vans-official"
           centerText
@@ -55,6 +55,7 @@ const ClientProjectsList = () => {
           description={`iPhone 14をテーマにした私の3D Reactポートフォリオを探索してください。各インタラクションは、iPhone 14の精巧なデザインと機能性を表現する活動的なアニメーションで構成されています。クリックする度に、iPhone 14の洗練された美学と革新的な特性を反映する、アートとテクノロジーの完璧な統合を体験できます。`}
           url="https://apple-iphone3d-website.netlify.app/"
           slug="iphone14-clone-3d"
+          centerText
         />
 
         <ClientProjects
@@ -63,6 +64,7 @@ const ClientProjectsList = () => {
           description={`卒業プロジェクトとして、VR・AR施設のサービス向上を目指し、UnityとTouchDesignerを使用してVRゲームとインタラクティブ映像を製作しました。VRゲームはUnityとC#を利用し、Unityアセットストアからの無料アセットを使用。開発期間は約1ヶ月。また、TouchDesignerを活用した実空間でのインタラクティブ演出は約1週間で完成しました。`}
           url="/guardians_jp"
           slug="guardians-of-the-moon"
+          centerText
         />
 
         <ClientProjects
@@ -71,6 +73,7 @@ const ClientProjectsList = () => {
           description={`TouchDesigner作品。GLSLシェーダーとTOPで水の本質を描くアニメーション。`}
           url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           slug="water-drop-effect"
+          centerText
         />
 
         <ClientProjects
@@ -79,6 +82,7 @@ const ClientProjectsList = () => {
           description={`openFrameworks。画像処理とメッシュダイナミクスの表現研究。`}
           url="https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           slug="the-art-of-dynamic-mesh"
+          centerText
         />
 
         <ClientProjects
@@ -87,6 +91,7 @@ const ClientProjectsList = () => {
           description={`TouchDesigner。CHOP/TOPで反射するハートをアニメーション化。指数関数LFOで生命感を付与。`}
           url="https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           slug="pulse-of-reflection"
+          centerText
         />
       </motion.div>
     </div>

@@ -13,7 +13,7 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
   const modalCtl = useModalControl();
 
   useEffect(() => {
-    getProject(slug).then(setProject);
+    getProject(slug).then(setProject).catch(() => setProject(null));
   }, [slug]);
 
   const handleVisit = () => {
