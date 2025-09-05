@@ -26,8 +26,8 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
       src={p.src}
       visitHref={p.url}
       onClose={handleClose}
-      visitText="Visit"
-      closeText="Back to list"
+      visitText="サイトを見る"
+      closeText="一覧に戻る"
     />
   );
 }
