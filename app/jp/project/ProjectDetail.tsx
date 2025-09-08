@@ -13,9 +13,9 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
 
   const handleClose = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => router.replace("/jp"));
+      modalCtl.closeWith(() => router.replace("/jp", { scroll: false }));
     } else {
-      router.replace("/jp");
+      router.replace("/jp", { scroll: false });
     }
   };
 

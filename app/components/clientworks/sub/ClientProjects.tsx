@@ -4,6 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export interface Props {
   src: string;
@@ -17,6 +18,7 @@ export interface Props {
 export default function ClientProjects({ src, title, description, url, slug, centerText }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
+  const router = useRouter();
 
   const CardInner = (
     <>
@@ -49,7 +51,28 @@ export default function ClientProjects({ src, title, description, url, slug, cen
       aria-label={title}
     >
       {hasSlug ? (
-        <Link href={`/clientworks/${slug}`} className="block">
+        <Link
+          href={`/clientworks/${slug}`}
+          prefetch={false}
+          scroll={false}
+          className="block"
+          onClick={(e) => {
+            if (e.metaKey || e.ctrlKey) return; // allow open in new tab
+            e.preventDefault();
+            const base = "/clientworks?modal=off";
+            const dest = `/clientworks/${slug}?m=${Date.now()}`;
+            router.replace(base, { scroll: false });
+            let fired = false;
+            const go = () => {
+              if (fired) return;
+              fired = true;
+              router.push(dest, { scroll: false });
+            };
+            // Schedule with RAF and a timeout fallback for reliability
+            requestAnimationFrame(() => requestAnimationFrame(go));
+            setTimeout(go, 60);
+          }}
+        >
           {CardInner}
         </Link>
       ) : hasUrl ? (

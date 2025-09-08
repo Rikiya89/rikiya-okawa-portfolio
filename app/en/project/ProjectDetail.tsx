@@ -13,9 +13,9 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
 
   const handleClose = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => router.replace("/en"));
+      modalCtl.closeWith(() => router.replace("/en", { scroll: false }));
     } else {
-      router.replace("/en");
+      router.replace("/en", { scroll: false });
     }
   };
 

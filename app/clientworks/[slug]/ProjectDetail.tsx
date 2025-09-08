@@ -21,7 +21,7 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
     const href = `/clientworks/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() => {
-        router.replace("/clientworks");
+        router.replace("/clientworks", { scroll: false });
         // Ensure the parallel modal slot is cleared before pushing
         requestAnimationFrame(() => requestAnimationFrame(() => router.push(href)));
       });
@@ -32,9 +32,9 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
 
   const handleBackToList = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => router.replace("/clientworks"));
+      modalCtl.closeWith(() => router.replace("/clientworks", { scroll: false }));
     } else {
-      router.replace("/clientworks");
+      router.replace("/clientworks", { scroll: false });
     }
   };
 

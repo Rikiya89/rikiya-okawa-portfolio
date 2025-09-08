@@ -59,9 +59,7 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[15px] text-gray-400"
                     >
-                        東京でスタートし、サンディエゴに渡り、再び戻ってきた私は、多彩な教育と職業の道を歩んできました。2015年11月に神田外語学院で語学の基礎を築きました。
-                        デジタル表現への愛がグロスモント大学で花開き、2017年6月にデジタルアートの学位を取得しました。帰国後、約1年間コストコホールセールで働き、その後3年間アコーホテルズで勤務し、
-                        2022年9月までデジタルハリウッド東京本校でUI/UXデザインを学んでいました。
+                        東京で学び、サンディエゴに渡り、再び日本へ。多様な教育と実務経験を積んできました。2015年に神田外語学院で語学の基礎を固め、2017年に Grossmont College でデジタルアートの学位を取得。帰国後はコストコで約1年、アコーホテルズで3年勤務し、2022年にはデジタルハリウッド東京本校で UI/UX デザインを修了しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
@@ -73,16 +71,13 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.5)}
                         className="text-[15px] text-gray-400"
                     >
-                        私のキャリアは、コミュニケーションスキルとデジタルイノベーションの融合が特徴です。アコーホテルズでは、国際的なゲスト関係を改善し、多言語の問い合わせや複雑な状況をスムーズに処理しました。
-                        株式会社Tree Digital Studioでは、教育用ARゲームのUI/UXを向上させ、ユーザーフィードバックを活用して機能性と美しさの両方を洗練させました。
-                        株式会社リトルプラネットでは、AR/VRユーザーエクスペリエンスに関する貴重な洞察を得、異なる人口統計がこれらの技術とどのように相互作用するかを研究しました。
+                        強みは、コミュニケーションとデジタルの掛け合わせです。アコーホテルズでは多言語での問い合わせ対応や課題解決に従事。株式会社 Tree Digital Studio では教育向け AR ゲームの UI/UX を改善し、ユーザーフィードバックを設計に反映。株式会社リトルプラネットでは AR/VR の体験設計を調査し、年齢層別のインタラクション特性を分析しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="text-[15px] text-gray-400 py-3"
                     >
-                            現在は、Webエンジニアとして、HTML5、CSS/SCSS、JavaScript、Node.jsを駆使して、クライアントの期待を超え、
-                            ユーザーエンゲージメントを向上させるレスポンシブで魅力的なウェブサイトを作成しています。
+                        現在は Web エンジニアとして、HTML5／CSS(SCSS)／JavaScript／Node.js を用い、レスポンシブでパフォーマンスに優れたサイトを制作しています。クライアントの目的達成とユーザー体験の向上を両立させることを大切にしています。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
@@ -94,10 +89,8 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[15px] text-gray-400 pb-9"
                     >
-                            プロフェッショナルな仕事の外では、Unity、TouchDesigner、openFrameworks、p5.jsなどのソフトウェアを使ったクリエイティブなプロジェクトを楽しんでいます。
-                            最近では、Houdiniの視覚効果とアニメーションの作成可能性に魅了されています。今後、私の多様なデジタルスキルを活かして、次のプロジェクトで革新し、創造的に問題を解決し、
-                            デジタルインタラクションとデザインの限界を押し広げることを楽しみにしています。私のクリエイティブな旅をInstagramでフォローしてください。<br/>
-                            <span className="font-bold font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold font-panno"> @ricky_o_369</a>
+                        仕事の外では Unity、TouchDesigner、openFrameworks、p5.js などで創作を続けています。最近は Houdini による VFX／アニメーションにも注力。多様なデジタル表現を横断しながら、次のプロジェクトでも創造的に課題を解決し、体験の可能性を広げていきます。最新の制作は Instagram で公開中。<br/>
+                        <span className="font-bold font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold font-panno"> @ricky_o_369</a>
                     </motion.p>
                 </div>
             </div>

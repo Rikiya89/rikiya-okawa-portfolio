@@ -52,7 +52,7 @@ const Navbar = () => {
         <div className="hidden md:flex w-[500px] items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
             <a href="#about-me" className="cursor-pointer font-panno text-lg">
-              About me
+              About Me
             </a>
             <a href="#skills" className="cursor-pointer font-panno text-lg">
               Skills
@@ -70,7 +70,7 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
             <a href="#about-me" className="block text-white p-4 font-panno text-lg">
-              About me
+              About Me
             </a>
             <a href="#skills" className="block text-white p-4 font-panno text-lg">
               Skills

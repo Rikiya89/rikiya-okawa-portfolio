@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Link from 'next/link';
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 interface Props {
   src: string;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const ProjectCard = ({ src, title, description, url, slug }: Props) => {
+  const router = useRouter();
   const hrefForLink = slug ? `/en/project/${encodeURIComponent(slug)}` : url;
   return (
     <motion.article
@@ -32,6 +34,22 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
         target={slug ? undefined : "_blank"}
         rel={slug ? undefined : "noopener noreferrer"}
         className="block"
+        onClick={(e) => {
+          if (!slug) return; // external link
+          if (e.metaKey || e.ctrlKey) return; // open new tab
+          e.preventDefault();
+          const base = "/en?modal=off";
+          const dest = `/en/project/${encodeURIComponent(slug)}?m=${Date.now()}`;
+          router.replace(base, { scroll: false });
+          let fired = false;
+          const go = () => {
+            if (fired) return;
+            fired = true;
+            router.push(dest, { scroll: false });
+          };
+          requestAnimationFrame(() => requestAnimationFrame(go));
+          setTimeout(go, 60);
+        }}
       >
         <div className="relative aspect-[16/9] w-full">
           <div className="absolute inset-0 bg-black/15" />

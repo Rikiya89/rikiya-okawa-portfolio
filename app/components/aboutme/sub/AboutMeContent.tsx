@@ -59,10 +59,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[18px] text-gray-400 font-panno"
                     >
-                        Starting in Tokyo, I ventured to San Diego and then back again, experiencing a rich tapestry of education and work. 
-                        My journey began at Kanda Foreign Language Institute, where I graduated in November 2015 with a solid foundation in languages. 
-                        My love for digital expression led me to Grossmont College, where I earned a degree in digital arts by June 2017. 
-                        Pursuing my passion for user-centric design, I specialized in UI/UX at Digital Hollywood in Tokyo, graduating in September 2022.
+                        Based in Tokyo, I studied in San Diego and later returned to Japan. I graduated from Kanda Foreign Language College in Nov 2015, earned a Digital Arts degree from Grossmont College in June 2017, and completed a UI/UX program at Digital Hollywood Tokyo in Sept 2022.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
@@ -74,17 +71,13 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.5)}
                         className="text-[18px] text-gray-400 font-panno"
                     > 
-                        My career has been marked by the blend of communication skills and digital innovation. 
-                        At Accor Hotels, I improved international guest relations, handling multilingual inquiries and complex situations with ease. 
-                        At Tree Digital Studio Co., Ltd., I enhanced the UI/UX of educational AR games, using user feedback to refine both functionality and aesthetics. 
-                        At Little Planet Inc., I gained valuable insights into AR/VR user experiences, studying how different demographics interact with these technologies.
+                        I combine communication and digital design. At Accor Hotels I improved international guest relations, handling multilingual inquiries and complex cases. At Tree Digital Studio I refined UI/UX for educational AR games using user feedback. At Little Planet I researched AR/VR interaction patterns across age groups.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="text-[18px] text-gray-400 font-panno py-3"
                     >
-                        Currently, as a Web Engineer, I use HTML5, CSS/SCSS, JavaScript, and Node.js to create responsive, 
-                        engaging websites that exceed client expectations and enhance user engagement.
+                        Today I build responsive, performant websites with HTML5, CSS/SCSS, JavaScript, and Node.js — balancing business goals with great UX.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
@@ -96,11 +89,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[18px] text-gray-400 font-panno pb-9"
                     >
-                        Outside of my professional work, I enjoy exploring creative projects with software like Unity, TouchDesigner, openFrameworks, and p5.js. Recently, 
-                        I&apos;ve been fascinated by Houdini and its potential for creating detailed visual effects and animations. Looking forward, 
-                        I&apos;m excited to apply my diverse digital skills to innovate and solve problems creatively in future projects, pushing the boundaries of digital interaction and design. 
-                        You can follow my creative journey on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank">here.</a><br/>
-                        <span className="font-bold">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold"> @ricky_o_369</a>
+                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold">@ricky_o_369</a>.
                     </motion.p>
                 </div>
             </div>

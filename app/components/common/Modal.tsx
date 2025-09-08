@@ -21,20 +21,27 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     console.log('Modal closing animation started');
     document.body.style.overflow = 'auto';
     
-    // For intercepted route modals, update Next router state immediately to base path
-    if (skipUrlUpdate) {
-      router.replace(resetPath);
-    } else {
-      // Optionally update URL immediately to clear parallel modal state
+    // Update URL to base path without triggering Next route change
+    // Keeps the component mounted to allow exit animation to play
+    try {
       window.history.replaceState(null, '', resetPath);
-      if (refreshOnClose) router.refresh();
-    }
+    } catch {}
     
-    // Wait for the ultra-beautiful cinematic masterpiece to complete
+    // Wait for the medium-close animation to complete
     setTimeout(() => {
-      console.log('Ultra-beautiful cinematic masterpiece complete, hiding modal');
+      console.log('Close animation complete, hiding modal');
       setShouldRender(false);
-    }, 1000); // Match ultra-beautiful animation duration
+      // Stabilize Next router state after exit if user hasn't navigated elsewhere
+      setTimeout(() => {
+        try {
+          const samePath = window.location.pathname === resetPath;
+          const hasQuery = window.location.search && window.location.search.length > 0;
+          if (samePath && !hasQuery) {
+            router.replace(resetPath, { scroll: false });
+          }
+        } catch {}
+      }, 200);
+    }, 500); // Match medium-close animation duration
   };
 
   const closeWith = (fn: () => void) => {
@@ -42,26 +49,34 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     setIsClosing(true);
     document.body.style.overflow = 'auto';
     
-    // For intercepted route modals, update Next router state immediately to base path
-    if (skipUrlUpdate) {
-      router.replace(resetPath);
-    } else {
-      // Optionally update URL immediately to clear parallel modal state
+    // Update URL to base path without triggering Next route change
+    // Keeps the component mounted to allow exit animation to play
+    try {
       window.history.replaceState(null, '', resetPath);
-      if (refreshOnClose) router.refresh();
-    }
+    } catch {}
     
-    // Wait for the ultra-beautiful cinematic masterpiece to complete
+    // Wait for the medium-close animation to complete
     setTimeout(() => {
-      console.log('CloseWith ultra-beautiful cinematic masterpiece complete, hiding modal');
+      console.log('CloseWith animation complete, hiding modal');
       setShouldRender(false);
       
-      // Execute callback after modal is hidden
+      // Execute callback after modal is hidden, but only if user
+      // hasn't navigated elsewhere (e.g., immediately reopened another modal)
       setTimeout(() => {
-        console.log('Executing closeWith callback');
-        fn();
+        try {
+          const samePath = window.location.pathname === resetPath;
+          const hasQuery = window.location.search && window.location.search.length > 0;
+          if (samePath && !hasQuery) {
+            console.log('Executing closeWith callback');
+            fn();
+          } else {
+            console.log('Navigation changed during close; skipping closeWith callback');
+          }
+        } catch {
+          fn();
+        }
       }, 200);
-    }, 1000); // Match ultra-beautiful animation duration
+    }, 500); // Match medium-close animation duration
   };
 
   // ESC キーで閉じる
@@ -105,49 +120,41 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       {/* Ultra Beautiful Layered Backdrop */}
       <div
         className={
-          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#7042f861] backdrop-blur-md transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform will-change-filter " +
-          ((isClosing || !entered) 
-            ? "opacity-0 scale-150 backdrop-blur-none brightness-500 saturate-200 hue-rotate-180 contrast-200" 
-            : "opacity-100 scale-100 backdrop-blur-md brightness-100 saturate-100 hue-rotate-0 contrast-100")
+          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#7042f861] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
+          (!entered
+            ? "opacity-0 scale-105"
+            : isClosing
+            ? "opacity-0 scale-105"
+            : "opacity-100 scale-100")
         }
         style={{
           transform: `translateZ(0)`, // Force hardware acceleration
-          background: isClosing 
-            ? 'radial-gradient(circle at center, rgba(112, 66, 255, 0.8) 0%, rgba(42, 14, 97, 0.6) 50%, transparent 100%)'
-            : undefined,
+          // Keep background static during close to reduce GPU cost
+          background: undefined,
         }}
       />
       
-      {/* Secondary Glow Layer */}
+      {/* Secondary Glow Layer (subtle, centered) */}
       <div
         className={
-          "absolute inset-0 bg-radial-gradient transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] " +
-          ((isClosing || !entered) 
-            ? "opacity-100 scale-200 bg-gradient-radial from-purple-500/50 via-blue-500/30 to-transparent animate-pulse" 
-            : "opacity-0 scale-50")
+          "absolute inset-0 pointer-events-none transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] " +
+          (!entered ? "opacity-0" : isClosing ? "opacity-0" : "opacity-20")
         }
         style={{
           transform: `translateZ(0)`,
-          background: isClosing 
-            ? 'radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.4) 0%, rgba(79, 70, 229, 0.2) 50%, transparent 70%)'
-            : 'transparent',
+          background:
+            'radial-gradient(600px 600px at 50% 50%, rgba(147, 51, 234, 0.25) 0%, rgba(79, 70, 229, 0.12) 40%, transparent 70%)',
         }}
       />
 
       {/* Magical Particle Effect Layer */}
       <div
         className={
-          "absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] " +
-          (isClosing 
-            ? "opacity-100 animate-pulse" 
-            : "opacity-0")
+          "absolute inset-0 transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0"
         }
         style={{
           transform: `translateZ(0)`,
-          background: isClosing 
-            ? 'conic-gradient(from 0deg at 50% 50%, rgba(236, 72, 153, 0.3) 0deg, rgba(147, 51, 234, 0.2) 120deg, rgba(79, 70, 229, 0.3) 240deg, rgba(236, 72, 153, 0.3) 360deg)'
-            : 'transparent',
-          filter: isClosing ? 'blur(40px) brightness(1.5)' : 'blur(0px) brightness(1)',
+          background: 'transparent',
         }}
       />
 
@@ -159,28 +166,23 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         aria-modal="true"
         className={
           "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[85vh] overflow-y-auto rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#7042f861] pt-14 px-6 pb-6 shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
-          "transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-transform will-change-opacity will-change-filter " +
-          (
-            !entered
-              ? "translate-y-16 scale-[0.6] opacity-0 rotate-6 blur-2xl brightness-0 skew-y-3 -translate-x-4"
-              : isClosing
-              ? "translate-y-4 scale-[1.4] opacity-0 -rotate-18 blur-3xl brightness-1000 saturate-0 skew-y-12 translate-x-8 contrast-200 hue-rotate-180"
-              : "translate-y-0 translate-x-0 scale-100 opacity-100 rotate-0 blur-none brightness-100 saturate-100 skew-y-0 contrast-100 hue-rotate-0"
-          )
+          "will-change-transform will-change-opacity " +
+          (!entered ? "opacity-0" : isClosing ? "modal-panel-out" : "modal-panel-in")
         }
         style={{
           transform: `translateZ(0)`, // Force hardware acceleration
           backfaceVisibility: 'hidden', // Prevent flickering
           transformOrigin: 'center center',
-          boxShadow: isClosing 
-            ? '0 0 100px rgba(147, 51, 234, 0.8), 0 0 200px rgba(79, 70, 229, 0.6), inset 0 0 50px rgba(236, 72, 153, 0.3)'
-            : '0 25px 50px -12px rgba(42, 14, 97, 0.5), 0 0 0 1px rgba(112, 66, 255, 0.1)',
-          background: isClosing 
-            ? 'linear-gradient(135deg, rgba(147, 51, 234, 0.3) 0%, rgba(79, 70, 229, 0.2) 50%, rgba(236, 72, 153, 0.1) 100%)'
-            : undefined,
+          boxShadow: '0 25px 50px -12px rgba(42, 14, 97, 0.5), 0 0 0 1px rgba(112, 66, 255, 0.1)',
+          background: undefined,
         }}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* entry shimmer */}
+        {entered && !isClosing && (
+          <div className="modal-shimmer" />
+        )}
+
         <button
           onClick={close}
           aria-label="Close modal"

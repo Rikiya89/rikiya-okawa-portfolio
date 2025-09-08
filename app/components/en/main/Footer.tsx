@@ -32,7 +32,7 @@ return (
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
                     <RxLinkedinLogo />
                     <a href="https://www.linkedin.com/in/rikiya-okawa369/" target="_blank" className="relative z-50">
-                    <span className="text-[15px] ml-[6px] font-panno">Linkedin</span>    
+                    <span className="text-[15px] ml-[6px] font-panno">LinkedIn</span>    
                     </a>
                 </p>
             </div>
@@ -40,7 +40,7 @@ return (
                 <div className="font-bold text-lg font-panno">About</div>
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
                     <a href="mailto:rikiyadazo89@gmail.com" target="_blank" className="relative z-50">
-                        <span className="text-[15px] ml-[6px] font-panno">rikiydazo89@gmail.com</span>
+                        <span className="text-[15px] ml-[6px] font-panno">rikiyadazo89@gmail.com</span>
                     </a>
                 </p>
             </div>

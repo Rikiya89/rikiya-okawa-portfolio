@@ -70,3 +70,47 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Modal animations: beautiful yet performant */
+@keyframes modalIn {
+  0% { opacity: 0; transform: translateY(12px) scale(0.96); }
+  60% { opacity: 1; transform: translateY(0) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes modalOut {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(8px) scale(1.03); }
+}
+
+.modal-panel-in {
+  animation: modalIn 500ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.modal-panel-out {
+  animation: modalOut 500ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes shimmerSwipe {
+  0% { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
+  15% { opacity: 0.35; }
+  100% { transform: translateX(120%) skewX(-10deg); opacity: 0; }
+}
+
+.modal-shimmer {
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 140%;
+  height: 60%;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  animation: shimmerSwipe 720ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}

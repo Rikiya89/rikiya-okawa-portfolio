@@ -12,7 +12,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "portfolio-website",
     title: "Portfolio Website",
     description:
-      "私の最初のポートフォリオサイト。HTML/SCSS/JavaScriptで構築し、直感的なナビゲーションと魅力的なビジュアルで作品を紹介。",
+      "インタラクティブなポートフォリオ。HTML/SCSS/JavaScript で構築し、直感的なナビゲーションと視覚的な演出で作品をわかりやすく紹介。",
     src: "/img/portfolio_no1.webp",
     url: "https://www.rikiya-okawa963.jp/index.html/",
   },
@@ -20,7 +20,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "react-weather-app",
     title: "React Weather App",
     description:
-      "React と JavaScript で構築。天気/位置情報APIを活用し、都市検索からリアルタイム予報まで直感的に利用可能。",
+      "React と JavaScript で構築。天気／位置情報 API を活用し、都市検索からリアルタイムの気象情報まで、軽快で直感的な UI で提供。",
     src: "/img/weather_app.webp",
     url: "https://relaxed-youtiao-4c1124.netlify.app/",
   },
@@ -28,7 +28,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "iphone14-clone-3d",
     title: "iPhone 14 Clone 3D Website",
     description:
-      "iPhone 14 をテーマにした 3D React サイト。インタラクションに連動したモーションで美学と機能性を表現。",
+      "iPhone 14 をテーマにした 3D React サイト。GSAP アニメーションで動きのデザインとマイクロインタラクションを表現。",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },
@@ -36,7 +36,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "guardians-of-the-moon",
     title: "GUARDIANS OF THE MOON",
     description:
-      "卒業制作。Unity と TouchDesigner を用いた VR ゲームとインタラクティブ映像。",
+      "卒業制作。Unity と TouchDesigner による VR ゲームとインタラクティブ映像。VR は約1カ月、インスタレーションは約1週間で制作し、AR/VR 施設の体験向上を目指しました。",
     src: "/img/guardians.webp",
     url: "/guardians_jp",
   },
@@ -44,7 +44,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "water-drop-effect",
     title: "Water Drop Effect",
     description:
-      "TouchDesigner作品。GLSL と TOP で水の本質を表現するアニメーション。",
+      "TouchDesigner 作品。GLSL と TOP を用い、水の質感と流動性をプロシージャルに表現。",
     src: "/img/water_drops_culpture.webp",
     url: "https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -52,7 +52,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "the-art-of-dynamic-mesh",
     title: "The Art of Dynamic Mesh",
     description:
-      "openFrameworks による表現研究。画像処理とメッシュダイナミクスで光と動きの物語を描写。",
+      "openFrameworks による表現研究。画像処理とメッシュダイナミクスで光と動きを可視化。",
     src: "/img/of.webp",
     url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -60,7 +60,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "pulse-of-reflection",
     title: "Pulse of Reflection",
     description:
-      "TouchDesigner。CHOP/TOP による反射するハートのアニメーション。指数 LFO で生命感を付与。",
+      "TouchDesigner 作品。CHOP/TOP で反射するハートをアニメーション化し、指数 LFO で鼓動のようなリズムを付与。",
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -73,4 +73,3 @@ export function getJpProject(slug: string) {
 export function listJpProjects(): SiteProject[] {
   return Object.values(jpMap);
 }
-
