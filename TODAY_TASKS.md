@@ -1,3 +1,60 @@
+# Today’s Tasks — 2025-09-08
+
+## Implemented
+- Modal re-open reliability (EN/JP/Client Works):
+  - Clear base route with `?modal=off`, then double‑RAF + fallback to push the modal route.
+  - Add unique `m` query to force true remount on every open; intercepted pages key Modal by `slug + m`.
+  - Guard late close callbacks: only run if `location.pathname === resetPath` and no query (prevents canceling fresh opens).
+  - Preserve scroll with `{ scroll: false }` on replace/push.
+- Lighter, beautiful modal animations:
+  - Medium close: 500ms transform/opacity only; removed animated filters and heavy box‑shadows.
+  - Subtle centered glow (opacity fade), consistent open/close durations.
+  - Matching fade‑in (panel overshoot) + entry shimmer; implemented via CSS keyframes.
+- EN copy polish:
+  - Navbar “About Me”; cleaned hero intro, skills headings, project descriptions, footer label + email.
+  - Synced `siteProjectsEn.ts` descriptions with cards.
+- JP copy polish (keep EN labels in /jp untouched):
+  - Refined hero paragraph; rewrote About Me JP paragraphs (education, career, current focus, creative work).
+  - Updated `siteProjectsJp.ts` descriptions for clarity while keeping English titles.
+
+## Key Files
+- Modal core and routes
+  - `app/components/common/Modal.tsx`
+  - `app/components/clientworks/sub/ClientProjects.tsx`
+  - `app/components/en/sub/ProjectCard.tsx`
+  - `app/components/jp/sub/ProjectCard.tsx`
+  - `app/clientworks/@modal/(.)[slug]/page.tsx`
+  - `app/en/@modal/(.)project/[slug]/page.tsx`
+  - `app/jp/@modal/(.)project/[slug]/page.tsx`
+- Animations
+  - `app/globals.css` (modalIn/modalOut/shimmer + glow)
+- EN copy
+  - `app/components/en/main/Navbar.tsx`
+  - `app/components/en/sub/HeroContent.tsx`
+  - `app/components/en/sub/SkillsText.tsx`
+  - `app/components/en/main/Projects.tsx`
+  - `app/components/en/main/Footer.tsx`
+  - `app/lib/siteProjectsEn.ts`
+- JP copy
+  - `app/components/jp/sub/HeroContent.tsx`
+  - `app/components/about-me_jp/sub/AboutMeContent.tsx`
+  - `app/components/jp/main/Footer.tsx`
+  - `app/components/jp/main/Projects.tsx`
+  - `app/lib/siteProjectsJp.ts`
+
+## How To Verify
+1. Re‑open test (EN/JP/Client Works): open a modal → close → immediately click the same card.
+   - Modal reopens reliably; no scroll jump; address bar briefly shows `?modal=off` then `?m=<ts>`.
+2. Description navigation: from Client Works modal “Visit” to description → “Back/Back to list”.
+   - Exit/enter animations run; scroll position preserved.
+3. Animations: open feels snappy with a soft overshoot + shimmer; close fades with slight scale; glow remains subtle.
+4. EN copy: verify Navbar/Hero/Skills/Projects/Footer text and `siteProjectsEn.ts` descriptions.
+5. JP copy: verify Hero and About Me JP paragraphs; JP project descriptions reflect improved wording; English labels in /jp unchanged.
+
+## Notes
+- Dev logs show double mount/unmount under React Strict Mode (expected in dev only).
+- `?m` ensures React remounts the intercepted modal even for the same slug.
+
 # Today’s Tasks — 2025-09-05
 
 ## Implemented
@@ -69,4 +126,3 @@
 - Extend `siteProjectsEn/Jp` with more projects and detail copy.
 - Factor card config into a shared data source to avoid duplication.
 - Add tests for modal open/close and route transitions.
-
