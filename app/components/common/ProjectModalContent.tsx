@@ -26,7 +26,13 @@ export default function ProjectModalContent({
   return (
     <article>
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden">
-        <Image src={src} alt={title} fill className="object-cover" />
+        <Image
+          src={src}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(min-width: 1024px) 900px, calc(100vw - 2rem)"
+        />
       </div>
       <h1 className="mt-6 text-3xl font-semibold text-white text-center font-panno">{title}</h1>
       {description && (
@@ -62,4 +68,3 @@ export default function ProjectModalContent({
     </article>
   );
 }
-

@@ -9,13 +9,13 @@ const Projects = () => {
   const projects = listJpProjects();
 
   return (
-    <div className="flex flex-col items-center justify-center py-20" id="projects">
+    <div className="flex flex-col items-center justify-center pb-20" id="projects">
       <motion.h1
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20 font-panno 
+        className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-9 font-panno 
       lg:text-4xl md:text-4xl sm:text-4xl"
       >
         My Projects

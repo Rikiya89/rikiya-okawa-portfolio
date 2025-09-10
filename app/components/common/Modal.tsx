@@ -10,6 +10,11 @@ export const useModalControl = () => useContext(ModalControlContext);
 export default function Modal({ children, resetPath = "/clientworks", refreshOnClose = true, skipUrlUpdate = false }: { children: React.ReactNode; resetPath?: string; refreshOnClose?: boolean; skipUrlUpdate?: boolean }) {
   const router = useRouter();
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+  const inertSiblingsRef = useRef<HTMLElement[]>([]);
+  const [labelledBy, setLabelledBy] = useState<string | undefined>();
+  const [describedBy, setDescribedBy] = useState<string | undefined>();
   const [isClosing, setIsClosing] = useState(false);
   const [entered, setEntered] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
@@ -20,6 +25,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     setIsClosing(true);
     console.log('Modal closing animation started');
     document.body.style.overflow = 'auto';
+    // Restore background interactivity immediately
+    setBackgroundInert(false);
     
     // Update URL to base path without triggering Next route change
     // Keeps the component mounted to allow exit animation to play
@@ -48,6 +55,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     if (isClosing) return;
     setIsClosing(true);
     document.body.style.overflow = 'auto';
+    // Restore background interactivity immediately
+    setBackgroundInert(false);
     
     // Update URL to base path without triggering Next route change
     // Keeps the component mounted to allow exit animation to play
@@ -91,17 +100,110 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   // 初回フォーカスをモーダル内へ & lock scroll
   useEffect(() => {
     console.log('Modal mounted'); // Debug
+    // Remember the element that had focus to restore on close
+    previouslyFocusedRef.current = (document.activeElement as HTMLElement) || null;
+
     const id = requestAnimationFrame(() => {
-      panelRef.current?.focus();
+      const panel = panelRef.current;
+      if (panel) {
+        // Try to focus the first focusable element inside the panel; fallback to the panel itself
+        const focusables = getFocusableElements(panel);
+        (focusables[0] || panel).focus();
+      }
       setEntered(true);
     });
     document.body.style.overflow = 'hidden';
+    // Make background inert/hidden to assistive tech while modal is open
+    const root = rootRef.current;
+    const container = (root?.parentElement) || document.body;
+    inertSiblingsRef.current = Array.from(container.children).filter((el) => el !== root) as HTMLElement[];
+    setBackgroundInert(true);
+
     return () => {
       console.log('Modal unmounting'); // Debug
       cancelAnimationFrame(id);
       document.body.style.overflow = 'auto';
+      // Restore background interactivity/a11y
+      setBackgroundInert(false);
+      // Restore focus to the element that opened the modal (if still in DOM)
+      try {
+        const prev = previouslyFocusedRef.current;
+        if (prev && document.contains(prev)) {
+          prev.focus();
+        }
+      } catch {}
     };
   }, []);
+
+  // Discover a reasonable label/description from content if available
+  useEffect(() => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    // Find first heading element as label
+    const heading = panel.querySelector('h1, h2, h3') as HTMLElement | null;
+    if (heading) {
+      if (!heading.id) heading.id = `modal-title-${Math.random().toString(36).slice(2, 8)}`;
+      setLabelledBy(heading.id);
+    }
+    // Prefer explicitly-marked description; else first paragraph
+    const desc = (panel.querySelector('[data-modal-description]') || panel.querySelector('p')) as HTMLElement | null;
+    if (desc) {
+      if (!desc.id) desc.id = `modal-desc-${Math.random().toString(36).slice(2, 8)}`;
+      setDescribedBy(desc.id);
+    }
+  }, [entered]);
+
+  // Trap focus within the modal when tabbing
+  const onPanelKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Tab') return;
+    const panel = panelRef.current;
+    if (!panel) return;
+    const focusables = getFocusableElements(panel);
+    if (focusables.length === 0) {
+      e.preventDefault();
+      panel.focus();
+      return;
+    }
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement as HTMLElement | null;
+    if (e.shiftKey) {
+      if (active === first || active === panel) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  };
+
+  function getFocusableElements(container: HTMLElement): HTMLElement[] {
+    const selectors = [
+      'a[href]','button:not([disabled])','textarea:not([disabled])','input:not([disabled])','select:not([disabled])','[tabindex]:not([tabindex="-1"])'
+    ];
+    const nodes = Array.from(container.querySelectorAll<HTMLElement>(selectors.join(',')));
+    return nodes.filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
+  }
+
+  function setBackgroundInert(enabled: boolean) {
+    try {
+      inertSiblingsRef.current.forEach((el) => {
+        if (enabled) {
+          el.setAttribute('inert', '');
+          el.setAttribute('aria-hidden', 'true');
+          // Prevent accidental pointer-events through some frameworks' overlays
+          (el as HTMLElement).style.pointerEvents = 'none';
+        } else {
+          el.removeAttribute('inert');
+          el.removeAttribute('aria-hidden');
+          (el as HTMLElement).style.pointerEvents = '';
+        }
+      });
+    } catch {}
+  }
 
   // Don't render if shouldRender is false
   if (!shouldRender) {
@@ -110,12 +212,13 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
 
   return (
     <div
+      ref={rootRef}
       className={
         "fixed inset-0 z-[70] flex items-center justify-center " +
         ((isClosing || !entered) ? "pointer-events-none" : "pointer-events-auto")
       }
       onClick={close}
-      aria-label="Modal overlay"
+      role="presentation"
     >
       {/* Ultra Beautiful Layered Backdrop */}
       <div
@@ -127,6 +230,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
             ? "opacity-0 scale-105"
             : "opacity-100 scale-100")
         }
+        aria-hidden="true"
         style={{
           transform: `translateZ(0)`, // Force hardware acceleration
           // Keep background static during close to reduce GPU cost
@@ -140,6 +244,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
           "absolute inset-0 pointer-events-none transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] " +
           (!entered ? "opacity-0" : isClosing ? "opacity-0" : "opacity-20")
         }
+        aria-hidden="true"
         style={{
           transform: `translateZ(0)`,
           background:
@@ -152,6 +257,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         className={
           "absolute inset-0 transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0"
         }
+        aria-hidden="true"
         style={{
           transform: `translateZ(0)`,
           background: 'transparent',
@@ -164,6 +270,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
+        aria-labelledby={labelledBy}
+        aria-describedby={describedBy}
         className={
           "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[85vh] overflow-y-auto rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#7042f861] pt-14 px-6 pb-6 shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
           "will-change-transform will-change-opacity " +
@@ -177,6 +285,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
           background: undefined,
         }}
         onClick={(e) => e.stopPropagation()}
+        onKeyDown={onPanelKeyDown}
       >
         {/* entry shimmer */}
         {entered && !isClosing && (

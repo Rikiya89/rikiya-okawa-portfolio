@@ -18,7 +18,21 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     return {
       title: `${title} | Project Description`,
       description: desc,
-      openGraph: { title: `${title} | Project Description`, description: desc, images: [base.src] },
+      openGraph: {
+        title: `${title} | Project Description`,
+        description: desc,
+        url: `/clientworks/${params.slug}/description`,
+        siteName: "Rikiya Okawa Portfolio",
+        images: [{ url: base.src }],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: `${title} | Project Description`,
+        description: desc,
+        images: [base.src],
+        creator: "@rikiya_okawa",
+      },
     };
   } catch {
     return { title: `Client Works`, description: `Project not found` };
@@ -39,7 +53,14 @@ export default async function DescriptionPage({ params }: Params) {
     <main className="container mx-auto px-5 py-12 text-white">
       <PageTransition>
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-8">
-        <Image src={p.src} alt={p.title} fill className="object-cover" priority />
+        <Image
+          src={p.src}
+          alt={p.title}
+          fill
+          className="object-cover"
+          priority
+          sizes="(min-width: 1280px) 1024px, (min-width: 640px) calc(100vw - 2.5rem), 100vw"
+        />
       </div>
       <div className="mb-8">
         <h1 className="text-3xl font-semibold font-panno">{details?.title ?? p.title}</h1>

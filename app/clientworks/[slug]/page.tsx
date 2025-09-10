@@ -8,10 +8,27 @@ type Params = { params: { slug: string } };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   try {
     const p = await getProject(params.slug);
+    const title = `${p.title} | Client Works`;
+    const description = p.description;
+    const url = `/clientworks/${params.slug}`;
     return {
-      title: `${p.title} | Client Works`,
-      description: p.description,
-      openGraph: { title: `${p.title} | Client Works`, description: p.description, images: [p.src] },
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url,
+        siteName: "Rikiya Okawa Portfolio",
+        images: [{ url: p.src }],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [p.src],
+        creator: "@rikiya_okawa",
+      },
     };
   } catch {
     return { title: `Client Works`, description: `Project not found` };
