@@ -36,7 +36,9 @@ export default function ProjectModalContent({
       </div>
       <h1 className="mt-6 text-3xl font-semibold text-white text-center font-panno">{title}</h1>
       {description && (
-        <p className="mt-3 text-white/80 leading-7 text-center">{description}</p>
+        <p className="mt-3 text-white/80 leading-7 text-center whitespace-pre-line">
+          {description}
+        </p>
       )}
 
       <div className="mt-6 flex gap-3 justify-center">

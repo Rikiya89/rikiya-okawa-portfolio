@@ -60,87 +60,85 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.3)}
                         className="Welcome-text text-[21px] font-bold py-3"
                     >
-                        卒業プロジェクト: VR/ARで没入型エンターテインメントを創出
+                        卒業制作：VR/AR施設の体験価値を高める
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        C#を活用したUnityでVRゲームを開発、TouchDesignerでインタラクティブ空間を制作
+                        Unity×C#でVRシューティングを構築し、TouchDesignerで体験を拡張
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        私の卒業プロジェクトでは、VR/AR施設のリアルなサービスを強化するという挑戦的なテーマに取り組んました。
-                        C#によるプログラミングでUnityを使用してVRゲームを開発し、イインタラクティブ空間はビジュアルプログラミングツールのTouchDesignerを使って制作しました。
+                        卒業制作では、AR/VR体験施設での滞在時間をより価値あるものにすることをテーマに掲げました。
+                        Unity（C#）で月面基地を防衛するVRシューティングを開発し、TouchDesignerでヘッドセットを外していても緊張感が続くインタラクティブ演出を加えました。
                     </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.6)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        VRゲーム開発: コードでインタラクティブな世界を構築
+                        Unity VRシューティング：迫り来る敵との攻防を設計
                     </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.7)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        約1ヶ月をかけて、C#を駆使してVR空間ならではの没入感あふれるゲームを開発しました。ユーザーの行動に反応するインタラクティブな要素や、プレイヤーが仮想世界の中で実際に触れることができる空間を構築しました。 
-                        まるで自分がその世界に入り込んだかのような感覚を味わえ、従来のゲームとは一味違った体験を提供します。
+                        約1カ月の開発期間で、敵ウェーブやリロード操作、ハプティクスを手・視線・コントローラー入力に応じて反応させました。
+                        立体空間で照準を合わせ、防衛ラインを維持する身体性は、従来の平面シューティングでは得られない体験です。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.8)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        TouchDesignerでインタラクティブ空間を制作
+                        TouchDesigner演出：ブリーフィング映像で緊張感を継続
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.9)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        TouchDesignerを使って、VRゲームの中だけでなく、VRを体験していない人でも楽しめるリアルな空間を作りました。
-                        さらに、触ると反応するギミックを取り入れて、デジタルとリアルが混ざり合うような不思議な空間を作り上げました。
-                        なんと、このインタラクティブなワンダーランドはたった1週間で完成したんです!
+                        TouchDesignerでは、モーショングラフィックスやテレメトリー風HUD、ゲームプレイ映像を組み合わせたブリーフィング映像を1週間で制作しました。
+                        ロビーで常時上映することで待ち時間でもミッションの熱量を保ち、ヘッドセット装着前から物語に没入できるようにしました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.0)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        バーチャルアシスタントになりきる挑戦
+                        バーチャルガイドとしてプレゼンテーション
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.1)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        作品紹介では、バーチャルアシスタントになりきるというチャレンジにも取り組んでみました。ウェブカメラでリアルタイムに動きを認識しつつ、ボイスチェンジャーを使って、まるでデジタル人間が話しているかのような演出にこだわりました。
-                        なんと、このビデオの撮影と制作は1日で完了したんです! 時間は限られていましたが、事前の準備をしっかり行い、テクノロジーをうまく使うことで短時間で完成させることができました。
+                        発表当日はウェブカメラによるモーションキャプチャーとボイスチェンジャーを組み合わせ、仮想案内人としてライブ解説を行いました。
+                        撮影から編集までを1日で仕上げ、準備とテクノロジーの活用が短期制作を支えることを実感しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.2)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        VR/ARの可能性を広げる
+                        プロジェクトで得た学び
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.3)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        このプロジェクトを通して、VR/AR技術がエンターテイメント業界だけでなく、様々な分野で新しい体験を生み出せる可能性を確信しました。
-                        限られた時間の中で成果を上げるために、計画力と迅速な行動の大切さも学ぶことができました。
+                        VR/ARはエンタメだけでなく教育や商業施設でも有効に活用できると確信し、短納期でも価値を出すためには綿密な段取りと高速な試行が欠かせないと学びました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.4)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        あなたもこのバーチャルワールドを体験しよう！
+                        デモに参加する
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.5)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        Oculus RiftやMeta Quest 2などの人気VRデバイスに対応したゲームを公開しています。 もし興味を持っていただけたら、ぜひダウンロードして遊んでみてください。
+                        Oculus Rift や Meta Quest 2 向けにビルドを公開しています。興味をお持ちいただけたら、ぜひダウンロードして防衛ミッションに挑戦してください。
                         <a href="/apk/t2109d001_rikiya.okawa.apk" download 
                                     className="block border border-[#7042f861] w-[75px] 
                                     text-center bg-[#0300145e] rounded-full 

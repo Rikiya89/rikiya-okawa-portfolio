@@ -60,89 +60,86 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.3)}
                         className="Welcome-text text-[21px] font-bold py-3 font-panno"
                     >
-                        Graduation Project: Creating Immersive Entertainment with VR/AR
+                        Designing Immersive Entertainment for VR/AR Venues
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Developing a VR Game with Unity Using C# and Creating Interactive Spaces with TouchDesigner
+                        Unity VR shooter built in C# and paired with a TouchDesigner installation
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        For my graduation project, I tackled the challenging theme of enhancing realistic services in VR/AR facilities. 
-                        I developed a VR game using Unity programmed in C#, and created interactive spaces using the visual programming tool TouchDesigner.
+                        For my graduation project I set out to strengthen the on-site experience at an AR/VR discovery center.
+                        I engineered a Unity VR shooting game in C# and paired it with a TouchDesigner-based installation so guests could stay immersed even when they stepped out of the headset.
                     </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.6)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        VR Game Development: Building Interactive Worlds with Code
+                        Unity VR shooter: defending the outpost under pressure
                     </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.7)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        Over the course of about a month, I utilized C# to develop an immersive VR game. 
-                        I built interactive elements that respond to user actions, creating spaces that players can actually interact with in the virtual world. 
-                        This provides a unique experience, making users feel as if they have entered another world, distinct from traditional games.
+                        Across four weeks I scripted enemy waves, haptic feedback, and weapon interactions that respond to hand presence, gaze, and controller input.
+                        The goal was to make tracking targets, reloading, and holding defensive lines feel intuitive and far more physical than a traditional flatscreen shooter.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.8)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Creating Interactive Spaces with TouchDesigner
+                        TouchDesigner installation: keeping the briefing room alive
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.9)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        Using TouchDesigner, I created realistic spaces that can be enjoyed not only within the VR game but also by those not experiencing VR. 
-                        By incorporating interactive elements that respond to touch, I crafted a fascinating space where digital and real worlds blend together. 
-                        Amazingly, this interactive wonderland was completed in just one week!
+                        In a single week I assembled a TouchDesigner-driven briefing loop that stitches together motion graphics, telemetry HUDs, and gameplay captures.
+                        The installation runs continuously in the lobby so guests waiting their turn stay inside the mission narrative even before they put on the headset.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.0)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Taking on the Challenge of Becoming a Virtual Assistant
+                        Presenting the project as a virtual guide
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.1)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        During the presentation of my project, I also took on the challenge of becoming a virtual assistant. Utilizing a webcam for real-time motion recognition and a voice changer, 
-                        I aimed to create the impression of a digital human speaking. The filming and production of this video were completed in one day! Despite the limited time, 
-                        thorough preparation and effective use of technology enabled me to finish it quickly.
+                        For the showcase I performed as a virtual guide using a webcam for mocap and a voice transformer to deliver the narrative live.
+                        The shoot and edit wrapped in a single day, underscoring how preparation and the right tools accelerate storytelling.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.2)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Expanding the Possibilities of VR/AR
+                        Takeaways and next steps
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.3)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        Through this project, I became convinced of the potential of VR/AR technology to create new experiences not only in the entertainment industry but also in various other fields.
-                        I also learned the importance of planning and quick action to achieve results within a limited time.
+                        The experience reaffirmed how VR/AR can translate ideas into tangible experiences for education, themed attractions, and brand storytelling.
+                        It also highlighted the value of rapid iteration and clear planning when timelines are compressed.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.4)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Experience This Virtual World Yourself!
+                        Try the prototype
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.5)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        I have released the game, compatible with popular VR devices like Oculus Rift and Meta Quest 2. If you are interested, please download and try it out.
+                        The build runs on Oculus Rift and Meta Quest 2. Download it below and jump straight into the defense mission.
                         <a href="/apk/t2109d001_rikiya.okawa.apk" download 
                                     className="block border border-[#7042f861] w-[75px] 
                                     text-center bg-[#0300145e] rounded-full 

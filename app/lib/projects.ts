@@ -19,7 +19,7 @@ export const projects: Project[] = [
     slug: "react-weather-app",
     title: "React Weather App",
     description:
-      "React/JS + 天気・座標APIでリアルタイム天気。都市間をスムーズに移動し、直感的UIで気象パターンを探索。",
+      "React/JS + 天気・座標APIでリアルタイム天気。\n都市間をスムーズに移動し、直感的UIで気象パターンを探索。",
     src: "/img/weather_app.webp",
     url: "https://relaxed-youtiao-4c1124.netlify.app/",
   },
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     slug: "guardians-of-the-moon",
     title: "GUARDIANS OF THE MOON",
     description:
-      "卒業プロジェクト。UnityとTouchDesignerでVRゲームとインタラクティブ映像を製作。約1ヶ月でVR、約1週間で映像を完成。",
+      "卒業制作で Unity と TouchDesigner を用い、VR シューティングとブリーフィング映像を制作。\n月面基地を防衛する没入体験を約1カ月（VR）と約1週間（映像）で完成。",
     src: "/img/guardians.webp",
     url: "/guardians_jp",
   },
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     slug: "water-drop-effect",
     title: "Water Drop Effect",
     description:
-      "TouchDesigner作品。GLSLシェーダーとTOPで水の本質を描くアニメーション。",
+      "TouchDesigner作品。\nGLSLシェーダーとTOPで水の本質を描くアニメーション。",
     src: "/img/water_drops_culpture.webp",
     url: "https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     slug: "the-art-of-dynamic-mesh",
     title: "The Art of Dynamic Mesh",
     description:
-      "openFrameworks。画像処理とメッシュダイナミクスの表現研究。",
+      "openFrameworks。\n画像処理とメッシュダイナミクスの表現研究。",
     src: "/img/of.webp",
     url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     slug: "pulse-of-reflection",
     title: "Pulse of Reflection",
     description:
-      "TouchDesigner。CHOP/TOPで反射するハートをアニメーション化。指数関数LFOで生命感を付与。",
+      "TouchDesigner。CHOP/TOPで反射するハートをアニメーション化。\n指数関数LFOで生命感を付与。",
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     slug: "iphone14-clone-3d",
     title: "iPhone 14 Clone 3D Website",
     description:
-      "iPhone 14をテーマにした3D Reactサイト。美学と機能性を表現するモーション演出。",
+      "iPhone 14をテーマにした3D Reactサイト。\n美学と機能性を表現するモーション演出。",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },

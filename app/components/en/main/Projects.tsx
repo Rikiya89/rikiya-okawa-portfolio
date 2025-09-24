@@ -8,7 +8,7 @@ const Projects = () => {
   
 
   return (
-    <div className="flex flex-col items-center justify-center pb-20" id="projects">
+    <div className="flex flex-col items-center justify-center pb-20 relative" id="projects">
       <motion.h1
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -19,6 +19,7 @@ const Projects = () => {
       >
         My Projects
       </motion.h1>
+      <div className="absolute"></div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
