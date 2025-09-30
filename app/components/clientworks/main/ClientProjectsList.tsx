@@ -50,11 +50,11 @@ const ClientProjectsList = () => {
         />
 
         <ClientProjects
-          src="/img/iphone14_clonewebsite.webp"
-          title="iPhone 14 Clone 3D Website"
-          description={`iPhone 14をテーマにした私の3D Reactポートフォリオを探索してください。各インタラクションは、iPhone 14の精巧なデザインと機能性を表現する活動的なアニメーションで構成されています。クリックする度に、iPhone 14の洗練された美学と革新的な特性を反映する、アートとテクノロジーの完璧な統合を体験できます。`}
-          url="https://apple-iphone3d-website.netlify.app/"
-          slug="iphone14-clone-3d"
+          src="/img/dickies.webp"
+          title="Dickies Official Website"
+          description={`Dickies公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
+          url="https://www.dickies.jp/"
+          slug="dickies-official"
           centerText
         />
 

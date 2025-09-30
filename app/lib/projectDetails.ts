@@ -9,6 +9,19 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "timerland-official": {
+    title: "Timberland公式サイト",
+    role: "役割: Webエンジニア — 運用・保守・LP制作",
+    intro:
+      "Timberland Japan公式サイトの運用・保守を担当しました。シーズンごとのキャンペーンLPを短納期で制作し、ニュースを即日更新することで、安定した運用を実現しました。",
+    outcomes: [
+      "シーズンごとのLPを平均3日以内に制作",
+      "ニュースを当日中に更新し、迅速な情報発信を実現",
+      "安定した運用で、ブランドの信頼性を維持",
+      "マルチデバイス対応で最適な表示を提供",
+    ],
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
+  },
   "vans-official": {
     title: "VANS公式サイト",
     role: "役割: Webエンジニア — 運用・LP制作・ニュース更新",
@@ -40,22 +53,18 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["React", "JavaScript", "天気API", "位置情報API", "CSS"],
   },
-  "iphone14-clone-3d": {
-    title: "iPhone 14 Clone 3D Website",
-    role: "役割: フロントエンドエンジニア — UI/モーション設計",
+  "dickies-official": {
+    title: "Dickies公式サイト",
+    role: "役割: Webエンジニア — 運用・保守・LP制作",
     intro:
-      "iPhone 14 をテーマにした 3D 表現の React サイト。インタラクションに合わせてモーションが連動し、製品の美学と機能性を表現します。",
-    responsibilities: [
-      "インタラクション設計とモーションのチューニング",
-      "セクション切り替え時のスムーズなトランジション",
-      "レスポンシブ最適化と視認性の確保",
-    ],
+      "Dickies Japan公式サイトの運用・保守を担当しました。新商品のLPやキャンペーンページを制作し、実用性を重視したデザインをマルチデバイス対応で実装しました。",
     outcomes: [
-      "操作に追従する一貫したアニメーション体験を実現",
-      "視覚負荷を抑えつつ表現力を維持する構成に",
-      "ブランド感を損なわない配色とタイポグラフィ",
+      "月に複数本のLPを制作し、新商品やキャンペーン告知をサポート",
+      "定期的なニュース更新で最新情報を発信",
+      "マルチデバイス対応で、スマートフォンからデスクトップまで最適な表示を実現",
+      "実用性を重視したデザインで、ユーザビリティを向上",
     ],
-    techStack: ["React", "JavaScript", "CSS"],
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
 };
 

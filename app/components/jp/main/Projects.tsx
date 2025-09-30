@@ -9,7 +9,7 @@ const Projects = () => {
   const projects = listJpProjects();
 
   return (
-    <div className="flex flex-col items-center justify-center pb-20" id="projects">
+    <div className="flex flex-col items-center justify-center pb-20 relative">
       <motion.h1
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -20,6 +20,7 @@ const Projects = () => {
       >
         My Projects
       </motion.h1>
+      <div className="absolute top-[-30px] left-0" id="projects"></div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

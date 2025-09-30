@@ -66,3 +66,44 @@ app/
 - Build: `npm run build`
 - Lint: `npm run lint`
 - Type check: `npm run type-check`
+
+---
+
+## 📅 September 30, 2025 - Session Summary
+
+### ✅ Completed Tasks
+1. **HeroContent Layout Update**
+   - Added `max-w-[1366px]` and `mx-auto` to HeroContent section
+   - File: `app/components/en/sub/HeroContent.tsx:18`
+
+2. **Dickies Project Integration**
+   - Replaced iPhone 14 Clone project with Dickies Official Website in clientworks
+   - Added card content: "Dickies公式サイトの運用・保守。LP制作やニュース更新を担当。"
+   - Added modal content with full description and tech stack
+   - Updated files:
+     - `app/lib/projects.ts:66-72` (card data)
+     - `app/lib/projectDetails.ts:43-55` (modal details)
+     - `app/components/clientworks/main/ClientProjectsList.tsx:52-59` (hardcoded card)
+
+3. **Timberland Content Updates**
+   - Updated modal description: "シーズンごとのLPを平均3日以内に制作、ニュースは当日中に更新し、安定した運用を実現。"
+   - Added description page with role, outcomes, and tech stack sections
+   - Updated files:
+     - `app/lib/projects.ts:14` (modal text)
+     - `app/lib/projectDetails.ts:12-24` (description page)
+
+4. **VANS Content Updates**
+   - Updated modal description: "トレンドに合わせたキャンペーンLPを短納期で制作し、ニュースは即日更新で最新情報を発信。"
+   - File: `app/lib/projects.ts:29`
+
+### 📝 Key Learnings
+- Clientworks modals use `projects.ts` for modal content, not `projectDetails.ts`
+- `projectDetails.ts` is only used for the `/description` page
+- `ClientProjectsList.tsx` has hardcoded cards that need manual updates
+- JP/EN projects remain separate from clientworks projects
+
+### 🎯 Files Modified
+- `app/components/en/sub/HeroContent.tsx`
+- `app/lib/projects.ts`
+- `app/lib/projectDetails.ts`
+- `app/components/clientworks/main/ClientProjectsList.tsx`

@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     slug: "timerland-official",
     title: "Timberland Official Website",
-    description: `Timberland公式サイトの運用・保守。\nキャンペーンLP制作やニュース更新を担当。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
+    description: `Timberland公式サイトの運用・保守を担当。\nシーズンごとのLPを平均3日以内に制作、\nニュースは当日中に更新し、安定した運用を実現。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
     src: "/img/timberland.webp",
     url: "https://www.timberland.co.jp/",
   },
@@ -26,7 +26,7 @@ export const projects: Project[] = [
   {
     slug: "vans-official",
     title: "VANS Official Website",
-    description: `VANS公式サイトの運用・保守。\nキャンペーンLP制作やニュース更新を担当。\n HTML / SCSS / JavaScript / Node.js / Gulp`,
+    description: `VANS公式サイトの運用・保守を担当。\nトレンドに合わせたキャンペーンLPを短納期で制作し、\nニュースは即日更新で最新情報を発信。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
   },
@@ -63,12 +63,12 @@ export const projects: Project[] = [
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
   {
-    slug: "iphone14-clone-3d",
-    title: "iPhone 14 Clone 3D Website",
+    slug: "dickies-official",
+    title: "Dickies Official Website",
     description:
-      "iPhone 14をテーマにした3D Reactサイト。\n美学と機能性を表現するモーション演出。",
-    src: "/img/iphone14_clonewebsite.webp",
-    url: "https://apple-iphone3d-website.netlify.app/",
+      "Dickies公式サイトの運用・保守を担当。\n新商品のLPやキャンペーンページを制作し、\n実用性を重視したデザインをマルチデバイス対応で実装。\nHTML / SCSS / JavaScript / Node.js / Gulp",
+    src: "/img/dickies.webp",
+    url: "https://www.dickies.jp/",
   },
   // 必要に応じて追加
 ];
