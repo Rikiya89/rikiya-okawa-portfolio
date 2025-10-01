@@ -59,11 +59,20 @@ const ClientProjectsList = () => {
         />
 
         <ClientProjects
-          src="/img/guardians.webp"
-          title="GUARDIANS OF THE MOON"
-          description={`卒業プロジェクトとして、VR・AR施設のサービス向上を目指し、UnityとTouchDesignerを使用してVRゲームとインタラクティブ映像を製作しました。VRゲームはUnityとC#を利用し、Unityアセットストアからの無料アセットを使用。開発期間は約1ヶ月。また、TouchDesignerを活用した実空間でのインタラクティブ演出は約1週間で完成しました。`}
-          url="/guardians_jp"
-          slug="guardians-of-the-moon"
+          src="/img/lacoste.webp"
+          title="Lacoste Official Website"
+          description={`Lacoste公式サイトのLP制作を担当。\n特集ページやセール情報を制作。`}
+          url="https://www.lacoste.jp/"
+          slug="lacoste-official"
+          centerText
+        />
+
+        <ClientProjects
+          src="/img/meiji.webp"
+          title="明治 Official Website"
+          description={`明治 公式サイトのLP制作を担当。\n商品特集やキャンペーンページを制作。`}
+          url="https://www.meiji.co.jp/"
+          slug="meiji-official"
           centerText
         />
 

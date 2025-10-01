@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dwebp:*)",
+      "Bash(sips:*)",
+      "Bash(cwebp:*)",
+      "Bash(rm:*)",
+      "Read(//Users/okawa_rikiya/Downloads/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

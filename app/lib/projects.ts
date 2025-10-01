@@ -16,14 +16,6 @@ export const projects: Project[] = [
     url: "https://www.timberland.co.jp/",
   },
   {
-    slug: "react-weather-app",
-    title: "React Weather App",
-    description:
-      "React/JS + 天気・座標APIでリアルタイム天気。\n都市間をスムーズに移動し、直感的UIで気象パターンを探索。",
-    src: "/img/weather_app.webp",
-    url: "https://relaxed-youtiao-4c1124.netlify.app/",
-  },
-  {
     slug: "vans-official",
     title: "VANS Official Website",
     description: `VANS公式サイトの運用・保守を担当。\nトレンドに合わせたキャンペーンLPを短納期で制作し、\nニュースは即日更新で最新情報を発信。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
@@ -31,12 +23,18 @@ export const projects: Project[] = [
     url: "https://www.vans.co.jp/",
   },
   {
-    slug: "guardians-of-the-moon",
-    title: "GUARDIANS OF THE MOON",
-    description:
-      "卒業制作で Unity と TouchDesigner を用い、VR シューティングとブリーフィング映像を制作。\n月面基地を防衛する没入体験を約1カ月（VR）と約1週間（映像）で完成。",
-    src: "/img/guardians.webp",
-    url: "/guardians_jp",
+    slug: "lacoste-official",
+    title: "Lacoste Official Website",
+    description: `Lacoste公式サイトのLP制作を担当。\nブランドの洗練されたイメージを重視し、\n特集ページやセールLPを正確かつ安定して公開。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
+    src: "/img/lacoste.webp",
+    url: "https://www.lacoste.jp/",
+  },
+  {
+    slug: "meiji-official",
+    title: "明治 Official Website",
+    description: `明治 公式サイトのLP制作を担当。\n新商品やキャンペーンに合わせてLPを制作し、\nブランドの安心感を伝えるデザインを実現。\nHTML / SCSS / JavaScript / Node.js / Gulp`,
+    src: "/img/meiji.webp",
+    url: "https://www.meiji.co.jp/",
   },
   {
     slug: "water-drop-effect",

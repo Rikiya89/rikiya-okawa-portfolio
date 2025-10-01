@@ -35,6 +35,32 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
+  "lacoste-official": {
+    title: "Lacoste公式サイト",
+    role: "役割: Webエンジニア — LP制作専任",
+    intro:
+      "Lacoste Japan公式オンラインストア向けにキャンペーンLPを制作しました。ブランドの洗練されたトーンを守りながら、限られた制作期間でもクオリティを落とさないクリエイティブを心がけました。",
+    outcomes: [
+      "シーズンキャンペーンやセールLPを最短2日で制作し、開始日に合わせて公開",
+      "ブランドガイドラインに沿ったタイポグラフィと配色を再現し、世界観を維持",
+      "公開前QAを徹底し、主要デバイスでの表示崩れゼロを継続",
+      "マーケ/ECチームと連携し、価格やバナー差し替えを同日中に完了",
+    ],
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
+  },
+  "meiji-official": {
+    title: "明治公式サイト",
+    role: "役割: Webエンジニア — LP制作専任",
+    intro:
+      "明治 公式サイト向けに新商品や季節キャンペーンのLP制作を担当しました。安心感と親しみやすさを前面に押し出し、ブランドメッセージをわかりやすく伝える構成を意識しています。",
+    outcomes: [
+      "商品特集LPを週次で公開し、販促スケジュールに合わせて安定供給",
+      "栄養情報やアレルギー表記など、食品ブランド特有の情報整理をテンプレート化",
+      "ファミリー層を意識した配色・図版ガイドラインを踏まえ、安心感のあるデザインを実現",
+      "マーケチームからの文言・価格修正依頼に当日対応できるフローを構築",
+    ],
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
+  },
   "react-weather-app": {
     title: "React Weather App",
     role: "役割: フロントエンドエンジニア — 設計・実装",
