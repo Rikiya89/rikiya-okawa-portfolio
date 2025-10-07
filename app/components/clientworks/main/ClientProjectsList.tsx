@@ -4,7 +4,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import ClientProjects from "../sub/ClientProjects"; // <-- the CARD component
 
-const ClientProjectsList = () => {
+export type ClientProjectCard = {
+  src: string;
+  title: string;
+  description: string;
+  url?: string;
+  slug?: string;
+  centerText?: boolean;
+};
+
+type ClientProjectsListProps = {
+  heading: string;
+  projects: ClientProjectCard[];
+};
+
+const ClientProjectsList = ({ heading, projects }: ClientProjectsListProps) => {
   return (
     <div className="flex flex-col items-center justify-center pb-20" id="projects">
       <motion.h1
@@ -14,7 +28,7 @@ const ClientProjectsList = () => {
         transition={{ duration: 0.4 }}
         className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-9 font-panno lg:text-4xl md:text-4xl sm:text-4xl"
       >
-        My Client Projects
+        {heading}
       </motion.h1>
 
       <motion.div
@@ -30,78 +44,17 @@ const ClientProjectsList = () => {
         sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex
       "
       >
-
-        <ClientProjects
-          src="/img/timberland.webp"
-          title="Timberland Official Website"
-          description={`Timberland公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
-          url="https://www.timberland.co.jp/"
-          slug="timerland-official"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/vans.webp"
-          title="VANS Official Website"
-          description={`VANS公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
-          url="https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ"
-          slug="vans-official"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/dickies.webp"
-          title="Dickies Official Website"
-          description={`Dickies公式サイトの運用・保守。\nLP制作やニュース更新を担当。`}
-          url="https://www.dickies.jp/"
-          slug="dickies-official"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/lacoste.webp"
-          title="Lacoste Official Website"
-          description={`Lacoste公式サイトのLP制作を担当。\n特集ページやセール情報を制作。`}
-          url="https://www.lacoste.jp/"
-          slug="lacoste-official"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/meiji.webp"
-          title="明治 Official Website"
-          description={`明治 公式サイトのLP制作を担当。\n商品特集やキャンペーンページを制作。`}
-          url="https://www.meiji.co.jp/"
-          slug="meiji-official"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/water_drops_culpture.webp"
-          title="Water Drop Effect"
-          description={`TouchDesigner作品。GLSLシェーダーとTOPで水の本質を描くアニメーション。`}
-          url="https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          slug="water-drop-effect"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/of.webp"
-          title="The Art of Dynamic Mesh"
-          description={`openFrameworks。画像処理とメッシュダイナミクスの表現研究。`}
-          url="https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          slug="the-art-of-dynamic-mesh"
-          centerText
-        />
-
-        <ClientProjects
-          src="/img/heart.webp"
-          title="Pulse of Reflection"
-          description={`TouchDesigner。CHOP/TOPで反射するハートをアニメーション化。指数関数LFOで生命感を付与。`}
-          url="https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-          slug="pulse-of-reflection"
-          centerText
-        />
+        {projects.map(project => (
+          <ClientProjects
+            key={project.slug ?? project.title}
+            src={project.src}
+            title={project.title}
+            description={project.description}
+            url={project.url}
+            slug={project.slug}
+            centerText={project.centerText ?? true}
+          />
+        ))}
       </motion.div>
     </div>
   );

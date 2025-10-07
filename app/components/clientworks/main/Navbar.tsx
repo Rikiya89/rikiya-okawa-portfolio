@@ -1,18 +1,60 @@
 "use client";
-// Navbar.tsx
 
-import { useState } from 'react';
-import { Socials } from '@/constants';
-import Image from 'next/image';
+import { useState } from "react";
+import Image from "next/image";
+import { Socials } from "@/constants";
 
-const Navbar = () => {
+type Locale = "en" | "jp";
+
+type NavCopy = {
+  aboutLabel: string;
+  aboutHref: string;
+  skillsLabel: string;
+  skillsHref: string;
+  projectsLabel: string;
+  projectsHref: string;
+  languageLabel: string;
+  languageHref: string;
+};
+
+const NAV_COPY: Record<Locale, NavCopy> = {
+  en: {
+    aboutLabel: "About Me",
+    aboutHref: "/en#about-me",
+    skillsLabel: "Skills",
+    skillsHref: "#skills",
+    projectsLabel: "Projects",
+    projectsHref: "#projects",
+    languageLabel: "Japanese",
+    languageHref: "/clientworks_jp",
+  },
+  jp: {
+    aboutLabel: "About Me",
+    aboutHref: "/jp#about-me",
+    skillsLabel: "Skills",
+    skillsHref: "#skills",
+    projectsLabel: "Projects",
+    projectsHref: "#projects",
+    languageLabel: "English",
+    languageHref: "/clientworks",
+  },
+};
+
+type ClientWorksNavbarProps = {
+  locale?: Locale;
+  languageHref?: string;
+};
+
+const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const copy = NAV_COPY[locale];
+  const resolvedLanguageHref = languageHref ?? copy.languageHref;
 
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10" id='about-me'>
+    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10">
       <div className="flex items-center justify-between h-full">
-        <a href="/en" className="flex items-center">
-        <Image
+        <a href="#client-hero" className="flex items-center">
+          <Image
             src="/img/NavLogo.webp"
             alt="logo"
             width={45}
@@ -24,7 +66,6 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Hamburger Icon */}
         <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -33,7 +74,7 @@ const Navbar = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`h-6 w-6 text-white cursor-pointer transition-transform duration-500 ease-in-out ${
-              isMenuOpen ? 'rotate-90' : 'rotate-0'
+              isMenuOpen ? "rotate-90" : "rotate-0"
             }`}
             fill="none"
             viewBox="0 0 24 24"
@@ -48,61 +89,55 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Menu Items - always visible on PC */}
         <div className="hidden md:flex w-[500px] items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href="/en#skills" className="cursor-pointer font-panno text-lg">
-              Skills
+            <a href={copy.aboutHref} className="cursor-pointer font-panno text-lg">
+              {copy.aboutLabel}
             </a>
-            <a href="/en#projects" className="cursor-pointer font-panno text-lg">
-              Projects
+            <a href={copy.skillsHref} className="cursor-pointer font-panno text-lg">
+              {copy.skillsLabel}
             </a>
-            <a href="/about-me_jp" className="cursor-pointer font-panno text-lg">
-              Japanese
+            <a href={copy.projectsHref} className="cursor-pointer font-panno text-lg">
+              {copy.projectsLabel}
+            </a>
+            <a href={resolvedLanguageHref} className="cursor-pointer font-panno text-lg">
+              {copy.languageLabel}
             </a>
           </div>
         </div>
 
-        {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href="/en" className="block text-white p-4 font-panno text-lg">
-              About me
+            <a href={copy.aboutHref} className="block text-white p-4 font-panno text-lg">
+              {copy.aboutLabel}
             </a>
-            <a href="en/#skills" className="block text-white p-4 font-panno text-lg">
-              Skills
+            <a href={copy.skillsHref} className="block text-white p-4 font-panno text-lg">
+              {copy.skillsLabel}
             </a>
-            <a href="en/#projects" className="block text-white p-4 font-panno text-lg">
-              Projects
+            <a href={copy.projectsHref} className="block text-white p-4 font-panno text-lg">
+              {copy.projectsLabel}
             </a>
-            <a href="/about-me_jp" className="block text-white p-4 font-panno text-lg">
-              Japanese
+            <a href={resolvedLanguageHref} className="block text-white p-4 font-panno text-lg">
+              {copy.languageLabel}
             </a>
           </div>
         )}
 
-        {/* Social Icons */}
         <div className="hidden md:flex gap-5">
-          {Socials.map((social) => (
+          {Socials.map(social => (
             <a
+              key={social.name}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              key={social.name}
               className="text-gray-200 hover:text-gray-50"
               aria-label={social.name}
             >
-              <Image
-                src={social.src}
-                alt={social.name}
-                width={24}
-                height={24}
-              />
+              <Image src={social.src} alt={social.name} width={24} height={24} />
             </a>
           ))}
         </div>
 
-        {/* Overlay when Menu is open */}
         {isMenuOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-30"
@@ -114,4 +149,5 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default ClientWorksNavbar;
+

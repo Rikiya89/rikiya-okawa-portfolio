@@ -3,18 +3,16 @@ import HeroContent from "../sub/HeroContent";
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col h-full w-full" id="about-me">
+    <div
+      className="relative flex flex-col h-full w-full overflow-hidden"
+      id="about-me"
+    >
       <video
         autoPlay
         muted
         loop
-        className="rotate-180 absolute top-[-340px] 
-        2xl:h-full 2xl:w-full 
-        xl:h-full xl:w-full 
-        lg:h-full lg:w-full 
-        md:h-full md:w-full 
-        sm:h-full sm:w-full 
-        left-0 z-[1] object-cover "
+        playsInline
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       >
         <source src="/blackhole.webm" type="video/webm" />
       </video>

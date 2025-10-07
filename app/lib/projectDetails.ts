@@ -61,6 +61,19 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
+  "kikkoman-official": {
+    title: "キッコーマン公式サイト",
+    role: "役割: Webエンジニア — LP制作専任",
+    intro:
+      "Kikkoman公式サイト向けにレシピ紹介やキャンペーン施策に合わせたLP制作を担当しました。親しみやすく分かりやすいデザインで、ブランドメッセージとレシピ導線を両立しています。",
+    outcomes: [
+      "季節のレシピ特集や限定キャンペーンに合わせてLPを短納期で公開",
+      "料理初心者にも伝わりやすい情報設計で、レシピの手順と材料を整理",
+      "食品ブランド特有の注意事項や栄養情報をテンプレート化し、校正工数を削減",
+      "マーケティングチームと連携し、キャンペーン期間中の更新依頼に即日対応",
+    ],
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
+  },
   "react-weather-app": {
     title: "React Weather App",
     role: "役割: フロントエンドエンジニア — 設計・実装",
