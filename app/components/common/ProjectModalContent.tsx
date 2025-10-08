@@ -24,8 +24,8 @@ export default function ProjectModalContent({
   closeText = "Back to list",
 }: Props) {
   return (
-    <article>
-      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden">
+    <article className="flex flex-col h-full">
+      <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden flex-shrink-0">
         <Image
           src={src}
           alt={title}
@@ -34,18 +34,18 @@ export default function ProjectModalContent({
           sizes="(min-width: 1024px) 900px, calc(100vw - 2rem)"
         />
       </div>
-      <h1 className="mt-6 text-3xl font-semibold text-white text-center font-panno">{title}</h1>
+      <h1 className="md:mt-6 md:text-3xl sm:mt-3 sm:text-xl font-semibold text-white text-center font-panno flex-shrink-0">{title}</h1>
       {description && (
-        <p className="mt-3 text-white/80 leading-7 text-center whitespace-pre-line">
+        <p className="md:mt-3 md:text-base md:leading-7 sm:mt-2 sm:text-sm sm:leading-5 text-white/80 text-center whitespace-pre-line flex-shrink-0">
           {description}
         </p>
       )}
 
-      <div className="mt-6 flex gap-3 justify-center">
+      <div className="md:mt-6 sm:mt-3 flex md:flex-row sm:flex-col gap-3 justify-center flex-shrink-0">
         {onVisit ? (
           <button
             onClick={onVisit}
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6"
+            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
           >
             {visitText}
           </button>
@@ -54,7 +54,7 @@ export default function ProjectModalContent({
             href={visitHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6"
+            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
           >
             {visitText}
           </a>
@@ -62,7 +62,7 @@ export default function ProjectModalContent({
 
         <button
           onClick={onClose}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6"
+          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
         >
           {closeText}
         </button>

@@ -273,7 +273,9 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         aria-labelledby={labelledBy}
         aria-describedby={describedBy}
         className={
-          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[85vh] overflow-y-auto rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#7042f861] pt-14 px-6 pb-6 shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
+          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[90vh] rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#7042f861] shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
+          "md:pt-14 md:px-6 md:pb-6 sm:pt-6 sm:px-4 sm:pb-4 " +
+          "overflow-hidden flex flex-col " +
           "will-change-transform will-change-opacity " +
           (!entered ? "opacity-0" : isClosing ? "modal-panel-out" : "modal-panel-in")
         }
@@ -295,15 +297,17 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         <button
           onClick={close}
           aria-label="Close modal"
-          className="absolute right-4 top-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-[#2A0E61]/60 border border-[#7042f861] hover:bg-[#2A0E61]/80 hover:shadow-lg hover:shadow-[#2A0E61]/50 transition-all duration-200"
+          className="absolute right-4 top-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-[#2A0E61]/60 border border-[#7042f861] hover:bg-[#2A0E61]/80 hover:shadow-lg hover:shadow-[#2A0E61]/50 transition-all duration-200 flex-shrink-0"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
             <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </button>
-        <ModalControlContext.Provider value={{ closeWith }}>
-          {children}
-        </ModalControlContext.Provider>
+        <div className="overflow-y-auto flex-1 min-h-0">
+          <ModalControlContext.Provider value={{ closeWith }}>
+            {children}
+          </ModalControlContext.Provider>
+        </div>
       </div>
     </div>
   );

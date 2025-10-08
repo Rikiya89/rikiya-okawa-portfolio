@@ -42,11 +42,11 @@ const ClientWorksHeroJp = () => {
             className="flex flex-col gap-2 font-bold font-panno
               2xl:text-6xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-4xl"
           >
-            <span className="text-white">ブランド運用を支え、</span>
+            <span className="text-white">安定したブランド運用、</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              キャンペーンLPを短期で制作し、
+              キャンペーン立ち上げ、
             </span>
-            <span className="text-white">日々の更新にも即応します。</span>
+            <span className="text-white">LP制作。</span>
           </motion.h1>
 
           <motion.p

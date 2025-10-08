@@ -35,7 +35,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${cedarville.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}>
         <StarsCanvas />
-        <Navbar languageHref="/clientworks_jp" />
+        <Navbar />
         {children}
         {/* Parallel route slot for intercepted modal */}
         {modal}

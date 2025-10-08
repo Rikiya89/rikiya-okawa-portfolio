@@ -16,9 +16,10 @@ export type ClientProjectCard = {
 type ClientProjectsListProps = {
   heading: string;
   projects: ClientProjectCard[];
+  basePath?: string;
 };
 
-const ClientProjectsList = ({ heading, projects }: ClientProjectsListProps) => {
+const ClientProjectsList = ({ heading, projects, basePath = "/clientworks" }: ClientProjectsListProps) => {
   return (
     <div className="flex flex-col items-center justify-center pb-20" id="projects">
       <motion.h1
@@ -53,6 +54,7 @@ const ClientProjectsList = ({ heading, projects }: ClientProjectsListProps) => {
             url={project.url}
             slug={project.slug}
             centerText={project.centerText ?? true}
+            basePath={basePath}
           />
         ))}
       </motion.div>

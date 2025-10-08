@@ -5,7 +5,8 @@
       "Bash(sips:*)",
       "Bash(cwebp:*)",
       "Bash(rm:*)",
-      "Read(//Users/okawa_rikiya/Downloads/**)"
+      "Read(//Users/okawa_rikiya/Downloads/**)",
+      "Read(//Users/okawa_rikiya/Desktop/**)"
     ],
     "deny": [],
     "ask": []

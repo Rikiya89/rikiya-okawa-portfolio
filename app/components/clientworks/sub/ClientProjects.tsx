@@ -13,9 +13,10 @@ export interface Props {
   url?: string;   // optional
   slug?: string;  // optional
   centerText?: boolean; // optional: center description text
+  basePath?: string; // optional: base path for routing (e.g., "/clientworks" or "/clientworks_jp")
 }
 
-export default function ClientProjects({ src, title, description, url, slug, centerText }: Props) {
+export default function ClientProjects({ src, title, description, url, slug, centerText, basePath = "/clientworks" }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
   const router = useRouter();
@@ -52,15 +53,15 @@ export default function ClientProjects({ src, title, description, url, slug, cen
     >
       {hasSlug ? (
         <Link
-          href={`/clientworks/${slug}`}
+          href={`${basePath}/${slug}`}
           prefetch={false}
           scroll={false}
           className="block"
           onClick={(e) => {
             if (e.metaKey || e.ctrlKey) return; // allow open in new tab
             e.preventDefault();
-            const base = "/clientworks?modal=off";
-            const dest = `/clientworks/${slug}?m=${Date.now()}`;
+            const base = `${basePath}?modal=off`;
+            const dest = `${basePath}/${slug}?m=${Date.now()}`;
             router.replace(base, { scroll: false });
             let fired = false;
             const go = () => {
