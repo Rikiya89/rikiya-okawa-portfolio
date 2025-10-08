@@ -11,14 +11,14 @@ export const projects: Project[] = [
   {
     slug: "timerland-official",
     title: "Timberland公式サイト",
-    description: `Timberland Japanのサイト運用を担当。\nシーズンごとのキャンペーンLPを3日以内に制作し、ニュースは当日中に更新。\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
+    description: `Timberland Japanのサイト運用を担当。\nシーズンごとのキャンペーンLPを平均3日以内で制作し、ニュースを当日中に更新。\n安定した運用を維持しながら、ブランドの世界観に沿ったデザインと実装を行いました。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,
     src: "/img/timberland.webp",
     url: "https://www.timberland.co.jp/",
   },
   {
     slug: "vans-official",
     title: "VANS公式サイト",
-    description: `VANS JapanのECサイト運用を担当。\nトレンドに合わせたキャンペーンLPを短納期で制作し、ニュースは即日更新。\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
+    description: `VANS Japanの公式サイト運用を担当。\nブランドキャンペーンやシーズンLPを制作し、\nニュースを短納期で更新。\n最新トレンドを反映したデザインを実装し、\n安定した運用体制を維持しました。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
   },
@@ -28,6 +28,13 @@ export const projects: Project[] = [
     description: `Lacoste Japanのランディングページを制作。\nブランドの洗練されたトーンを維持しながら、キャンペーンやセールコンテンツをスケジュール通りに公開。\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
     src: "/img/lacoste.webp",
     url: "https://www.lacoste.jp/",
+  },
+  {
+    slug: "mhd-official",
+    title: "MHD公式サイト",
+    description: `既存サイトのパフォーマンス最適化を担当しました。\nJavaScriptを用いてキャッシュ制御を実装し、ページ表示の安定化と高速化を実現。\nまた、リソースの最適化やブラウザ挙動の調整を行い、ユーザー体験の向上に貢献しました。\n\nJavaScript / HTML / CSS / Node.js / Gulp`,
+    src: "/img/mhd.webp",
+    url: "https://www.mhdkk.com/",
   },
   {
     slug: "meiji-official",

@@ -68,17 +68,17 @@ const Navbar = () => {
 
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href="#about-me" className="block text-white p-4 font-panno text-lg">
+          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
+            <a href="#about-me" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               About Me
             </a>
-            <a href="#skills" className="block text-white p-4 font-panno text-lg">
+            <a href="#skills" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               Skills
             </a>
-            <a href="#projects" className="block text-white p-4 font-panno text-lg">
+            <a href="#projects" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               Projects
             </a>
-            <a href="/jp" className="block text-white p-4 font-panno text-lg">
+            <a href="/jp" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               Japanese
             </a>
           </div>

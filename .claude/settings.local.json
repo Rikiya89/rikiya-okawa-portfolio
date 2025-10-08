@@ -6,7 +6,10 @@
       "Bash(cwebp:*)",
       "Bash(rm:*)",
       "Read(//Users/okawa_rikiya/Downloads/**)",
-      "Read(//Users/okawa_rikiya/Desktop/**)"
+      "Read(//Users/okawa_rikiya/Desktop/**)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []

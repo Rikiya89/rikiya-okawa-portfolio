@@ -11,14 +11,14 @@ export const projects: Project[] = [
   {
     slug: "timerland-official",
     title: "Timberland Official Website",
-    description: `Managed Timberland Japan's site operations.\nDelivered seasonal campaign LPs within three days and published news updates the same day.\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
+    description: `Responsible for Timberland Japan's website operations.\nProduced seasonal campaign LPs within 3 days on average and updated news articles on the same day.\nMaintained stable operation while implementing front-end designs aligned with the brand's identity.\n\nTechnologies\nHTML / SCSS / JavaScript / Node.js / Gulp\n\nRole\nFront-End Engineering (Maintenance & LP Production)`,
     src: "/img/timberland.webp",
     url: "https://www.timberland.co.jp/",
   },
   {
     slug: "vans-official",
     title: "VANS Official Website",
-    description: `Operated the VANS Japan e-commerce site.\nProduced trend-driven campaign LPs on tight schedules and shipped same-day news updates.\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
+    description: `Responsible for managing VANS Japan's official website.\nProduced seasonal and brand campaign LPs,\nand updated news articles within short turnaround times.\nImplemented trend-conscious front-end designs\nwhile maintaining stable and reliable site operations.\n\nTechnologies\nHTML / SCSS / JavaScript / Node.js / Gulp\n\nRole\nFront-End Engineering (Maintenance & LP Production)`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
   },
@@ -28,6 +28,13 @@ export const projects: Project[] = [
     description: `Built landing pages for Lacoste Japan.\nMaintained the polished brand aesthetic while launching campaign and sale content on schedule.\nHTML / SCSS / JavaScript / Node.js / Gulp.`,
     src: "/img/lacoste.webp",
     url: "https://www.lacoste.jp/",
+  },
+  {
+    slug: "mhd-official",
+    title: "MHD Official Website",
+    description: `Responsible for performance optimization of the existing website.\nImplemented JavaScript-based cache control to improve page stability and loading speed.\nAlso optimized resources and fine-tuned browser behavior to enhance overall user experience.\n\nJavaScript / HTML / CSS / Node.js / Gulp`,
+    src: "/img/mhd.webp",
+    url: "https://www.mhdkk.com/",
   },
   {
     slug: "meiji-official",

@@ -31,7 +31,7 @@ const ClientWorksHeroJp = () => {
           >
             <SparklesIcon className="text-[#ba9cff] mr-[10px] h-5 w-5" />
             <p className="Welcome-text text-[15px] font-panno text-gray-100">
-              クライアントワーク実績
+              Client Work Case Studies
             </p>
           </motion.div>
 
@@ -42,11 +42,11 @@ const ClientWorksHeroJp = () => {
             className="flex flex-col gap-2 font-bold font-panno
               2xl:text-6xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-4xl"
           >
-            <span className="text-white">安定したブランド運用、</span>
+            <span className="text-white">Reliable brand operations,</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              キャンペーン立ち上げ、
+              campaign launches,
             </span>
-            <span className="text-white">LP制作。</span>
+            <span className="text-white">and LP production.</span>
           </motion.h1>
 
           <motion.p

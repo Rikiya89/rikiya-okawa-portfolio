@@ -11,7 +11,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/timberland.webp",
     title: "Timberland Official Website",
     description:
-      "Managed Timberland Japan’s site operations.\nProduced seasonal campaign LPs and delivered same-day news updates.",
+      "Handled Timberland Japan's website operations.\nBuilt seasonal campaign LPs on tight deadlines\nand delivered same-day news updates.",
     url: "https://www.timberland.co.jp/",
     slug: "timerland-official",
   },
@@ -19,7 +19,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/vans.webp",
     title: "VANS Official Website",
     description:
-      "Handled VANS Japan’s CMS operations.\nBuilt trend-focused LPs and shipped news updates on tight deadlines.",
+      "Handled VANS Japan's official website operations.\nCreated trend-focused LPs and updated news\nwithin tight deadlines.",
     url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
     slug: "vans-official",
   },
@@ -35,15 +35,23 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/lacoste.webp",
     title: "Lacoste Official Website",
     description:
-      "Produced polished LPs that reflect Lacoste’s refined aesthetic.\nHandled seasonal campaigns and sale announcements.",
+      "Produced polished LPs that reflect Lacoste's refined aesthetic.\nHandled seasonal campaigns and sale announcements.",
     url: "https://www.lacoste.jp/",
     slug: "lacoste-official",
+  },
+  {
+    src: "/img/mhd.webp",
+    title: "MHD Official Website",
+    description:
+      "Handled JavaScript-based cache control and performance optimization.\nEnhanced stability and response speed for the existing website.",
+    url: "https://www.mhdkk.com/",
+    slug: "mhd-official",
   },
   {
     src: "/img/meiji.webp",
     title: "Meiji Official Website",
     description:
-      "Delivered LPs for Meiji’s new products and campaigns.\nFocused on warm, trustworthy storytelling for families.",
+      "Delivered LPs for Meiji's new products and campaigns.\nFocused on warm, trustworthy storytelling for families.",
     url: "https://www.meiji.co.jp/",
     slug: "meiji-official",
   },

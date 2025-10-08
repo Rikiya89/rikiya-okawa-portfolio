@@ -37,13 +37,7 @@ const ClientProjectsList = ({ heading, projects, basePath = "/clientworks" }: Cl
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="
-        2xl:max-w-7xl 2xl:gap-10 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:grid
-        xl:max-w-7xl xl:grid-cols-3 xl:gap-10 xl:px-10 xl:justify-items-center xl:justify-center xl:grid
-        lg:max-w-7xl lg:grid-cols-2 lg:gap-10 lg:px-10 lg:justify-items-center lg:justify-center lg:grid
-        md:max-w-2xl md:grid-cols-2 md:gap-10 md:px-10 md:justify-items-center md:justify-center md:grid
-        sm:max-w-4xl sm:gap-10 sm:flex-col sm:flex
-      "
+        className="w-full max-w-7xl px-4 sm:px-6 md:px-10 grid gap-10 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 place-items-center"
       >
         {projects.map(project => (
           <ClientProjects

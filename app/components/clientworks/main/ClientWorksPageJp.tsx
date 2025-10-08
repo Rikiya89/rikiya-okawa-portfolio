@@ -11,7 +11,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/timberland.webp",
     title: "Timberland公式サイト",
     description:
-      "Timberland Japanのサイト運用を担当。\nシーズンキャンペーンのLPを制作し、ニュースを即日更新。",
+      "Timberland Japanの公式サイト運用を担当。\nシーズンキャンペーンLPを短納期で制作し、\nニュースを即日更新。",
     url: "https://www.timberland.co.jp/",
     slug: "timerland-official",
   },
@@ -19,7 +19,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/vans.webp",
     title: "VANS公式サイト",
     description:
-      "VANS JapanのCMS運用を担当。\nトレンド重視のLPを制作し、ニュースを短納期で更新。",
+      "VANS Japanの公式サイト運用を担当。\nトレンド重視のLPを制作し、\nニュースを短納期で更新。",
     url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
     slug: "vans-official",
   },
@@ -27,7 +27,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/dickies.webp",
     title: "Dickies公式サイト",
     description:
-      "Dickies Japanの継続的な保守をサポート。\n新商品発売のための実用的でレスポンシブなLPを制作。",
+      "Dickies Japanの継続的な保守をサポート。\n新商品発売のための実用的で\nレスポンシブなLPを制作。",
     url: "https://www.dickies.jp/",
     slug: "dickies-official",
   },
@@ -35,15 +35,23 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/lacoste.webp",
     title: "Lacoste公式サイト",
     description:
-      "Lacosteの洗練された美学を反映した洗練されたLPを制作。\nシーズンキャンペーンやセール告知を担当。",
+      "Lacosteの洗練された美学を反映した\n洗練されたLPを制作。\nシーズンキャンペーンやセール告知を担当。",
     url: "https://www.lacoste.jp/",
     slug: "lacoste-official",
+  },
+  {
+    src: "/img/mhd.webp",
+    title: "MHD公式サイト",
+    description:
+      "JavaScriptによるキャッシュ制御とパフォーマンス最適化を担当。\n安定した表示と高速レスポンスを実現し、\n既存サイトの品質向上に貢献。",
+    url: "https://www.mhdkk.com/",
+    slug: "mhd-official",
   },
   {
     src: "/img/meiji.webp",
     title: "明治公式サイト",
     description:
-      "明治の新商品やキャンペーン向けにLPを制作。\nファミリー向けの温かく信頼感のあるストーリーテリングを重視。",
+      "明治の新商品やキャンペーン向けにLPを制作。\nファミリー向けの温かく信頼感のある\nストーリーテリングを重視。",
     url: "https://www.meiji.co.jp/",
     slug: "meiji-official",
   },
@@ -51,7 +59,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/kikkoman.webp",
     title: "キッコーマン公式サイト",
     description:
-      "キッコーマンのレシピやキャンペーンLPを制作。\n親しみやすいビジュアルと分かりやすいステップバイステップの情報を両立。",
+      "キッコーマンのレシピやキャンペーンLP\nを制作。親しみやすいビジュアルと分かりやすいステップバイステップの情報を両立。",
     url: "https://www.kikkoman.co.jp/",
     slug: "kikkoman-official",
   },
@@ -85,7 +93,7 @@ const ClientWorksPageJp = ({
   HeroComponent = ClientWorksHeroJp,
   SkillTextComponent,
   projects = JP_CLIENT_PROJECTS,
-  projectsHeading = "クライアントプロジェクト",
+  projectsHeading = "My Client Projects",
   basePath = "/clientworks_jp",
 }: ClientWorksPageProps) => {
   const Hero = HeroComponent;

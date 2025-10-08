@@ -107,17 +107,17 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#03001417] backdrop-blur-md z-40">
-            <a href={copy.aboutHref} className="block text-white p-4 font-panno text-lg">
+          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
+            <a href={copy.aboutHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               {copy.aboutLabel}
             </a>
-            <a href={copy.skillsHref} className="block text-white p-4 font-panno text-lg">
+            <a href={copy.skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               {copy.skillsLabel}
             </a>
-            <a href={copy.projectsHref} className="block text-white p-4 font-panno text-lg">
+            <a href={copy.projectsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               {copy.projectsLabel}
             </a>
-            <a href={resolvedLanguageHref} className="block text-white p-4 font-panno text-lg">
+            <a href={resolvedLanguageHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               {copy.languageLabel}
             </a>
           </div>

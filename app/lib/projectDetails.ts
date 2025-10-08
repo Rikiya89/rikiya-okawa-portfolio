@@ -11,27 +11,27 @@ export type ProjectDetails = {
 const detailsMap: Record<string, ProjectDetails> = {
   "timerland-official": {
     title: "Timberland Official Website",
-    role: "Role: Web Engineer — Operations, Maintenance & LP Production",
+    role: "Role: Web Engineer — Maintenance, Operations, LP Production",
     intro:
-      "Handled operations and maintenance for the Timberland Japan official website. Produced seasonal campaign landing pages on tight deadlines and updated news same-day to ensure stable operations.",
+      "Managed Timberland Japan's official website, focusing on stable operation and efficient updates. Produced seasonal campaign LPs within an average of three days and published news updates on the same day. Delivered fast, reliable content while maintaining the brand's visual consistency and responsive design across devices.",
     outcomes: [
-      "Produced seasonal LPs within an average of 3 days",
-      "Updated news same-day for rapid information dissemination",
-      "Maintained stable operations to preserve brand credibility",
-      "Provided optimal display across multiple devices",
+      "Produced seasonal LPs within 3 days on average",
+      "Published news updates on the same day of release",
+      "Ensured stable operations and consistent brand presentation",
+      "Implemented responsive design optimized for all devices",
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
   "vans-official": {
     title: "VANS Official Website",
-    role: "Role: Web Engineer — Operations, LP Production & News Updates",
+    role: "Role: Web Engineer — Maintenance, Operations, LP Production",
     intro:
-      "Managed operations and improvements for the VANS Japan official e-commerce site. Focused on trend-driven campaigns around skate culture and music festivals, prioritizing speedy execution and timely reflection of the latest information.",
+      "Managed the official website for VANS Japan, ensuring stability and timely content delivery. Developed trend-driven campaign LPs within short deadlines and executed news updates promptly. Maintained a balance between visual quality and operational efficiency, reinforcing the brand's consistency and trustworthiness online.",
     outcomes: [
-      "Produced 3-4 LPs per month on tight deadlines to support new product and event announcements",
-      "Updated 2-3 news articles per week same-day to support brand trend communication",
-      "Refactored SCSS to enhance design flexibility while improving maintainability",
-      "Collaborated with designers to accurately reproduce street-style visuals",
+      "Built seasonal and campaign LPs under tight schedules",
+      "Published news updates quickly for timely communication",
+      "Delivered stylish, trend-conscious front-end experiences",
+      "Ensured stable operations and ongoing site improvements",
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
@@ -47,6 +47,19 @@ const detailsMap: Record<string, ProjectDetails> = {
       "Collaborated with marketing/EC teams to complete price and banner updates same-day",
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
+  },
+  "mhd-official": {
+    title: "MHD Official Website",
+    role: "Role: Front-End Engineering (Performance Optimization & Maintenance)",
+    intro:
+      "Responsible for performance optimization of the existing website. Implemented JavaScript-based cache control to improve page stability and loading speed. Also optimized resources and fine-tuned browser behavior to enhance overall user experience.",
+    outcomes: [
+      "Implemented JavaScript-based cache control for improved page stability",
+      "Optimized resources and browser behavior to enhance loading speed",
+      "Improved overall user experience through performance tuning",
+      "Maintained stable website operations with optimized performance",
+    ],
+    techStack: ["JavaScript", "HTML", "CSS", "Node.js", "Gulp"],
   },
   "meiji-official": {
     title: "Meiji Official Website",
