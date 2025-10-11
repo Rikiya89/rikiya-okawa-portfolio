@@ -28,21 +28,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: abs("/guardians_jp"), lastModified: now },
   ];
 
-  // EN/JP site projects with hreflang alternates
+  // EN/JP site projects
   const siteProjectPages: MetadataRoute.Sitemap = en.flatMap((p) => {
     const enUrl = abs(`/en/project/${p.slug}`);
     const jpUrl = jpSet.has(p.slug) ? abs(`/jp/project/${p.slug}`) : undefined;
     const baseEntry = {
       url: enUrl,
       lastModified: now,
-      alternates: jpUrl ? { languages: { en: enUrl, ja: jpUrl } } : undefined,
-    } as MetadataRoute.Sitemap[number];
+    };
     const entries: MetadataRoute.Sitemap = [baseEntry];
     if (jpUrl) {
       entries.push({
         url: jpUrl,
         lastModified: now,
-        alternates: { languages: { en: enUrl, ja: jpUrl } },
       });
     }
     return entries;

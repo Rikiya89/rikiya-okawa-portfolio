@@ -16,10 +16,7 @@ export const metadata: Metadata = {
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   title: "Rikiya Okawa Portfolio",
   description: "ウェブ開発で1年以上経験を積んでいて、今はReact.JS、Next.JS、TypeScript、GLSLのスキルをどんどん伸ばしているところです。UnityやTouchDesignerを使ってデジタルコンテンツ制作にも携わっていて、openFrameworksやp5.jsも得意です。ジェネラティブアートや神聖幾何学、音楽とアートとテクノロジーの融合みたいなものにすごく興味があって、 クリエイティブテクノロジストを目指して日々研鑽しています。",
-  keywords: ["大川力也", "大川 力也", "おおかわ りきや", "オオカワ リキヤ", "おおかわりきや", "オオカワリキヤ", "Rikiya Okawa", "Ricky Okawa", "Ricky O'kawa"],
-  links: [
-    { rel: 'stylesheet', href: 'https://use.typekit.net/aid6kcc.css' }
-  ]
+  keywords: ["大川力也", "大川 力也", "おおかわ りきや", "オオカワ リキヤ", "おおかわりきや", "オオカワリキヤ", "Rikiya Okawa", "Ricky Okawa", "Ricky O'kawa"]
 };
 
 export default function RootLayout({
@@ -31,6 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/aid6kcc.css" />
+      </head>
       <body
         className={`${inter.className} ${cedarville.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
