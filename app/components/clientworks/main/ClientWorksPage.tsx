@@ -11,7 +11,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/timberland.webp",
     title: "Timberland Official Website",
     description:
-      "Handled Timberland Japan's website operations.\nBuilt seasonal campaign LPs on tight deadlines\nand delivered same-day news updates.",
+      "Operations and maintenance for Timberland Japan.\nCreated seasonal landing pages and handled same-day news updates.",
     url: "https://www.timberland.co.jp/",
     slug: "timerland-official",
   },
@@ -19,7 +19,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/vans.webp",
     title: "VANS Official Website",
     description:
-      "Handled VANS Japan's official website operations.\nCreated trend-focused LPs and updated news\nwithin tight deadlines.",
+      "Operations and maintenance for VANS Japan.\nTrend-focused LPs and quick news updates.",
     url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
     slug: "vans-official",
   },
