@@ -1,3 +1,24 @@
+# Today’s Tasks — 2025-10-23
+
+## Implemented
+- Polished EN/JP clientworks card blurbs to concise two-line intros that match the modal openings (`app/components/clientworks/main/ClientWorksPage.tsx`, `.../ClientWorksPageJp.tsx`).
+- Synced modal copy for EN/JP client works, including consistent `Technologies` and `Role` sections with the updated intros (`app/lib/projects.ts`, `app/lib/projects_jp.ts`).
+- Tweaked JP portfolio project cards to keep centered text while using flex layout for balanced spacing (`app/components/jp/sub/ProjectCard.tsx`).
+
+## Key Files
+- `app/components/clientworks/main/ClientWorksPage.tsx`
+- `app/components/clientworks/main/ClientWorksPageJp.tsx`
+- `app/lib/projects.ts`
+- `app/lib/projects_jp.ts`
+- `app/components/jp/sub/ProjectCard.tsx`
+
+## How To Verify
+1. `npm run dev`, open `/clientworks`, `/clientworks_en`, `/clientworks_jp` and confirm card snippets stay within three lines and mirror modal intros.
+2. Open any client modal and check that the first paragraph matches the card plus the `Technologies` and `Role` blocks render for every project.
+3. Visit `/jp` and confirm the project cards keep centered headings, even spacing, and respect manual line breaks.
+
+---
+
 # Today’s Tasks — Codex Summary
 
 ## Implemented

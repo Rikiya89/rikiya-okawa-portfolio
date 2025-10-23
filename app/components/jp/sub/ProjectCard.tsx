@@ -24,7 +24,7 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80"
+      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 flex flex-col"
       aria-label={title}
     >
       <Link
@@ -33,7 +33,7 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
         scroll={false}
         target={slug ? undefined : "_blank"}
         rel={slug ? undefined : "noopener noreferrer"}
-        className="block"
+        className="flex flex-col h-full"
         onClick={(e) => {
           if (!slug) return; // external link
           if (e.metaKey || e.ctrlKey) return; // open new tab
@@ -51,7 +51,7 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
           setTimeout(go, 60);
         }}
       >
-        <div className="relative aspect-[16/9] w-full">
+        <div className="relative aspect-[16/9] w-full flex-shrink-0">
           <div className="absolute inset-0 bg-black/15" />
           <Image
             src={src}
@@ -62,9 +62,9 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
             sizes="(min-width: 1536px) 384px, (min-width: 1024px) 384px, (min-width: 640px) 45vw, 90vw"
           />
         </div>
-        <div className="relative p-4">
-          <h1 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h1>
-          <p className="mt-2 text-gray-300 text-center">{description}</p>
+        <div className="relative p-4 flex flex-col flex-1 items-center text-center">
+          <h1 className="text-[21px] font-semibold text-white font-panno flex-shrink-0">{title}</h1>
+          <p className="text-gray-300 whitespace-pre-line mt-4">{description}</p>
         </div>
       </Link>
     </motion.article>

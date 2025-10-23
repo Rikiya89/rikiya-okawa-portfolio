@@ -11,7 +11,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/timberland.webp",
     title: "Timberland Official Website",
     description:
-      "Operations and maintenance for Timberland Japan.\nCreated seasonal landing pages and handled same-day news updates.",
+      "Operational partner for Timberland Japan.\nDelivered campaign LPs in about three days and same-day news updates.",
     url: "https://www.timberland.co.jp/",
     slug: "timerland-official",
   },
@@ -19,7 +19,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/vans.webp",
     title: "VANS Official Website",
     description:
-      "Operations and maintenance for VANS Japan.\nTrend-focused LPs and quick news updates.",
+      "Maintained VANS Japan's site.\nShipped trend-driven LPs with rapid news updates.",
     url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
     slug: "vans-official",
   },
@@ -27,7 +27,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/dickies.webp",
     title: "Dickies Official Website",
     description:
-      "Supported Dickies Japan with ongoing maintenance.\nCreated practical, responsive LPs for new product launches.",
+      "Supported Dickies Japan operations.\nProduced responsive LPs for product drops and campaigns.",
     url: "https://www.dickies.jp/",
     slug: "dickies-official",
   },
@@ -35,7 +35,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/lacoste.webp",
     title: "Lacoste Official Website",
     description:
-      "Produced polished LPs that reflect Lacoste's refined aesthetic.\nHandled seasonal campaigns and sale announcements.",
+      "Crafted Lacoste LPs that mirror the brand's refined identity.\nReleased campaign and sale content on schedule.",
     url: "https://www.lacoste.jp/",
     slug: "lacoste-official",
   },
@@ -43,7 +43,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/mhd.webp",
     title: "MHD Official Website",
     description:
-      "Handled JavaScript-based cache control and performance optimization.\nEnhanced stability and response speed for the existing website.",
+      "Optimized caching and JavaScript performance for MHD.\nStabilized the existing site and improved load speed.",
     url: "https://www.mhdkk.com/",
     slug: "mhd-official",
   },
@@ -51,7 +51,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/meiji.webp",
     title: "Meiji Official Website",
     description:
-      "Delivered LPs for Meiji's new products and campaigns.\nFocused on warm, trustworthy storytelling for families.",
+      "Built campaign LPs for Meiji launches.\nFramed each release with warm, trustworthy storytelling.",
     url: "https://www.meiji.co.jp/",
     slug: "meiji-official",
   },
@@ -59,25 +59,9 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/kikkoman.webp",
     title: "Kikkoman Official Website",
     description:
-      "Built Kikkoman recipe and campaign LPs.\nBalanced friendly visuals with clear step-by-step information.",
+      "Created Kikkoman recipe and campaign LPs.\nBalanced friendly visuals with clear step-by-step flow.",
     url: "https://www.kikkoman.co.jp/",
     slug: "kikkoman-official",
-  },
-  {
-    src: "/img/of.webp",
-    title: "The Art of Dynamic Mesh",
-    description:
-      "openFrameworks exploration combining image processing and mesh dynamics.\nVisual study of light and movement.",
-    url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    slug: "the-art-of-dynamic-mesh",
-  },
-  {
-    src: "/img/heart.webp",
-    title: "Pulse of Reflection",
-    description:
-      "TouchDesigner installation animating a reflective heart.\nAn exponential LFO infuses a lifelike rhythm.",
-    url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    slug: "pulse-of-reflection",
   },
 ];
 
