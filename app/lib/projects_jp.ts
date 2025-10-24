@@ -39,7 +39,7 @@ export const projects: Project[] = [
   {
     slug: "meiji-official",
     title: "明治公式サイト",
-    description: `明治公式サイトのキャンペーンLPを制作。\n商品展開に合わせて公開し、親しみやすく信頼感のあるブランドトーンを強調。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,
+    description: `明治公式サイトのキャンペーンLPを制作。\n商品展開に合わせて公開し、親しみやすく信頼感のあるブランドトーンを強調。\n家族に寄り添う安心感を保つ更新設計を継続。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,
     src: "/img/meiji.webp",
     url: "https://www.meiji.co.jp/",
   },

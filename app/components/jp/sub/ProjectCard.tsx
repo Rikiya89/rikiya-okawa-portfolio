@@ -24,7 +24,7 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 flex flex-col"
+      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 flex flex-col"
       aria-label={title}
     >
       <Link

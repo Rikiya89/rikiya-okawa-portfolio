@@ -1,3 +1,26 @@
+# Today’s Tasks — 2025-10-24
+
+## Implemented
+- Balanced JP project card heights by letting the grid stretch items and ensuring each card fills its cell (`app/components/jp/main/Projects.tsx`, `app/components/jp/sub/ProjectCard.tsx`).
+- Synced client-works cards with the same flex layout so localized lists share consistent dimensions (`app/components/clientworks/sub/ClientProjects.tsx`).
+- Extended the JP Meiji client entry with an extra sentence to match card height and clarified the shared data copy (`app/components/clientworks/main/ClientWorksPageJp.tsx`, `app/lib/projects_jp.ts`).
+- Added breathing room to the client-works description view with larger top/bottom padding (`app/clientworks/[slug]/description/page.tsx`).
+
+## Key Files
+- `app/components/jp/main/Projects.tsx`
+- `app/components/jp/sub/ProjectCard.tsx`
+- `app/components/clientworks/sub/ClientProjects.tsx`
+- `app/components/clientworks/main/ClientWorksPageJp.tsx`
+- `app/lib/projects_jp.ts`
+- `app/clientworks/[slug]/description/page.tsx`
+
+## How To Verify
+1. `npm run dev`, visit `/jp` and confirm the project cards align evenly in each row.
+2. Open `/clientworks_jp` and check that localized client cards, including Meiji, share the same height and updated copy.
+3. Navigate to a description page (e.g., `/clientworks/meiji-official/description`) and confirm the hero image/text sit lower with the added top padding.
+
+---
+
 # Today’s Tasks — 2025-10-23
 
 ## Implemented
