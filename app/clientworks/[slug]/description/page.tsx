@@ -50,7 +50,7 @@ export default async function DescriptionPage({ params }: Params) {
   const visitHref = p.slug === "vans-official" ? "https://www.vans.co.jp/" : p.url;
 
   return (
-    <main className="container mx-auto px-5 py-12 text-white">
+    <main className="container mx-auto px-5 pt-20 pb-16 sm:pt-24 sm:pb-20 text-white">
       <PageTransition>
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-8">
         <Image

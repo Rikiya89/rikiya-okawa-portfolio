@@ -34,7 +34,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
           style={{ opacity: 0.72 }}
         />
       </div>
-      <div className="relative p-4">
+      <div className="relative p-4 flex flex-col flex-1">
         <h3 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h3>
         <p className={`mt-2 text-gray-300 line-clamp-3 whitespace-pre-line ${centerText ? "text-center" : ""}`}>{description}</p>
       </div>
@@ -48,7 +48,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 will-change-transform"
+      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 will-change-transform"
       aria-label={title}
     >
       {hasSlug ? (
@@ -56,7 +56,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
           href={`${basePath}/${slug}`}
           prefetch={false}
           scroll={false}
-          className="block"
+          className="flex flex-col h-full"
           onClick={(e) => {
             if (e.metaKey || e.ctrlKey) return; // allow open in new tab
             e.preventDefault();
@@ -77,11 +77,11 @@ export default function ClientProjects({ src, title, description, url, slug, cen
           {CardInner}
         </Link>
       ) : hasUrl ? (
-        <Link href={url!} target="_blank" rel="noopener noreferrer" className="block">
+        <Link href={url!} target="_blank" rel="noopener noreferrer" className="flex flex-col h-full">
           {CardInner}
         </Link>
       ) : (
-        <div className="block">{CardInner}</div>
+        <div className="flex flex-col h-full">{CardInner}</div>
       )}
     </motion.article>
   );

@@ -11,7 +11,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/timberland.webp",
     title: "Timberland公式サイト",
     description:
-      "Timberland Japanの公式サイト運用を担当。\nシーズンキャンペーンLPを短納期で制作し、\nニュースを即日更新。",
+      "Timberland Japanのサイト運用を担当。\n約3日でキャンペーンLPを制作し、ニュースを\n即日更新。",
     url: "https://www.timberland.co.jp/",
     slug: "timerland-official",
   },
@@ -19,7 +19,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/vans.webp",
     title: "VANS公式サイト",
     description:
-      "VANS Japanの公式サイト運用を担当。\nトレンド重視のLPを制作し、\nニュースを短納期で更新。",
+      "VANS Japanのサイトを継続運用。\nトレンドを捉えたLPと迅速なニュース更新を\n実現。",
     url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
     slug: "vans-official",
   },
@@ -27,7 +27,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/dickies.webp",
     title: "Dickies公式サイト",
     description:
-      "Dickies Japanの継続的な保守をサポート。\n新商品発売のための実用的で\nレスポンシブなLPを制作。",
+      "Dickies Japanの運用を支援。\n新商品のLPをレスポンシブに制作し、\n運用体制を整備。",
     url: "https://www.dickies.jp/",
     slug: "dickies-official",
   },
@@ -35,7 +35,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/lacoste.webp",
     title: "Lacoste公式サイト",
     description:
-      "Lacosteの洗練された美学を反映した\n洗練されたLPを制作。\nシーズンキャンペーンやセール告知を担当。",
+      "Lacosteの洗練された世界観を\n保ちつつLPを制作。\nキャンペーンとセールを計画通りに公開。",
     url: "https://www.lacoste.jp/",
     slug: "lacoste-official",
   },
@@ -43,7 +43,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/mhd.webp",
     title: "MHD公式サイト",
     description:
-      "JavaScriptによるキャッシュ制御とパフォーマンス最適化を担当。\n安定した表示と高速レスポンスを実現し、\n既存サイトの品質向上に貢献。",
+      "JavaScriptによるキャッシュ制御で\nMHDサイトを最適化。\n安定した表示と高速レスポンスを実現。",
     url: "https://www.mhdkk.com/",
     slug: "mhd-official",
   },
@@ -51,7 +51,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/meiji.webp",
     title: "明治公式サイト",
     description:
-      "明治の新商品やキャンペーン向けにLPを制作。\nファミリー向けの温かく信頼感のある\nストーリーテリングを重視。",
+      "明治公式サイトのキャンペーンLPを制作。\n家族に寄り添う温かな語り口を徹底。\nブランドの信頼感を支える更新設計を継続。",
     url: "https://www.meiji.co.jp/",
     slug: "meiji-official",
   },
@@ -59,25 +59,9 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/kikkoman.webp",
     title: "キッコーマン公式サイト",
     description:
-      "キッコーマンのレシピやキャンペーンLP\nを制作。親しみやすいビジュアルと分かりやすいステップバイステップの情報を両立。",
+      "キッコーマンの\nレシピ / キャンペーンLPを制作。\n親しみやすいビジュアルと分かりやすい導線を両立。",
     url: "https://www.kikkoman.co.jp/",
     slug: "kikkoman-official",
-  },
-  {
-    src: "/img/of.webp",
-    title: "The Art of Dynamic Mesh",
-    description:
-      "openFrameworksを使った探究。画像処理とメッシュダイナミクスを組み合わせて、光と動きを視覚的に研究。",
-    url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    slug: "the-art-of-dynamic-mesh",
-  },
-  {
-    src: "/img/heart.webp",
-    title: "Pulse of Reflection",
-    description:
-      "TouchDesignerインスタレーション。反射する心臓をアニメーション化し、指数関数的なLFOで生命感のあるリズムを注入。",
-    url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    slug: "pulse-of-reflection",
   },
 ];
 

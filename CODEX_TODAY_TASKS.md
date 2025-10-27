@@ -1,3 +1,47 @@
+# Today’s Tasks — 2025-10-24
+
+## Implemented
+- Balanced JP project card heights by letting the grid stretch items and ensuring each card fills its cell (`app/components/jp/main/Projects.tsx`, `app/components/jp/sub/ProjectCard.tsx`).
+- Synced client-works cards with the same flex layout so localized lists share consistent dimensions (`app/components/clientworks/sub/ClientProjects.tsx`).
+- Extended the JP Meiji client entry with an extra sentence to match card height and clarified the shared data copy (`app/components/clientworks/main/ClientWorksPageJp.tsx`, `app/lib/projects_jp.ts`).
+- Added breathing room to the client-works description view with larger top/bottom padding (`app/clientworks/[slug]/description/page.tsx`).
+
+## Key Files
+- `app/components/jp/main/Projects.tsx`
+- `app/components/jp/sub/ProjectCard.tsx`
+- `app/components/clientworks/sub/ClientProjects.tsx`
+- `app/components/clientworks/main/ClientWorksPageJp.tsx`
+- `app/lib/projects_jp.ts`
+- `app/clientworks/[slug]/description/page.tsx`
+
+## How To Verify
+1. `npm run dev`, visit `/jp` and confirm the project cards align evenly in each row.
+2. Open `/clientworks_jp` and check that localized client cards, including Meiji, share the same height and updated copy.
+3. Navigate to a description page (e.g., `/clientworks/meiji-official/description`) and confirm the hero image/text sit lower with the added top padding.
+
+---
+
+# Today’s Tasks — 2025-10-23
+
+## Implemented
+- Polished EN/JP clientworks card blurbs to concise two-line intros that match the modal openings (`app/components/clientworks/main/ClientWorksPage.tsx`, `.../ClientWorksPageJp.tsx`).
+- Synced modal copy for EN/JP client works, including consistent `Technologies` and `Role` sections with the updated intros (`app/lib/projects.ts`, `app/lib/projects_jp.ts`).
+- Tweaked JP portfolio project cards to keep centered text while using flex layout for balanced spacing (`app/components/jp/sub/ProjectCard.tsx`).
+
+## Key Files
+- `app/components/clientworks/main/ClientWorksPage.tsx`
+- `app/components/clientworks/main/ClientWorksPageJp.tsx`
+- `app/lib/projects.ts`
+- `app/lib/projects_jp.ts`
+- `app/components/jp/sub/ProjectCard.tsx`
+
+## How To Verify
+1. `npm run dev`, open `/clientworks`, `/clientworks_en`, `/clientworks_jp` and confirm card snippets stay within three lines and mirror modal intros.
+2. Open any client modal and check that the first paragraph matches the card plus the `Technologies` and `Role` blocks render for every project.
+3. Visit `/jp` and confirm the project cards keep centered headings, even spacing, and respect manual line breaks.
+
+---
+
 # Today’s Tasks — Codex Summary
 
 ## Implemented
