@@ -36,7 +36,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "guardians-of-the-moon",
     title: "GUARDIANS OF THE MOON",
     description:
-      "卒業制作で Unity と TouchDesigner を用い、VR シューティングとブリーフィング映像を開発。\n月面基地を防衛するバトル体験で、AR/VR 施設の滞在時間を拡張。\nVR は約1カ月、映像インスタレーションは約1週間で仕上げました。",
+      "Unity × TouchDesigner の卒業制作。\n月面基地防衛 VR を約1カ月で構築し、没入演出で AR/VR 施設の滞在時間を拡張。",
     src: "/img/guardians.webp",
     url: "/guardians_jp",
   },
