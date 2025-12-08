@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cedarville_Cursive } from "next/font/google";
 import "../globals.css";
-import dynamic from "next/dynamic";
-const StarsCanvas = dynamic(() => import("@/components/aboutme/main/StarBackground"), { ssr: false });
+import StarsCanvas from "@/components/common/StarsCanvasWrapper";
 import Navbar from "@/components/clientworks/main/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
   description:
     "Web開発者 大川力也のクライアントワーク実績。グローバル・国内ブランドのシーズンキャンペーン、LP制作、日々のサイト運用を担当。",
   keywords: [
-    "大川力也","大川 力也","おおかわ りきや","オオカワ リキヤ",
-    "おおかわりきや","オオカワリキヤ","Rikiya Okawa","クライアントワーク","LP制作","Web開発"
+    "大川力也", "大川 力也", "おおかわ りきや", "オオカワ リキヤ",
+    "おおかわりきや", "オオカワリキヤ", "Rikiya Okawa", "クライアントワーク", "LP制作", "Web開発"
   ],
 };
 
@@ -33,7 +32,10 @@ export default function RootLayout({
         {/* Typekit */}
         <link rel="stylesheet" href="https://use.typekit.net/aid6kcc.css" />
       </head>
-      <body className={`${inter.className} ${cedarville.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}>
+      <body
+        className={`${inter.className} ${cedarville.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
+        suppressHydrationWarning
+      >
         <StarsCanvas />
         <Navbar locale="jp" />
         {children}
