@@ -7,12 +7,13 @@ import { PageTransition, TransitionLink } from "@/components/common/PageTransiti
 import DescriptionActions from "@/components/clientworks/DescriptionActions";
 import { notFound } from "next/navigation";
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
   try {
-    const base = await getProject(params.slug);
-    const details = await getProjectDetails(params.slug);
+    const base = await getProject(slug);
+    const details = await getProjectDetails(slug);
     const title = details?.title ?? base.title;
     const desc = base.description;
     return {
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       openGraph: {
         title: `${title} | Project Description`,
         description: desc,
-        url: `/clientworks/${params.slug}/description`,
+        url: `/clientworks/${slug}/description`,
         siteName: "Rikiya Okawa Portfolio",
         images: [{ url: base.src }],
         type: "article",
@@ -40,13 +41,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function DescriptionPage({ params }: Params) {
+  const { slug } = await params;
   let p;
   try {
-    p = await getProject(params.slug);
+    p = await getProject(slug);
   } catch {
     notFound();
   }
-  const details = await getProjectDetails(params.slug);
+  const details = await getProjectDetails(slug);
   const visitHref = p.slug === "vans-official" ? "https://www.vans.co.jp/" : p.url;
 
   return (
@@ -104,7 +106,7 @@ export default async function DescriptionPage({ params }: Params) {
         </section>
       )}
 
-      <DescriptionActions slug={params.slug} visitHref={visitHref ?? undefined} />
+      <DescriptionActions slug={slug} visitHref={visitHref ?? undefined} />
       </PageTransition>
     </main>
   );

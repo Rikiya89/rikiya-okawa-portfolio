@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cedarville_Cursive } from "next/font/google";
 import "../globals.css";
-import dynamic from "next/dynamic";
-const StarsCanvas = dynamic(() => import("@/components/jp/main/StarBackground"), { ssr: false });
+import StarsCanvas from "@/components/common/StarsCanvasWrapper";
 import Navbar from "@/components/en/main/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -34,6 +33,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.className} ${cedarville.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
+        suppressHydrationWarning
       >
         <StarsCanvas />
         <Navbar />
