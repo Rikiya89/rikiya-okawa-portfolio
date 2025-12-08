@@ -5,8 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Sparkles } from "@react-three/drei";
 import { AdditiveBlending } from 'three';
 import { Mesh } from 'three';
-// @ts-ignore
-import * as random from "maath/random/dist/maath-random.esm";
+import * as random from "maath/random";
 
 const StarBackground = (props: any) => {
   const refBack = useRef<Mesh>(null);
@@ -19,12 +18,12 @@ const StarBackground = (props: any) => {
     return data;
   });
   const [mid] = useState(() => {
-    const data = new Float32Array(2000);
+    const data = new Float32Array(2001);
     random.inSphere(data, { radius: 1.15 });
     return data;
   });
   const [fore] = useState(() => {
-    const data = new Float32Array(700);
+    const data = new Float32Array(702);
     random.inSphere(data, { radius: 1.05 });
     return data;
   });

@@ -3,14 +3,15 @@ import ProjectDetailJp from "./ProjectDetailJp";
 import { getProject } from "@/lib/projects_jp";
 import { notFound } from "next/navigation";
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
   try {
-    const p = await getProject(params.slug);
+    const p = await getProject(slug);
     const title = `${p.title} | クライアントワーク`;
     const description = p.description;
-    const url = `/clientworks_jp/${params.slug}`;
+    const url = `/clientworks_jp/${slug}`;
     return {
       title,
       description,
@@ -36,14 +37,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Params) {
+  const { slug } = await params;
   try {
-    await getProject(params.slug);
+    await getProject(slug);
   } catch {
     notFound();
   }
   return (
     <main className="container mx-auto px-5 py-12">
-      <ProjectDetailJp slug={params.slug} inModal={false} />
+      <ProjectDetailJp slug={slug} inModal={false} />
     </main>
   );
 }
