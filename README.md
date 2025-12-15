@@ -1,24 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Portfolio site built with [Next.js](https://nextjs.org/) (App Router) + Tailwind CSS.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Copy `.env.example` to `.env.local` and fill in values.
+
+- `BASIC_AUTH_USER` / `BASIC_AUTH_PASSWORD`: Basic auth for `/clientworks` and `/clientworks_jp`
+- `NEXT_PUBLIC_SITE_URL`: Used for `metadataBase` (SEO)
+
+## Notes
+
+- Fonts are loaded via CSS `@import` (Google Fonts + Typekit).
 
 ## Codex Tasks
 
@@ -38,4 +40,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-trigger cache refresh

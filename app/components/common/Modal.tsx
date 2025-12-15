@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 
 type ModalControl = { closeWith: (fn: () => void) => void };
 const ModalControlContext = createContext<ModalControl | null>(null);
@@ -19,24 +19,50 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   const [entered, setEntered] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
-  const close = () => {
-    console.log('Modal close() called');
+  const getFocusableElements = useCallback((container: HTMLElement): HTMLElement[] => {
+    const selectors = [
+      "a[href]",
+      "button:not([disabled])",
+      "textarea:not([disabled])",
+      "input:not([disabled])",
+      "select:not([disabled])",
+      "[tabindex]:not([tabindex=\"-1\"])",
+    ];
+    const nodes = Array.from(container.querySelectorAll<HTMLElement>(selectors.join(",")));
+    return nodes.filter((el) => !el.hasAttribute("disabled") && el.getAttribute("aria-hidden") !== "true");
+  }, []);
+
+  const setBackgroundInert = useCallback((enabled: boolean) => {
+    try {
+      inertSiblingsRef.current.forEach((el) => {
+        if (enabled) {
+          el.setAttribute("inert", "");
+          el.setAttribute("aria-hidden", "true");
+          (el as HTMLElement).style.pointerEvents = "none";
+        } else {
+          el.removeAttribute("inert");
+          el.removeAttribute("aria-hidden");
+          (el as HTMLElement).style.pointerEvents = "";
+        }
+      });
+    } catch {}
+  }, []);
+
+  const close = useCallback(() => {
     if (isClosing) return;
     setIsClosing(true);
-    console.log('Modal closing animation started');
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
     // Restore background interactivity immediately
     setBackgroundInert(false);
     
     // Update URL to base path without triggering Next route change
     // Keeps the component mounted to allow exit animation to play
     try {
-      window.history.replaceState(null, '', resetPath);
+      window.history.replaceState(null, "", resetPath);
     } catch {}
     
     // Wait for the medium-close animation to complete
     setTimeout(() => {
-      console.log('Close animation complete, hiding modal');
       setShouldRender(false);
       // Stabilize Next router state after exit if user hasn't navigated elsewhere
       setTimeout(() => {
@@ -49,24 +75,23 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         } catch {}
       }, 200);
     }, 500); // Match medium-close animation duration
-  };
+  }, [isClosing, resetPath, router, setBackgroundInert]);
 
-  const closeWith = (fn: () => void) => {
+  const closeWith = useCallback((fn: () => void) => {
     if (isClosing) return;
     setIsClosing(true);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
     // Restore background interactivity immediately
     setBackgroundInert(false);
     
     // Update URL to base path without triggering Next route change
     // Keeps the component mounted to allow exit animation to play
     try {
-      window.history.replaceState(null, '', resetPath);
+      window.history.replaceState(null, "", resetPath);
     } catch {}
     
     // Wait for the medium-close animation to complete
     setTimeout(() => {
-      console.log('CloseWith animation complete, hiding modal');
       setShouldRender(false);
       
       // Execute callback after modal is hidden, but only if user
@@ -76,17 +101,15 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
           const samePath = window.location.pathname === resetPath;
           const hasQuery = window.location.search && window.location.search.length > 0;
           if (samePath && !hasQuery) {
-            console.log('Executing closeWith callback');
             fn();
           } else {
-            console.log('Navigation changed during close; skipping closeWith callback');
           }
         } catch {
           fn();
         }
       }, 200);
     }, 500); // Match medium-close animation duration
-  };
+  }, [isClosing, resetPath, setBackgroundInert]);
 
   // ESC キーで閉じる
   useEffect(() => {
@@ -95,11 +118,10 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [close]);
 
   // 初回フォーカスをモーダル内へ & lock scroll
   useEffect(() => {
-    console.log('Modal mounted'); // Debug
     // Remember the element that had focus to restore on close
     previouslyFocusedRef.current = (document.activeElement as HTMLElement) || null;
 
@@ -120,9 +142,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     setBackgroundInert(true);
 
     return () => {
-      console.log('Modal unmounting'); // Debug
       cancelAnimationFrame(id);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
       // Restore background interactivity/a11y
       setBackgroundInert(false);
       // Restore focus to the element that opened the modal (if still in DOM)
@@ -133,7 +154,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         }
       } catch {}
     };
-  }, []);
+  }, [getFocusableElements, setBackgroundInert]);
 
   // Discover a reasonable label/description from content if available
   useEffect(() => {
@@ -179,31 +200,6 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       }
     }
   };
-
-  function getFocusableElements(container: HTMLElement): HTMLElement[] {
-    const selectors = [
-      'a[href]','button:not([disabled])','textarea:not([disabled])','input:not([disabled])','select:not([disabled])','[tabindex]:not([tabindex="-1"])'
-    ];
-    const nodes = Array.from(container.querySelectorAll<HTMLElement>(selectors.join(',')));
-    return nodes.filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
-  }
-
-  function setBackgroundInert(enabled: boolean) {
-    try {
-      inertSiblingsRef.current.forEach((el) => {
-        if (enabled) {
-          el.setAttribute('inert', '');
-          el.setAttribute('aria-hidden', 'true');
-          // Prevent accidental pointer-events through some frameworks' overlays
-          (el as HTMLElement).style.pointerEvents = 'none';
-        } else {
-          el.removeAttribute('inert');
-          el.removeAttribute('aria-hidden');
-          (el as HTMLElement).style.pointerEvents = '';
-        }
-      });
-    } catch {}
-  }
 
   // Don't render if shouldRender is false
   if (!shouldRender) {

@@ -2,33 +2,42 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Only apply to clientworks routes
   const pathname = request.nextUrl.pathname;
+  const isProtectedRoute =
+    pathname.startsWith('/clientworks') || pathname.startsWith('/clientworks_jp');
 
-  if (pathname.startsWith('/clientworks')) {
-    const basicAuth = request.headers.get('authorization');
+  if (!isProtectedRoute) return NextResponse.next();
 
-    if (basicAuth) {
-      const authValue = basicAuth.split(' ')[1];
-      const [user, pwd] = atob(authValue).split(':');
+  const validUser = process.env.BASIC_AUTH_USER;
+  const validPassword = process.env.BASIC_AUTH_PASSWORD;
 
-      const validUser = process.env.BASIC_AUTH_USER || 'rikiya';
-      const validPassword = process.env.BASIC_AUTH_PASSWORD || 'rikiya369!';
+  if (!validUser || !validPassword) {
+    return new NextResponse('Basic auth is not configured', { status: 500 });
+  }
+
+  const basicAuth = request.headers.get('authorization');
+  if (basicAuth?.startsWith('Basic ')) {
+    try {
+      const authValue = basicAuth.slice('Basic '.length);
+      const decoded = atob(authValue);
+      const separatorIndex = decoded.indexOf(':');
+      const user = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : '';
+      const pwd = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : '';
 
       if (user === validUser && pwd === validPassword) {
         return NextResponse.next();
       }
+    } catch {
+      // fall through to 401
     }
-
-    return new NextResponse('Authentication required', {
-      status: 401,
-      headers: {
-        'WWW-Authenticate': 'Basic realm="Secure Area"',
-      },
-    });
   }
 
-  return NextResponse.next();
+  return new NextResponse('Authentication required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Secure Area"',
+    },
+  });
 }
 
 export const config = {
