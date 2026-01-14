@@ -4,17 +4,19 @@ import ProjectDetail from "../../[slug]/ProjectDetail";
 import { getProject } from "@/lib/projects";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const { slug } = params;
+type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ m?: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
   return {
     robots: { index: false, follow: true },
     alternates: { canonical: `/clientworks/${slug}` },
   };
 }
 
-export default async function InterceptedModal({ params, searchParams }: { params: { slug: string }; searchParams: { m?: string } }) {
-  const { slug } = params;
-  const { m } = searchParams;
+export default async function InterceptedModal({ params, searchParams }: Params) {
+  const { slug } = await params;
+  const { m } = await searchParams;
   try {
     await getProject(slug);
   } catch {

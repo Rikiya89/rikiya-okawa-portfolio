@@ -35,6 +35,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   const setBackgroundInert = useCallback((enabled: boolean) => {
     try {
       inertSiblingsRef.current.forEach((el) => {
+        // Skip elements marked with data-modal-exclude (like navbar)
+        if (el.hasAttribute('data-modal-exclude')) return;
         if (enabled) {
           el.setAttribute("inert", "");
           el.setAttribute("aria-hidden", "true");

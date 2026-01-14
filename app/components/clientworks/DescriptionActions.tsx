@@ -9,6 +9,7 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
   const ctx = usePageTransition();
   const searchParams = useSearchParams();
   const fromModal = (searchParams?.get("from") ?? "") === "modal";
+  const listTopHref = "/clientworks#client-hero";
 
   const leave = (fn: () => void) => {
     if (ctx) ctx.leaveWith(fn);
@@ -23,7 +24,7 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
     }
   };
 
-  const handleBackToList = () => leave(() => router.push("/clientworks"));
+  const handleBackToList = () => leave(() => router.push(listTopHref));
 
   return (
     <div className="flex gap-3">
@@ -32,7 +33,7 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
       </button>
       {visitHref && (
         <a href={visitHref} target="_blank" rel="noopener noreferrer" className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
-          Visit Website
+          Visit
         </a>
       )}
       <button onClick={handleBackToList} className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
