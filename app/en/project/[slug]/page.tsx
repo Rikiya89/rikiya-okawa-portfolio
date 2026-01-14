@@ -3,10 +3,10 @@ import EnProjectDetail from "../ProjectDetail";
 import { getEnProject } from "@/lib/siteProjectsEn";
 import { notFound } from "next/navigation";
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = params;
+  const { slug } = await params;
   const p = getEnProject(slug);
   const title = p ? `${p.title} | Projects` : `Projects | Not Found`;
   const description = p?.description ?? "Project details";
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Params) {
-  const { slug } = params;
+  const { slug } = await params;
   const p = getEnProject(slug);
   if (!p) notFound();
   return (
