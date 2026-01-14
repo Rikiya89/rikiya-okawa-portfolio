@@ -14,7 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        'panno': ['panno-text', 'sans-serif'], // Add this line to include Panno Text
+        'panno': ['Agdasima', 'sans-serif'],
       }
     },
     screens: {
