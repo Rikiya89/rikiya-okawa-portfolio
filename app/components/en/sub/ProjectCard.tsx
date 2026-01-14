@@ -63,8 +63,8 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
           />
         </div>
         <div className="relative p-4">
-          <h1 className="text-[21px] font-semibold text-white text-center">{title}</h1>
-          <p className="mt-2 text-gray-300 text-lg text-center">{description}</p>
+          <h1 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h1>
+          <p className="mt-2 text-gray-300 text-lg text-center font-panno">{description}</p>
         </div>
       </Link>
     </motion.article>

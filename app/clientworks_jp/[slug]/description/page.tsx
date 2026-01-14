@@ -66,15 +66,15 @@ export default async function DescriptionPage({ params }: Params) {
       </div>
       <div className="mb-8">
         <h1 className="text-3xl font-semibold font-panno">{details?.title ?? p.title}</h1>
-        {details?.role && <p className="mt-2 text-white/80">{details.role}</p>}
+        {details?.role && <p className="mt-2 text-lg text-white/80 font-panno">{details.role}</p>}
       </div>
 
-      {details?.intro && <p className="text-white/80 leading-7 mb-6">{details.intro}</p>}
+      {details?.intro && <p className="text-lg text-white/80 leading-8 mb-6 font-panno">{details.intro}</p>}
 
       {details?.responsibilities && details.responsibilities.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3 font-panno">主な業務</h2>
-          <ul className="list-disc pl-6 space-y-1 text-white/85">
+          <ul className="list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
             {details.responsibilities.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -85,7 +85,7 @@ export default async function DescriptionPage({ params }: Params) {
       {details?.outcomes && details.outcomes.length > 0 && (
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3 font-panno">成果</h2>
-          <ul className="list-disc pl-6 space-y-1 text-white/85">
+          <ul className="list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
             {details.outcomes.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -98,7 +98,7 @@ export default async function DescriptionPage({ params }: Params) {
           <h2 className="text-2xl font-semibold mb-3 font-panno">使用技術</h2>
           <div className="flex flex-wrap gap-2">
             {details.techStack.map((t, i) => (
-              <span key={i} className="rounded-full border border-white/15 px-3 py-1 text-sm text-white/85">
+              <span key={i} className="rounded-full border border-white/15 px-3 py-1 text-base text-white/85 font-panno">
                 {t}
               </span>
             ))}

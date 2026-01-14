@@ -36,7 +36,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
       </div>
       <div className="relative p-4 flex flex-col flex-1">
         <h3 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h3>
-        <p className={`mt-2 text-gray-300 line-clamp-3 whitespace-pre-line ${centerText ? "text-center" : ""}`}>{description}</p>
+        <p className={`mt-2 text-gray-300 line-clamp-3 whitespace-pre-line font-panno ${centerText ? "text-center" : ""}`}>{description}</p>
       </div>
     </>
   );

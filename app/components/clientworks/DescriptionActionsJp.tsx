@@ -9,6 +9,7 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
   const ctx = usePageTransition();
   const searchParams = useSearchParams();
   const fromModal = (searchParams?.get("from") ?? "") === "modal";
+  const listTopHref = "/clientworks_jp#client-hero";
 
   const leave = (fn: () => void) => {
     if (ctx) ctx.leaveWith(fn);
@@ -23,7 +24,7 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
     }
   };
 
-  const handleBackToList = () => leave(() => router.push("/clientworks_jp"));
+  const handleBackToList = () => leave(() => router.push(listTopHref));
 
   return (
     <div className="flex gap-3">
