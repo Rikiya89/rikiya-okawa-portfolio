@@ -43,6 +43,12 @@ export const Coding_skill = [
     height: 80,
   },
   {
+    skill_name: "php",
+    Image: "/img/php.webp",
+    width: 90,
+    height: 90,
+  },
+  {
     skill_name: "Tailwind Css",
     Image: "/img/tailwind.webp",
     width: 80,
