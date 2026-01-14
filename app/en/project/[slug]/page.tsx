@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import EnProjectDetail from "../ProjectDetail";
 import { getEnProject } from "@/lib/siteProjectsEn";
+import { notFound } from "next/navigation";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: { slug: string } };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug } = params;
   const p = getEnProject(slug);
   const title = p ? `${p.title} | Projects` : `Projects | Not Found`;
   const description = p?.description ?? "Project details";
@@ -39,7 +40,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Params) {
-  const { slug } = await params;
+  const { slug } = params;
+  const p = getEnProject(slug);
+  if (!p) notFound();
   return (
     <main className="container mx-auto px-5 py-12">
       <EnProjectDetail slug={slug} inModal={false} />
