@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../globals.css";
 import StarsCanvas from "@/components/common/StarsCanvasWrapper";
 import Navbar from "@/components/aboutme/main/Navbar";
 
@@ -18,15 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body
-        className="bg-[#030014] overflow-y-scroll overflow-x-hidden"
-        suppressHydrationWarning
-      >
-        <StarsCanvas />
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <div lang="en">
+      <StarsCanvas />
+      <Navbar />
+      {children}
+    </div>
   );
 }

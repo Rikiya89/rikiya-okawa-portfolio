@@ -26,7 +26,11 @@ const Projects = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-full max-w-7xl px-4 sm:px-6 md:px-10 grid gap-10 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 justify-items-center items-stretch"
+        className="2xl:max-w-7xl 2xl:gap-6 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:gird 
+      xl:max-w-7xl xl:grid-cols-3 xl:gap-6 xl:px-10 xl:justify-items-center xl:justify-center xl:grid 
+      lg:max-w-7xl lg:grid-cols-2 lg:gap-6 lg:px-10 lg:justify-items-center lg:justify-center lg:grid 
+      md:max-w-2xl md:grid-cols-2 md:gap-6 md:px-10 md:justify-items-center md:justify-center md:flex 
+      sm:max-w-4xl sm:gap-6 sm:flex-col sm:flex font-panno"
       >
         {projects.map((p) => (
           <ProjectCard

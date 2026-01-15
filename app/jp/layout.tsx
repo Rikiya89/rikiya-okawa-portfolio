@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../globals.css";
 import StarsCanvas from "@/components/common/StarsCanvasWrapper";
 import Navbar from "@/components/jp/main/Navbar";
 import { Analytics } from "@vercel/analytics/react"
@@ -22,20 +21,13 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
-      <head>
-      </head>
-      <body
-        className="bg-[#030014] overflow-y-scroll overflow-x-hidden"
-        suppressHydrationWarning
-      >
-        <StarsCanvas />
-        <Navbar />
-        <Analytics />
-        <SpeedInsights />
-        {children}
-        {modal}
-      </body>
-    </html>
+    <div lang="ja">
+      <StarsCanvas />
+      <Navbar />
+      <Analytics />
+      <SpeedInsights />
+      {children}
+      {modal}
+    </div>
   );
 }

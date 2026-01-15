@@ -13,7 +13,7 @@ import Image from "next/image";
 const HeroContent = () => {
     return (
         <motion.div
-            initial="hidden"
+            initial="visible"
             animate="visible"
             className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] md:px-8 sm:px-8 max-w-[1366px] mx-auto"
         >
@@ -71,6 +71,8 @@ const HeroContent = () => {
                     alt="work icons"
                     height={650}
                     width={650}
+                    priority
+                    sizes="(min-width: 1024px) 650px, 0px"
                 />
             </motion.div>
         </motion.div>
