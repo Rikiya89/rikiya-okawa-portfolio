@@ -42,7 +42,7 @@ const ClientWorksSkills = ({ SkillTextComponent = DefaultSkillText }: ClientWork
         <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
           <video
             className="w-full h-auto"
-            preload="false"
+            preload="none"
             playsInline
             loop
             muted

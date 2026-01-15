@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../globals.css";
 import StarsCanvas from "@/components/common/StarsCanvasWrapper";
 import Navbar from "@/components/clientworks/main/Navbar";
 
@@ -24,17 +23,12 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
-      <body
-        className="bg-[#030014] overflow-y-scroll overflow-x-hidden"
-        suppressHydrationWarning
-      >
-        <StarsCanvas />
-        <Navbar locale="jp" />
-        {children}
-        {/* Parallel route slot for intercepted modal */}
-        {modal}
-      </body>
-    </html>
+    <div lang="ja">
+      <StarsCanvas />
+      <Navbar locale="jp" />
+      {children}
+      {/* Parallel route slot for intercepted modal */}
+      {modal}
+    </div>
   );
 }
