@@ -38,13 +38,20 @@ export default function StarsCanvasWrapper() {
     if (decided === "off") return;
 
     const start = () => setQuality(decided);
-    if ("requestIdleCallback" in window) {
-      const id = window.requestIdleCallback(start, { timeout: 1500 });
-      return () => window.cancelIdleCallback(id);
+    if (typeof window !== "undefined") {
+      const win = window as Window & {
+        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+        cancelIdleCallback?: (id: number) => void;
+      };
+
+      if (win.requestIdleCallback) {
+        const id = win.requestIdleCallback(start, { timeout: 1500 });
+        return () => win.cancelIdleCallback?.(id);
+      }
     }
 
-    const timer = window.setTimeout(start, 800);
-    return () => window.clearTimeout(timer);
+    const timer = setTimeout(start, 800);
+    return () => clearTimeout(timer);
   }, []);
 
   if (quality === "off") return null;
