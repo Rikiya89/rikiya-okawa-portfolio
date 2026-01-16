@@ -12,9 +12,11 @@ const Hero = () => {
         muted
         loop
         playsInline
+        preload="none"
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/blackhole.webm" type="video/webm" />
+        <source src="/blackhole.webm" type="video/webm" media="(min-width: 768px)" />
       </video>
       <HeroContent />
     </div>

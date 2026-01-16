@@ -8,24 +8,31 @@ import { AdditiveBlending } from "three";
 import { Mesh } from "three";
 import * as random from "maath/random";
 
-const StarBackground = (props: any) => {
+type StarsQuality = "full" | "lite";
+
+type StarBackgroundProps = {
+  quality?: StarsQuality;
+};
+
+const StarBackground = ({ quality = "full", ...props }: StarBackgroundProps) => {
+  const isLite = quality === "lite";
   // Layered starfields for depth
   const refBack = useRef<Mesh>(null);
   const refMid = useRef<Mesh>(null);
   const refFore = useRef<Mesh>(null);
 
   const [back] = useState(() => {
-    const data = new Float32Array(3000);
+    const data = new Float32Array(isLite ? 1800 : 3000);
     random.inSphere(data, { radius: 1.25 });
     return data;
   });
   const [mid] = useState(() => {
-    const data = new Float32Array(2001);
+    const data = new Float32Array(isLite ? 1200 : 2001);
     random.inSphere(data, { radius: 1.15 });
     return data;
   });
   const [fore] = useState(() => {
-    const data = new Float32Array(702);
+    const data = new Float32Array(isLite ? 420 : 702);
     random.inSphere(data, { radius: 1.05 });
     return data;
   });
@@ -84,19 +91,39 @@ const StarBackground = (props: any) => {
       </Points>
 
       {/* Subtle sparkles for life */}
-      <Sparkles count={28} scale={1.6} size={2.4} speed={0.22} opacity={0.55} color="#c9b7ff" />
+      <Sparkles
+        count={isLite ? 12 : 28}
+        scale={1.6}
+        size={isLite ? 1.8 : 2.4}
+        speed={0.22}
+        opacity={0.55}
+        color="#c9b7ff"
+      />
     </group>
   );
 };
 
-const StarsCanvas = () => (
-  <div className="w-full h-auto fixed inset-0 z-[20] pointer-events-none">
-    <Canvas camera={{ position: [0, 0, 1] }} style={{ pointerEvents: "none" }}>
-      <Suspense fallback={null}>
-        <StarBackground />
-      </Suspense>
-    </Canvas>
-  </div>
-);
+type StarsCanvasProps = {
+  quality?: StarsQuality;
+};
+
+const StarsCanvas = ({ quality = "full" }: StarsCanvasProps) => {
+  const isLite = quality === "lite";
+
+  return (
+    <div className="w-full h-auto fixed inset-0 z-[20] pointer-events-none">
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        dpr={isLite ? 1 : [1, 1.5]}
+        gl={{ antialias: false, powerPreference: isLite ? "low-power" : "high-performance" }}
+        style={{ pointerEvents: "none" }}
+      >
+        <Suspense fallback={null}>
+          <StarBackground quality={quality} />
+        </Suspense>
+      </Canvas>
+    </div>
+  );
+};
 
 export default StarsCanvas;

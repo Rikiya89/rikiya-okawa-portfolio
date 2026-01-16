@@ -73,7 +73,6 @@ return (
         alt="work icons"
         height={650}
         width={650}
-        priority
         sizes="(min-width: 1024px) 650px, 0px"
     />
     </motion.div>
