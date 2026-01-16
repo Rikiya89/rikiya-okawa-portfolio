@@ -47,8 +47,10 @@ const ClientWorksSkills = ({ SkillTextComponent = DefaultSkillText }: ClientWork
             loop
             muted
             autoPlay
-            src="/cards-video.webm"
-          />
+            aria-hidden="true"
+          >
+            <source src="/cards-video.webm" type="video/webm" media="(min-width: 768px)" />
+          </video>
         </div>
       </div>
     </section>

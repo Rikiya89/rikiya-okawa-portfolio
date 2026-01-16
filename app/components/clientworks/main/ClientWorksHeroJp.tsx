@@ -16,9 +16,11 @@ const ClientWorksHeroJp = () => {
         muted
         loop
         playsInline
+        preload="none"
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       >
-        <source src="/blackhole.webm" type="video/webm" />
+        <source src="/blackhole.webm" type="video/webm" media="(min-width: 768px)" />
       </video>
 
       <div className="relative flex flex-row items-center justify-center px-20 w-full z-[20] md:px-8 sm:px-6 max-w-[1366px] mx-auto">
@@ -81,7 +83,6 @@ const ClientWorksHeroJp = () => {
             alt="Creative technology icons"
             width={520}
             height={520}
-            priority
           />
         </motion.div>
       </div>
@@ -90,4 +91,3 @@ const ClientWorksHeroJp = () => {
 };
 
 export default ClientWorksHeroJp;
-
