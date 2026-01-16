@@ -3,9 +3,7 @@
 import React, { useRef, Suspense, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Sparkles } from "@react-three/drei";
-import { AdditiveBlending } from "three";
-// Import the Mesh type from 'three' for correct typings
-import { Mesh } from "three";
+import { AdditiveBlending, Points as ThreePoints } from "three";
 import * as random from "maath/random";
 
 type StarsQuality = "full" | "lite";
@@ -17,9 +15,9 @@ type StarBackgroundProps = {
 const StarBackground = ({ quality = "full", ...props }: StarBackgroundProps) => {
   const isLite = quality === "lite";
   // Layered starfields for depth
-  const refBack = useRef<Mesh>(null);
-  const refMid = useRef<Mesh>(null);
-  const refFore = useRef<Mesh>(null);
+  const refBack = useRef<ThreePoints>(null);
+  const refMid = useRef<ThreePoints>(null);
+  const refFore = useRef<ThreePoints>(null);
 
   const [back] = useState(() => {
     const data = new Float32Array(isLite ? 1800 : 3000);
