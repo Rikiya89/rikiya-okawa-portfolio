@@ -17,7 +17,8 @@ function resolveLocalePath(acceptLanguage: string | null) {
   return DEFAULT_PATH;
 }
 
-export default function RootPage() {
-  const acceptLanguage = headers().get("accept-language");
+export default async function RootPage() {
+  const headerList = await headers();
+  const acceptLanguage = headerList.get("accept-language");
   redirect(resolveLocalePath(acceptLanguage));
 }
