@@ -9,6 +9,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "udemy-business",
+    title: "Udemy Interview Media Site",
+    description: `Built a WordPress interview media site with custom post types, ACF fields, and multi-select taxonomy filters.
+Implemented freeword search across post content and ACF fields, with safe query sanitization.`,
+    src: "/img/udemy-business.webp",
+    url: "https://udemy.benesse.co.jp/interview/?utm_source=bene-content-marketing&utm_campaign=interview&utm_content=side-banner&utm_term=top&utm_medium=udemyads",
+  },
+  {
     slug: "timerland-official",
     title: "Timberland Official Website",
     description: `Operational partner for Timberland Japan.\nDelivered seasonal campaign LPs within about three days and turned around same-day news updates.\nMaintained stable operation while implementing front-end designs aligned with the brand's identity.\n\nTechnologies\nHTML / SCSS / JavaScript / Node.js / Gulp\n\nRole\nFront-End Engineering (Maintenance & LP Production)`,

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import ProjectDetail from "./ProjectDetail";
+import Modal from "@/components/common/Modal";
 import { getProject } from "@/lib/projects";
 import { notFound } from "next/navigation";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ slug: string }>; searchParams?: Promise<{ m?: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
@@ -36,12 +37,20 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params, searchParams }: Params) {
   const { slug } = await params;
+  const { m } = (searchParams ? await searchParams : {}) as { m?: string };
   try {
     await getProject(slug);
   } catch {
     notFound();
+  }
+  if (m) {
+    return (
+      <Modal resetPath="/clientworks">
+        <ProjectDetail slug={slug} inModal />
+      </Modal>
+    );
   }
   return (
     <main className="container mx-auto px-5 py-12">

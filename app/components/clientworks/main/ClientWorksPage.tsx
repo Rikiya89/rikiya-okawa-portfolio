@@ -1,12 +1,20 @@
 "use client";
 
-import { ComponentType } from "react";
+import { ComponentType, useEffect } from "react";
 import ClientWorksHero from "./ClientWorksHero";
 import ClientWorksSkills from "./ClientWorksSkills";
 import ClientProjectsList, { ClientProjectCard } from "./ClientProjectsList";
 import Footer from "./Footer";
 
 const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
+  {
+    src: "/img/udemy-business.webp",
+    title: "Udemy Interview Media Site",
+    description:
+      "Built the interview listing and detail pages in WordPress, implementing ACF fields plus multi‑taxonomy filtering and freeword search.",
+    url: "https://www.udemybusiness.com/",
+    slug: "udemy-business",
+  },
   {
     src: "/img/timberland.webp",
     title: "Timberland Official Website",
@@ -81,6 +89,29 @@ const ClientWorksPage = ({
   basePath = "/clientworks",
 }: ClientWorksPageProps) => {
   const Hero = HeroComponent;
+  const scrollKey = basePath === "/clientworks_jp" ? "clientworks:scrollY:jp" : "clientworks:scrollY:en";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let stored: { y?: number; ts?: number } | null = null;
+    try {
+      const raw = sessionStorage.getItem(scrollKey);
+      if (raw) stored = JSON.parse(raw);
+    } catch {
+      stored = null;
+    }
+    if (typeof stored?.y !== "number") return;
+    if (typeof stored?.ts === "number" && Date.now() - stored.ts > 10 * 60 * 1000) {
+      sessionStorage.removeItem(scrollKey);
+      return;
+    }
+    sessionStorage.removeItem(scrollKey);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, stored!.y as number);
+      });
+    });
+  }, [scrollKey]);
 
   return (
     <main className="flex flex-col items-center w-full">
