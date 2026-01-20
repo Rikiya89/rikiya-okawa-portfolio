@@ -20,6 +20,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
   const router = useRouter();
+  const scrollKey = basePath === "/clientworks_jp" ? "clientworks:scrollY:jp" : "clientworks:scrollY:en";
 
   const CardInner = (
     <>
@@ -60,6 +61,11 @@ export default function ClientProjects({ src, title, description, url, slug, cen
           onClick={(e) => {
             if (e.metaKey || e.ctrlKey) return; // allow open in new tab
             e.preventDefault();
+            if (typeof window !== "undefined") {
+              try {
+                sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
+              } catch {}
+            }
             const base = `${basePath}?modal=off`;
             const dest = `${basePath}/${slug}?m=${Date.now()}`;
             router.replace(base, { scroll: false });

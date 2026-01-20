@@ -9,6 +9,19 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "udemy-business": {
+    title: "Udemy Interview メディアサイト",
+    role: "Role: WordPress開発 — テーマ改修、フィルター／検索実装、リバースプロキシ設定（Nginx）",
+    intro:
+      "WordPressでインタビュー記事サイトを構築し、カスタム投稿タイプとACFフィールドを設計。複数タクソノミーの絞り込みと本文＋ACFのフリーワード検索を実装し、さらにNginxのリバースプロキシを設定して安定したアクセスと配信を確保しました。",
+    outcomes: [
+      "4タクソノミー対応の複数フィルターを実装",
+      "本文＋ACFフィールドを対象にしたフリーワード検索を追加",
+      "Nginxリバースプロキシを設定し安定したアクセスとルーティングを確保",
+      "検索ロジックを簡潔化して保守性と性能を改善",
+    ],
+    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Node.js", "Gulp"],
+  },
   "timerland-official": {
     title: "Timberland公式サイト",
     role: "役割: Webエンジニア — 運用・保守・LP制作",

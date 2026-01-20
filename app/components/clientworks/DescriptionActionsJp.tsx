@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTransition } from "@/components/common/PageTransition";
 
@@ -9,7 +8,7 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
   const ctx = usePageTransition();
   const searchParams = useSearchParams();
   const fromModal = (searchParams?.get("from") ?? "") === "modal";
-  const listTopHref = "/clientworks_jp#client-hero";
+  const listTopHref = "/clientworks_jp";
 
   const leave = (fn: () => void) => {
     if (ctx) ctx.leaveWith(fn);
@@ -24,7 +23,26 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
     }
   };
 
-  const handleBackToList = () => leave(() => router.push(listTopHref));
+  const navigateTo = (href: string) => {
+    const go = () => {
+      router.push(href);
+      if (typeof window !== "undefined") {
+        const target = new URL(href, window.location.origin);
+        setTimeout(() => {
+          if (window.location.pathname !== target.pathname) {
+            window.location.assign(href);
+            return;
+          }
+          if (target.hash && window.location.hash !== target.hash) {
+            window.location.hash = target.hash;
+          }
+        }, 300);
+      }
+    };
+    leave(go);
+  };
+
+  const handleBackToList = () => navigateTo(listTopHref);
 
   return (
     <div className="flex gap-3">

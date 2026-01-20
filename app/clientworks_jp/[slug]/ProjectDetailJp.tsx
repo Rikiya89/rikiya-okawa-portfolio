@@ -3,18 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getProject } from "@/lib/projects_jp";
+import { getProjectDetails, type ProjectDetails } from "@/lib/projectDetails_jp";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
 import { useEffect, useState } from "react";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 
 export default function ProjectDetailJp({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
-  const [project, setProject] = useState<any>(null);
+  const [project, setProject] = useState<{ title: string; description: string; src: string } | null>(null);
+  const [details, setDetails] = useState<ProjectDetails | null>(null);
   const router = useRouter();
   const modalCtl = useModalControl();
 
   useEffect(() => {
     getProject(slug).then(setProject).catch(() => setProject(null));
+    getProjectDetails(slug).then(setDetails).catch(() => setDetails(null));
   }, [slug]);
 
   const handleVisit = () => {
@@ -41,10 +44,14 @@ export default function ProjectDetailJp({ slug, inModal = false }: { slug: strin
   if (!project) return <div className="text-white">Loading...</div>;
 
   const p = project;
+  const description = details?.intro ?? p.description;
   return (
     <ProjectModalContent
       title={p.title}
-      description={p.description}
+      description={description}
+      role={details?.role}
+      techStack={details?.techStack}
+      techHeading="使用技術"
       src={p.src}
       visitHref={inModal ? undefined : `/clientworks_jp/${slug}/description`}
       onVisit={inModal ? handleVisit : undefined}

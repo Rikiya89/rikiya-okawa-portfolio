@@ -9,6 +9,19 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "udemy-business": {
+    title: "Udemy Interview Media Site",
+    role: "Role: WordPress Developer — Theme Customization, Filtering & Search, Reverse Proxy Setup (Nginx)",
+    intro:
+      "Built a WordPress interview media site with custom post types and ACF fields, then implemented multi-select taxonomy filters and a freeword search across post content and ACF meta. Also configured an Nginx reverse proxy to stabilize routing and delivery, keeping the theme maintainable and secure.",
+    outcomes: [
+      "Implemented checkbox-based multi-filtering across four taxonomies",
+      "Added freeword search across content + ACF fields with safe sanitization",
+      "Configured an Nginx reverse proxy for stable access and routing",
+      "Simplified search logic for better maintainability and performance",
+    ],
+    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Node.js", "Gulp"]
+  },
   "timerland-official": {
     title: "Timberland Official Website",
     role: "Role: Web Engineer — Maintenance, Operations, LP Production",

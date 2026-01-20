@@ -9,6 +9,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "udemy-business",
+    title: "Udemy Interview メディアサイト",
+    description: `WordPressでインタビュー投稿のカスタム投稿タイプとACFを設計し、複数タクソノミーの絞り込みを実装。
+本文とACFを対象にしたフリーワード検索を追加し、入力値のサニタイズを徹底。`,
+    src: "/img/udemy-business.webp",
+    url: "https://udemy.benesse.co.jp/interview/?utm_source=bene-content-marketing&utm_campaign=interview&utm_content=side-banner&utm_term=top&utm_medium=udemyads",
+  },
+  {
     slug: "timerland-official",
     title: "Timberland公式サイト",
     description: `Timberland Japanのサイト運用を担当。\n約3日でキャンペーンLPを制作し、ニュースを即日更新。\nブランドの世界観に沿ったデザインと実装で安定運用を実現。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,

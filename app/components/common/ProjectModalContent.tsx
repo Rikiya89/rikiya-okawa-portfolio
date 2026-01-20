@@ -5,6 +5,9 @@ import Image from "next/image";
 type Props = {
   title: string;
   description?: string;
+  role?: string;
+  techStack?: string[];
+  techHeading?: string;
   src: string;
   visitHref?: string | null;
   onVisit?: () => void;
@@ -16,6 +19,9 @@ type Props = {
 export default function ProjectModalContent({
   title,
   description,
+  role,
+  techStack,
+  techHeading = "Technologies",
   src,
   visitHref,
   onVisit,
@@ -35,11 +41,31 @@ export default function ProjectModalContent({
         />
       </div>
       <h1 className="md:mt-6 md:text-3xl sm:mt-3 sm:text-xl font-semibold text-white text-center font-panno flex-shrink-0">{title}</h1>
+      {role && (
+        <p className="md:mt-2 sm:mt-2 text-sm text-white/70 text-center font-panno flex-shrink-0">
+          {role}
+        </p>
+      )}
       {description && (
         <p className="md:mt-3 md:text-lg md:leading-8 sm:mt-2 sm:text-base sm:leading-6 text-white/80 text-center whitespace-pre-line flex-shrink-0 font-panno">
           {description}
         </p>
       )}
+      {techStack && techStack.length > 0 ? (
+        <div className="md:mt-4 sm:mt-3 flex flex-col items-center gap-2 flex-shrink-0">
+          <p className="text-sm uppercase tracking-wider text-white/60 font-panno">{techHeading}</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 font-panno"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <div className="md:mt-6 sm:mt-3 flex md:flex-row sm:flex-col gap-3 justify-center flex-shrink-0">
         {onVisit ? (
