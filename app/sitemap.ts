@@ -3,8 +3,10 @@ import { listEnProjects } from "@/lib/siteProjectsEn";
 import { listJpProjects } from "@/lib/siteProjectsJp";
 import { projects as clientProjects } from "@/lib/projects";
 
+const fallbackSiteUrl = "https://rikiya-okawa-369.vercel.app";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_ENV === "production" ? fallbackSiteUrl : undefined) ||
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 const base = siteUrl.replace(/\/$/, "");
 const now = new Date();
