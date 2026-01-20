@@ -12,6 +12,10 @@ type StarsQuality = "off" | "lite" | "full";
 
 const getStarsQuality = (): StarsQuality => {
   if (typeof window === "undefined") return "off";
+
+  const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+  if (isSmallScreen) return "lite";
+
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return "off";
 
   const nav = navigator as Navigator & {
@@ -21,12 +25,11 @@ const getStarsQuality = (): StarsQuality => {
 
   if (nav.connection?.saveData) return "off";
 
-  const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
   const isLowEnd =
     (nav.deviceMemory && nav.deviceMemory <= 4) ||
     (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
-  if (isSmallScreen || isLowEnd) return "lite";
+  if (isLowEnd) return "lite";
   return "full";
 };
 
@@ -36,10 +39,7 @@ export default function StarsCanvasWrapper() {
 
   useEffect(() => {
     const decided = getStarsQuality();
-    if (typeof window !== "undefined") {
-      const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
-      setShowFallback(isSmallScreen || decided === "off");
-    }
+    setShowFallback(decided === "off");
     if (decided === "off") return;
 
     const start = () => setQuality(decided);
