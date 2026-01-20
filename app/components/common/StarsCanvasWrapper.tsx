@@ -32,9 +32,14 @@ const getStarsQuality = (): StarsQuality => {
 
 export default function StarsCanvasWrapper() {
   const [quality, setQuality] = useState<StarsQuality>("off");
+  const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
     const decided = getStarsQuality();
+    if (typeof window !== "undefined") {
+      const isSmallScreen = window.matchMedia("(max-width: 767px)").matches;
+      setShowFallback(isSmallScreen || decided === "off");
+    }
     if (decided === "off") return;
 
     const start = () => setQuality(decided);
@@ -54,6 +59,10 @@ export default function StarsCanvasWrapper() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (quality === "off") return null;
-  return <StarsCanvas quality={quality} />;
+  return (
+    <>
+      {showFallback ? <div className="starfield-fallback" aria-hidden="true" /> : null}
+      {quality === "off" ? null : <StarsCanvas quality={quality} />}
+    </>
+  );
 }

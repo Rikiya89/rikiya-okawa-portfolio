@@ -62,6 +62,21 @@ body {
   display: none;
 }
 
+.starfield-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.35) 1px, transparent 0),
+    radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.25) 1px, transparent 0),
+    radial-gradient(1.5px 1.5px at 50px 90px, rgba(156, 178, 255, 0.4) 1px, transparent 0),
+    radial-gradient(2px 2px at 110px 40px, rgba(201, 183, 255, 0.35) 1px, transparent 0);
+  background-size: 160px 160px, 220px 220px, 260px 260px, 320px 320px;
+  background-repeat: repeat;
+  opacity: 0.6;
+}
+
 
 
 html {
