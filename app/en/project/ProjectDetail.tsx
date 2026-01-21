@@ -12,11 +12,12 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
   const modalCtl = useModalControl();
   const [details, setDetails] = useState<ProjectDetails | null>(null);
   const p = getEnProject(slug);
-  if (!p) return <div className="text-white">Loading...</div>;
 
   useEffect(() => {
     getProjectDetails(slug).then(setDetails).catch(() => setDetails(null));
   }, [slug]);
+
+  if (!p) return <div className="text-white">Loading...</div>;
 
   const handleVisit = () => {
     const href = `/en/project/${slug}/description`;

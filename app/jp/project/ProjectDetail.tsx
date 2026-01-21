@@ -12,11 +12,12 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
   const modalCtl = useModalControl();
   const [details, setDetails] = useState<ProjectDetails | null>(null);
   const p = getJpProject(slug);
-  if (!p) return <div className="text-white">Loading...</div>;
 
   useEffect(() => {
     getProjectDetails(slug).then(setDetails).catch(() => setDetails(null));
   }, [slug]);
+
+  if (!p) return <div className="text-white">Loading...</div>;
 
   const handleVisit = () => {
     const href = `/jp/project/${slug}/description`;
