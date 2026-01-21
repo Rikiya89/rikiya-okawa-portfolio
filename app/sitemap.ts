@@ -33,15 +33,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // EN/JP site projects
   const siteProjectPages: MetadataRoute.Sitemap = en.flatMap((p) => {
     const enUrl = abs(`/en/project/${p.slug}`);
+    const enDescUrl = abs(`/en/project/${p.slug}/description`);
     const jpUrl = jpSet.has(p.slug) ? abs(`/jp/project/${p.slug}`) : undefined;
+    const jpDescUrl = jpSet.has(p.slug) ? abs(`/jp/project/${p.slug}/description`) : undefined;
     const baseEntry = {
       url: enUrl,
       lastModified: now,
     };
-    const entries: MetadataRoute.Sitemap = [baseEntry];
+    const entries: MetadataRoute.Sitemap = [
+      baseEntry,
+      { url: enDescUrl, lastModified: now },
+    ];
     if (jpUrl) {
       entries.push({
         url: jpUrl,
+        lastModified: now,
+      });
+    }
+    if (jpDescUrl) {
+      entries.push({
+        url: jpDescUrl,
         lastModified: now,
       });
     }
@@ -51,7 +62,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Include JP-only projects (if any) not present in EN
   const jpOnlyPages: MetadataRoute.Sitemap = jp
     .filter((p) => !enSet.has(p.slug))
-    .map((p) => ({ url: abs(`/jp/project/${p.slug}`), lastModified: now }));
+    .flatMap((p) => ([
+      { url: abs(`/jp/project/${p.slug}`), lastModified: now },
+      { url: abs(`/jp/project/${p.slug}/description`), lastModified: now },
+    ]));
 
   // Client works
   const clientWorksPages: MetadataRoute.Sitemap = clientProjects.flatMap((p) => [

@@ -83,6 +83,8 @@ const ClientWorksHeroJp = () => {
             alt="Creative technology icons"
             width={520}
             height={520}
+            sizes="(min-width: 1024px) 520px, 0px"
+            priority
           />
         </motion.div>
       </div>

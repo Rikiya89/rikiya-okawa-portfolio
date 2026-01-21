@@ -4,11 +4,19 @@ export type ProjectDetails = {
   intro?: string;
   role?: string;
   responsibilities?: string[];
+  responsibilitiesHeading?: string;
   outcomes?: string[];
   techStack?: string[];
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "portfolio-website": {
+    title: "ポートフォリオサイト",
+    role: "役割: Webエンジニア — 企画・設計・実装・ビルド環境構築",
+    intro:
+      "自身の制作実績とプロフィールをまとめたポートフォリオサイトを制作しました。SCSSとGulp/webpackで開発環境を整備し、保守性と更新性を重視した構成にしています。JavaScriptを用いたアニメーションを取り入れ、自身のイメージに合った表現を保ちながら、PC・モバイル双方に最適化されたUIを実装しました。",
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp", "webpack", "Babel"],
+  },
   "udemy-business": {
     title: "Udemy Interview メディアサイト",
     role: "Role: WordPress開発 — テーマ改修、フィルター／検索実装、リバースプロキシ設定（Nginx）",
@@ -104,7 +112,8 @@ const detailsMap: Record<string, ProjectDetails> = {
     title: "React Weather App",
     role: "役割: フロントエンドエンジニア — 設計・実装",
     intro:
-      "React と JavaScript を使用し、天気・座標APIと連携したリアルタイム天気アプリを開発。直感的なUIで都市間をスムーズに移動し、気象パターンを探索できます。",
+      "React と JavaScript を使用し、天気・座標APIと連携したリアルタイム天気アプリを開発。\n直感的なUIで都市間をスムーズに移動し、気象パターンを探索できます。",
+    responsibilitiesHeading: "主な内容",
     responsibilities: [
       "天気・位置情報APIの統合とデータ取得",
       "都市検索と結果のバリデーション/エラーハンドリング",
