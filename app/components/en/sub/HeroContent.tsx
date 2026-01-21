@@ -72,6 +72,7 @@ const HeroContent = () => {
                     height={650}
                     width={650}
                     sizes="(min-width: 1024px) 650px, 0px"
+                    priority
                 />
             </motion.div>
         </motion.div>

@@ -43,20 +43,36 @@ export default function StarsCanvasWrapper() {
     if (decided === "off") return;
 
     const start = () => setQuality(decided);
-    if (typeof window !== "undefined") {
-      const win = window as Window & {
-        requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
-        cancelIdleCallback?: (id: number) => void;
-      };
+    const scheduleStart = () => {
+      if (typeof window !== "undefined") {
+        const win = window as Window & {
+          requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+          cancelIdleCallback?: (id: number) => void;
+        };
 
-      if (win.requestIdleCallback) {
-        const id = win.requestIdleCallback(start, { timeout: 1500 });
-        return () => win.cancelIdleCallback?.(id);
+        if (win.requestIdleCallback) {
+          const id = win.requestIdleCallback(start, { timeout: 2500 });
+          return () => win.cancelIdleCallback?.(id);
+        }
       }
+
+      const timer = setTimeout(start, 1200);
+      return () => clearTimeout(timer);
+    };
+
+    if (typeof window !== "undefined" && document.readyState !== "complete") {
+      let cancelSchedule: (() => void) | undefined;
+      const onLoad = () => {
+        cancelSchedule = scheduleStart();
+      };
+      window.addEventListener("load", onLoad, { once: true });
+      return () => {
+        window.removeEventListener("load", onLoad);
+        cancelSchedule?.();
+      };
     }
 
-    const timer = setTimeout(start, 800);
-    return () => clearTimeout(timer);
+    return scheduleStart();
   }, []);
 
   return (

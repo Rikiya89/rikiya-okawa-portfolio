@@ -1,11 +1,33 @@
 "use client";
 // Projects.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "../sub/ProjectCard";
 
 const Projects = () => {
-  
+  const scrollKey = "projects:scrollY:en";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let stored: { y?: number; ts?: number } | null = null;
+    try {
+      const raw = sessionStorage.getItem(scrollKey);
+      if (raw) stored = JSON.parse(raw);
+    } catch {
+      stored = null;
+    }
+    if (typeof stored?.y !== "number") return;
+    if (typeof stored?.ts === "number" && Date.now() - stored.ts > 10 * 60 * 1000) {
+      sessionStorage.removeItem(scrollKey);
+      return;
+    }
+    sessionStorage.removeItem(scrollKey);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, stored!.y as number);
+      });
+    });
+  }, [scrollKey]);
 
   return (
     <div className="flex flex-col items-center justify-center pb-20 relative">

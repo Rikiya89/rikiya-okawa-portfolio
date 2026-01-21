@@ -17,6 +17,7 @@ interface Props {
 const ProjectCard = ({ src, title, description, url, slug }: Props) => {
   const router = useRouter();
   const hrefForLink = slug ? `/jp/project/${encodeURIComponent(slug)}` : url;
+  const scrollKey = "projects:scrollY:jp";
   return (
     <motion.article
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
@@ -38,6 +39,11 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
           if (!slug) return; // external link
           if (e.metaKey || e.ctrlKey) return; // open new tab
           e.preventDefault();
+          if (typeof window !== "undefined") {
+            try {
+              sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
+            } catch {}
+          }
           const base = "/jp?modal=off";
           const dest = `/jp/project/${encodeURIComponent(slug)}?m=${Date.now()}`;
           router.replace(base, { scroll: false });
