@@ -9,6 +9,13 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "portfolio-website": {
+    title: "Portfolio Website",
+    role: "Role: Web Engineer — Planning, Design, Implementation, Build Environment Setup",
+    intro:
+      "Created a portfolio website that brings together project work and profile details. Built a development setup with SCSS and Gulp/webpack for maintainability and easy updates. Implemented JavaScript-driven animations to match the intended tone while optimizing the UI for both desktop and mobile.",
+    techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp", "webpack", "Babel"],
+  },
   "udemy-business": {
     title: "Udemy Interview Media Site",
     role: "Role: WordPress Developer — Theme Customization, Filtering & Search, Reverse Proxy Setup (Nginx)",
@@ -104,19 +111,67 @@ const detailsMap: Record<string, ProjectDetails> = {
     title: "React Weather App",
     role: "Role: Frontend Engineer — Design & Implementation",
     intro:
-      "Developed a real-time weather app using React and JavaScript integrated with weather and geolocation APIs. Features an intuitive UI for seamlessly navigating between cities and exploring weather patterns.",
+      "Built a real-time weather app using React and JavaScript, integrated with weather and geolocation APIs.\nAn intuitive UI lets users move smoothly between cities and explore weather patterns.",
     responsibilities: [
       "Integrated weather and geolocation APIs for data retrieval",
-      "City search with validation and error handling",
-      "Responsive UI with accessibility considerations",
-      "Component breakdown and state management organization",
+      "Implemented city search with validation and error handling",
+      "Built a responsive UI with accessibility considerations",
+      "Organized component structure and state management",
     ],
     outcomes: [
-      "Achieved smooth UI updates in response to API responses",
+      "Delivered smooth UI updates based on API responses",
       "Improved loading experience and reduced unnecessary re-renders",
-      "Optimized for a maintainable structure even at small scale",
+      "Optimized a maintainable structure even at small scale",
     ],
     techStack: ["React", "JavaScript", "Weather API", "Geolocation API", "CSS"],
+  },
+  "iphone14-clone-3d": {
+    title: "3D iPhone Product Page",
+    role: "Role: Frontend Engineer — Design & Implementation",
+    intro:
+      "Built a product showcase page that uses React and JavaScript to render an interactive 3D model on the web.\nA scroll-synced camera animation reveals product features step by step, delivering an intuitive experience.",
+    responsibilities: [
+      "Integrated and initialized the 3D viewer (WebGi)",
+      "Implemented scroll-synced camera control (GSAP/ScrollTrigger)",
+      "Built preview/standard view toggles and UI controls",
+      "Responsive implementation with mobile optimization",
+      "Tuned asset management and loading experience",
+    ],
+    outcomes: [
+      "Delivered a smooth 3D experience synchronized with scroll",
+      "Improved product appeal by balancing visibility and usability",
+      "Established a maintainable component structure",
+    ],
+    techStack: ["React", "JavaScript", "WebGi (3D)", "GSAP / ScrollTrigger", "CSS", "Vite"],
+  },
+  "guardians-of-the-moon": {
+    title: "GUARDIANS OF THE MOON",
+    role: "Role: Unity (C#) Engineer — Design & Implementation",
+    intro:
+      "Developed a suite of scripts for a VR-ready asteroid shooting mini-game using Unity (C#). Implemented asteroid spawning and behavior, raycast shooting, score and timer management, popups, XR grab, and haptics to deliver an intuitive play experience.",
+    responsibilities: [
+      "Asteroid spawn control (range and interval spawning, Gizmos display)",
+      "Asteroid behavior (random speed/rotation, movement logic)",
+      "Raycast shooting logic (animation and SFX playback, hit detection)",
+      "Hit handling and score calculation (distance-based bonus, popup generation)",
+      "Game loop management (timer, score UI, high score save, BGM switching)",
+      "VR integration (XRGrabInteractable reset on release, controller haptics)",
+      "UI and popups (TextMeshPro score display, camera-facing control)",
+    ],
+    outcomes: [
+      "Delivered an intuitive shooting experience optimized for VR controls",
+      "Strengthened gameplay with dynamic score and popup feedback by distance",
+      "Improved reusability and readability with a modular script structure",
+    ],
+    techStack: [
+      "C#",
+      "Unity (UnityEngine / UnityEngine.UI)",
+      "TextMeshPro",
+      "XR Interaction Toolkit",
+      "Animator (animation control)",
+      "AudioSource / AudioClip (BGM / SFX)",
+      "Prefab / Gizmos",
+    ],
   },
   "dickies-official": {
     title: "Dickies Official Website",

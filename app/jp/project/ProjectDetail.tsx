@@ -46,6 +46,7 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
       role={details?.role}
       techStack={details?.techStack}
       techHeading="使用技術"
+      locale="jp"
       src={p.src}
       onVisit={handleVisit}
       onClose={handleClose}

@@ -26,9 +26,9 @@ const jpMap: Record<string, SiteProject> = {
   },
   "iphone14-clone-3d": {
     slug: "iphone14-clone-3d",
-    title: "iPhone 14 Clone 3D Website",
+    title: "3D iPhone Product Page",
     description:
-      "iPhone 14 をテーマにした 3D React サイト。\nGSAP アニメーションで動きのデザインとマイクロインタラクションを表現。",
+      "React と JavaScript で構築。\n3DモデルをWeb上でインタラクティブに表示し、スクロール連動のカメラアニメーションで\n製品の特徴を段階的に紹介。",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },

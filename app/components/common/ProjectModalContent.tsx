@@ -14,6 +14,7 @@ type Props = {
   onClose: () => void;
   visitText?: string;
   closeText?: string;
+  locale?: "en" | "jp";
 };
 
 export default function ProjectModalContent({
@@ -28,7 +29,17 @@ export default function ProjectModalContent({
   onClose,
   visitText = "Visit",
   closeText = "Back to list",
+  locale = "en",
 }: Props) {
+  const isJp = locale === "jp";
+  const roleClassName = `md:mt-2 sm:mt-2 ${
+    isJp ? "text-sm md:text-base" : "text-base md:text-lg"
+  } text-white/70 text-center font-panno flex-shrink-0`;
+  const techHeadingClassName = `text-sm md:text-base uppercase tracking-wider text-white/60 font-panno`;
+  const techChipClassName = isJp
+    ? "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno"
+    : "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno";
+
   return (
     <article className="flex flex-col h-full">
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden flex-shrink-0">
@@ -42,9 +53,7 @@ export default function ProjectModalContent({
       </div>
       <h1 className="md:mt-6 md:text-3xl sm:mt-3 sm:text-xl font-semibold text-white text-center font-panno flex-shrink-0">{title}</h1>
       {role && (
-        <p className="md:mt-2 sm:mt-2 text-sm text-white/70 text-center font-panno flex-shrink-0">
-          {role}
-        </p>
+        <p className={roleClassName}>{role}</p>
       )}
       {description && (
         <p className="md:mt-3 md:text-lg md:leading-8 sm:mt-2 sm:text-base sm:leading-6 text-white/80 text-center whitespace-pre-line flex-shrink-0 font-panno">
@@ -53,13 +62,10 @@ export default function ProjectModalContent({
       )}
       {techStack && techStack.length > 0 ? (
         <div className="md:mt-4 sm:mt-3 flex flex-col items-center gap-2 flex-shrink-0">
-          <p className="text-sm uppercase tracking-wider text-white/60 font-panno">{techHeading}</p>
+          <p className={techHeadingClassName}>{techHeading}</p>
           <div className="flex flex-wrap justify-center gap-2">
             {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/80 font-panno"
-              >
+              <span key={tech} className={techChipClassName}>
                 {tech}
               </span>
             ))}

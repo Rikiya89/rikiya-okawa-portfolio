@@ -12,7 +12,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "portfolio-website",
     title: "Portfolio Website",
     description:
-      "Explore a seamless blend of design and code in my interactive portfolio.\nBuilt with HTML, SCSS, and JavaScript, it showcases my digital art and web development \nthrough intuitive navigation and engaging visuals.\nBrowse projects in a clean, accessible layout.",
+      "HTML/SCSS/JavaScript portfolio with a clean, responsive UI.\nBrowse projects through intuitive navigation and engaging visuals.",
     src: "/img/portfolio_no1.webp",
     url: "https://www.rikiya-okawa963.jp/index.html/",
   },
@@ -20,15 +20,15 @@ const enMap: Record<string, SiteProject> = {
     slug: "react-weather-app",
     title: "React Weather App",
     description:
-      "A React app using weather and geolocation APIs to deliver real-time conditions in a clean, responsive UI.\nSearch cities seamlessly and explore forecasts with intuitive interactions.",
+      "Built with React and JavaScript.\nUses weather and geolocation APIs to deliver everything from city search to real-time conditions\nin a light, intuitive UI.",
     src: "/img/weather_app.webp",
     url: "https://relaxed-youtiao-4c1124.netlify.app/",
   },
   "iphone14-clone-3d": {
     slug: "iphone14-clone-3d",
-    title: "iPhone 14 Clone 3D Website",
+    title: "3D iPhone Product Page",
     description:
-      "A 3D React experience with GSAP animations that showcase motion design\nand micro-interactions inspired by the iPhone 14.",
+      "Built with React and JavaScript.\nAn interactive 3D model with a scroll-synced camera animation\nthat reveals product features step by step.",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },

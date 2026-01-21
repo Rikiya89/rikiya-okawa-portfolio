@@ -127,6 +127,56 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["React", "JavaScript", "天気API", "位置情報API", "CSS"],
   },
+  "iphone14-clone-3d": {
+    title: "3D iPhone Product Page",
+    role: "役割: フロントエンドエンジニア — 設計・実装",
+    intro:
+      "React と JavaScript を使用し、3DモデルをWeb上でインタラクティブに表示する製品紹介ページを開発。\nスクロール連動のカメラアニメーションで製品の特徴を段階的に見せ、直感的な体験を提供。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "3Dビューア（WebGi）の組み込みと初期化",
+      "スクロール連動カメラ制御の実装（GSAP/ScrollTrigger）",
+      "プレビュー/通常表示の切替とUI制御",
+      "レスポンシブ対応（モバイル最適化）",
+      "アセット管理と読み込み体験の調整",
+    ],
+    outcomes: [
+      "スクロールに合わせた滑らかな3D体験を実現",
+      "視認性と操作性の両立で製品訴求力を向上",
+      "メンテしやすいコンポーネント構成を確立",
+    ],
+    techStack: ["React", "JavaScript", "WebGi（3D）", "GSAP / ScrollTrigger", "CSS", "Vite"],
+  },
+  "guardians-of-the-moon": {
+    title: "GUARDIANS OF THE MOON",
+    role: "役割: Unity (C#) エンジニア — 設計・実装",
+    intro:
+      "Unity（C#）を用いて、VR対応のアステロイド射撃ミニゲーム向けスクリプト群を開発。アステロイドの生成・挙動、レイキャスト射撃、スコア／タイマー管理、ポップアップ表示、XRグラブとハプティクスなどを実装し、直感的なプレイ体験を提供。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "アステロイドのスポーン制御（範囲指定・周期スポーン、Gizmos表示）",
+      "アステロイド挙動（ランダム速度・回転、移動処理）",
+      "レイキャスト射撃処理（アニメーション・SFX 再生、当たり判定）",
+      "被弾処理とスコア計算（距離ベースのボーナス、ポップアップ生成）",
+      "ゲームループ管理（タイマー、スコア表示、ハイスコア保存、BGM切替）",
+      "VR連携（XRGrabInteractable を用いたリリース時の復帰、コントローラハプティクス）",
+      "UI／ポップアップ（TextMeshPro を用いたスコア表示、カメラ向き制御）",
+    ],
+    outcomes: [
+      "VR 操作に対応した直感的な射撃体験を実現",
+      "距離に応じた動的スコア・ポップアップでゲーム性を強化",
+      "機能ごとに分割されたスクリプト構成で再利用性と可読性を確保",
+    ],
+    techStack: [
+      "C#",
+      "Unity（UnityEngine / UnityEngine.UI）",
+      "TextMeshPro",
+      "XR Interaction Toolkit",
+      "Animator（アニメーション制御）",
+      "AudioSource / AudioClip（BGM・SFX）",
+      "プレハブ / Gizmos",
+    ],
+  },
   "dickies-official": {
     title: "Dickies公式サイト",
     role: "役割: Webエンジニア — 運用・保守・LP制作",

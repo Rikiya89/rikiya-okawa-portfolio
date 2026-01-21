@@ -98,7 +98,7 @@ export default async function DescriptionPage({ params }: Params) {
           <h2 className="text-2xl font-semibold mb-3 font-panno">使用技術</h2>
           <div className="flex flex-wrap gap-2">
             {details.techStack.map((t, i) => (
-              <span key={i} className="rounded-full border border-white/15 px-3 py-1 text-base text-white/85 font-panno">
+              <span key={i} className="rounded-full border border-white/15 px-4 py-1.5 text-lg sm:text-xl text-white/85 font-panno">
                 {t}
               </span>
             ))}

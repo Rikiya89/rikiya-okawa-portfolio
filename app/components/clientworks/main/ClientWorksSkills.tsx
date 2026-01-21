@@ -17,7 +17,6 @@ const ClientWorksSkills = ({ SkillTextComponent = DefaultSkillText }: ClientWork
     <section
       id="skills"
       className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pt-8"
-      style={{ transform: "scale(0.9)" }}
     >
       <SkillText />
       <motion.div

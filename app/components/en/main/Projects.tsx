@@ -56,7 +56,7 @@ const Projects = () => {
           <ProjectCard
             src="/img/portfolio_no1.webp"
             title="Portfolio Website"
-            description="Explore a seamless blend of design and code in my interactive portfolio. Built with HTML, SCSS, and JavaScript, it showcases my digital art and web development through intuitive navigation and engaging visuals. Browse projects in a clean, accessible layout."
+            description="HTML/SCSS/JavaScript portfolio with a clean, responsive UI. Browse projects through intuitive navigation and engaging visuals."
             url="https://www.rikiya-okawa963.jp/index.html/"
             slug="portfolio-website"
           />
