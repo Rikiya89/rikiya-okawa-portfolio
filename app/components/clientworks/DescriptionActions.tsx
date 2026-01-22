@@ -45,17 +45,22 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
   const handleBackToList = () => navigateTo(listTopHref);
 
   return (
-    <div className="flex gap-3">
-      <button onClick={handleBack} className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] font-panno text-lg inline-block px-6">
-        Back
-      </button>
+    <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
       {visitHref && (
-        <a href={visitHref} target="_blank" rel="noopener noreferrer" className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
-          Visit
+        <a
+          href={visitHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+        >
+          Visit Site
         </a>
       )}
-      <button onClick={handleBackToList} className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[220px] font-panno text-lg inline-block px-6">
-        Back to list
+      <button
+        onClick={handleBackToList}
+        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+      >
+        Back to List
       </button>
     </div>
   );

@@ -48,8 +48,8 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
       src={p.src}
       onVisit={handleVisit}
       onClose={handleClose}
-      visitText="Visit"
-      closeText="Back to list"
+      visitText="View Details"
+      closeText="Back to List"
     />
   );
 }

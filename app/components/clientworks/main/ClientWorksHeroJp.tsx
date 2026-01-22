@@ -5,6 +5,7 @@ import type { MouseEvent } from "react";
 import Image from "next/image";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
+import ResponsiveVideo from "@/components/common/ResponsiveVideo";
 
 const ClientWorksHeroJp = () => {
   const handleScrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -22,19 +23,12 @@ const ClientWorksHeroJp = () => {
       id="client-hero"
       className="relative flex flex-col w-full overflow-hidden pt-[140px] pb-16"
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        aria-hidden="true"
+      <ResponsiveVideo
+        src="/blackhole.webm"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/blackhole.webm" type="video/webm" media="(min-width: 768px)" />
-      </video>
+      />
 
-      <div className="relative flex flex-row items-center justify-center px-20 w-full z-[20] md:px-8 sm:px-6 max-w-[1366px] mx-auto">
+      <div className="relative flex flex-row items-center justify-center w-full z-[20] max-w-[1366px] mx-auto px-6 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex w-full flex-col gap-5 text-start">
           <motion.div
             variants={slideInFromTop}
@@ -78,7 +72,7 @@ const ClientWorksHeroJp = () => {
             variants={slideInFromLeft(1)}
             href="#projects"
             onClick={handleScrollToProjects}
-            className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-2"
+            className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-3 min-h-[44px]"
           >
             制作実績を見る
           </motion.a>

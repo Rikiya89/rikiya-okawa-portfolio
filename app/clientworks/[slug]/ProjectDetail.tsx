@@ -56,8 +56,8 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
       visitHref={inModal ? undefined : `/clientworks/${slug}/description`}
       onVisit={inModal ? handleVisit : undefined}
       onClose={handleBackToList}
-      visitText="Visit"
-      closeText="Back to list"
+      visitText="View Details"
+      closeText="Back to List"
     />
   );
 }
