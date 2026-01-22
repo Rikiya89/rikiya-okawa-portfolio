@@ -113,12 +113,29 @@ const ClientWorksPageJp = ({
     });
   }, [scrollKey]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const root = document.documentElement;
+    root.classList.add("scroll-snap-y");
+    return () => {
+      root.classList.remove("scroll-snap-y");
+    };
+  }, []);
+
   return (
     <main className="flex flex-col items-center w-full">
-      <Hero />
-      <ClientWorksSkills SkillTextComponent={SkillTextComponent} />
-      <ClientProjectsList heading={projectsHeading} projects={projects} basePath={basePath} />
-      <Footer />
+      <div className="w-full snap-section">
+        <Hero />
+      </div>
+      <div className="w-full snap-section">
+        <ClientWorksSkills SkillTextComponent={SkillTextComponent} />
+      </div>
+      <div className="w-full snap-section">
+        <ClientProjectsList heading={projectsHeading} projects={projects} basePath={basePath} />
+      </div>
+      <div className="w-full snap-section">
+        <Footer />
+      </div>
     </main>
   );
 };

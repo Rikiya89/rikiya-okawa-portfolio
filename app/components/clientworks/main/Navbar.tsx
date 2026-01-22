@@ -58,14 +58,7 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
     >
       <div className="flex items-center justify-between h-full">
         <a href="#client-hero" className="flex items-center">
-          <Image
-            src="/img/NavLogo.webp"
-            alt="logo"
-            width={45}
-            height={45}
-            className="cursor-pointer hover:animate-slowspin"
-          />
-          <span className="Welcome-text font-bold ml-[10px] hidden md:block text-gray-300 text-2xl font-panno">
+          <span className="Welcome-text font-bold text-gray-300 text-2xl font-panno">
             Rikiya Okawa
           </span>
         </a>
@@ -154,4 +147,3 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
 };
 
 export default ClientWorksNavbar;
-

@@ -70,7 +70,7 @@ const ClientWorksHero = () => {
             initial="hidden"
             animate="visible"
             variants={slideInFromLeft(1)}
-            href="/en#projects"
+            href="#projects"
             className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-2"
           >
             View Full Portfolio
