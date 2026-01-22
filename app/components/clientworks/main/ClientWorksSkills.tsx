@@ -5,6 +5,7 @@ import SkillDataProvider from "@/components/en/sub/SkillDataProvider";
 import DefaultSkillText from "@/components/en/sub/SkillsText";
 import { Coding_skill } from "@/constants";
 import { motion } from "framer-motion";
+import ResponsiveVideo from "@/components/common/ResponsiveVideo";
 
 type ClientWorksSkillsProps = {
   SkillTextComponent?: ComponentType;
@@ -39,17 +40,10 @@ const ClientWorksSkills = ({ SkillTextComponent = DefaultSkillText }: ClientWork
 
       <div className="w-full h-full absolute">
         <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <video
+          <ResponsiveVideo
+            src="/cards-video.webm"
             className="w-full h-auto"
-            preload="none"
-            playsInline
-            loop
-            muted
-            autoPlay
-            aria-hidden="true"
-          >
-            <source src="/cards-video.webm" type="video/webm" media="(min-width: 768px)" />
-          </video>
+          />
         </div>
       </div>
     </section>

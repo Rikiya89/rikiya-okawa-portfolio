@@ -27,8 +27,8 @@ export default function ProjectModalContent({
   visitHref,
   onVisit,
   onClose,
-  visitText = "Visit",
-  closeText = "Back to list",
+  visitText = "Visit Site",
+  closeText = "Back to List",
   locale = "en",
 }: Props) {
   const isJp = locale === "jp";
@@ -39,6 +39,8 @@ export default function ProjectModalContent({
   const techChipClassName = isJp
     ? "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno"
     : "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno";
+  const actionButtonClassName =
+    "button-primary text-center text-white cursor-pointer rounded-lg w-full md:w-auto md:max-w-[220px] font-panno text-base md:text-lg inline-flex items-center justify-center px-4 md:px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]";
 
   return (
     <article className="flex flex-col h-full">
@@ -77,7 +79,7 @@ export default function ProjectModalContent({
         {onVisit ? (
           <button
             onClick={onVisit}
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
+            className={actionButtonClassName}
           >
             {visitText}
           </button>
@@ -86,7 +88,7 @@ export default function ProjectModalContent({
             href={visitHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
+            className={actionButtonClassName}
           >
             {visitText}
           </a>
@@ -94,7 +96,7 @@ export default function ProjectModalContent({
 
         <button
           onClick={onClose}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg md:max-w-[220px] sm:w-full font-panno md:text-lg sm:text-base inline-block md:px-6 sm:px-4"
+          className={actionButtonClassName}
         >
           {closeText}
         </button>

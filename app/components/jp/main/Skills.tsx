@@ -4,6 +4,7 @@ import {
 import React from "react";
 import SkillDataProvider from "../sub/SkillDataProvider";
 import SkillText from "../sub/SkillsText";
+import ResponsiveVideo from "@/components/common/ResponsiveVideo";
 
 const Skills = () => {
   return (
@@ -27,17 +28,10 @@ const Skills = () => {
 
       <div className="w-full h-full absolute">
         <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <video
+          <ResponsiveVideo
+            src="/cards-video.webm"
             className="w-full h-auto"
-            preload="none"
-            playsInline
-            loop
-            muted
-            autoPlay
-            aria-hidden="true"
-          >
-            <source src="/cards-video.webm" type="video/webm" media="(min-width: 768px)" />
-          </video>
+          />
         </div>
       </div>
     </section>
