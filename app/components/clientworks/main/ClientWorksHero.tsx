@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { MouseEvent } from "react";
 import Image from "next/image";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import {
@@ -10,6 +11,16 @@ import {
 } from "@/utils/motion";
 
 const ClientWorksHero = () => {
+  const handleScrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const target = document.getElementById("projects");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (typeof history !== "undefined") {
+      history.replaceState(null, "", "#projects");
+    }
+  };
+
   return (
     <section
       id="client-hero"
@@ -71,6 +82,7 @@ const ClientWorksHero = () => {
             animate="visible"
             variants={slideInFromLeft(1)}
             href="#projects"
+            onClick={handleScrollToProjects}
             className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-2"
           >
             View Full Portfolio

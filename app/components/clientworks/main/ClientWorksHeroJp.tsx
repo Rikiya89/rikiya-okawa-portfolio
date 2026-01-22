@@ -1,11 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { MouseEvent } from "react";
 import Image from "next/image";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 
 const ClientWorksHeroJp = () => {
+  const handleScrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const target = document.getElementById("projects");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (typeof history !== "undefined") {
+      history.replaceState(null, "", "#projects");
+    }
+  };
+
   return (
     <section
       id="client-hero"
@@ -66,6 +77,7 @@ const ClientWorksHeroJp = () => {
             animate="visible"
             variants={slideInFromLeft(1)}
             href="#projects"
+            onClick={handleScrollToProjects}
             className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-2"
           >
             制作実績を見る
