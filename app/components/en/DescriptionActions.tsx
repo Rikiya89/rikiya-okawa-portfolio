@@ -51,14 +51,14 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
           href={visitHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98] md:hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
         >
           Visit Site
         </a>
       )}
       <button
         onClick={handleBackToList}
-        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98] md:hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
       >
         Back to List
       </button>

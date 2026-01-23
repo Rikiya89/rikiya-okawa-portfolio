@@ -40,7 +40,7 @@ export default function ProjectModalContent({
     ? "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno"
     : "rounded-full border border-white/15 px-4 py-1.5 text-sm md:text-base text-white/80 font-panno";
   const actionButtonClassName =
-    "button-primary text-center text-white cursor-pointer rounded-lg w-full md:w-auto md:max-w-[220px] font-panno text-base md:text-lg inline-flex items-center justify-center px-4 md:px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]";
+    "button-primary text-center text-white cursor-pointer rounded-lg w-full md:w-auto md:max-w-[220px] font-panno text-base md:text-lg inline-flex items-center justify-center px-4 md:px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98] md:hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]";
 
   return (
     <article className="flex flex-col h-full">

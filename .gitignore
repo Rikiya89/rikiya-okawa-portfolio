@@ -35,12 +35,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# personal dev notes / session logs
-/study/
-CLAUDE.md
-TODAY_TASKS.md
-CODEX_TODAY_TASKS.md
-agent.md
-
-# Claude Code local settings
-.claude/

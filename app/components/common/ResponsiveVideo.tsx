@@ -15,10 +15,8 @@ export default function ResponsiveVideo({
   minWidth = 768,
   type = "video/webm",
 }: ResponsiveVideoProps) {
-  const [enabled, setEnabled] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia(`(min-width: ${minWidth}px)`).matches;
-  });
+  // Avoid SSR/client mismatch by deferring media query check to the client.
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
