@@ -19,16 +19,25 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "udemy-business": {
     title: "Udemy Interview メディアサイト",
-    role: "Role: WordPress開発 — テーマ改修、フィルター／検索実装、リバースプロキシ設定（Nginx）",
+    role: "役割: WordPress開発 — テーマ改修／検索・絞り込み／API連携／リバースプロキシ（Nginx）",
     intro:
-      "WordPressでインタビュー記事サイトを構築し、カスタム投稿タイプとACFフィールドを設計。複数タクソノミーの絞り込みと本文＋ACFのフリーワード検索を実装し、さらにNginxのリバースプロキシを設定して安定したアクセスと配信を確保しました。",
+      "WordPressでインタビュー記事サイトを構築。カスタム投稿タイプとACF設計を行い、4タクソノミーの複数絞り込みと本文＋ACFを対象としたフリーワード検索を実装。さらにUdemy APIから講座情報を取得して記事に表示し、Nginxのリバースプロキシで安定した配信とルーティングを確保しました。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "カスタム投稿タイプ／ACFフィールド設計とテーマ改修",
+      "4タクソノミー（年代・性別・職種・カテゴリ）の複合フィルター",
+      "ACF柔軟コンテンツを検索対象化し、本文＋ACF横断の検索ロジックを実装",
+      "Udemy API連携（講座IDからタイトル・画像・URLを取得し表示）",
+      "クリーンURL化とリライトルール整備",
+      "Nginxリバースプロキシ設定",
+    ],
     outcomes: [
-      "4タクソノミー対応の複数フィルターを実装",
-      "本文＋ACFフィールドを対象にしたフリーワード検索を追加",
-      "Nginxリバースプロキシを設定し安定したアクセスとルーティングを確保",
+      "複数フィルターをAND/OR条件で整理し、検索精度を向上",
+      "ACF含むフリーワード検索によりコンテンツ横断の検索を実現",
+      "API連携で講座情報の自動取得を実装し更新負荷を削減",
       "検索ロジックを簡潔化して保守性と性能を改善",
     ],
-    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Node.js", "Gulp"],
+    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Udemy API", "Node.js", "Gulp"],
   },
   "timerland-official": {
     title: "Timberland公式サイト",
