@@ -59,7 +59,7 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[15px] text-gray-400"
                     >
-                        東京で学び、サンディエゴに渡り、再び日本へ。多様な教育と実務経験を積んできました。2015年に神田外語学院で語学の基礎を固め、2017年に Grossmont College でデジタルアートの学位を取得。帰国後はコストコで約1年、アコーホテルズで3年勤務し、2022年にはデジタルハリウッド東京本校で UI/UX デザインを修了しました。
+                        東京で学び、サンディエゴへ渡り、再び日本へ。国内外での学びと実務を重ねてきました。2015年に神田外語学院を卒業し、2017年に Grossmont College でデジタルアートの学位を取得。帰国後はコストコで約1年、アコーホテルズで3年勤務し、2022年にデジタルハリウッド東京本校で UI/UX デザインを修了しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
@@ -71,13 +71,13 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.5)}
                         className="text-[15px] text-gray-400"
                     >
-                        強みは、コミュニケーションとデジタルの掛け合わせです。アコーホテルズでは多言語での問い合わせ対応や課題解決に従事。株式会社 Tree Digital Studio では教育向け AR ゲームの UI/UX を改善し、ユーザーフィードバックを設計に反映。株式会社リトルプラネットでは AR/VR の体験設計を調査し、年齢層別のインタラクション特性を分析しました。
+                        強みは、コミュニケーション力とデジタルの融合です。アコーホテルズでは多言語での問い合わせ対応や課題解決に従事。株式会社 Tree Digital Studio では教育向け AR ゲームの UI/UX 改善に取り組み、ユーザーフィードバックを設計に反映。株式会社リトルプラネットでは AR/VR の体験設計を調査し、年齢層別のインタラクション特性を分析しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="text-[15px] text-gray-400 py-3"
                     >
-                        現在は Web エンジニアとして、HTML5／CSS(SCSS)／JavaScript／Node.js を用い、レスポンシブでパフォーマンスに優れたサイトを制作しています。クライアントの目的達成とユーザー体験の向上を両立させることを大切にしています。
+                        現在は Web エンジニアとして、HTML5／CSS(SCSS)／JavaScript／Node.js を用い、レスポンシブかつパフォーマンスに優れたサイトを制作しています。クライアントの目的達成とユーザー体験の向上を両立させることを大切にしています。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}

@@ -66,14 +66,15 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.4)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        Unity VR shooter built in C# and paired with a TouchDesigner installation
+                        Unity VR shooter in C# with a TouchDesigner-powered environment
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        For my graduation project I set out to strengthen the on-site experience at an AR/VR discovery center.
-                        I engineered a Unity VR shooting game in C# and paired it with a TouchDesigner-based installation so guests could stay immersed even when they stepped out of the headset.
+                        For my graduation project I set out to transform time spent at a VR/AR venue into a more meaningful experience.
+                        I built a moon-base defense shooter in Unity (C#) and used TouchDesigner to extend the atmosphere in the physical space.
+                        Players grab the gun with the grip button and fire with the trigger; a 30-second round challenges them to hit targets approaching from all directions.
                     </motion.p>
 
                     <motion.p
@@ -87,21 +88,21 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        Across four weeks I scripted enemy waves, haptic feedback, and weapon interactions that respond to hand presence, gaze, and controller input.
-                        The goal was to make tracking targets, reloading, and holding defensive lines feel intuitive and far more physical than a traditional flatscreen shooter.
+                        Over four weeks I scripted enemy waves, haptic feedback, and weapon interactions that respond to hand presence, gaze, and controller input.
+                        The UI shows the timer, score, and high score. After each round, the front monitor displays results, and shooting the “Game Over” target instantly restarts the mission.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.8)}
                         className="Welcome-text text-[18px] font-bold py-3 font-panno"
                     >
-                        TouchDesigner installation: keeping the briefing room alive
+                        Real-world staging: a Milky Way projection for shared immersion
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.9)}
                         className="text-[18px] text-gray-400 pb-3 font-panno"
                     >
-                        In a single week I assembled a TouchDesigner-driven briefing loop that stitches together motion graphics, telemetry HUDs, and gameplay captures.
-                        The installation runs continuously in the lobby so guests waiting their turn stay inside the mission narrative even before they put on the headset.
+                        In the physical play area, a Milky Way-inspired projection fills the background.
+                        It keeps spectators engaged and lets the whole space share the atmosphere, not just the player in the headset.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.0)}

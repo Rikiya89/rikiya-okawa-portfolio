@@ -60,20 +60,21 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.3)}
                         className="Welcome-text text-[21px] font-bold py-3"
                     >
-                        卒業制作：VR/AR施設の体験価値を高める
+                        卒業制作：VR/AR施設の体験価値を拡張
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        Unity×C#でVRシューティングを構築し、TouchDesignerで体験を拡張
+                        Unity×C#でVRシューティングを開発し、TouchDesignerで体験を拡張
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        卒業制作では、AR/VR体験施設での滞在時間をより価値あるものにすることをテーマに掲げました。
-                        Unity（C#）で月面基地を防衛するVRシューティングを開発し、TouchDesignerでヘッドセットを外していても緊張感が続くインタラクティブ演出を加えました。
+                        卒業制作のテーマは、AR/VR体験施設の滞在時間を“価値ある時間”へ変えること。
+                        Unity（C#）で月面基地を防衛するVRシューティングを開発し、現実空間の演出にはTouchDesignerを活用しました。
+                        ゴーグル装着後、グリップボタンで銃を掴み、トリガーで射撃してゲームが開始。30秒の制限時間で四方から迫るターゲットを撃ち、スコアを競う設計です。
                     </motion.p>
 
                     <motion.p
@@ -87,21 +88,22 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        約1カ月の開発期間で、敵ウェーブやリロード操作、ハプティクスを手・視線・コントローラー入力に応じて反応させました。
-                        立体空間で照準を合わせ、防衛ラインを維持する身体性は、従来の平面シューティングでは得られない体験です。
+                        約1か月で、敵ウェーブ、リロード、ハプティクスを手・視線・コントローラー入力に連動。
+                        360度の空間で照準を合わせ、防衛ラインを維持する身体性は、平面シューティングにはない没入感を生みます。
+                        UIはタイマー／スコア／ハイスコアを表示。終了後は目の前のモニターに結果が出て、「ゲームオーバー」の的を撃つと即リプレイできます。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.8)}
                         className="Welcome-text text-[18px] font-bold py-3"
                     >
-                        TouchDesigner演出：ブリーフィング映像で緊張感を継続
+                        現実空間での演出：天の川投影で没入感を共有
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.9)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        TouchDesignerでは、モーショングラフィックスやテレメトリー風HUD、ゲームプレイ映像を組み合わせたブリーフィング映像を1週間で制作しました。
-                        ロビーで常時上映することで待ち時間でもミッションの熱量を保ち、ヘッドセット装着前から物語に没入できるようにしました。
+                        現実世界のプレイ環境では、背景に天の川を模した映像を投影。
+                        プレイヤーだけでなく周りの人も一緒に楽しめるよう、空間全体で体験を盛り上げる演出にしています。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.0)}
@@ -113,8 +115,8 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(1.1)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        発表当日はウェブカメラによるモーションキャプチャーとボイスチェンジャーを組み合わせ、仮想案内人としてライブ解説を行いました。
-                        撮影から編集までを1日で仕上げ、準備とテクノロジーの活用が短期制作を支えることを実感しました。
+                        発表当日はWebカメラのモーションキャプチャとボイスチェンジャーを組み合わせ、仮想案内人としてライブ解説を実施。
+                        撮影から編集までを1日で仕上げ、短期制作では段取りとテクノロジー活用が鍵だと実感しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.2)}
@@ -126,7 +128,7 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(1.3)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        VR/ARはエンタメだけでなく教育や商業施設でも有効に活用できると確信し、短納期でも価値を出すためには綿密な段取りと高速な試行が欠かせないと学びました。
+                        VR/ARはエンタメだけでなく教育や商業施設でも有効だと確信。短納期でも価値を出すには、綿密な段取りと高速な試行が不可欠だと学びました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.4)}
@@ -138,11 +140,11 @@ const GuardiansContent = () => {
                         variants={slideInFromLeft(1.5)}
                         className="text-[15px] text-gray-400 pb-3"
                     >
-                        Oculus Rift や Meta Quest 2 向けにビルドを公開しています。興味をお持ちいただけたら、ぜひダウンロードして防衛ミッションに挑戦してください。
-                        <a href="/apk/t2109d001_rikiya.okawa.apk" download 
+                        Oculus Rift／Meta Quest 2 向けにビルドを公開しています。よろしければダウンロードして、防衛ミッションに挑戦してください。
+                        <a href="/apk/t2109d001_rikiya.okawa.apk" download
                                     className="block border border-[#7042f861] w-[75px] 
                                     text-center bg-[#0300145e] rounded-full 
-                                    text-purple-200 border-2 mt-3 font-bold "> 
+                                    text-purple-200 border-2 mt-3 font-bold ">
                             Get
                         </a>
                     </motion.p>
