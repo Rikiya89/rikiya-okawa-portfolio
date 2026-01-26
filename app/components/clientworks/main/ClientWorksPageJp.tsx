@@ -85,7 +85,7 @@ const ClientWorksPageJp = ({
   HeroComponent = ClientWorksHeroJp,
   SkillTextComponent,
   projects = JP_CLIENT_PROJECTS,
-  projectsHeading = "My Client Projects",
+  projectsHeading = "Client Work",
   basePath = "/clientworks_jp",
 }: ClientWorksPageProps) => {
   const Hero = HeroComponent;

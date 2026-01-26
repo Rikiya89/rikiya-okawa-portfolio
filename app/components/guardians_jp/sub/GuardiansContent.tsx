@@ -76,6 +76,14 @@ const GuardiansContent = () => {
                         Unity（C#）で月面基地を防衛するVRシューティングを開発し、現実空間の演出にはTouchDesignerを活用しました。
                         ゴーグル装着後、グリップボタンで銃を掴み、トリガーで射撃してゲームが開始。30秒の制限時間で四方から迫るターゲットを撃ち、スコアを競う設計です。
                     </motion.p>
+                    <motion.p
+                        variants={slideInFromLeft(0.55)}
+                        className="text-[15px] text-gray-400 pb-3"
+                    >
+                        <span className="font-bold text-white">Role:</span> 企画／ゲーム設計／UI設計／Unity実装／TouchDesigner演出／プレゼン<br />
+                        <span className="font-bold text-white">Stack:</span> Unity（C#）、TouchDesigner<br />
+                        <span className="font-bold text-white">Outcome:</span> 30秒ラウンド＋即リプレイ導線、観客も楽しめる空間演出を設計
+                    </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.6)}

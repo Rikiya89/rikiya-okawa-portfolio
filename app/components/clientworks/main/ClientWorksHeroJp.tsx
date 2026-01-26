@@ -49,11 +49,11 @@ const ClientWorksHeroJp = () => {
             className="flex flex-col gap-2 font-bold font-panno
               2xl:text-6xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-4xl"
           >
-            <span className="text-white">Reliable brand operations,</span>
+            <span className="text-white">Operations, improvements,</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              campaign launches,
+              and landing page production
             </span>
-            <span className="text-white">and LP production.</span>
+            <span className="text-white">with consistent quality.</span>
           </motion.h1>
 
           <motion.p
@@ -62,8 +62,9 @@ const ClientWorksHeroJp = () => {
             variants={slideInFromLeft(0.8)}
             className="text-[20px] text-gray-300 max-w-[640px] font-panno leading-relaxed"
           >
-            グローバルブランドから国内メーカーまで、レシピ特集や季節キャンペーンなどのLP制作を担当。
-            アクセシビリティとパフォーマンスを維持しながら、短納期でも成果につながる制作を実現します。
+            グローバルブランドから国内メーカーまで、運用・改善・LP制作を担当。
+            11人チームでGitを用いた継続開発を行い、仕様確認や不具合調査にも対応しています。
+            アクセシビリティとパフォーマンスを意識し、短納期でも品質を保った制作を実現します。
           </motion.p>
 
           <motion.a

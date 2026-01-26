@@ -57,7 +57,7 @@ const ClientWorksHero = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               campaign launches,
             </span>
-            <span className="text-white">and LP production.</span>
+            <span className="text-white">and landing page production.</span>
           </motion.h1>
 
           <motion.p
@@ -66,9 +66,10 @@ const ClientWorksHero = () => {
             variants={slideInFromLeft(0.8)}
             className="text-[20px] text-gray-300 max-w-[640px] font-panno leading-relaxed"
           >
-            From global fashion labels to national brands, I handle daily site updates,
-            seasonal promotions, and tight turnaround landing pages while maintaining
-            accessibility and performance.
+            From global brands to national manufacturers, I handle site operations, improvements,
+            and rapid-turnaround landing pages. I collaborate in an 11-person team using Git
+            and support spec checks plus issue investigations for the sites I build, while
+            keeping accessibility and performance in focus.
           </motion.p>
 
           <motion.a

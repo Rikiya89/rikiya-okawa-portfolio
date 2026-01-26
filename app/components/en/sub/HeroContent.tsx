@@ -51,7 +51,7 @@ const HeroContent = () => {
                     variants={slideInFromLeft(0.8)}
                     className="text-[21px] text-gray-400 my-5 max-w-[600px] font-panno"
                 >
-                    I&apos;m Rikiya Okawa — a web developer and creative technologist. I studied Digital Arts at Grossmont College (2017) and UI/UX at Digital Hollywood Tokyo (2022). After roles at Costco and Accor, I shifted to web development, focusing on polished, performant experiences.
+                    I&apos;m Rikiya Okawa, a web engineer working with HTML/CSS/JavaScript/Node.js, and I explore React/Next.js in personal projects. I focus on balancing performance and UX to build polished, high-quality web experiences. I studied Digital Arts at Grossmont College (2017) and UI/UX at Digital Hollywood Tokyo (2022). After roles at Costco and Accor, I shifted to web development.
                 </motion.p>
                 <motion.a
                     href="/aboutme"

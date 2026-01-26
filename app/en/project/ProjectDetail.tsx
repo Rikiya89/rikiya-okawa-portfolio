@@ -14,7 +14,19 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
   const p = getEnProject(slug);
 
   useEffect(() => {
-    getProjectDetails(slug).then(setDetails).catch(() => setDetails(null));
+    let active = true;
+    getProjectDetails(slug)
+      .then((data) => {
+        if (!active) return;
+        setDetails(data);
+      })
+      .catch(() => {
+        if (!active) return;
+        setDetails(null);
+      });
+    return () => {
+      active = false;
+    };
   }, [slug]);
 
   if (!p) return <div className="text-white">Loading...</div>;

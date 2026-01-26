@@ -76,6 +76,14 @@ const GuardiansContent = () => {
                         I built a moon-base defense shooter in Unity (C#) and used TouchDesigner to extend the atmosphere in the physical space.
                         Players grab the gun with the grip button and fire with the trigger; a 30-second round challenges them to hit targets approaching from all directions.
                     </motion.p>
+                    <motion.p
+                        variants={slideInFromLeft(0.55)}
+                        className="text-[18px] text-gray-400 pb-3 font-panno"
+                    >
+                        <span className="font-bold text-white">Role:</span> concept, game design, UI design, Unity implementation, TouchDesigner staging, presentation<br />
+                        <span className="font-bold text-white">Stack:</span> Unity (C#), TouchDesigner<br />
+                        <span className="font-bold text-white">Outcome:</span> designed a 30-second round with instant replay and a shared-space projection for spectators
+                    </motion.p>
 
                     <motion.p
                         variants={slideInFromLeft(0.6)}

@@ -1,7 +1,5 @@
 // app/clientworks_jp/[slug]/ProjectDetailJp.tsx
 "use client";
-import Image from "next/image";
-import Link from "next/link";
 import { getProject } from "@/lib/projects_jp";
 import { getProjectDetails, type ProjectDetails } from "@/lib/projectDetails_jp";
 import { useRouter } from "next/navigation";
@@ -16,8 +14,28 @@ export default function ProjectDetailJp({ slug, inModal = false }: { slug: strin
   const modalCtl = useModalControl();
 
   useEffect(() => {
-    getProject(slug).then(setProject).catch(() => setProject(null));
-    getProjectDetails(slug).then(setDetails).catch(() => setDetails(null));
+    let active = true;
+    getProject(slug)
+      .then((data) => {
+        if (!active) return;
+        setProject(data);
+      })
+      .catch(() => {
+        if (!active) return;
+        setProject(null);
+      });
+    getProjectDetails(slug)
+      .then((data) => {
+        if (!active) return;
+        setDetails(data);
+      })
+      .catch(() => {
+        if (!active) return;
+        setDetails(null);
+      });
+    return () => {
+      active = false;
+    };
   }, [slug]);
 
   const handleVisit = () => {

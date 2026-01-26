@@ -31,7 +31,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "timerland-official": {
     title: "Timberland Official Website",
-    role: "Role: Web Engineer — Maintenance, Operations, LP Production",
+    role: "Role: Web Engineer — Maintenance, Operations, Landing Page Production",
     intro:
       "Managed Timberland Japan's official website, focusing on stable operation and efficient updates. Produced seasonal campaign LPs within an average of three days and published news updates on the same day. Delivered fast, reliable content while maintaining the brand's visual consistency and responsive design across devices.",
     outcomes: [
@@ -44,7 +44,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "vans-official": {
     title: "VANS Official Website",
-    role: "Role: Web Engineer — Maintenance, Operations, LP Production",
+    role: "Role: Web Engineer — Maintenance, Operations, Landing Page Production",
     intro:
       "Managed the official website for VANS Japan, ensuring stability and timely content delivery. Developed trend-driven campaign LPs within short deadlines and executed news updates promptly. Maintained a balance between visual quality and operational efficiency, reinforcing the brand's consistency and trustworthiness online.",
     outcomes: [
@@ -57,7 +57,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "lacoste-official": {
     title: "Lacoste Official Website",
-    role: "Role: Web Engineer — LP Production Specialist",
+    role: "Role: Web Engineer — Landing Page Production Specialist",
     intro:
       "Produced campaign landing pages for the Lacoste Japan official online store. Focused on maintaining the brand's refined tone while delivering high-quality creatives within tight production timelines.",
     outcomes: [
@@ -83,7 +83,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "meiji-official": {
     title: "Meiji Official Website",
-    role: "Role: Web Engineer — LP Production Specialist",
+    role: "Role: Web Engineer — Landing Page Production Specialist",
     intro:
       "Produced landing pages for new products and seasonal campaigns for the Meiji official website. Emphasized a sense of security and approachability with clear communication of brand messaging.",
     outcomes: [
@@ -96,7 +96,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "kikkoman-official": {
     title: "Kikkoman Official Website",
-    role: "Role: Web Engineer — LP Production Specialist",
+    role: "Role: Web Engineer — Landing Page Production Specialist",
     intro:
       "Produced landing pages for the Kikkoman official website aligned with recipe introductions and campaign initiatives. Balanced brand messaging and recipe navigation with friendly, easy-to-understand design.",
     outcomes: [
@@ -175,7 +175,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "dickies-official": {
     title: "Dickies Official Website",
-    role: "Role: Web Engineer — Operations, Maintenance & LP Production",
+    role: "Role: Web Engineer — Operations, Maintenance & Landing Page Production",
     intro:
       "Handled operations and maintenance for the Dickies Japan official website. Produced landing pages for new products and campaigns with a focus on practical design implemented across multiple devices.",
     outcomes: [
