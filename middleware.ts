@@ -8,11 +8,11 @@ export function middleware(request: NextRequest) {
 
   if (!isProtectedRoute) return NextResponse.next();
 
+  // Temporary bypass: set BASIC_AUTH_DISABLED=true, or simply omit creds.
   const validUser = process.env.BASIC_AUTH_USER;
   const validPassword = process.env.BASIC_AUTH_PASSWORD;
-
-  if (!validUser || !validPassword) {
-    return new NextResponse('Basic auth is not configured', { status: 500 });
+  if (process.env.BASIC_AUTH_DISABLED === 'true' || !validUser || !validPassword) {
+    return NextResponse.next();
   }
 
   const basicAuth = request.headers.get('authorization');
