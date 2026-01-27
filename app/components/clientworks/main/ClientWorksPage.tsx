@@ -11,7 +11,7 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/udemy-business.webp",
     title: "Udemy Interview Media Site",
     description:
-      "Built the interview listing and detail pages in WordPress, implementing ACF fields plus multi‑taxonomy filtering and freeword search.",
+      "Built interview list/detail pages in WordPress with ACF, multi-taxonomy filters, and freeword search.",
     url: "https://www.udemybusiness.com/",
     slug: "udemy-business",
   },

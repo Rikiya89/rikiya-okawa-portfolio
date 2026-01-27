@@ -11,8 +11,8 @@ export const projects: Project[] = [
   {
     slug: "udemy-business",
     title: "Udemy Interview Media Site",
-    description: `Built a WordPress interview media site with custom post types, ACF fields, and multi-select taxonomy filters.
-Implemented freeword search across post content and ACF fields, with safe query sanitization.`,
+    description: `Built a WordPress interview media site with custom post types and ACF fields, including multi-select filters across four taxonomies and freeword search over post content + ACF.
+Integrated the Udemy API to display course info in articles and set up an Nginx reverse proxy for stable routing and delivery.`,
     src: "/img/udemy-business.webp",
     url: "https://udemy.benesse.co.jp/interview/?utm_source=bene-content-marketing&utm_campaign=interview&utm_content=side-banner&utm_term=top&utm_medium=udemyads",
   },
