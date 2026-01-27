@@ -18,16 +18,24 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "udemy-business": {
     title: "Udemy Interview Media Site",
-    role: "Role: WordPress Developer — Theme Customization, Filtering & Search, Reverse Proxy Setup (Nginx)",
+    role: "Role: WordPress Developer — Theme Customization, Search & Filtering, API Integration, Reverse Proxy (Nginx)",
     intro:
-      "Built a WordPress interview media site with custom post types and ACF fields, then implemented multi-select taxonomy filters and a freeword search across post content and ACF meta. Also configured an Nginx reverse proxy to stabilize routing and delivery, keeping the theme maintainable and secure.",
+      "Built a WordPress interview media site with custom post types and ACF design. Implemented multi-select filtering across four taxonomies and freeword search spanning post content + ACF. Also integrated the Udemy API to display course info in articles and set up an Nginx reverse proxy for stable delivery and routing.",
+    responsibilities: [
+      "Designed custom post types and ACF fields, and customized the theme",
+      "Built combined filtering across four taxonomies (age group, gender, role, category)",
+      "Made ACF flexible content searchable alongside post content",
+      "Integrated Udemy API (fetching course title, image, and URL by course ID)",
+      "Set up clean URLs and rewrite rules",
+      "Configured an Nginx reverse proxy",
+    ],
     outcomes: [
-      "Implemented checkbox-based multi-filtering across four taxonomies",
-      "Added freeword search across content + ACF fields with safe sanitization",
-      "Configured an Nginx reverse proxy for stable access and routing",
+      "Improved search accuracy with well-structured AND/OR filters",
+      "Enabled cross-content freeword search including ACF fields",
+      "Reduced update effort by auto-fetching course data via API",
       "Simplified search logic for better maintainability and performance",
     ],
-    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Node.js", "Gulp"]
+    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Udemy API", "Node.js", "Gulp"]
   },
   "timerland-official": {
     title: "Timberland Official Website",
