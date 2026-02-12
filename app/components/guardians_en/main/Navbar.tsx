@@ -67,10 +67,10 @@ const Navbar = () => {
             <a href="/en" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               About me
             </a>
-            <a href="en/#skills" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <a href="/en#skills" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               Skills
             </a>
-            <a href="en/#projects" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+            <a href="/en#projects" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               Projects
             </a>
             <a href="/guardians_jp" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>

@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Agdasima, Inter } from "next/font/google";
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,13 +15,16 @@ const agdasima = Agdasima({
   display: "swap",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headerList = await headers();
+  const docLang = headerList.get("x-doc-lang") === "ja" ? "ja" : "en";
+
   return (
-    <html lang="en">
+    <html lang={docLang}>
       <body
         className={`${inter.variable} ${agdasima.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
         suppressHydrationWarning

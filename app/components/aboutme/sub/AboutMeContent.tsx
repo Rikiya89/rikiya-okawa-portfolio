@@ -89,7 +89,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[18px] text-gray-400 font-panno pb-9"
                     >
-                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold">@ricky_o_369</a>.
+                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="font-bold">@ricky_o_369</a>.
                     </motion.p>
                 </div>
             </div>
