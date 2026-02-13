@@ -57,6 +57,21 @@ The easiest way to deploy is [Vercel](https://vercel.com/).
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Deploy on AWS Amplify
+
+This repository includes `amplify.yml` for AWS Amplify Hosting (SSR compatible).
+
+1. Push this repository to GitHub.
+2. In AWS Amplify, create a new app and connect the GitHub repository/branch.
+3. Add environment variables in Amplify:
+   - `NEXT_PUBLIC_SITE_URL`
+   - `BASIC_AUTH_USER`
+   - `BASIC_AUTH_PASSWORD`
+4. Trigger the first deployment.
+5. Connect your custom domain from Amplify Console if needed.
+
+`amplify.yml` writes the above variables into `.env.production` during build so middleware can read them at runtime.
+
 ---
 
 ## スペースポートフォリオ（日本語）
@@ -114,3 +129,18 @@ npm run dev
 最も簡単なのは Vercel を利用する方法です。
 
 デプロイ手順は公式ドキュメントを参照してください: https://nextjs.org/docs/deployment
+
+## AWS Amplify へのデプロイ
+
+このリポジトリには AWS Amplify Hosting（SSR 対応）用の `amplify.yml` が含まれています。
+
+1. リポジトリを GitHub に push します。
+2. AWS Amplify で新規アプリを作成し、GitHub の対象リポジトリ/ブランチを接続します。
+3. Amplify の環境変数に以下を設定します。
+   - `NEXT_PUBLIC_SITE_URL`
+   - `BASIC_AUTH_USER`
+   - `BASIC_AUTH_PASSWORD`
+4. 初回デプロイを実行します。
+5. 必要に応じて Amplify Console で独自ドメインを接続します。
+
+`amplify.yml` では、ビルド時に上記変数を `.env.production` へ書き出し、`middleware.ts` から参照できるようにしています。
