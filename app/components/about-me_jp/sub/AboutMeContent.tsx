@@ -90,7 +90,7 @@ const AboutMeContentJP = () => {
                         className="text-[15px] text-gray-400 pb-9"
                     >
                         仕事の外では Unity、TouchDesigner、openFrameworks、p5.js などで創作を続けています。最近は Houdini による VFX／アニメーションにも注力。多様なデジタル表現を横断しながら、次のプロジェクトでも創造的に課題を解決し、体験の可能性を広げていきます。最新の制作は Instagram で公開中。<br/>
-                        <span className="font-bold font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="font-bold font-panno"> @ricky_o_369</a>
+                        <span className="font-bold font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="font-bold font-panno"> @ricky_o_369</a>
                     </motion.p>
                 </div>
             </div>

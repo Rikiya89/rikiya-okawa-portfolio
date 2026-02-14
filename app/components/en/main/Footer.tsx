@@ -19,19 +19,19 @@ return (
                 <div className="font-bold text-lg font-panno">Social Media</div>
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
                     <FaInstagram  />
-                    <a href="https://www.instagram.com/ricky_o_369/" target="_blank" className="relative z-50">
+                    <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="relative z-50">
                     <span className="text-[15px] ml-[6px] font-panno">Instagram</span>    
                     </a>
                 </p>
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
                     <RxGithubLogo />
-                    <a href="https://github.com/Rikiya89" target="_blank" className="relative z-50">
+                    <a href="https://github.com/Rikiya89" target="_blank" rel="noopener noreferrer" className="relative z-50">
                     <span className="text-[15px] ml-[6px] font-panno">GitHub</span>    
                     </a>
                 </p>
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
                     <RxLinkedinLogo />
-                    <a href="https://www.linkedin.com/in/rikiya-okawa369/" target="_blank" className="relative z-50">
+                    <a href="https://www.linkedin.com/in/rikiya-okawa369/" target="_blank" rel="noopener noreferrer" className="relative z-50">
                     <span className="text-[15px] ml-[6px] font-panno">LinkedIn</span>    
                     </a>
                 </p>
@@ -39,7 +39,7 @@ return (
             <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
                 <div className="font-bold text-lg font-panno">About</div>
                 <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                    <a href="mailto:rikiyadazo89@gmail.com" target="_blank" className="relative z-50">
+                    <a href="mailto:rikiyadazo89@gmail.com" target="_blank" rel="noopener noreferrer" className="relative z-50">
                         <span className="text-[15px] ml-[6px] font-panno">rikiyadazo89@gmail.com</span>
                     </a>
                 </p>

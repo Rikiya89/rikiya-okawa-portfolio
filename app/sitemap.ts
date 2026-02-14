@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { listEnProjects } from "@/lib/siteProjectsEn";
 import { listJpProjects } from "@/lib/siteProjectsJp";
-import { projects as clientProjects } from "@/lib/projects";
+import { projects as clientProjectsEn } from "@/lib/projects";
+import { projects as clientProjectsJp } from "@/lib/projects_jp";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -9,6 +10,7 @@ const siteUrl =
   "http://localhost:3000";
 const base = siteUrl.replace(/\/$/, "");
 const now = new Date();
+const basicAuthEnabled = Boolean(process.env.BASIC_AUTH_USER && process.env.BASIC_AUTH_PASSWORD);
 
 const abs = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
 
@@ -24,9 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: abs("/jp"), lastModified: now },
     { url: abs("/aboutme"), lastModified: now },
     { url: abs("/about-me_jp"), lastModified: now },
-    { url: abs("/clientworks"), lastModified: now },
     { url: abs("/guardians_en"), lastModified: now },
     { url: abs("/guardians_jp"), lastModified: now },
+    ...(basicAuthEnabled
+      ? []
+      : [
+          { url: abs("/clientworks"), lastModified: now },
+          { url: abs("/clientworks_jp"), lastModified: now },
+        ]),
   ];
 
   // EN/JP site projects
@@ -67,10 +74,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]));
 
   // Client works
-  const clientWorksPages: MetadataRoute.Sitemap = clientProjects.flatMap((p) => [
-    { url: abs(`/clientworks/${p.slug}`), lastModified: now },
-    { url: abs(`/clientworks/${p.slug}/description`), lastModified: now },
+  const clientWorkSlugs = new Set([
+    ...clientProjectsEn.map((p) => p.slug),
+    ...clientProjectsJp.map((p) => p.slug),
   ]);
+  const clientWorksPages: MetadataRoute.Sitemap = basicAuthEnabled
+    ? []
+    : Array.from(clientWorkSlugs).flatMap((slug) => [
+        { url: abs(`/clientworks/${slug}`), lastModified: now },
+        { url: abs(`/clientworks/${slug}/description`), lastModified: now },
+        { url: abs(`/clientworks_jp/${slug}`), lastModified: now },
+        { url: abs(`/clientworks_jp/${slug}/description`), lastModified: now },
+      ]);
 
   return [
     ...staticPages,
