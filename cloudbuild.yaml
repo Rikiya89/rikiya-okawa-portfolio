@@ -39,6 +39,7 @@ steps:
       - --region=${_REGION}
       - --platform=managed
       - --allow-unauthenticated
+      - --service-account=cloudrun-runtime@${PROJECT_ID}.iam.gserviceaccount.com
       - --update-secrets=BASIC_AUTH_USER=BASIC_AUTH_USER:latest,BASIC_AUTH_PASSWORD=BASIC_AUTH_PASSWORD:latest
       - --set-env-vars=NEXT_PUBLIC_SITE_URL=${_NEXT_PUBLIC_SITE_URL}
 
