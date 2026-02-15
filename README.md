@@ -72,6 +72,34 @@ This repository includes `amplify.yml` for AWS Amplify Hosting (SSR compatible).
 
 `amplify.yml` writes the above variables into `.env.production` during build so middleware can read them at runtime.
 
+## Deploy on GCP Cloud Run (GitHub Auto Deploy)
+
+This repository includes `Dockerfile` and `cloudbuild.yaml` for Cloud Build -> Cloud Run deployment.
+
+1. In GCP, open Cloud Build > Triggers and connect your GitHub repository.
+2. Create a trigger for branch `main`.
+3. Set the config file path to `cloudbuild.yaml`.
+4. Ensure the following secrets exist in Secret Manager:
+   - `BASIC_AUTH_USER`
+   - `BASIC_AUTH_PASSWORD`
+5. Grant required roles to the Cloud Build service account.
+6. Push to `main` to deploy automatically.
+
+Default substitutions in `cloudbuild.yaml`:
+- `_REGION`: `asia-northeast1`
+- `_SERVICE_NAME`: `rikiya-okawa-369`
+- `_AR_REPOSITORY`: `cloud-run-source-deploy`
+- `_IMAGE_NAME`: `space-portfolio`
+- `_NEXT_PUBLIC_SITE_URL`: current `run.app` URL
+
+Required IAM roles (minimum):
+- `roles/run.admin`
+- `roles/iam.serviceAccountUser`
+- `roles/artifactregistry.writer`
+- `roles/secretmanager.secretAccessor`
+
+If Artifact Registry repository `cloud-run-source-deploy` does not exist in `asia-northeast1`, create it once before enabling trigger.
+
 ---
 
 ## スペースポートフォリオ（日本語）
@@ -144,3 +172,31 @@ npm run dev
 5. 必要に応じて Amplify Console で独自ドメインを接続します。
 
 `amplify.yml` では、ビルド時に上記変数を `.env.production` へ書き出し、`middleware.ts` から参照できるようにしています。
+
+## GCP Cloud Run へのデプロイ（GitHub自動デプロイ）
+
+このリポジトリには Cloud Build から Cloud Run へデプロイするための `Dockerfile` と `cloudbuild.yaml` が含まれています。
+
+1. GCP の Cloud Build > トリガー で GitHub リポジトリを接続します。
+2. `main` ブランチ向けのトリガーを作成します。
+3. ビルド設定ファイルを `cloudbuild.yaml` にします。
+4. Secret Manager に以下のSecretを用意します。
+   - `BASIC_AUTH_USER`
+   - `BASIC_AUTH_PASSWORD`
+5. Cloud Build のサービスアカウントに必要ロールを付与します。
+6. `main` に push すると自動デプロイされます。
+
+`cloudbuild.yaml` の既定置換変数:
+- `_REGION`: `asia-northeast1`
+- `_SERVICE_NAME`: `rikiya-okawa-369`
+- `_AR_REPOSITORY`: `cloud-run-source-deploy`
+- `_IMAGE_NAME`: `space-portfolio`
+- `_NEXT_PUBLIC_SITE_URL`: 現在の `run.app` URL
+
+必要IAMロール（最小）:
+- `roles/run.admin`
+- `roles/iam.serviceAccountUser`
+- `roles/artifactregistry.writer`
+- `roles/secretmanager.secretAccessor`
+
+`asia-northeast1` に `cloud-run-source-deploy` リポジトリがない場合は、トリガー有効化前に一度だけ作成してください。
