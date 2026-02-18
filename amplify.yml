@@ -6,7 +6,15 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e NEXT_PUBLIC_SITE_URL -e BASIC_AUTH_USER -e BASIC_AUTH_PASSWORD > .env.production || true
+        - |
+          escape_for_dotenv() {
+            printf '%s' "$1" | sed 's/\\/\\\\/g; s/\$/\\$/g'
+          }
+          {
+            printf 'NEXT_PUBLIC_SITE_URL=%s\n' "$(escape_for_dotenv "$NEXT_PUBLIC_SITE_URL")"
+            printf 'BASIC_AUTH_USER=%s\n' "$(escape_for_dotenv "$BASIC_AUTH_USER")"
+            printf 'BASIC_AUTH_PASSWORD=%s\n' "$(escape_for_dotenv "$BASIC_AUTH_PASSWORD")"
+          } > .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
