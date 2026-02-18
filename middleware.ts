@@ -42,13 +42,17 @@ export function middleware(request: NextRequest) {
   }
 
   const basicAuth = request.headers.get('authorization');
+  let user = '';
+  let pwd = '';
+  let decodedAuth = false;
   if (basicAuth?.startsWith('Basic ')) {
     try {
       const authValue = basicAuth.slice('Basic '.length);
       const decoded = decodeBase64(authValue);
       const separatorIndex = decoded.indexOf(':');
-      const user = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : '';
-      const pwd = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : '';
+      user = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : '';
+      pwd = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : '';
+      decodedAuth = true;
 
       if (user === validUser && pwd === validPassword) {
         return nextWithHeaders();
@@ -62,6 +66,16 @@ export function middleware(request: NextRequest) {
     status: 401,
     headers: {
       'WWW-Authenticate': 'Basic realm="Secure Area"',
+      // Temporary debug headers for diagnosing env/header mismatch in Amplify.
+      // Remove these after auth is confirmed working.
+      'X-Auth-Debug-Has-Header': basicAuth ? '1' : '0',
+      'X-Auth-Debug-Decoded': decodedAuth ? '1' : '0',
+      'X-Auth-Debug-User-Match': user === (validUser ?? '') ? '1' : '0',
+      'X-Auth-Debug-Pass-Match': pwd === (validPassword ?? '') ? '1' : '0',
+      'X-Auth-Debug-Expected-User-Len': String(validUser?.length ?? 0),
+      'X-Auth-Debug-Expected-Pass-Len': String(validPassword?.length ?? 0),
+      'X-Auth-Debug-Received-User-Len': String(user.length),
+      'X-Auth-Debug-Received-Pass-Len': String(pwd.length),
     },
   });
 }
