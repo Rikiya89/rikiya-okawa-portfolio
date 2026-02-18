@@ -1,6 +1,19 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const decodeBase64 = (value: string): string => {
+  if (typeof atob === 'function') {
+    return atob(value);
+  }
+
+  const maybeBuffer = (globalThis as { Buffer?: { from: (input: string, encoding: string) => { toString: (encoding: string) => string } } }).Buffer;
+  if (maybeBuffer) {
+    return maybeBuffer.from(value, 'base64').toString('utf-8');
+  }
+
+  throw new Error('No base64 decoder available');
+};
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const requestHeaders = new Headers(request.headers);
@@ -17,8 +30,8 @@ export function middleware(request: NextRequest) {
 
   if (!isProtectedRoute) return nextWithHeaders();
 
-  const validUser = process.env.BASIC_AUTH_USER;
-  const validPassword = process.env.BASIC_AUTH_PASSWORD;
+  const validUser = process.env.BASIC_AUTH_USER?.trim();
+  const validPassword = process.env.BASIC_AUTH_PASSWORD?.trim();
   if (!validUser || !validPassword) {
     if (process.env.NODE_ENV === 'production') {
       return new NextResponse('Authentication is not configured', {
@@ -32,7 +45,7 @@ export function middleware(request: NextRequest) {
   if (basicAuth?.startsWith('Basic ')) {
     try {
       const authValue = basicAuth.slice('Basic '.length);
-      const decoded = atob(authValue);
+      const decoded = decodeBase64(authValue);
       const separatorIndex = decoded.indexOf(':');
       const user = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : '';
       const pwd = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : '';
