@@ -6,7 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - env | grep -e NEXT_PUBLIC_SITE_URL -e BASIC_AUTH_USER -e BASIC_AUTH_PASSWORD >> .env.production || true
+        - env | grep -e NEXT_PUBLIC_SITE_URL -e BASIC_AUTH_USER -e BASIC_AUTH_PASSWORD > .env.production || true
         - npm run build
   artifacts:
     baseDirectory: .next
