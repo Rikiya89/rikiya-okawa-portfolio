@@ -1,0 +1,26 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - |
+          escape_for_dotenv() {
+            printf '%s' "$1" | sed 's/\\/\\\\/g; s/\$/\\$/g'
+          }
+          {
+            printf 'NEXT_PUBLIC_SITE_URL=%s\n' "$(escape_for_dotenv "$NEXT_PUBLIC_SITE_URL")"
+            printf 'BASIC_AUTH_USER=%s\n' "$(escape_for_dotenv "$BASIC_AUTH_USER")"
+            printf 'BASIC_AUTH_PASSWORD=%s\n' "$(escape_for_dotenv "$BASIC_AUTH_PASSWORD")"
+          } > .env.production
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*

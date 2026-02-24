@@ -1,0 +1,73 @@
+"use client";
+// Projects.tsx
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import ProjectCard from "../sub/ProjectCard";
+import { listJpProjects } from "@/lib/siteProjectsJp";
+
+const Projects = () => {
+  const projects = listJpProjects();
+  const scrollKey = "projects:scrollY:jp";
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    let stored: { y?: number; ts?: number } | null = null;
+    try {
+      const raw = sessionStorage.getItem(scrollKey);
+      if (raw) stored = JSON.parse(raw);
+    } catch {
+      stored = null;
+    }
+    if (typeof stored?.y !== "number") return;
+    if (typeof stored?.ts === "number" && Date.now() - stored.ts > 10 * 60 * 1000) {
+      sessionStorage.removeItem(scrollKey);
+      return;
+    }
+    sessionStorage.removeItem(scrollKey);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, stored!.y as number);
+      });
+    });
+  }, [scrollKey]);
+
+  return (
+    <div className="flex flex-col items-center justify-center pb-20 relative">
+      <motion.h1
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+        className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-9 font-panno 
+      lg:text-4xl md:text-4xl sm:text-4xl"
+      >
+        My Projects
+      </motion.h1>
+      <div className="absolute top-[-30px] left-0" id="projects"></div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="2xl:max-w-7xl 2xl:gap-6 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:gird 
+      xl:max-w-7xl xl:grid-cols-3 xl:gap-6 xl:px-10 xl:justify-items-center xl:justify-center xl:grid 
+      lg:max-w-7xl lg:grid-cols-2 lg:gap-6 lg:px-10 lg:justify-items-center lg:justify-center lg:grid 
+      md:max-w-2xl md:grid-cols-2 md:gap-6 md:px-10 md:justify-items-center md:justify-center md:flex 
+      sm:max-w-4xl sm:gap-6 sm:flex-col sm:flex font-panno"
+      >
+        {projects.map((p) => (
+          <ProjectCard
+            key={p.slug}
+            src={p.src}
+            title={p.title}
+            description={p.description}
+            url={p.url}
+            slug={p.slug}
+          />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+export default Projects;
