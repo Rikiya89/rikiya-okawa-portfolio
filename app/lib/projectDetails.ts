@@ -9,6 +9,32 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "emotional-echoes-p5js": {
+    title: "Emotional Echoes: Multilingual Typography Experiment",
+    role: "Role: Creative Coding / Generative Art (p5.js) — Concept, Visual Design, Interaction Design, Implementation",
+    intro:
+      "Created an interactive p5.js artwork that visualizes six emotions (happy, anxious, peaceful, angry, sad, hopeful) through multilingual typography and motion. Users can click anywhere on the canvas to cycle emotions, hover floating words to trigger text-particle bursts, and use the emotion wheel to jump directly to a selected feeling. The work was featured on the official p5.js Community page and aligns with the p5.js Community Sketch 2025 Open Call theme focused on multilingual typography and text experiments.",
+    responsibilities: [
+      "Designed a multilingual typography experience expressing emotion across multiple languages and scripts",
+      "Implemented three interaction paths: canvas click to cycle emotions, hover-triggered text particles, and direct selection via emotion wheel",
+      "Structured motion and visual transitions to communicate emotional shifts through typography and color",
+      "Built the sketch in p5.js 2.0 and included accessibility support through describe() for screen-reader users",
+      "Developed the piece in the context of the p5.js Community Sketch 2025 Open Call (theme: Multilingual Typography & Text Experiments)",
+    ],
+    outcomes: [
+      "Featured on the official p5.js Community page (published July 8, 2025)",
+      "Recognized in a p5.js community artwork contest/call context for multilingual typography experimentation",
+      "Showcased generative art, interaction design, and creative coding skills in a public community curation",
+      "Connected the visual concept to Mental Health Awareness prompts using emotion/feelings-wheel exploration",
+    ],
+    techStack: [
+      "p5.js",
+      "JavaScript",
+      "Creative Coding",
+      "Generative Art",
+      "Interaction Design",
+    ],
+  },
   "portfolio-website": {
     title: "Portfolio Website",
     role: "Role: Web Engineer — Planning, Design, Implementation, Build Environment Setup",
@@ -132,6 +158,24 @@ const detailsMap: Record<string, ProjectDetails> = {
       "Optimized a maintainable structure even at small scale",
     ],
     techStack: ["React", "JavaScript", "Weather API", "Geolocation API", "CSS"],
+  },
+  typevision: {
+    title: "TypeVision",
+    role: "Role: Frontend Engineer — Design & Implementation",
+    intro:
+      "Built a browser-based touch-typing trainer using JavaScript, integrated with optional eye tracking, bilingual practice flows, and local-first progress storage.\n\nA focused UI lets users train in English and Japanese, track WPM and accuracy in real time, and replay or share challenge runs smoothly.",
+    responsibilities: [
+      "Implemented game flow for Practice, Challenge, and Progress modes",
+      "Added English/Japanese passage generation and Japanese display options",
+      "Integrated optional MediaPipe FaceMesh eye tracking with calibration and sensitivity controls",
+      "Managed scores, achievements, goals, and settings with localStorage persistence",
+    ],
+    outcomes: [
+      "Created a privacy-first experience with no backend required for core gameplay",
+      "Improved usability with responsive layout, focus mode, countdowns, and live analytics",
+      "Structured the app into modular UI, gameplay, storage, audio, and translation layers",
+    ],
+    techStack: ["JavaScript", "HTML", "CSS", "Vite", "MediaPipe FaceMesh", "localStorage", "p5.js"],
   },
   "iphone14-clone-3d": {
     title: "3D iPhone Product Page",

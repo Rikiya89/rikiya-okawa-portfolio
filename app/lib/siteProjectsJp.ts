@@ -8,6 +8,22 @@ export type SiteProject = {
 };
 
 const jpMap: Record<string, SiteProject> = {
+  typevision: {
+    slug: "typevision",
+    title: "TypeVision",
+    description:
+      "JavaScript と HTML/CSS で構築。\n英語/日本語のタイピング練習、任意の視線追跡、ローカル保存の進捗管理を統合し、リアルタイム分析と集中しやすい UI で提供。",
+    src: "/img/typevision.webp",
+    url: "https://typevision-jubx4b2jp-rikiyadazo89-gmailcoms-projects.vercel.app/",
+  },
+  "emotional-echoes-p5js": {
+    slug: "emotional-echoes-p5js",
+    title: "Emotional Echoes（p5.js）",
+    description:
+      "p5.js による多言語タイポグラフィの\nインタラクティブ作品。\n6つの感情を、文字アニメーションとホバー粒子、感情ホイールで体験可能。",
+    src: "/img/p5js_artwork.webp",
+    url: "https://p5js.org/sketches/2688829/",
+  },
   "portfolio-website": {
     slug: "portfolio-website",
     title: "Portfolio Website",

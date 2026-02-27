@@ -10,6 +10,33 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "emotional-echoes-p5js": {
+    title: "Emotional Echoes: Multilingual Typography Experiment",
+    role: "役割: Creative Coding / Generative Art（p5.js）— 企画・ビジュアル設計・インタラクション設計・実装",
+    intro:
+      "6つの感情（happy / anxious / peaceful / angry / sad / hopeful）を、多言語タイポグラフィと動きで可視化する p5.js 作品を制作しました。キャンバスクリックで感情を順番に切り替え、中央リングの単語ホバーで文字パーティクルを発生させ、右上の感情ホイールで任意の感情へ直接移動できます。本作は p5.js 公式 Community ページに掲載され、p5.js Community Sketch 2025 Open Call の「Multilingual Typography & Text Experiments with p5.js 2.0」というテーマに沿った作品です。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "複数言語・複数文字体系で感情表現を行うタイポグラフィ体験を設計",
+      "キャンバスクリック／ホバー粒子／感情ホイールの3系統インタラクションを実装",
+      "タイポグラフィと配色遷移で感情の変化を伝える演出を構成",
+      "p5.js 2.0 で制作し、アクセシビリティのため describe() を実装",
+      "p5.js Community Sketch 2025 Open Call（多言語タイポグラフィ／テキスト実験）文脈で制作",
+    ],
+    outcomes: [
+      "p5.js 公式 Community ページに掲載（2025年7月8日公開）",
+      "多言語タイポグラフィ表現を軸とした p5.js コミュニティ企画／コンテスト文脈で評価",
+      "ジェネラティブアート、インタラクション設計、Creative Coding の実績として公開展示",
+      "感情ホイールを用いたメンタルヘルス文脈の表現テーマに接続",
+    ],
+    techStack: [
+      "p5.js",
+      "JavaScript",
+      "Creative Coding",
+      "Generative Art",
+      "インタラクションデザイン",
+    ],
+  },
   "portfolio-website": {
     title: "ポートフォリオサイト",
     role: "役割: Webエンジニア — 企画・設計・実装・ビルド環境構築",
@@ -135,6 +162,25 @@ const detailsMap: Record<string, ProjectDetails> = {
       "小規模でも保守しやすい構成に最適化",
     ],
     techStack: ["React", "JavaScript", "天気API", "位置情報API", "CSS"],
+  },
+  typevision: {
+    title: "TypeVision",
+    role: "役割: フロントエンドエンジニア — 設計・実装",
+    intro:
+      "JavaScript を用いて、英語/日本語の練習と任意の視線追跡に対応したブラウザベースのタイピング学習アプリを開発。\n\n集中しやすい UI 上で、WPM・正確率のリアルタイム表示、チャレンジ共有、進捗のローカル保存まで一貫して提供。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "Practice / Challenge / Progress 各モードのゲーム進行を実装",
+      "英語文生成、日本語表示切替、ローマ字入力対応を設計",
+      "MediaPipe FaceMesh による任意の視線追跡とキャリブレーションを統合",
+      "スコア、実績、目標、設定を localStorage で永続化",
+    ],
+    outcomes: [
+      "バックエンド不要のプライバシー重視構成を実現",
+      "レスポンシブ UI、フォーカスモード、ライブ分析で操作性を向上",
+      "UI、ゲームロジック、保存、翻訳を分離し、保守しやすい構成に最適化",
+    ],
+    techStack: ["JavaScript", "HTML", "CSS", "Vite", "MediaPipe FaceMesh", "localStorage", "p5.js"],
   },
   "iphone14-clone-3d": {
     title: "3D iPhone Product Page",

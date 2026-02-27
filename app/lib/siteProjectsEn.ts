@@ -8,6 +8,22 @@ export type SiteProject = {
 };
 
 const enMap: Record<string, SiteProject> = {
+  typevision: {
+    slug: "typevision",
+    title: "TypeVision",
+    description:
+      "A browser-based typing trainer built with JavaScript, optional eye tracking, and local-first progress storage.\nPractice English and Japanese in a focused, responsive UI with real-time analytics, challenge modes, and shareable runs.",
+    src: "/img/typevision.webp",
+    url: "https://typevision-jubx4b2jp-rikiyadazo89-gmailcoms-projects.vercel.app/",
+  },
+  "emotional-echoes-p5js": {
+    slug: "emotional-echoes-p5js",
+    title: "Emotional Echoes (p5.js)",
+    description:
+      "Interactive multilingual typography artwork built with p5.js.\nExplore six emotions through animated text, hover particle bursts, and an emotion wheel.",
+    src: "/img/p5js_artwork.webp",
+    url: "https://p5js.org/sketches/2688829/",
+  },
   "portfolio-website": {
     slug: "portfolio-website",
     title: "Portfolio Website",

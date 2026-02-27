@@ -54,6 +54,20 @@ const Projects = () => {
       sm:max-w-4xl sm:gap-6 sm:flex-col sm:flex font-panno"
       >
           <ProjectCard
+            src="/img/typevision.webp"
+            title="TypeVision"
+            description="A browser-based typing trainer built with JavaScript, optional eye tracking, and local-first progress storage."
+            url=""
+            slug="typevision"
+          />
+          <ProjectCard
+            src="/img/p5js_artwork.webp"
+            title="Emotional Echoes (p5.js)"
+            description="Interactive multilingual typography artwork in p5.js with six emotions, hover text-particle bursts, and an emotion wheel."
+            url="https://p5js.org/sketches/2688829/"
+            slug="emotional-echoes-p5js"
+          />
+          <ProjectCard
             src="/img/portfolio_no1.webp"
             title="Portfolio Website"
             description="HTML/SCSS/JavaScript portfolio with a clean, responsive UI. Browse projects through intuitive navigation and engaging visuals."
