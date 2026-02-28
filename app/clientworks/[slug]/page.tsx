@@ -5,6 +5,10 @@ import { getProject } from "@/lib/projects";
 import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ slug: string }>; searchParams?: Promise<{ m?: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ m?: string | string[] }>;
+};
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
@@ -37,17 +41,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-export default async function Page({ params, searchParams }: Params) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const { m } = (searchParams ? await searchParams : {}) as { m?: string };
+  const { m } = (searchParams ? await searchParams : {}) as { m?: string | string[] };
   try {
     await getProject(slug);
   } catch {
     notFound();
   }
-  if (m) {
+  const modalToken = Array.isArray(m) ? m[0] : m;
+  if (modalToken) {
     return (
-      <Modal resetPath="/clientworks">
+      <Modal key={`${slug}-${modalToken}`} resetPath="/clientworks">
         <ProjectDetail slug={slug} inModal />
       </Modal>
     );

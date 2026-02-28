@@ -62,7 +62,7 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
       src={p.src}
       onVisit={handleVisit}
       onClose={handleClose}
-      visitText="サイトを見る"
+      visitText="詳しく見る"
       closeText="一覧に戻る"
     />
   );
