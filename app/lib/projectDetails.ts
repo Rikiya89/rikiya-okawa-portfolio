@@ -163,7 +163,7 @@ const detailsMap: Record<string, ProjectDetails> = {
     title: "TypeVision",
     role: "Role: Frontend Engineer — Design & Implementation",
     intro:
-      "Built a browser-based touch-typing trainer using JavaScript, integrated with optional eye tracking, bilingual practice flows, and local-first progress storage.\n\nA focused UI lets users train in English and Japanese, track WPM and accuracy in real time, and replay or share challenge runs smoothly.",
+      "Built a browser-based touch-typing trainer using JavaScript, integrated with optional eye tracking, bilingual practice flows, and local-first progress storage.\nA focused UI lets users train in English and Japanese, track WPM and accuracy in real time, and replay or share challenge runs smoothly.",
     responsibilities: [
       "Implemented game flow for Practice, Challenge, and Progress modes",
       "Added English/Japanese passage generation and Japanese display options",

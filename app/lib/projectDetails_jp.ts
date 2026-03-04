@@ -167,7 +167,7 @@ const detailsMap: Record<string, ProjectDetails> = {
     title: "TypeVision",
     role: "役割: フロントエンドエンジニア — 設計・実装",
     intro:
-      "JavaScript を用いて、英語/日本語の練習と任意の視線追跡に対応したブラウザベースのタイピング学習アプリを開発。\n\n集中しやすい UI 上で、WPM・正確率のリアルタイム表示、チャレンジ共有、進捗のローカル保存まで一貫して提供。",
+      "JavaScript を用いて、英語/日本語の練習と任意の視線追跡に対応したブラウザベースのタイピング学習アプリを開発。\n集中しやすい UI 上で、WPM・正確率のリアルタイム表示、チャレンジ共有、進捗のローカル保存まで一貫して提供。",
     responsibilitiesHeading: "主な内容",
     responsibilities: [
       "Practice / Challenge / Progress 各モードのゲーム進行を実装",
