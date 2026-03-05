@@ -106,11 +106,11 @@ html.scroll-snap-y .snap-section {
 }
 
 .modal-panel-in {
-  animation: modalIn 500ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: modalIn 280ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 .modal-panel-out {
-  animation: modalOut 500ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: modalOut 220ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes shimmerSwipe {

@@ -8,6 +8,8 @@ const ModalControlContext = createContext<ModalControl | null>(null);
 export const useModalControl = () => useContext(ModalControlContext);
 
 export default function Modal({ children, resetPath = "/clientworks", refreshOnClose = true, skipUrlUpdate = false }: { children: React.ReactNode; resetPath?: string; refreshOnClose?: boolean; skipUrlUpdate?: boolean }) {
+  const CLOSE_ANIMATION_MS = 220;
+  const POST_CLOSE_SYNC_MS = 120;
   const router = useRouter();
   const panelRef = useRef<HTMLDivElement | null>(null);
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -75,9 +77,9 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
             router.replace(resetPath, { scroll: false });
           }
         } catch {}
-      }, 200);
-    }, 500); // Match medium-close animation duration
-  }, [isClosing, resetPath, router, setBackgroundInert]);
+      }, POST_CLOSE_SYNC_MS);
+    }, CLOSE_ANIMATION_MS); // Match close animation duration
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, isClosing, resetPath, router, setBackgroundInert]);
 
   const closeWith = useCallback((fn: () => void) => {
     if (isClosing) return;
@@ -109,9 +111,9 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         } catch {
           fn();
         }
-      }, 200);
-    }, 500); // Match medium-close animation duration
-  }, [isClosing, resetPath, setBackgroundInert]);
+      }, POST_CLOSE_SYNC_MS);
+    }, CLOSE_ANIMATION_MS); // Match close animation duration
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, isClosing, resetPath, setBackgroundInert]);
 
   // ESC キーで閉じる
   useEffect(() => {
@@ -221,7 +223,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       {/* Ultra Beautiful Layered Backdrop */}
       <div
         className={
-          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#7042f861] backdrop-blur-md transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
+          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#7042f861] backdrop-blur-md transition-all ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
+          (isClosing ? "duration-[220ms] " : "duration-[280ms] ") +
           (!entered
             ? "opacity-0 scale-105"
             : isClosing
@@ -239,7 +242,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       {/* Secondary Glow Layer (subtle, centered) */}
       <div
         className={
-          "absolute inset-0 pointer-events-none transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] " +
+          "absolute inset-0 pointer-events-none transition-opacity ease-[cubic-bezier(0.23,1,0.32,1)] " +
+          (isClosing ? "duration-[220ms] " : "duration-[280ms] ") +
           (!entered ? "opacity-0" : isClosing ? "opacity-0" : "opacity-20")
         }
         aria-hidden="true"
@@ -253,7 +257,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       {/* Magical Particle Effect Layer */}
       <div
         className={
-          "absolute inset-0 transition-opacity duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0"
+          "absolute inset-0 transition-opacity ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 " +
+          (isClosing ? "duration-[220ms]" : "duration-[280ms]")
         }
         aria-hidden="true"
         style={{
