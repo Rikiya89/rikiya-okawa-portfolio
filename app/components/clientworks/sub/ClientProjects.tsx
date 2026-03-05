@@ -78,7 +78,8 @@ export default function ClientProjects({ src, title, description, url, slug, cen
                 sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
               } catch {}
             }
-            const dest = `${basePath}/${slug}?m=1`;
+            const modalToken = Date.now().toString(36);
+            const dest = `${basePath}/${slug}?m=${modalToken}`;
             router.push(dest, { scroll: false });
           }}
         >

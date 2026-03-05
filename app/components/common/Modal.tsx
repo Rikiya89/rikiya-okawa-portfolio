@@ -15,6 +15,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   const rootRef = useRef<HTMLDivElement | null>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
   const inertSiblingsRef = useRef<HTMLElement[]>([]);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const postCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [labelledBy, setLabelledBy] = useState<string | undefined>();
   const [describedBy, setDescribedBy] = useState<string | undefined>();
   const [isClosing, setIsClosing] = useState(false);
@@ -52,8 +54,20 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     } catch {}
   }, []);
 
+  const clearCloseTimers = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    if (postCloseTimerRef.current) {
+      clearTimeout(postCloseTimerRef.current);
+      postCloseTimerRef.current = null;
+    }
+  }, []);
+
   const close = useCallback(() => {
     if (isClosing) return;
+    clearCloseTimers();
     setIsClosing(true);
     document.body.style.overflow = "auto";
     // Restore background interactivity immediately
@@ -66,10 +80,20 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     } catch {}
     
     // Wait for the medium-close animation to complete
-    setTimeout(() => {
+    closeTimerRef.current = setTimeout(() => {
+      try {
+        const samePath = window.location.pathname === resetPath;
+        const hasQuery = window.location.search && window.location.search.length > 0;
+        if (!samePath || hasQuery) {
+          // User reopened/navigated during close animation; cancel this close.
+          setIsClosing(false);
+          return;
+        }
+      } catch {}
+
       setShouldRender(false);
       // Stabilize Next router state after exit if user hasn't navigated elsewhere
-      setTimeout(() => {
+      postCloseTimerRef.current = setTimeout(() => {
         try {
           const samePath = window.location.pathname === resetPath;
           const hasQuery = window.location.search && window.location.search.length > 0;
@@ -79,10 +103,11 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         } catch {}
       }, POST_CLOSE_SYNC_MS);
     }, CLOSE_ANIMATION_MS); // Match close animation duration
-  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, isClosing, resetPath, router, setBackgroundInert]);
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, router, setBackgroundInert]);
 
   const closeWith = useCallback((fn: () => void) => {
     if (isClosing) return;
+    clearCloseTimers();
     setIsClosing(true);
     document.body.style.overflow = "auto";
     // Restore background interactivity immediately
@@ -95,25 +120,34 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     } catch {}
     
     // Wait for the medium-close animation to complete
-    setTimeout(() => {
+    closeTimerRef.current = setTimeout(() => {
+      try {
+        const samePath = window.location.pathname === resetPath;
+        const hasQuery = window.location.search && window.location.search.length > 0;
+        if (!samePath || hasQuery) {
+          // User reopened/navigated during close animation; cancel this close.
+          setIsClosing(false);
+          return;
+        }
+      } catch {}
+
       setShouldRender(false);
       
       // Execute callback after modal is hidden, but only if user
       // hasn't navigated elsewhere (e.g., immediately reopened another modal)
-      setTimeout(() => {
+      postCloseTimerRef.current = setTimeout(() => {
         try {
           const samePath = window.location.pathname === resetPath;
           const hasQuery = window.location.search && window.location.search.length > 0;
           if (samePath && !hasQuery) {
             fn();
-          } else {
           }
         } catch {
           fn();
         }
       }, POST_CLOSE_SYNC_MS);
     }, CLOSE_ANIMATION_MS); // Match close animation duration
-  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, isClosing, resetPath, setBackgroundInert]);
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, setBackgroundInert]);
 
   // ESC キーで閉じる
   useEffect(() => {
@@ -123,6 +157,12 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [close]);
+
+  useEffect(() => {
+    return () => {
+      clearCloseTimers();
+    };
+  }, [clearCloseTimers]);
 
   // 初回フォーカスをモーダル内へ & lock scroll
   useEffect(() => {

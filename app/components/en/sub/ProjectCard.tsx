@@ -49,7 +49,8 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
               sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
             } catch {}
           }
-          const dest = `/en/project/${encodeURIComponent(slug)}?m=1`;
+          const modalToken = Date.now().toString(36);
+          const dest = `/en/project/${encodeURIComponent(slug)}?m=${modalToken}`;
           router.push(dest, { scroll: false });
         }}
       >
