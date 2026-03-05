@@ -134,7 +134,12 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       if (panel) {
         // Try to focus the first focusable element inside the panel; fallback to the panel itself
         const focusables = getFocusableElements(panel);
-        (focusables[0] || panel).focus();
+        const target = focusables[0] || panel;
+        try {
+          target.focus({ preventScroll: true });
+        } catch {
+          target.focus();
+        }
       }
       setEntered(true);
     });
@@ -154,7 +159,11 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       try {
         const prev = previouslyFocusedRef.current;
         if (prev && document.contains(prev)) {
-          prev.focus();
+          try {
+            prev.focus({ preventScroll: true });
+          } catch {
+            prev.focus();
+          }
         }
       } catch {}
     };

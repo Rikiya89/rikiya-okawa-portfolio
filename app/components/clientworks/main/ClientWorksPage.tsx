@@ -101,6 +101,8 @@ const ClientWorksPage = ({
       stored = null;
     }
     if (typeof stored?.y !== "number") return;
+    if (window.location.pathname !== basePath) return;
+    if (window.location.search.includes("modal=off")) return;
     if (typeof stored?.ts === "number" && Date.now() - stored.ts > 10 * 60 * 1000) {
       sessionStorage.removeItem(scrollKey);
       return;
@@ -108,10 +110,16 @@ const ClientWorksPage = ({
     sessionStorage.removeItem(scrollKey);
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
+        const root = document.documentElement;
+        const prevScrollBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = "auto";
         window.scrollTo(0, stored!.y as number);
+        requestAnimationFrame(() => {
+          root.style.scrollBehavior = prevScrollBehavior;
+        });
       });
     });
-  }, [scrollKey]);
+  }, [basePath, scrollKey]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;

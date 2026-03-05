@@ -53,8 +53,13 @@ export default function ClientProjects({ src, title, description, url, slug, cen
     <motion.article
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{
+        y: -2,
+        scale: 1.008,
+        boxShadow: "0 12px 24px -16px rgba(112, 66, 248, 0.55)",
+        borderColor: "rgba(112, 66, 248, 0.9)",
+      }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-      whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
       className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 will-change-transform"
       aria-label={title}
@@ -62,7 +67,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
       {hasSlug ? (
         <Link
           href={`${basePath}/${slug}`}
-          prefetch={false}
+          prefetch
           scroll={false}
           className="flex flex-col h-full"
           onClick={(e) => {
@@ -73,18 +78,8 @@ export default function ClientProjects({ src, title, description, url, slug, cen
                 sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
               } catch {}
             }
-            const base = `${basePath}?modal=off`;
-            const dest = `${basePath}/${slug}?m=${Date.now()}`;
-            router.replace(base, { scroll: false });
-            let fired = false;
-            const go = () => {
-              if (fired) return;
-              fired = true;
-              router.push(dest, { scroll: false });
-            };
-            // Schedule with RAF and a timeout fallback for reliability
-            requestAnimationFrame(() => requestAnimationFrame(go));
-            setTimeout(go, 60);
+            const dest = `${basePath}/${slug}?m=1`;
+            router.push(dest, { scroll: false });
           }}
         >
           {CardInner}

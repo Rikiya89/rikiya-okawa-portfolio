@@ -22,15 +22,20 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
     <motion.article
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{
+        y: -2,
+        scale: 1.008,
+        boxShadow: "0 12px 24px -16px rgba(112, 66, 248, 0.55)",
+        borderColor: "rgba(112, 66, 248, 0.9)",
+      }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-      whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
       className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-auto 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80"
       aria-label={title}
     >
       <Link
         href={hrefForLink}
-        prefetch={false}
+        prefetch={!!slug}
         scroll={false}
         target={slug ? undefined : "_blank"}
         rel={slug ? undefined : "noopener noreferrer"}
@@ -44,17 +49,8 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
               sessionStorage.setItem(scrollKey, JSON.stringify({ y: window.scrollY, ts: Date.now() }));
             } catch {}
           }
-          const base = "/en?modal=off";
-          const dest = `/en/project/${encodeURIComponent(slug)}?m=${Date.now()}`;
-          router.replace(base, { scroll: false });
-          let fired = false;
-          const go = () => {
-            if (fired) return;
-            fired = true;
-            router.push(dest, { scroll: false });
-          };
-          requestAnimationFrame(() => requestAnimationFrame(go));
-          setTimeout(go, 60);
+          const dest = `/en/project/${encodeURIComponent(slug)}?m=1`;
+          router.push(dest, { scroll: false });
         }}
       >
         <div className="relative aspect-[16/9] w-full">
