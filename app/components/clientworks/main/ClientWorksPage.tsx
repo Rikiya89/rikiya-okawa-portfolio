@@ -102,6 +102,10 @@ const ClientWorksPage = ({
     }
     if (typeof stored?.y !== "number") return;
     if (window.location.pathname !== basePath) return;
+    if (window.location.hash) {
+      sessionStorage.removeItem(scrollKey);
+      return;
+    }
     if (window.location.search.includes("modal=off")) return;
     if (typeof stored?.ts === "number" && Date.now() - stored.ts > 10 * 60 * 1000) {
       sessionStorage.removeItem(scrollKey);

@@ -2,11 +2,17 @@
 // Navbar.tsx
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Socials } from '@/constants';
 import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/en";
+  const aboutHref = isHome ? "#about-me" : "/en#about-me";
+  const skillsHref = isHome ? "#skills" : "/en#skills";
+  const projectsHref = isHome ? "#projects" : "/en#projects";
 
   return (
     <div
@@ -15,7 +21,7 @@ const Navbar = () => {
       style={{ pointerEvents: 'auto' }}
     >
       <div className="flex items-center justify-between h-full">
-        <a href="#about-me" className="flex items-center">
+        <a href={aboutHref} className="flex items-center">
           <span className="Welcome-text font-bold text-gray-300 text-2xl font-panno">
             Rikiya Okawa
           </span>
@@ -48,13 +54,13 @@ const Navbar = () => {
         {/* Menu Items - always visible on PC */}
         <div className="hidden md:flex w-[500px] items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href="#about-me" className="cursor-pointer font-panno text-lg">
+            <a href={aboutHref} className="cursor-pointer font-panno text-lg">
               About Me
             </a>
-            <a href="#skills" className="cursor-pointer font-panno text-lg">
+            <a href={skillsHref} className="cursor-pointer font-panno text-lg">
               Skills
             </a>
-            <a href="#projects" className="cursor-pointer font-panno text-lg">
+            <a href={projectsHref} className="cursor-pointer font-panno text-lg">
               Projects
             </a>
             <a href="/jp" className="cursor-pointer font-panno text-lg">
@@ -66,13 +72,13 @@ const Navbar = () => {
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
-            <a href="#about-me" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
+            <a href={aboutHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               About Me
             </a>
-            <a href="#skills" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <a href={skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               Skills
             </a>
-            <a href="#projects" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+            <a href={projectsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               Projects
             </a>
             <a href="/jp" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>

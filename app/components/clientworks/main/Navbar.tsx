@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Socials } from "@/constants";
 
@@ -47,8 +48,14 @@ type ClientWorksNavbarProps = {
 
 const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   const copy = NAV_COPY[locale];
   const resolvedLanguageHref = languageHref ?? copy.languageHref;
+  const basePath = locale === "jp" ? "/clientworks_jp" : "/clientworks";
+  const isBasePage = pathname === basePath;
+  const heroHref = isBasePage ? "#client-hero" : `${basePath}#client-hero`;
+  const skillsHref = isBasePage ? "#skills" : `${basePath}#skills`;
+  const projectsHref = isBasePage ? "#projects" : `${basePath}#projects`;
 
   return (
     <div
@@ -57,7 +64,7 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
       style={{ pointerEvents: 'auto' }}
     >
       <div className="flex items-center justify-between h-full">
-        <a href="#client-hero" className="flex items-center">
+        <a href={heroHref} className="flex items-center">
           <span className="Welcome-text font-bold text-gray-300 text-2xl font-panno">
             Rikiya Okawa
           </span>
@@ -91,10 +98,10 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
             <a href={copy.aboutHref} className="cursor-pointer font-panno text-lg">
               {copy.aboutLabel}
             </a>
-            <a href={copy.skillsHref} className="cursor-pointer font-panno text-lg">
+            <a href={skillsHref} className="cursor-pointer font-panno text-lg">
               {copy.skillsLabel}
             </a>
-            <a href={copy.projectsHref} className="cursor-pointer font-panno text-lg">
+            <a href={projectsHref} className="cursor-pointer font-panno text-lg">
               {copy.projectsLabel}
             </a>
             <a href={resolvedLanguageHref} className="cursor-pointer font-panno text-lg">
@@ -108,10 +115,10 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
             <a href={copy.aboutHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               {copy.aboutLabel}
             </a>
-            <a href={copy.skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <a href={skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               {copy.skillsLabel}
             </a>
-            <a href={copy.projectsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+            <a href={projectsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               {copy.projectsLabel}
             </a>
             <a href={resolvedLanguageHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
