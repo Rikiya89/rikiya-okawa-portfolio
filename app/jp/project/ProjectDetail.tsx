@@ -6,6 +6,7 @@ import { getJpProject } from "@/lib/siteProjectsJp";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 import { getProjectDetails, type ProjectDetails } from "@/lib/projectDetails_jp";
 import { useEffect, useState } from "react";
+import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
 export default function JpProjectDetail({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
   const router = useRouter();
@@ -34,12 +35,9 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
   const handleVisit = () => {
     const href = `/jp/project/${slug}/description`;
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => {
-        router.replace("/jp", { scroll: false });
-        requestAnimationFrame(() => requestAnimationFrame(() => router.push(href)));
-      });
+      modalCtl.closeWith(() => navigateWithFallback(router, `${href}?from=modal`));
     } else {
-      router.push(href);
+      router.push(href, { scroll: false });
     }
   };
 

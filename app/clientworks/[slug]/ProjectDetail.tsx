@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
 import { useEffect, useState } from "react";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
+import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
 export default function ProjectDetail({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
   const [project, setProject] = useState<{ title: string; description: string; src: string } | null>(null);
@@ -41,13 +42,9 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
   const handleVisit = () => {
     const href = `/clientworks/${slug}/description`;
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => {
-        router.replace("/clientworks", { scroll: false });
-        // Ensure the parallel modal slot is cleared before pushing
-        requestAnimationFrame(() => requestAnimationFrame(() => router.push(href)));
-      });
+      modalCtl.closeWith(() => navigateWithFallback(router, `${href}?from=modal`));
     } else {
-      router.push(href);
+      router.push(href, { scroll: false });
     }
   };
 

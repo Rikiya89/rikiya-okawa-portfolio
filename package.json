@@ -2,6 +2,13 @@
   "name": "space_portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "volta": {
+    "node": "22.21.1",
+    "npm": "11.11.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
