@@ -36,10 +36,10 @@ export default function JpProjectDetail({ slug, inModal = false }: { slug: strin
     const href = `/jp/project/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() =>
-        navigateWithFallback(router, `${href}?from=modal`, { method: "replace" }),
+        navigateWithFallback(router, `${href}?from=modal`, { method: "replace", scroll: true }),
       );
     } else {
-      router.push(href, { scroll: false });
+      router.push(href, { scroll: true });
     }
   };
 

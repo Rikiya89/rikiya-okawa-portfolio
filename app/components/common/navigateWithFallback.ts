@@ -8,12 +8,13 @@ type RouterLike = {
 type NavigateOptions = {
   delayMs?: number;
   method?: "push" | "replace";
+  scroll?: boolean;
 };
 
 export function navigateWithFallback(
   router: RouterLike,
   href: string,
-  { delayMs = 450, method = "push" }: NavigateOptions = {},
+  { delayMs = 450, method = "push", scroll = false }: NavigateOptions = {},
 ) {
   const useReplace = method === "replace" && typeof router.replace === "function";
 
@@ -23,9 +24,9 @@ export function navigateWithFallback(
     const target = new URL(href, window.location.origin);
 
     if (useReplace) {
-      router.replace!(href, { scroll: false });
+      router.replace!(href, { scroll });
     } else {
-      router.push(href, { scroll: false });
+      router.push(href, { scroll });
     }
 
     window.setTimeout(() => {
@@ -45,8 +46,8 @@ export function navigateWithFallback(
   }
 
   if (useReplace) {
-    router.replace!(href, { scroll: false });
+    router.replace!(href, { scroll });
   } else {
-    router.push(href, { scroll: false });
+    router.push(href, { scroll });
   }
 }
