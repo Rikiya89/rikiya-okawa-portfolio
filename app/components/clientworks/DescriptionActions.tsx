@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTransition } from "@/components/common/PageTransition";
+import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
 export default function DescriptionActions({ slug, visitHref }: { slug: string; visitHref?: string | null }) {
   const router = useRouter();
@@ -15,34 +16,17 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
     else fn();
   };
 
-  const handleBack = () => {
+  const navigateTo = (href: string) => {
+    leave(() => navigateWithFallback(router, href));
+  };
+
+  const handleBackToList = () => {
     if (fromModal && typeof window !== "undefined" && window.history.length > 1) {
       leave(() => router.back());
-    } else {
-      leave(() => router.push(`/clientworks/${slug}`));
+      return;
     }
+    navigateTo(listTopHref);
   };
-
-  const navigateTo = (href: string) => {
-    const go = () => {
-      router.push(href);
-      if (typeof window !== "undefined") {
-        const target = new URL(href, window.location.origin);
-        setTimeout(() => {
-          if (window.location.pathname !== target.pathname) {
-            window.location.assign(href);
-            return;
-          }
-          if (target.hash && window.location.hash !== target.hash) {
-            window.location.hash = target.hash;
-          }
-        }, 300);
-      }
-    };
-    leave(go);
-  };
-
-  const handleBackToList = () => navigateTo(listTopHref);
 
   return (
     <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
