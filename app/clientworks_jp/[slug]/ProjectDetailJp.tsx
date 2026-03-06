@@ -42,7 +42,9 @@ export default function ProjectDetailJp({ slug, inModal = false }: { slug: strin
   const handleVisit = () => {
     const href = `/clientworks_jp/${slug}/description`;
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => navigateWithFallback(router, `${href}?from=modal`));
+      modalCtl.closeWith(() =>
+        navigateWithFallback(router, `${href}?from=modal`, { method: "replace" }),
+      );
     } else {
       router.push(href, { scroll: false });
     }

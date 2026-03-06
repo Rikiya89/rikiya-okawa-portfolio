@@ -2,23 +2,51 @@
 
 type RouterLike = {
   push: (href: string, options?: { scroll?: boolean }) => void;
+  replace?: (href: string, options?: { scroll?: boolean }) => void;
 };
 
-export function navigateWithFallback(router: RouterLike, href: string, delayMs = 450) {
-  router.push(href, { scroll: false });
+type NavigateOptions = {
+  delayMs?: number;
+  method?: "push" | "replace";
+};
 
-  if (typeof window === "undefined") return;
+export function navigateWithFallback(
+  router: RouterLike,
+  href: string,
+  { delayMs = 450, method = "push" }: NavigateOptions = {},
+) {
+  const useReplace = method === "replace" && typeof router.replace === "function";
 
-  const target = new URL(href, window.location.origin);
+  if (typeof window !== "undefined") {
+    const sourcePath = window.location.pathname;
+    const sourceSearch = window.location.search;
+    const target = new URL(href, window.location.origin);
 
-  window.setTimeout(() => {
-    const samePath = window.location.pathname === target.pathname;
-    const sameSearch = window.location.search === target.search;
-
-    if (!samePath || !sameSearch) {
-      // Replace instead of assign so slow client routing cannot create a duplicate
-      // history entry that makes "back" appear to loop on production.
-      window.location.replace(target.toString());
+    if (useReplace) {
+      router.replace!(href, { scroll: false });
+    } else {
+      router.push(href, { scroll: false });
     }
-  }, delayMs);
+
+    window.setTimeout(() => {
+      const stillOnSource =
+        window.location.pathname === sourcePath && window.location.search === sourceSearch;
+
+      if (!stillOnSource) return;
+
+      if (useReplace) {
+        window.location.replace(target.toString());
+      } else {
+        window.location.assign(target.toString());
+      }
+    }, delayMs);
+
+    return;
+  }
+
+  if (useReplace) {
+    router.replace!(href, { scroll: false });
+  } else {
+    router.push(href, { scroll: false });
+  }
 }
