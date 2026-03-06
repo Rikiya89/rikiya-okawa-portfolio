@@ -11,8 +11,7 @@ export const projects: Project[] = [
   {
     slug: "udemy-business",
     title: "Udemy Interview メディアサイト",
-    description: `WordPressでインタビュー記事サイトを構築。カスタム投稿タイプとACF設計を行い、4タクソノミーの複数絞り込みと本文＋ACFを対象としたフリーワード検索を実装。
-さらにUdemy APIから講座情報を取得して記事に表示し、Nginxのリバースプロキシで安定した配信とルーティングを確保。`,
+    description: `WordPressでインタビュー記事サイトを開発。複合絞り込み検索とUdemy REST API連携を実装。`,
     src: "/img/udemy-business.webp",
     url: "https://udemy.benesse.co.jp/interview/?utm_source=bene-content-marketing&utm_campaign=interview&utm_content=side-banner&utm_term=top&utm_medium=udemyads",
   },

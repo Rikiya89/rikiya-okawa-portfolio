@@ -44,24 +44,24 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "udemy-business": {
     title: "Udemy Interview Media Site",
-    role: "Role: WordPress Developer — Theme Customization, Search & Filtering, API Integration, Reverse Proxy (Nginx)",
+    role: "Role: WordPress Developer — Theme Customization / Search & Filtering Implementation / Udemy REST API Integration / Development Environment Setup (Nginx)",
     intro:
-      "Built a WordPress interview media site with custom post types and ACF design. Implemented multi-select filtering across four taxonomies and freeword search spanning post content + ACF. Also integrated the Udemy API to display course info in articles and set up an Nginx reverse proxy for stable delivery and routing.",
+      "Developed an interview media site with WordPress and ACF. Designed the custom post type and field structure, implemented combined filtering across four taxonomies, and built freeword search covering post content plus ACF flexible content. Also created a mechanism that fetches course titles, images, and URLs from the Udemy REST API by course ID and renders them automatically inside articles. In parallel, configured an Nginx reverse proxy and rewrite rules to stabilize routing in the development environment.",
     responsibilities: [
-      "Designed custom post types and ACF fields, and customized the theme",
-      "Built combined filtering across four taxonomies (age group, gender, role, category)",
-      "Made ACF flexible content searchable alongside post content",
-      "Integrated Udemy API (fetching course title, image, and URL by course ID)",
-      "Set up clean URLs and rewrite rules",
-      "Configured an Nginx reverse proxy",
+      "Designed custom post types and ACF fields, and customized the WordPress theme",
+      "Implemented combined filters across four taxonomies (age group, gender, job type, and category)",
+      "Built search logic spanning post content and custom fields, including ACF flexible content",
+      "Integrated the Udemy REST API to automatically fetch and render course information in articles",
+      "Implemented clean URLs and organized WordPress rewrite rules",
+      "Configured an Nginx reverse proxy to stabilize development routing",
     ],
     outcomes: [
-      "Improved search accuracy with well-structured AND/OR filters",
-      "Enabled cross-content freeword search including ACF fields",
-      "Reduced update effort by auto-fetching course data via API",
-      "Simplified search logic for better maintainability and performance",
+      "Reduced editorial effort by enabling course information to appear automatically from only a course ID",
+      "Improved article discoverability with freeword search across post content and ACF fields",
+      "Clarified navigation with multi-taxonomy filters, making target articles easier to reach",
+      "Improved maintainability by organizing the search flow and rendering logic",
     ],
-    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Udemy API", "Node.js", "Gulp"]
+    techStack: ["WordPress", "PHP", "ACF Pro", "MySQL", "Docker", "WP-CLI", "Nginx", "Udemy REST API", "Node.js", "Gulp"]
   },
   "timerland-official": {
     title: "Timberland Official Website",

@@ -9,11 +9,8 @@ type Locale = "en" | "jp";
 
 type NavCopy = {
   aboutLabel: string;
-  aboutHref: string;
   skillsLabel: string;
-  skillsHref: string;
   projectsLabel: string;
-  projectsHref: string;
   languageLabel: string;
   languageHref: string;
 };
@@ -21,21 +18,15 @@ type NavCopy = {
 const NAV_COPY: Record<Locale, NavCopy> = {
   en: {
     aboutLabel: "About Me",
-    aboutHref: "/en#about-me",
     skillsLabel: "Skills",
-    skillsHref: "#skills",
     projectsLabel: "Projects",
-    projectsHref: "#projects",
     languageLabel: "Japanese",
     languageHref: "/clientworks_jp",
   },
   jp: {
     aboutLabel: "About Me",
-    aboutHref: "/jp#about-me",
     skillsLabel: "Skills",
-    skillsHref: "#skills",
     projectsLabel: "Projects",
-    projectsHref: "#projects",
     languageLabel: "English",
     languageHref: "/clientworks",
   },
@@ -50,12 +41,19 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const copy = NAV_COPY[locale];
-  const resolvedLanguageHref = languageHref ?? copy.languageHref;
   const basePath = locale === "jp" ? "/clientworks_jp" : "/clientworks";
+  const counterpartBasePath = locale === "jp" ? "/clientworks" : "/clientworks_jp";
   const isBasePage = pathname === basePath;
   const heroHref = isBasePage ? "#client-hero" : `${basePath}#client-hero`;
   const skillsHref = isBasePage ? "#skills" : `${basePath}#skills`;
   const projectsHref = isBasePage ? "#projects" : `${basePath}#projects`;
+  const counterpartPath =
+    pathname === basePath
+      ? counterpartBasePath
+      : pathname.startsWith(`${basePath}/`)
+      ? `${counterpartBasePath}${pathname.slice(basePath.length)}`
+      : copy.languageHref;
+  const resolvedLanguageHref = languageHref ?? counterpartPath;
 
   return (
     <div
@@ -95,7 +93,7 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
 
         <div className="hidden md:flex w-[500px] items-center justify-between">
           <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href={copy.aboutHref} className="cursor-pointer font-panno text-lg">
+            <a href={heroHref} className="cursor-pointer font-panno text-lg">
               {copy.aboutLabel}
             </a>
             <a href={skillsHref} className="cursor-pointer font-panno text-lg">
@@ -112,7 +110,7 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
 
         {isMenuOpen && (
           <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
-            <a href={copy.aboutHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
+            <a href={heroHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               {copy.aboutLabel}
             </a>
             <a href={skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>

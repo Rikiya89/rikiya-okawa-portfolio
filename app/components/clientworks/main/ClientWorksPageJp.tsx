@@ -11,7 +11,7 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     src: "/img/udemy-business.webp",
     title: "Udemy Interview メディアサイト",
     description:
-      "WordPressでインタビュー一覧/詳細を構築し、\nACF＋複数タクソノミー絞り込みとフリーワード検索を実装。",
+      "WordPressでインタビュー記事サイトを開発。\n複合絞り込み検索とUdemy REST API連携を実装。",
     url: "https://www.udemybusiness.com/",
     slug: "udemy-business",
   },
