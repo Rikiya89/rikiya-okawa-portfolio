@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { usePageTransition } from "@/components/common/PageTransition";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-export default function DescriptionActionsJp({ slug, visitHref }: { slug: string; visitHref?: string | null }) {
+export default function DescriptionActionsJp({ visitHref }: { visitHref?: string | null }) {
   const router = useRouter();
   const ctx = usePageTransition();
   const listTopHref = "/clientworks_jp";

@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import JpProjectDetail from "../ProjectDetail";
 import { getJpProject } from "@/lib/siteProjectsJp";
-import Modal from "@/components/common/Modal";
+import { getProjectDetails } from "@/lib/projectDetails_jp";
 import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ slug: string }> };
-type PageProps = {
-  params: Promise<{ slug: string }>;
-  searchParams: Promise<{ m?: string | string[] }>;
-};
+type PageProps = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
@@ -44,23 +41,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params, searchParams }: PageProps) {
-  const [{ slug }, { m }] = await Promise.all([params, searchParams]);
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
   const p = getJpProject(slug);
   if (!p) notFound();
-
-  const modalToken = Array.isArray(m) ? m[0] : m;
-  if (modalToken) {
-    return (
-      <Modal key={`${slug}-${modalToken}`} resetPath="/jp">
-        <JpProjectDetail slug={slug} inModal />
-      </Modal>
-    );
-  }
+  const details = await getProjectDetails(slug);
 
   return (
     <main className="container mx-auto px-5 py-12">
-      <JpProjectDetail slug={slug} inModal={false} />
+      <JpProjectDetail slug={slug} inModal={false} initialDetails={details} />
     </main>
   );
 }

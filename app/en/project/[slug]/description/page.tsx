@@ -108,7 +108,7 @@ export default async function DescriptionPage({ params }: Params) {
           </section>
         )}
 
-        <DescriptionActions slug={slug} visitHref={p.url ?? undefined} />
+        <DescriptionActions visitHref={p.url ?? undefined} />
       </PageTransition>
     </main>
   );

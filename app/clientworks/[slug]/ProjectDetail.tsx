@@ -1,49 +1,35 @@
 // app/clientworks/[slug]/ProjectDetail.tsx
 "use client";
-import { getProject } from "@/lib/projects";
-import { getProjectDetails, type ProjectDetails } from "@/lib/projectDetails";
+import type { ProjectDetails } from "@/lib/projectDetails";
+import type { Project } from "@/lib/projects";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
-import { useEffect, useState } from "react";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-export default function ProjectDetail({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
-  const [project, setProject] = useState<{ title: string; description: string; src: string } | null>(null);
-  const [details, setDetails] = useState<ProjectDetails | null>(null);
+type Props = {
+  slug: string;
+  inModal?: boolean;
+  initialProject: Project;
+  initialDetails?: ProjectDetails | null;
+};
+
+export default function ProjectDetail({
+  slug,
+  inModal = false,
+  initialProject,
+  initialDetails = null,
+}: Props) {
   const router = useRouter();
   const modalCtl = useModalControl();
-
-  useEffect(() => {
-    let active = true;
-    getProject(slug)
-      .then((data) => {
-        if (!active) return;
-        setProject(data);
-      })
-      .catch(() => {
-        if (!active) return;
-        setProject(null);
-      });
-    getProjectDetails(slug)
-      .then((data) => {
-        if (!active) return;
-        setDetails(data);
-      })
-      .catch(() => {
-        if (!active) return;
-        setDetails(null);
-      });
-    return () => {
-      active = false;
-    };
-  }, [slug]);
+  const project = initialProject;
+  const details = initialDetails;
 
   const handleVisit = () => {
     const href = `/clientworks/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() =>
-        navigateWithFallback(router, `${href}?from=modal`, { method: "replace", scroll: true }),
+        navigateWithFallback(router, href, { method: "replace", scroll: true }),
       );
     } else {
       router.push(href, { scroll: true });
@@ -52,13 +38,13 @@ export default function ProjectDetail({ slug, inModal = false }: { slug: string;
 
   const handleBackToList = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => router.replace("/clientworks", { scroll: false }));
+      modalCtl.closeWith(() =>
+        navigateWithFallback(router, "/clientworks", { method: "replace", scroll: false }),
+      );
     } else {
-      router.replace("/clientworks", { scroll: false });
+      navigateWithFallback(router, "/clientworks", { method: "replace", scroll: false });
     }
   };
-
-  if (!project) return <div className="text-white">Loading...</div>;
 
   const p = project;
   const description = details?.intro ?? p.description;

@@ -23,6 +23,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   const [entered, setEntered] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
+  void skipUrlUpdate;
+
   const getFocusableElements = useCallback((container: HTMLElement): HTMLElement[] => {
     const selectors = [
       "a[href]",
@@ -65,89 +67,44 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     }
   }, []);
 
-  const close = useCallback(() => {
+  const runCloseSequence = useCallback((afterClose?: () => void) => {
     if (isClosing) return;
     clearCloseTimers();
     setIsClosing(true);
     document.body.style.overflow = "auto";
-    // Restore background interactivity immediately
     setBackgroundInert(false);
-    
-    // Update URL to base path without triggering Next route change
-    // Keeps the component mounted to allow exit animation to play
-    try {
-      window.history.replaceState(null, "", resetPath);
-    } catch {}
-    
-    // Wait for the medium-close animation to complete
+
     closeTimerRef.current = setTimeout(() => {
-      try {
-        const samePath = window.location.pathname === resetPath;
-        const hasQuery = window.location.search && window.location.search.length > 0;
-        if (!samePath || hasQuery) {
-          // User reopened/navigated during close animation; cancel this close.
-          setIsClosing(false);
+      setShouldRender(false);
+
+      postCloseTimerRef.current = setTimeout(() => {
+        if (afterClose) {
+          afterClose();
           return;
         }
-      } catch {}
-
-      setShouldRender(false);
-      // Stabilize Next router state after exit if user hasn't navigated elsewhere
-      postCloseTimerRef.current = setTimeout(() => {
-        try {
-          const samePath = window.location.pathname === resetPath;
-          const hasQuery = window.location.search && window.location.search.length > 0;
-          if (samePath && !hasQuery) {
-            router.replace(resetPath, { scroll: false });
-          }
-        } catch {}
+        if (refreshOnClose) {
+          router.replace(resetPath, { scroll: false });
+        }
       }, POST_CLOSE_SYNC_MS);
-    }, CLOSE_ANIMATION_MS); // Match close animation duration
-  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, router, setBackgroundInert]);
+    }, CLOSE_ANIMATION_MS);
+  }, [
+    CLOSE_ANIMATION_MS,
+    POST_CLOSE_SYNC_MS,
+    clearCloseTimers,
+    isClosing,
+    refreshOnClose,
+    resetPath,
+    router,
+    setBackgroundInert,
+  ]);
+
+  const close = useCallback(() => {
+    runCloseSequence();
+  }, [runCloseSequence]);
 
   const closeWith = useCallback((fn: () => void) => {
-    if (isClosing) return;
-    clearCloseTimers();
-    setIsClosing(true);
-    document.body.style.overflow = "auto";
-    // Restore background interactivity immediately
-    setBackgroundInert(false);
-    
-    // Update URL to base path without triggering Next route change
-    // Keeps the component mounted to allow exit animation to play
-    try {
-      window.history.replaceState(null, "", resetPath);
-    } catch {}
-    
-    // Wait for the medium-close animation to complete
-    closeTimerRef.current = setTimeout(() => {
-      try {
-        const samePath = window.location.pathname === resetPath;
-        const hasQuery = window.location.search && window.location.search.length > 0;
-        if (!samePath || hasQuery) {
-          // User reopened/navigated during close animation; cancel this close.
-          setIsClosing(false);
-          return;
-        }
-      } catch {}
-
-      setShouldRender(false);
-      
-      // Execute callback after modal is hidden, but only if user
-      // hasn't navigated elsewhere (e.g., immediately reopened another modal)
-      postCloseTimerRef.current = setTimeout(() => {
-        try {
-          const samePath = window.location.pathname === resetPath;
-          const hasQuery = window.location.search && window.location.search.length > 0;
-          if (samePath && !hasQuery) {
-            fn();
-          }
-        } catch {
-          fn();
-        }
-      }, POST_CLOSE_SYNC_MS);
-    }, CLOSE_ANIMATION_MS); // Match close animation duration
-  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, setBackgroundInert]);
+    runCloseSequence(fn);
+  }, [runCloseSequence]);
 
   // ESC キーで閉じる
   useEffect(() => {

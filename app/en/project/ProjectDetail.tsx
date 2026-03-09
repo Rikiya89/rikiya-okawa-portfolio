@@ -4,31 +4,20 @@ import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
 import { getEnProject } from "@/lib/siteProjectsEn";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
-import { getProjectDetails, type ProjectDetails } from "@/lib/projectDetails";
-import { useEffect, useState } from "react";
+import type { ProjectDetails } from "@/lib/projectDetails";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-export default function EnProjectDetail({ slug, inModal = false }: { slug: string; inModal?: boolean }) {
+type Props = {
+  slug: string;
+  inModal?: boolean;
+  initialDetails?: ProjectDetails | null;
+};
+
+export default function EnProjectDetail({ slug, inModal = false, initialDetails = null }: Props) {
   const router = useRouter();
   const modalCtl = useModalControl();
-  const [details, setDetails] = useState<ProjectDetails | null>(null);
   const p = getEnProject(slug);
-
-  useEffect(() => {
-    let active = true;
-    getProjectDetails(slug)
-      .then((data) => {
-        if (!active) return;
-        setDetails(data);
-      })
-      .catch(() => {
-        if (!active) return;
-        setDetails(null);
-      });
-    return () => {
-      active = false;
-    };
-  }, [slug]);
+  const details = initialDetails;
 
   if (!p) return <div className="text-white">Loading...</div>;
 
@@ -36,7 +25,7 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
     const href = `/en/project/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() =>
-        navigateWithFallback(router, `${href}?from=modal`, { method: "replace", scroll: true }),
+        navigateWithFallback(router, href, { method: "replace", scroll: true }),
       );
     } else {
       router.push(href, { scroll: true });
@@ -45,9 +34,11 @@ export default function EnProjectDetail({ slug, inModal = false }: { slug: strin
 
   const handleClose = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() => router.replace("/en", { scroll: false }));
+      modalCtl.closeWith(() =>
+        navigateWithFallback(router, "/en", { method: "replace", scroll: false }),
+      );
     } else {
-      router.replace("/en", { scroll: false });
+      navigateWithFallback(router, "/en", { method: "replace", scroll: false });
     }
   };
 

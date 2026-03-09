@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Modal from "@/components/common/Modal";
 import ProjectDetail from "../../[slug]/ProjectDetail";
 import { getProject } from "@/lib/projects";
+import { getProjectDetails } from "@/lib/projectDetails";
 import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ m?: string }> };
@@ -17,15 +18,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function InterceptedModal({ params, searchParams }: Params) {
   const { slug } = await params;
   const { m } = await searchParams;
-  try {
-    await getProject(slug);
-  } catch {
-    notFound();
-  }
+  const project = await getProject(slug).catch(() => notFound());
+  const details = await getProjectDetails(slug);
   const modalKey = `${slug}-${m ?? ""}`;
   return (
     <Modal key={modalKey}>
-      <ProjectDetail slug={slug} inModal />
+      <ProjectDetail slug={slug} inModal initialProject={project} initialDetails={details} />
     </Modal>
   );
 }

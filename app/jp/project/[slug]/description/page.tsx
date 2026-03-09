@@ -113,7 +113,7 @@ export default async function DescriptionPage({ params }: Params) {
           </section>
         )}
 
-        <DescriptionActionsJp slug={slug} visitHref={p.url ?? undefined} />
+        <DescriptionActionsJp visitHref={p.url ?? undefined} />
       </PageTransition>
     </main>
   );

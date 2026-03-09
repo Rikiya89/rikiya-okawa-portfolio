@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Modal from "@/components/common/Modal";
 import JpProjectDetail from "../../../project/ProjectDetail";
 import { getJpProject } from "@/lib/siteProjectsJp";
+import { getProjectDetails } from "@/lib/projectDetails_jp";
 import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ slug: string }>; searchParams: Promise<{ m?: string }> };
@@ -18,10 +19,11 @@ export default async function InterceptedModal({ params, searchParams }: Params)
   const { slug } = await params;
   const { m } = await searchParams;
   if (!getJpProject(slug)) notFound();
+  const details = await getProjectDetails(slug);
   const modalKey = `${slug}-${m ?? ""}`;
   return (
     <Modal key={modalKey} resetPath="/jp">
-      <JpProjectDetail slug={slug} inModal />
+      <JpProjectDetail slug={slug} inModal initialDetails={details} />
     </Modal>
   );
 }
