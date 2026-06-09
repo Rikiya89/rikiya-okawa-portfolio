@@ -2,7 +2,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
-import { getJpProject } from "@/lib/siteProjectsJp";
+import type { SiteProject } from "@/lib/siteProjectsJp";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 import type { ProjectDetails } from "@/lib/projectDetails_jp";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
@@ -10,16 +10,20 @@ import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 type Props = {
   slug: string;
   inModal?: boolean;
+  project: SiteProject;
   initialDetails?: ProjectDetails | null;
 };
 
-export default function JpProjectDetail({ slug, inModal = false, initialDetails = null }: Props) {
+export default function JpProjectDetail({
+  slug,
+  inModal = false,
+  project,
+  initialDetails = null,
+}: Props) {
   const router = useRouter();
   const modalCtl = useModalControl();
-  const p = getJpProject(slug);
+  const p = project;
   const details = initialDetails;
-
-  if (!p) return <div className="text-white">Loading...</div>;
 
   const handleVisit = () => {
     const href = `/jp/project/${slug}/description`;

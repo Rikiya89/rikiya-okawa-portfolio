@@ -49,7 +49,12 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <main className="container mx-auto px-5 py-12">
-      <EnProjectDetail slug={slug} inModal={false} initialDetails={details} />
+      <EnProjectDetail
+        slug={slug}
+        inModal={false}
+        project={p}
+        initialDetails={details}
+      />
     </main>
   );
 }

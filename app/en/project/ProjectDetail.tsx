@@ -2,7 +2,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
-import { getEnProject } from "@/lib/siteProjectsEn";
+import type { SiteProject } from "@/lib/siteProjectsEn";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 import type { ProjectDetails } from "@/lib/projectDetails";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
@@ -10,16 +10,20 @@ import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 type Props = {
   slug: string;
   inModal?: boolean;
+  project: SiteProject;
   initialDetails?: ProjectDetails | null;
 };
 
-export default function EnProjectDetail({ slug, inModal = false, initialDetails = null }: Props) {
+export default function EnProjectDetail({
+  slug,
+  inModal = false,
+  project,
+  initialDetails = null,
+}: Props) {
   const router = useRouter();
   const modalCtl = useModalControl();
-  const p = getEnProject(slug);
+  const p = project;
   const details = initialDetails;
-
-  if (!p) return <div className="text-white">Loading...</div>;
 
   const handleVisit = () => {
     const href = `/en/project/${slug}/description`;
