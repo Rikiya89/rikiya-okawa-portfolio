@@ -92,6 +92,27 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
+  "vans-news": {
+    title: "VANS ニュース開発システム",
+    role: "担当領域: フロントエンド開発 — システム設計／Astro実装／レガシー連携／ビルド自動化",
+    intro:
+      "VANS Japanのニュースページを制作・確認するため、Astroベースの開発・プレビューシステムを設計、実装しました。レガシーHTML、SCSS、画像・動画アセットを整理されたワークフローで管理しながら、既存の公開環境と互換性のある出力を維持しています。",
+    responsibilitiesHeading: "主な業務",
+    responsibilities: [
+      "ニュース記事のプレビューとビルドに使用するAstro静的サイト構成を設計",
+      "レガシーHTMLをもとにしたスラッグ単位の静的ルート生成を実装",
+      "SCSSコンパイルとアセット同期のワークフローを構築",
+      "PNG・JPG・JPEGからWebPへの自動変換と参照パス補正を実装",
+      "ライブプレビュー、自動リロード、単一記事のみを対象とする開発モードを統合",
+      "ビルド出力でレガシーSSIと本番用アセットパスの互換性を維持",
+    ],
+    outcomes: [
+      "VANS Japanのニュースページを制作・確認・公開するための再利用可能なワークフローを確立",
+      "繰り返し発生する画像準備とビルド出力の同期処理を自動化",
+      "編集対象のソースと生成ファイルを分離し、保守性を向上",
+    ],
+    techStack: ["Astro", "TypeScript", "Node.js", "Sass / SCSS", "Sharp", "HTML", "JavaScript"],
+  },
   "lacoste-official": {
     title: "Lacoste公式サイト",
     role: "役割: Webエンジニア — LP制作専任",

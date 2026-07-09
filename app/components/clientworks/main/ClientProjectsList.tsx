@@ -6,6 +6,7 @@ import ClientProjects from "../sub/ClientProjects"; // <-- the CARD component
 
 export type ClientProjectCard = {
   src: string;
+  alt?: string;
   title: string;
   description: string;
   url?: string;
@@ -37,16 +38,13 @@ const ClientProjectsList = ({ heading, projects, basePath = "/clientworks" }: Cl
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="2xl:max-w-7xl 2xl:gap-6 2xl:grid-cols-3 2xl:justify-center 2xl:justify-items-center 2xl:gird 
-      xl:max-w-7xl xl:grid-cols-3 xl:gap-6 xl:px-10 xl:justify-items-center xl:justify-center xl:grid 
-      lg:max-w-7xl lg:grid-cols-2 lg:gap-6 lg:px-10 lg:justify-items-center lg:justify-center lg:grid 
-      md:max-w-2xl md:grid-cols-2 md:gap-6 md:px-10 md:justify-items-center md:justify-center md:grid 
-      sm:max-w-4xl sm:gap-6 sm:flex-col sm:flex font-panno"
+        className="grid w-full max-w-[1248px] grid-cols-1 justify-center justify-items-center gap-6 px-5 font-panno sm:px-6 md:grid-cols-[repeat(2,20rem)] lg:grid-cols-[repeat(2,24rem)] lg:px-10 xl:grid-cols-[repeat(3,24rem)]"
       >
         {projects.map(project => (
           <ClientProjects
             key={project.slug ?? project.title}
             src={project.src}
+            alt={project.alt}
             title={project.title}
             description={project.description}
             url={project.url}

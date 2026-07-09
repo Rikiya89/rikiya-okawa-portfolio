@@ -4,6 +4,7 @@ export type Project = {
   title: string;
   description: string;
   src: string;
+  alt?: string;
   url?: string;
 };
 
@@ -28,6 +29,13 @@ export const projects: Project[] = [
     description: `VANS Japanのサイトを継続運用。\nブランドキャンペーンやシーズンLPを制作し、ニュースを短納期で更新。\n最新トレンドを反映したデザインで安定した運用体制を維持。\n\n使用技術\nHTML / SCSS / JavaScript / Node.js / Gulp\n\n担当領域\nフロントエンドエンジニアリング（運用・保守・LP制作）`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
+  },
+  {
+    slug: "vans-news",
+    title: "VANS ニュース開発システム",
+    description: `VANS Japanのニュースページを制作・確認するため、Astroベースの開発環境を構築。レガシー互換の出力、SCSSコンパイル、画像処理、ローカルプレビューを保守しやすい構成へ統合しました。`,
+    src: "/img/vans-news-thumbnail.webp",
+    alt: "Astro開発システムで構築したVANS Japanニュースページ",
   },
   {
     slug: "lacoste-official",

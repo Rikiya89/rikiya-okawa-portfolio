@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 export interface Props {
   src: string;
+  alt?: string;
   title: string;
   description: string;
   url?: string;   // optional
@@ -16,7 +17,7 @@ export interface Props {
   basePath?: string; // optional: base path for routing (e.g., "/clientworks" or "/clientworks_jp")
 }
 
-export default function ClientProjects({ src, title, description, url, slug, centerText, basePath = "/clientworks" }: Props) {
+export default function ClientProjects({ src, alt, title, description, url, slug, centerText, basePath = "/clientworks" }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
         <div className="absolute inset-0 bg-black/15" />
         <Image
           src={src}
-          alt={title}
+          alt={alt ?? title}
           fill
           className="object-cover"
           sizes="(min-width: 1536px) 384px, (min-width: 1024px) 384px, (min-width: 640px) 45vw, 90vw"
@@ -61,7 +62,7 @@ export default function ClientProjects({ src, title, description, url, slug, cen
       }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 will-change-transform"
+      className="relative z-20 h-full w-full max-w-80 overflow-hidden rounded-lg border border-[#2A0E61] shadow-lg cursor-pointer will-change-transform lg:max-w-96"
       aria-label={title}
     >
       {hasSlug ? (

@@ -4,6 +4,7 @@ export type Project = {
   title: string;
   description: string;
   src: string;
+  alt?: string;
   url?: string;
 };
 
@@ -28,6 +29,13 @@ export const projects: Project[] = [
     description: `Maintained VANS Japan's site.\nProduced seasonal and brand campaign landing pages,\nand updated news articles within short turnaround times.\nImplemented trend-conscious front-end designs\nwhile maintaining stable and reliable site operations.\n\nTechnologies\nHTML / SCSS / JavaScript / Node.js / Gulp\n\nRole\nFront-End Engineering (Maintenance & Landing Page Production)`,
     src: "/img/vans.webp",
     url: "https://www.vans.co.jp/",
+  },
+  {
+    slug: "vans-news",
+    title: "VANS News Development System",
+    description: `Developed an Astro-based workflow for creating and reviewing VANS Japan news pages, integrating legacy-compatible rendering, SCSS compilation, asset automation, and local preview within a maintainable project structure.`,
+    src: "/img/vans-news-thumbnail.webp",
+    alt: "VANS Japan news page rendered through the Astro development system",
   },
   {
     slug: "lacoste-official",

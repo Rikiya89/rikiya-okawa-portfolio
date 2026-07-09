@@ -56,6 +56,7 @@ export default function ProjectDetail({
       techStack={details?.techStack}
       techHeading="Technologies"
       src={p.src}
+      imageAlt={p.alt}
       visitHref={inModal ? undefined : `/clientworks/${slug}/description`}
       onVisit={inModal ? handleVisit : undefined}
       onClose={handleBackToList}

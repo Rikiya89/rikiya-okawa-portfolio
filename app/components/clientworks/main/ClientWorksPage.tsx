@@ -32,6 +32,14 @@ const EN_CLIENT_PROJECTS: ClientProjectCard[] = [
     slug: "vans-official",
   },
   {
+    src: "/img/vans-news-thumbnail.webp",
+    alt: "VANS Japan news page rendered through the Astro development system",
+    title: "VANS News Development System",
+    description:
+      "Built an Astro workflow for VANS Japan news pages.\nAutomated legacy output, assets, and local preview.",
+    slug: "vans-news",
+  },
+  {
     src: "/img/dickies.webp",
     title: "Dickies Official Website",
     description:

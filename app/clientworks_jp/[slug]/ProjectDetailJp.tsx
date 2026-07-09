@@ -57,6 +57,7 @@ export default function ProjectDetailJp({
       techHeading="使用技術"
       locale="jp"
       src={p.src}
+      imageAlt={p.alt}
       visitHref={inModal ? undefined : `/clientworks_jp/${slug}/description`}
       onVisit={inModal ? handleVisit : undefined}
       onClose={handleBackToList}

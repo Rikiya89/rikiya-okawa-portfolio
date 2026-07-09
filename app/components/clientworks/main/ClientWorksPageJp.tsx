@@ -32,6 +32,14 @@ const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
     slug: "vans-official",
   },
   {
+    src: "/img/vans-news-thumbnail.webp",
+    alt: "Astro開発システムで構築したVANS Japanニュースページ",
+    title: "VANS ニュース開発システム",
+    description:
+      "VANS Japanニュース向けのAstro開発環境を構築。\nレガシー出力、画像処理、プレビューを自動化。",
+    slug: "vans-news",
+  },
+  {
     src: "/img/dickies.webp",
     title: "Dickies公式サイト",
     description:

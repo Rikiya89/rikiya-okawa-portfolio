@@ -57,7 +57,7 @@ export default async function DescriptionPage({ params }: Params) {
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-8">
         <Image
           src={p.src}
-          alt={p.title}
+          alt={p.alt ?? p.title}
           fill
           className="object-cover"
           priority

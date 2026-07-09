@@ -89,6 +89,26 @@ const detailsMap: Record<string, ProjectDetails> = {
     ],
     techStack: ["HTML", "SCSS", "JavaScript", "Node.js", "Gulp"],
   },
+  "vans-news": {
+    title: "VANS News Development System",
+    role: "Role: Front-End Developer — System Design, Astro Implementation, Legacy Integration & Build Automation",
+    intro:
+      "Designed and developed an Astro-based development and preview system for VANS Japan news pages. The system manages legacy HTML, SCSS, and media assets in a structured workflow while preserving compatibility with the existing publishing environment.",
+    responsibilities: [
+      "Designed the Astro static-site architecture used to preview and build news articles",
+      "Implemented slug-based static route generation from legacy HTML content",
+      "Built the SCSS compilation and asset synchronization workflow",
+      "Automated PNG, JPG, and JPEG conversion to WebP with asset-reference normalization",
+      "Integrated live preview, automatic reload, and a single-entry development mode",
+      "Preserved legacy SSI includes and production asset-path requirements in build output",
+    ],
+    outcomes: [
+      "Established a reusable workflow for developing, checking, and publishing VANS Japan news pages",
+      "Automated repetitive asset preparation and build-output synchronization",
+      "Separated editable source content from generated preview and production files to improve maintainability",
+    ],
+    techStack: ["Astro", "TypeScript", "Node.js", "Sass / SCSS", "Sharp", "HTML", "JavaScript"],
+  },
   "lacoste-official": {
     title: "Lacoste Official Website",
     role: "Role: Web Engineer — Landing Page Production Specialist",

@@ -9,6 +9,7 @@ type Props = {
   techStack?: string[];
   techHeading?: string;
   src: string;
+  imageAlt?: string;
   visitHref?: string | null;
   onVisit?: () => void;
   onClose: () => void;
@@ -24,6 +25,7 @@ export default function ProjectModalContent({
   techStack,
   techHeading = "Technologies",
   src,
+  imageAlt,
   visitHref,
   onVisit,
   onClose,
@@ -47,7 +49,7 @@ export default function ProjectModalContent({
       <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden flex-shrink-0">
         <Image
           src={src}
-          alt={title}
+          alt={imageAlt ?? title}
           fill
           className="object-cover"
           sizes="(min-width: 1024px) 900px, calc(100vw - 2rem)"
