@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function InterceptedModal({ params, searchParams }: Params) {
   const { slug } = await params;
   const { m } = await searchParams;
-  const project = getEnProject(slug);
-  if (!project) notFound();
+  const p = getEnProject(slug);
+  if (!p) notFound();
   const details = await getProjectDetails(slug);
   const modalKey = `${slug}-${m ?? ""}`;
   return (
     <Modal key={modalKey} resetPath="/en">
-      <EnProjectDetail slug={slug} inModal project={project} initialDetails={details} />
+      <EnProjectDetail project={p} details={details} inModal />
     </Modal>
   );
 }

@@ -7,29 +7,22 @@ import ProjectModalContent from "@/components/common/ProjectModalContent";
 import type { ProjectDetails } from "@/lib/projectDetails";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-type Props = {
-  slug: string;
-  inModal?: boolean;
+type EnProjectDetailProps = {
   project: SiteProject;
-  initialDetails?: ProjectDetails | null;
+  details: ProjectDetails | null;
+  inModal?: boolean;
 };
 
-export default function EnProjectDetail({
-  slug,
-  inModal = false,
-  project,
-  initialDetails = null,
-}: Props) {
+export default function EnProjectDetail({ project, details, inModal = false }: EnProjectDetailProps) {
   const router = useRouter();
   const modalCtl = useModalControl();
-  const p = project;
-  const details = initialDetails;
+  const slug = project.slug;
 
   const handleVisit = () => {
     const href = `/en/project/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() =>
-        navigateWithFallback(router, href, { method: "replace", scroll: true }),
+        navigateWithFallback(router, `${href}?from=modal`, { method: "replace", scroll: true }),
       );
     } else {
       router.push(href, { scroll: true });
@@ -38,21 +31,19 @@ export default function EnProjectDetail({
 
   const handleClose = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() =>
-        navigateWithFallback(router, "/en", { method: "replace", scroll: false }),
-      );
+      modalCtl.closeWith(() => router.replace("/en", { scroll: false }));
     } else {
-      navigateWithFallback(router, "/en", { method: "replace", scroll: false });
+      router.replace("/en", { scroll: false });
     }
   };
 
   return (
     <ProjectModalContent
-      title={p.title}
-      description={details?.intro ?? p.description}
+      title={project.title}
+      description={details?.intro ?? project.description}
       role={details?.role}
       techStack={details?.techStack}
-      src={p.src}
+      src={project.src}
       onVisit={handleVisit}
       onClose={handleClose}
       visitText="View Details"

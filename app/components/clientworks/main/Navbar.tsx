@@ -57,13 +57,13 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
 
   return (
     <div
-      className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10"
+      className="site-nav-shell w-full h-[65px] fixed top-0 backdrop-blur-md z-50 px-10"
       data-modal-exclude
       style={{ pointerEvents: 'auto' }}
     >
       <div className="flex items-center justify-between h-full">
         <a href={heroHref} className="flex items-center">
-          <span className="Welcome-text font-bold text-gray-300 text-2xl font-panno">
+          <span className="name-heading font-bold text-2xl font-panno">
             Rikiya Okawa
           </span>
         </a>
@@ -92,34 +92,34 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
         </button>
 
         <div className="hidden md:flex w-[500px] items-center justify-between">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href={heroHref} className="cursor-pointer font-panno text-lg">
+          <div className="site-nav-pill flex items-center justify-between w-full h-auto border px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
+            <a href={heroHref} className="site-nav-link cursor-pointer font-panno text-lg">
               {copy.aboutLabel}
             </a>
-            <a href={skillsHref} className="cursor-pointer font-panno text-lg">
+            <a href={skillsHref} className="site-nav-link cursor-pointer font-panno text-lg">
               {copy.skillsLabel}
             </a>
-            <a href={projectsHref} className="cursor-pointer font-panno text-lg">
+            <a href={projectsHref} className="site-nav-link cursor-pointer font-panno text-lg">
               {copy.projectsLabel}
             </a>
-            <a href={resolvedLanguageHref} className="cursor-pointer font-panno text-lg">
+            <a href={resolvedLanguageHref} className="site-nav-link cursor-pointer font-panno text-lg">
               {copy.languageLabel}
             </a>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
-            <a href={heroHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
+          <div className="site-nav-mobile md:hidden absolute top-[65px] left-0 w-full backdrop-blur-lg border-b z-40 animate-slideDown">
+            <a href={heroHref} className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               {copy.aboutLabel}
             </a>
-            <a href={skillsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <a href={skillsHref} className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               {copy.skillsLabel}
             </a>
-            <a href={projectsHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+            <a href={projectsHref} className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               {copy.projectsLabel}
             </a>
-            <a href={resolvedLanguageHref} className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <a href={resolvedLanguageHref} className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               {copy.languageLabel}
             </a>
           </div>
@@ -132,7 +132,7 @@ const ClientWorksNavbar = ({ locale = "en", languageHref }: ClientWorksNavbarPro
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-200 hover:text-gray-50"
+              className="site-social-link text-gray-200"
               aria-label={social.name}
             >
               <Image src={social.src} alt={social.name} width={24} height={24} />

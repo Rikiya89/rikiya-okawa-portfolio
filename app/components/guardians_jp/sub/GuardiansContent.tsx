@@ -7,7 +7,6 @@ import {
     slideInFromRight,
     slideInFromTop,
 } from "@/utils/motion";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const GuardiansContent = () => {
@@ -42,11 +41,11 @@ const GuardiansContent = () => {
                 <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w[585px]">
                     <motion.div
                         variants={slideInFromLeft(0.2)}
-                        className="Welcome-text flex flex-col gap-6 mt-6 
-                                    2xl:text-5xl xl:text-5xl 
-                                    lg:text-4xl md:text-4xl 
-                                    sm:text-[27px] font-bold 
-                                    text-white max-w-[600px] 
+                        className="hero-gradient-word flex flex-col gap-6 mt-6
+                                    2xl:text-5xl xl:text-5xl
+                                    lg:text-4xl md:text-4xl
+                                    sm:text-[27px] font-bold
+                                    max-w-[600px]
                                     w-auto h-auto font-panno text-center pb-3"
                     >
                         <span>
@@ -58,13 +57,13 @@ const GuardiansContent = () => {
                 <div className="max-w-[771px]">
                     <motion.p
                         variants={slideInFromLeft(0.3)}
-                        className="Welcome-text text-[21px] font-bold py-3"
+                        className="accent-subheading text-[21px] font-bold py-3"
                     >
                         卒業制作：VR/AR施設の体験価値を拡張
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         Unity×C#でVRシューティングを開発し、TouchDesignerで体験を拡張
                     </motion.p>
@@ -87,7 +86,7 @@ const GuardiansContent = () => {
 
                     <motion.p
                         variants={slideInFromLeft(0.6)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         Unity VRシューティング：迫り来る敵との攻防を設計
                     </motion.p>
@@ -102,7 +101,7 @@ const GuardiansContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.8)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         現実空間での演出：天の川投影で没入感を共有
                     </motion.p>
@@ -115,7 +114,7 @@ const GuardiansContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.0)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         バーチャルガイドとしてプレゼンテーション
                     </motion.p>
@@ -128,7 +127,7 @@ const GuardiansContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.2)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         プロジェクトで得た学び
                     </motion.p>
@@ -140,7 +139,7 @@ const GuardiansContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(1.4)}
-                        className="Welcome-text text-[18px] font-bold py-3"
+                        className="accent-subheading text-[18px] font-bold py-3"
                     >
                         デモに参加する
                     </motion.p>
@@ -150,9 +149,9 @@ const GuardiansContent = () => {
                     >
                         Oculus Rift／Meta Quest 2 向けにビルドを公開しています。よろしければダウンロードして、防衛ミッションに挑戦してください。
                         <a href="/apk/t2109d001_rikiya.okawa.apk" download
-                                    className="block border border-[#7042f861] w-[75px] 
-                                    text-center bg-[#0300145e] rounded-full 
-                                    text-purple-200 border-2 mt-3 font-bold ">
+                                    className="button-primary block w-[75px]
+                                    text-center text-white rounded-full
+                                    border border-[var(--accent-border)] mt-3 font-bold">
                             Get
                         </a>
                     </motion.p>

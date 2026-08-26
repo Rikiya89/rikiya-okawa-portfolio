@@ -1,12 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { usePageTransition } from "@/components/common/PageTransition";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-export default function DescriptionActions({ visitHref }: { visitHref?: string | null }) {
+export default function DescriptionActions({ slug, visitHref }: { slug: string; visitHref?: string | null }) {
   const router = useRouter();
   const ctx = usePageTransition();
+  const searchParams = useSearchParams();
+  const fromModal = (searchParams?.get("from") ?? "") === "modal";
   const listTopHref = "/en";
 
   const leave = (fn: () => void) => {
@@ -18,7 +20,13 @@ export default function DescriptionActions({ visitHref }: { visitHref?: string |
     leave(() => navigateWithFallback(router, href));
   };
 
-  const handleBackToList = () => navigateTo(listTopHref);
+  const handleBackToList = () => {
+    if (fromModal && typeof window !== "undefined" && window.history.length > 1) {
+      leave(() => router.back());
+      return;
+    }
+    navigateTo(listTopHref);
+  };
 
   return (
     <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
@@ -27,14 +35,14 @@ export default function DescriptionActions({ visitHref }: { visitHref?: string |
           href={visitHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98] md:hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
         >
           Visit Site
         </a>
       )}
       <button
         onClick={handleBackToList}
-        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98] md:hover:shadow-[0_0_16px_rgba(191,151,255,0.35)]"
+        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
       >
         Back to List
       </button>

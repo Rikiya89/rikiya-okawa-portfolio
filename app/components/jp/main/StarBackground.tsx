@@ -80,7 +80,7 @@ const StarBackground = ({ quality = "full", ...props }: StarBackgroundProps) => 
       <Points ref={refFore} positions={fore} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="#9cb2ff"
+          color="#8c7aff"
           size={0.0048}
           sizeAttenuation
           depthWrite={false}
@@ -92,9 +92,9 @@ const StarBackground = ({ quality = "full", ...props }: StarBackgroundProps) => 
       <Sparkles
         count={isLite ? 12 : 28}
         scale={1.6}
-        size={isLite ? 1.8 : 2.4}
+        size={isLite ? 2.2 : 3}
         speed={0.22}
-        opacity={0.55}
+        opacity={0.85}
         color="#c9b7ff"
       />
     </group>

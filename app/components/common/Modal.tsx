@@ -229,7 +229,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       {/* Ultra Beautiful Layered Backdrop */}
       <div
         className={
-          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#7042f861] backdrop-blur-md transition-all ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
+          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#6c4cff61] backdrop-blur-md transition-all ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
           (isClosing ? "duration-[220ms] " : "duration-[280ms] ") +
           (!entered
             ? "opacity-0 scale-105"
@@ -282,7 +282,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         aria-labelledby={labelledBy}
         aria-describedby={describedBy}
         className={
-          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[90vh] rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#7042f861] shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
+          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[90vh] rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#6c4cff61] shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
           "md:pt-14 md:px-6 md:pb-6 sm:pt-6 sm:px-4 sm:pb-4 " +
           "overflow-hidden flex flex-col " +
           "will-change-transform will-change-opacity " +
@@ -306,7 +306,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         <button
           onClick={close}
           aria-label="Close modal"
-          className="absolute right-4 top-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-[#2A0E61]/60 border border-[#7042f861] hover:bg-[#2A0E61]/80 md:hover:shadow-lg md:hover:shadow-[#2A0E61]/50 transition-all duration-200 flex-shrink-0"
+          className="absolute right-4 top-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-[#2A0E61]/60 border border-[#6c4cff61] hover:bg-[#2A0E61]/80 md:hover:shadow-lg md:hover:shadow-[#2A0E61]/50 transition-all duration-200 flex-shrink-0"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
             <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>

@@ -75,7 +75,7 @@ const StarBackground = (props: any) => {
           blending={AdditiveBlending}
         />
       </Points>
-      <Sparkles count={26} scale={1.6} size={2.4} speed={0.22} opacity={0.55} color="#c9b7ff" />
+      <Sparkles count={26} scale={1.6} size={3} speed={0.22} opacity={0.85} color="#c9b7ff" />
     </group>
   );
 };

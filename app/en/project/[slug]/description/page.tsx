@@ -75,8 +75,8 @@ export default async function DescriptionPage({ params }: Params) {
 
         {details?.responsibilities && details.responsibilities.length > 0 && (
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-3 font-panno">Responsibilities</h2>
-            <ul className="list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
+            <h2 className="accent-section-heading text-2xl font-semibold mb-3 font-panno">Responsibilities</h2>
+            <ul className="accent-list list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
               {details.responsibilities.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
@@ -86,8 +86,8 @@ export default async function DescriptionPage({ params }: Params) {
 
         {details?.outcomes && details.outcomes.length > 0 && (
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold mb-3 font-panno">Achievements</h2>
-            <ul className="list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
+            <h2 className="accent-section-heading text-2xl font-semibold mb-3 font-panno">Achievements</h2>
+            <ul className="accent-list list-disc pl-6 space-y-2 text-lg text-white/85 font-panno">
               {details.outcomes.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
@@ -97,10 +97,10 @@ export default async function DescriptionPage({ params }: Params) {
 
         {details?.techStack && details.techStack.length > 0 && (
           <section className="mb-10">
-            <h2 className="text-2xl font-semibold mb-3 font-panno">Technologies</h2>
+            <h2 className="accent-section-heading text-2xl font-semibold mb-3 font-panno">Technologies</h2>
             <div className="flex flex-wrap gap-2">
               {details.techStack.map((t, i) => (
-                <span key={i} className="rounded-full border border-white/15 px-3 py-1 text-base text-white/85 font-panno">
+                <span key={i} className="accent-chip rounded-full border px-3 py-1 text-base font-panno">
                   {t}
                 </span>
               ))}
@@ -108,7 +108,7 @@ export default async function DescriptionPage({ params }: Params) {
           </section>
         )}
 
-        <DescriptionActions visitHref={p.url ?? undefined} />
+        <DescriptionActions slug={slug} visitHref={p.url ?? undefined} />
       </PageTransition>
     </main>
   );

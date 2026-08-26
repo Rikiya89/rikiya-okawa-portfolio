@@ -25,12 +25,10 @@ const ProjectCard = ({ src, title, description, url, slug }: Props) => {
       whileHover={{
         y: -2,
         scale: 1.008,
-        boxShadow: "0 12px 24px -16px rgba(112, 66, 248, 0.55)",
-        borderColor: "rgba(112, 66, 248, 0.9)",
       }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 flex flex-col"
+      className="accent-card relative overflow-hidden rounded-lg shadow-lg border cursor-pointer z-20 h-full 2xl:w-96 xl:w-96 lg:w-96 md:w-96 sm:w-80 flex flex-col"
       aria-label={title}
     >
       <Link

@@ -7,7 +7,6 @@ slideInFromLeft,
 slideInFromRight,
 slideInFromTop,
 } from "@/utils/motion";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const HeroContent = () => {
@@ -20,10 +19,9 @@ return (
     <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
     <motion.div
         variants={slideInFromTop}
-        className="Welcome-box py-[8px] px-[7px] border border-[#9cb2ff] opacity-[0.9]"
+        className="Welcome-box py-[8px] px-[7px] border opacity-[0.9]"
     >
-        <SparklesIcon className="text-[#ba9cff] mr-[10px] h-5 w-5" />
-        <h1 className="Welcome-text text-[15px] font-panno">
+        <h1 className="Welcome-text text-[16px] font-panno">
             Rikiya Okawa Portfolio
         </h1>
     </motion.div>
@@ -39,7 +37,7 @@ return (
     >
         <span>
         Providing
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+        <span className="hero-gradient-word">
             {" "}
             the best{" "}
         </span>

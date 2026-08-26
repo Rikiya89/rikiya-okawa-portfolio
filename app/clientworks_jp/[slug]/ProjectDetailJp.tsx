@@ -1,35 +1,28 @@
 // app/clientworks_jp/[slug]/ProjectDetailJp.tsx
 "use client";
-import type { ProjectDetails } from "@/lib/projectDetails_jp";
 import type { Project } from "@/lib/projects_jp";
+import type { ProjectDetails } from "@/lib/projectDetails_jp";
 import { useRouter } from "next/navigation";
 import { useModalControl } from "@/components/common/Modal";
 import ProjectModalContent from "@/components/common/ProjectModalContent";
 import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 
-type Props = {
-  slug: string;
+type ProjectDetailJpProps = {
+  project: Project;
+  details: ProjectDetails | null;
   inModal?: boolean;
-  initialProject: Project;
-  initialDetails?: ProjectDetails | null;
 };
 
-export default function ProjectDetailJp({
-  slug,
-  inModal = false,
-  initialProject,
-  initialDetails = null,
-}: Props) {
+export default function ProjectDetailJp({ project, details, inModal = false }: ProjectDetailJpProps) {
   const router = useRouter();
   const modalCtl = useModalControl();
-  const project = initialProject;
-  const details = initialDetails;
+  const slug = project.slug;
 
   const handleVisit = () => {
     const href = `/clientworks_jp/${slug}/description`;
     if (inModal && modalCtl) {
       modalCtl.closeWith(() =>
-        navigateWithFallback(router, href, { method: "replace", scroll: true }),
+        navigateWithFallback(router, `${href}?from=modal`, { method: "replace", scroll: true }),
       );
     } else {
       router.push(href, { scroll: true });
@@ -38,26 +31,23 @@ export default function ProjectDetailJp({
 
   const handleBackToList = () => {
     if (inModal && modalCtl) {
-      modalCtl.closeWith(() =>
-        navigateWithFallback(router, "/clientworks_jp", { method: "replace", scroll: false }),
-      );
+      modalCtl.closeWith(() => router.replace("/clientworks_jp", { scroll: false }));
     } else {
-      navigateWithFallback(router, "/clientworks_jp", { method: "replace", scroll: false });
+      router.replace("/clientworks_jp", { scroll: false });
     }
   };
 
-  const p = project;
-  const description = details?.intro ?? p.description;
+  const description = details?.intro ?? project.description;
   return (
     <ProjectModalContent
-      title={p.title}
+      title={project.title}
       description={description}
       role={details?.role}
       techStack={details?.techStack}
       techHeading="使用技術"
       locale="jp"
-      src={p.src}
-      imageAlt={p.alt}
+      src={project.src}
+      imageAlt={project.alt}
       visitHref={inModal ? undefined : `/clientworks_jp/${slug}/description`}
       onVisit={inModal ? handleVisit : undefined}
       onClose={handleBackToList}

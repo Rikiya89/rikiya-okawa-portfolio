@@ -18,12 +18,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function InterceptedModal({ params, searchParams }: Params) {
   const { slug } = await params;
   const { m } = await searchParams;
-  const project = await getProject(slug).catch(() => notFound());
+  let p;
+  try {
+    p = await getProject(slug);
+  } catch {
+    notFound();
+  }
   const details = await getProjectDetails(slug);
   const modalKey = `${slug}-${m ?? ""}`;
   return (
     <Modal key={modalKey}>
-      <ProjectDetail slug={slug} inModal initialProject={project} initialDetails={details} />
+      <ProjectDetail project={p} details={details} inModal />
     </Modal>
   );
 }

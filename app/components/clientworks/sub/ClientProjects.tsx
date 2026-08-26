@@ -57,12 +57,10 @@ export default function ClientProjects({ src, alt, title, description, url, slug
       whileHover={{
         y: -2,
         scale: 1.008,
-        boxShadow: "0 12px 24px -16px rgba(112, 66, 248, 0.55)",
-        borderColor: "rgba(112, 66, 248, 0.9)",
       }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="relative z-20 h-full w-full max-w-80 overflow-hidden rounded-lg border border-[#2A0E61] shadow-lg cursor-pointer will-change-transform lg:max-w-96"
+      className="accent-card relative z-20 h-full w-full max-w-80 overflow-hidden rounded-lg border shadow-lg cursor-pointer will-change-transform lg:max-w-96"
       aria-label={title}
     >
       {hasSlug ? (

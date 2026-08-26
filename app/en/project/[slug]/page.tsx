@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import EnProjectDetail from "../ProjectDetail";
 import { getEnProject } from "@/lib/siteProjectsEn";
 import { getProjectDetails } from "@/lib/projectDetails";
+import Modal from "@/components/common/Modal";
 import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ slug: string }> };
-type PageProps = { params: Promise<{ slug: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ m?: string | string[] }>;
+};
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
@@ -41,20 +45,24 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
+export default async function Page({ params, searchParams }: PageProps) {
+  const [{ slug }, { m }] = await Promise.all([params, searchParams]);
   const p = getEnProject(slug);
   if (!p) notFound();
   const details = await getProjectDetails(slug);
 
+  const modalToken = Array.isArray(m) ? m[0] : m;
+  if (modalToken) {
+    return (
+      <Modal key={`${slug}-${modalToken}`} resetPath="/en">
+        <EnProjectDetail project={p} details={details} inModal />
+      </Modal>
+    );
+  }
+
   return (
     <main className="container mx-auto px-5 py-12">
-      <EnProjectDetail
-        slug={slug}
-        inModal={false}
-        project={p}
-        initialDetails={details}
-      />
+      <EnProjectDetail project={p} details={details} inModal={false} />
     </main>
   );
 }

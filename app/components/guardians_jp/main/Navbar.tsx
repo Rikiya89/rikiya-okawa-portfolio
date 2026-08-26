@@ -9,14 +9,14 @@ const Navbar = () => {
 
   return (
     <div
-      className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10"
+      className="site-nav-shell w-full h-[65px] fixed top-0 backdrop-blur-md z-50 px-10"
       id='about-me'
       data-modal-exclude
       style={{ pointerEvents: 'auto' }}
     >
       <div className="flex items-center justify-between h-full">
         <a href="/jp" className="flex items-center">
-          <span className="Welcome-text font-bold text-gray-300 text-2xl font-panno">
+          <span className="name-heading font-bold text-2xl font-panno">
             Rikiya Okawa
           </span>
         </a>
@@ -47,14 +47,14 @@ const Navbar = () => {
 
         {/* Menu Items - always visible on PC */}
         <div className="hidden md:flex w-[500px] items-center justify-between">
-          <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
-            <a href="/jp#skills" className="cursor-pointer font-panno text-lg">
+          <div className="site-nav-pill flex items-center justify-between w-full h-auto border px-[20px] py-[6px] rounded-full text-gray-200 md:mx-4">
+            <a href="/jp#skills" className="site-nav-link cursor-pointer font-panno text-lg">
               Skills
             </a>
-            <a href="/jp#projects" className="cursor-pointer font-panno text-lg">
+            <a href="/jp#projects" className="site-nav-link cursor-pointer font-panno text-lg">
               Projects
             </a>
-            <a href="/guardians_en" className="cursor-pointer font-panno text-lg">
+            <a href="/guardians_en" className="site-nav-link cursor-pointer font-panno text-lg">
               English
             </a>
           </div>
@@ -62,17 +62,17 @@ const Navbar = () => {
 
         {/* Dropdown Menu Items for smaller screens */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014]/95 backdrop-blur-lg border-b border-[#7042f861]/30 shadow-lg shadow-[#2A0E61]/50 z-40 animate-slideDown">
-            <a href="/jp" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
+          <div className="site-nav-mobile md:hidden absolute top-[65px] left-0 w-full backdrop-blur-lg border-b z-40 animate-slideDown">
+            <a href="/jp" className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
               About me
             </a>
-            <a href="/jp#skills" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+            <a href="/jp#skills" className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
               Skills
             </a>
-            <a href="/jp#projects" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+            <a href="/jp#projects" className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
               Projects
             </a>
-            <a href="/guardians_en" className="block text-white p-4 font-panno text-lg hover:bg-[#2A0E61]/20 transition-colors animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+            <a href="/guardians_en" className="site-nav-mobile-link block text-white p-4 font-panno text-lg animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
               English
             </a>
           </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
               key={social.name}
-              className="text-gray-200 hover:text-gray-50"
+              className="site-social-link text-gray-200"
               aria-label={social.name}
             >
               <Image

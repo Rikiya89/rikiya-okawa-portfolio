@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import type { MouseEvent } from "react";
 import Image from "next/image";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import {
   slideInFromLeft,
   slideInFromRight,
@@ -38,10 +37,9 @@ const ClientWorksHero = () => {
             variants={slideInFromTop}
             initial="hidden"
             animate="visible"
-            className="Welcome-box flex items-center py-[8px] px-[10px] border border-[#9cb2ff]/80 bg-[#040222]/60 backdrop-blur-md"
+            className="Welcome-box flex items-center py-[8px] px-[10px] border backdrop-blur-md"
           >
-            <SparklesIcon className="text-[#ba9cff] mr-[10px] h-5 w-5" />
-            <p className="Welcome-text text-[15px] font-panno text-gray-100">
+            <p className="Welcome-text text-[16px] font-panno text-gray-100">
               Client Work Case Studies
             </p>
           </motion.div>
@@ -54,7 +52,7 @@ const ClientWorksHero = () => {
               2xl:text-6xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-4xl"
           >
             <span className="text-white">Reliable brand operations,</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            <span className="hero-gradient-word">
               campaign launches,
             </span>
             <span className="text-white">and landing page production.</span>

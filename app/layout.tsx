@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang={docLang}>
       <body
-        className={`${inter.variable} ${agdasima.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
+        className={`${inter.variable} ${agdasima.variable} bg-[var(--bg-void)] overflow-y-scroll overflow-x-hidden`}
         suppressHydrationWarning
       >
         {children}

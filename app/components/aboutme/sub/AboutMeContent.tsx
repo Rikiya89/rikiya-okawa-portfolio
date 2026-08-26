@@ -7,7 +7,6 @@ import {
     slideInFromRight,
     slideInFromTop,
 } from "@/utils/motion";
-import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const AboutMeContent = () => {
@@ -37,11 +36,11 @@ const AboutMeContent = () => {
                 <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w[585px]">
                     <motion.div
                         variants={slideInFromLeft(0.9)}
-                        className="Welcome-text flex flex-col gap-6 mt-6 
-                                    2xl:text-7xl xl:text-6xl 
-                                    lg:text-5xl md:text-4xl 
-                                    sm:text-4xl font-bold 
-                                    text-white max-w-[600px] 
+                        className="name-heading flex flex-col gap-6 mt-6
+                                    2xl:text-7xl xl:text-6xl
+                                    lg:text-5xl md:text-4xl
+                                    sm:text-4xl font-bold
+                                    max-w-[600px]
                                     w-auto h-auto font-panno"
                         >
                         <span>
@@ -51,7 +50,7 @@ const AboutMeContent = () => {
 
                     <motion.p
                         variants={slideInFromLeft(0.8)}
-                        className="Welcome-text text-[21px] text-gray-400 font-panno font-bold py-3"
+                        className="accent-subheading text-[21px] font-panno font-bold py-3"
                     >
                         Professional Journey
                     </motion.p>
@@ -63,7 +62,7 @@ const AboutMeContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
-                        className="Welcome-text text-[21px] text-gray-400 font-panno font-bold py-3"
+                        className="accent-subheading text-[21px] font-panno font-bold py-3"
                     >
                         Career Highlights
                     </motion.p>
@@ -81,7 +80,7 @@ const AboutMeContent = () => {
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
-                        className="Welcome-text text-[21px] text-gray-400 font-panno font-bold py-3"
+                        className="accent-subheading text-[21px] font-panno font-bold py-3"
                     >
                         Creative Passions and Vision
                     </motion.p>
@@ -89,7 +88,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[18px] text-gray-400 font-panno pb-9"
                     >
-                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="font-bold">@ricky_o_369</a>.
+                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold">@ricky_o_369</a>.
                     </motion.p>
                 </div>
             </div>

@@ -28,7 +28,7 @@ const ClientProjectsList = ({ heading, projects, basePath = "/clientworks" }: Cl
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        className="xl:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-9 font-panno lg:text-4xl md:text-4xl sm:text-4xl"
+        className="xl:text-5xl font-semibold hero-gradient-word py-9 font-panno lg:text-4xl md:text-4xl sm:text-4xl"
       >
         {heading}
       </motion.h1>
