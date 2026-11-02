@@ -21,8 +21,8 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <PageTransitionContext.Provider value={{ leaveWith }}>
       <motion.div
-        initial={{ opacity: 0, y: 10, filter: "blur(2px)" }}
-        animate={{ opacity: leaving ? 0 : 1, y: leaving ? 10 : 0, filter: leaving ? "blur(2px)" : "blur(0px)" }}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: leaving ? 0 : 1, y: leaving ? 8 : 0 }}
         transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}

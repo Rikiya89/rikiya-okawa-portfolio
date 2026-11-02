@@ -7,8 +7,6 @@ import { navigateWithFallback } from "@/components/common/navigateWithFallback";
 export default function DescriptionActions({ slug, visitHref }: { slug: string; visitHref?: string | null }) {
   const router = useRouter();
   const ctx = usePageTransition();
-  const searchParams = useSearchParams();
-  const fromModal = (searchParams?.get("from") ?? "") === "modal";
   const listTopHref = "/clientworks";
 
   const leave = (fn: () => void) => {
@@ -20,29 +18,23 @@ export default function DescriptionActions({ slug, visitHref }: { slug: string; 
     leave(() => navigateWithFallback(router, href));
   };
 
-  const handleBackToList = () => {
-    if (fromModal && typeof window !== "undefined" && window.history.length > 1) {
-      leave(() => router.back());
-      return;
-    }
-    navigateTo(listTopHref);
-  };
+  const handleBackToList = () => navigateTo(listTopHref);
 
   return (
-    <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
+    <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2 md:gap-3 border-t border-ink pt-6">
       {visitHref && (
         <a
           href={visitHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
+          className="button-primary w-full inline-flex items-center justify-center px-6 py-3 min-h-[48px] whitespace-nowrap"
         >
           Visit Site
         </a>
       )}
       <button
         onClick={handleBackToList}
-        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
+        className="button-secondary w-full inline-flex items-center justify-center px-6 py-3 min-h-[48px] whitespace-nowrap"
       >
         Back to List
       </button>

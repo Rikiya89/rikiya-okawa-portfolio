@@ -10,6 +10,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "shibuya-french-festival-2026",
+    title: "渋谷フレンチフェスティバル2026 Webサイト",
+    description: "構造化データによる会場一覧、アクセシビリティに配慮したインタラクティブUI、WordPressを活用したお問い合わせフローを備えるレスポンシブなフェスティバルサイトを開発。",
+    src: "/img/shibufre.webp",
+    url: "https://www.shibufre.info/",
+    alt: "渋谷フレンチフェスティバル2026 Webサイトのトップページ"
+  },
+  {
     slug: "udemy-business",
     title: "Udemy Interview メディアサイト",
     description: `WordPressでインタビュー記事サイトを開発。複合絞り込み検索とUdemy REST API連携を実装。`,

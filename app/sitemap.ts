@@ -3,16 +3,25 @@ import { listEnProjects } from "@/lib/siteProjectsEn";
 import { listJpProjects } from "@/lib/siteProjectsJp";
 import { projects as clientProjectsEn } from "@/lib/projects";
 import { projects as clientProjectsJp } from "@/lib/projects_jp";
+import { siteUrl } from "@/lib/siteUrl";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ||
-  "http://localhost:3000";
-const base = siteUrl.replace(/\/$/, "");
 const now = new Date();
 const basicAuthEnabled = Boolean(process.env.BASIC_AUTH_USER && process.env.BASIC_AUTH_PASSWORD);
 
-const abs = (path: string) => `${base}${path.startsWith("/") ? path : `/${path}`}`;
+const abs = (path: string) => `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
+const page = (path: string): MetadataRoute.Sitemap[number] => ({ url: abs(path), lastModified: now });
+
+// EN + JA entries that list each other as hreflang alternates
+const pair = (enPath: string, jaPath: string): MetadataRoute.Sitemap => {
+  const alternates = { languages: { en: abs(enPath), ja: abs(jaPath) } };
+  return [
+    { ...page(enPath), alternates },
+    { ...page(jaPath), alternates },
+  ];
+};
+
+// Case studies are linked as /description pages; the bare /project/[slug] routes only back the modal.
+const caseStudy = (lang: "en" | "jp", slug: string) => `/${lang}/project/${slug}/description`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const en = listEnProjects();
@@ -20,77 +29,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const jpSet = new Set(jp.map((p) => p.slug));
   const enSet = new Set(en.map((p) => p.slug));
 
-  // Static top-level pages
   const staticPages: MetadataRoute.Sitemap = [
-    { url: abs("/en"), lastModified: now },
-    { url: abs("/jp"), lastModified: now },
-    { url: abs("/aboutme"), lastModified: now },
-    { url: abs("/about-me_jp"), lastModified: now },
-    { url: abs("/guardians_en"), lastModified: now },
-    { url: abs("/guardians_jp"), lastModified: now },
-    ...(basicAuthEnabled
-      ? []
-      : [
-          { url: abs("/clientworks"), lastModified: now },
-          { url: abs("/clientworks_jp"), lastModified: now },
-        ]),
+    ...pair("/en", "/jp"),
+    ...pair("/aboutme", "/about-me_jp"),
+    ...pair("/guardians_en", "/guardians_jp"),
+    ...(basicAuthEnabled ? [] : pair("/clientworks", "/clientworks_jp")),
   ];
 
-  // EN/JP site projects
-  const siteProjectPages: MetadataRoute.Sitemap = en.flatMap((p) => {
-    const enUrl = abs(`/en/project/${p.slug}`);
-    const enDescUrl = abs(`/en/project/${p.slug}/description`);
-    const jpUrl = jpSet.has(p.slug) ? abs(`/jp/project/${p.slug}`) : undefined;
-    const jpDescUrl = jpSet.has(p.slug) ? abs(`/jp/project/${p.slug}/description`) : undefined;
-    const baseEntry = {
-      url: enUrl,
-      lastModified: now,
-    };
-    const entries: MetadataRoute.Sitemap = [
-      baseEntry,
-      { url: enDescUrl, lastModified: now },
-    ];
-    if (jpUrl) {
-      entries.push({
-        url: jpUrl,
-        lastModified: now,
-      });
-    }
-    if (jpDescUrl) {
-      entries.push({
-        url: jpDescUrl,
-        lastModified: now,
-      });
-    }
-    return entries;
-  });
+  const siteProjectPages: MetadataRoute.Sitemap = [
+    ...en.flatMap((p) =>
+      jpSet.has(p.slug) ? pair(caseStudy("en", p.slug), caseStudy("jp", p.slug)) : [page(caseStudy("en", p.slug))],
+    ),
+    ...jp.filter((p) => !enSet.has(p.slug)).map((p) => page(caseStudy("jp", p.slug))),
+  ];
 
-  // Include JP-only projects (if any) not present in EN
-  const jpOnlyPages: MetadataRoute.Sitemap = jp
-    .filter((p) => !enSet.has(p.slug))
-    .flatMap((p) => ([
-      { url: abs(`/jp/project/${p.slug}`), lastModified: now },
-      { url: abs(`/jp/project/${p.slug}/description`), lastModified: now },
-    ]));
-
-  // Client works
+  // Client works stay out of the sitemap while Basic Auth protects them
   const clientWorkSlugs = new Set([
     ...clientProjectsEn.map((p) => p.slug),
     ...clientProjectsJp.map((p) => p.slug),
   ]);
   const clientWorksPages: MetadataRoute.Sitemap = basicAuthEnabled
     ? []
-    : Array.from(clientWorkSlugs).flatMap((slug) => [
-        { url: abs(`/clientworks/${slug}`), lastModified: now },
-        { url: abs(`/clientworks/${slug}/description`), lastModified: now },
-        { url: abs(`/clientworks_jp/${slug}`), lastModified: now },
-        { url: abs(`/clientworks_jp/${slug}/description`), lastModified: now },
-      ]);
+    : Array.from(clientWorkSlugs).flatMap((slug) =>
+        pair(`/clientworks/${slug}/description`, `/clientworks_jp/${slug}/description`),
+      );
 
-  return [
-    ...staticPages,
-    ...siteProjectPages,
-    ...jpOnlyPages,
-    ...clientWorksPages,
-  ];
+  return [...staticPages, ...siteProjectPages, ...clientWorksPages];
 }

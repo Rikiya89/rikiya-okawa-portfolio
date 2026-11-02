@@ -23,8 +23,6 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
   const [entered, setEntered] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
 
-  void skipUrlUpdate;
-
   const getFocusableElements = useCallback((container: HTMLElement): HTMLElement[] => {
     const selectors = [
       "a[href]",
@@ -67,44 +65,89 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
     }
   }, []);
 
-  const runCloseSequence = useCallback((afterClose?: () => void) => {
+  const close = useCallback(() => {
     if (isClosing) return;
     clearCloseTimers();
     setIsClosing(true);
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "";
+    // Restore background interactivity immediately
     setBackgroundInert(false);
 
-    closeTimerRef.current = setTimeout(() => {
-      setShouldRender(false);
+    // Update URL to base path without triggering Next route change
+    // Keeps the component mounted to allow exit animation to play
+    try {
+      window.history.replaceState(null, "", resetPath);
+    } catch {}
 
-      postCloseTimerRef.current = setTimeout(() => {
-        if (afterClose) {
-          afterClose();
+    // Wait for the medium-close animation to complete
+    closeTimerRef.current = setTimeout(() => {
+      try {
+        const samePath = window.location.pathname === resetPath;
+        const hasQuery = window.location.search && window.location.search.length > 0;
+        if (!samePath || hasQuery) {
+          // User reopened/navigated during close animation; cancel this close.
+          setIsClosing(false);
           return;
         }
-        if (refreshOnClose) {
-          router.replace(resetPath, { scroll: false });
-        }
-      }, POST_CLOSE_SYNC_MS);
-    }, CLOSE_ANIMATION_MS);
-  }, [
-    CLOSE_ANIMATION_MS,
-    POST_CLOSE_SYNC_MS,
-    clearCloseTimers,
-    isClosing,
-    refreshOnClose,
-    resetPath,
-    router,
-    setBackgroundInert,
-  ]);
+      } catch {}
 
-  const close = useCallback(() => {
-    runCloseSequence();
-  }, [runCloseSequence]);
+      setShouldRender(false);
+      // Stabilize Next router state after exit if user hasn't navigated elsewhere
+      postCloseTimerRef.current = setTimeout(() => {
+        try {
+          const samePath = window.location.pathname === resetPath;
+          const hasQuery = window.location.search && window.location.search.length > 0;
+          if (samePath && !hasQuery) {
+            router.replace(resetPath, { scroll: false });
+          }
+        } catch {}
+      }, POST_CLOSE_SYNC_MS);
+    }, CLOSE_ANIMATION_MS); // Match close animation duration
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, router, setBackgroundInert]);
 
   const closeWith = useCallback((fn: () => void) => {
-    runCloseSequence(fn);
-  }, [runCloseSequence]);
+    if (isClosing) return;
+    clearCloseTimers();
+    setIsClosing(true);
+    document.body.style.overflow = "";
+    // Restore background interactivity immediately
+    setBackgroundInert(false);
+
+    // Update URL to base path without triggering Next route change
+    // Keeps the component mounted to allow exit animation to play
+    try {
+      window.history.replaceState(null, "", resetPath);
+    } catch {}
+
+    // Wait for the medium-close animation to complete
+    closeTimerRef.current = setTimeout(() => {
+      try {
+        const samePath = window.location.pathname === resetPath;
+        const hasQuery = window.location.search && window.location.search.length > 0;
+        if (!samePath || hasQuery) {
+          // User reopened/navigated during close animation; cancel this close.
+          setIsClosing(false);
+          return;
+        }
+      } catch {}
+
+      setShouldRender(false);
+
+      // Execute callback after modal is hidden, but only if user
+      // hasn't navigated elsewhere (e.g., immediately reopened another modal)
+      postCloseTimerRef.current = setTimeout(() => {
+        try {
+          const samePath = window.location.pathname === resetPath;
+          const hasQuery = window.location.search && window.location.search.length > 0;
+          if (samePath && !hasQuery) {
+            fn();
+          }
+        } catch {
+          fn();
+        }
+      }, POST_CLOSE_SYNC_MS);
+    }, CLOSE_ANIMATION_MS); // Match close animation duration
+  }, [CLOSE_ANIMATION_MS, POST_CLOSE_SYNC_MS, clearCloseTimers, isClosing, resetPath, setBackgroundInert]);
 
   // ESC キーで閉じる
   useEffect(() => {
@@ -149,7 +192,7 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
 
     return () => {
       cancelAnimationFrame(id);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
       // Restore background interactivity/a11y
       setBackgroundInert(false);
       // Restore focus to the element that opened the modal (if still in DOM)
@@ -226,16 +269,16 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
       onClick={close}
       role="presentation"
     >
-      {/* Ultra Beautiful Layered Backdrop */}
+      {/* Backdrop: flat ink scrim */}
       <div
         className={
-          "absolute inset-0 bg-gradient-to-br from-[#0300145e] via-[#2A0E61]/20 to-[#6c4cff61] backdrop-blur-md transition-all ease-[cubic-bezier(0.23,1,0.32,1)] will-change-opacity will-change-transform " +
+          "absolute inset-0 bg-ink/60 transition-opacity ease-[cubic-bezier(0.22,1,0.36,1)] will-change-opacity " +
           (isClosing ? "duration-[220ms] " : "duration-[280ms] ") +
           (!entered
-            ? "opacity-0 scale-105"
+            ? "opacity-0"
             : isClosing
-            ? "opacity-0 scale-105"
-            : "opacity-100 scale-100")
+            ? "opacity-0"
+            : "opacity-100")
         }
         aria-hidden="true"
         style={{
@@ -244,36 +287,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
           background: undefined,
         }}
       />
-      
-      {/* Secondary Glow Layer (subtle, centered) */}
-      <div
-        className={
-          "absolute inset-0 pointer-events-none transition-opacity ease-[cubic-bezier(0.23,1,0.32,1)] " +
-          (isClosing ? "duration-[220ms] " : "duration-[280ms] ") +
-          (!entered ? "opacity-0" : isClosing ? "opacity-0" : "opacity-20")
-        }
-        aria-hidden="true"
-        style={{
-          transform: `translateZ(0)`,
-          background:
-            'radial-gradient(600px 600px at 50% 50%, rgba(147, 51, 234, 0.25) 0%, rgba(79, 70, 229, 0.12) 40%, transparent 70%)',
-        }}
-      />
 
-      {/* Magical Particle Effect Layer */}
-      <div
-        className={
-          "absolute inset-0 transition-opacity ease-[cubic-bezier(0.23,1,0.32,1)] opacity-0 " +
-          (isClosing ? "duration-[220ms]" : "duration-[280ms]")
-        }
-        aria-hidden="true"
-        style={{
-          transform: `translateZ(0)`,
-          background: 'transparent',
-        }}
-      />
-
-      {/* Ultra Beautiful Cinematic Panel */}
+      {/* Panel */}
       <div
         ref={panelRef}
         tabIndex={-1}
@@ -282,8 +297,8 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
         aria-labelledby={labelledBy}
         aria-describedby={describedBy}
         className={
-          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[90vh] rounded-2xl bg-gradient-to-br from-[#030014] via-[#0a0025] to-[#1a0b2e] border border-[#6c4cff61] shadow-2xl shadow-[#2A0E61]/70 opacity-[0.98] backdrop-blur-xl " +
-          "md:pt-14 md:px-6 md:pb-6 sm:pt-6 sm:px-4 sm:pb-4 " +
+          "relative z-10 w-[min(100vw-2rem,1000px)] max-h-[90vh] bg-paper text-ink border border-ink " +
+          "pt-16 px-4 pb-5 md:pt-16 md:px-6 md:pb-6 " +
           "overflow-hidden flex flex-col " +
           "will-change-transform will-change-opacity " +
           (!entered ? "opacity-0" : isClosing ? "modal-panel-out" : "modal-panel-in")
@@ -292,24 +307,18 @@ export default function Modal({ children, resetPath = "/clientworks", refreshOnC
           transform: `translateZ(0)`, // Force hardware acceleration
           backfaceVisibility: 'hidden', // Prevent flickering
           transformOrigin: 'center center',
-          boxShadow: '0 25px 50px -12px rgba(42, 14, 97, 0.5), 0 0 0 1px rgba(112, 66, 255, 0.1)',
           background: undefined,
         }}
         onClick={(e) => e.stopPropagation()}
         onKeyDown={onPanelKeyDown}
       >
-        {/* entry shimmer */}
-        {entered && !isClosing && (
-          <div className="modal-shimmer" />
-        )}
-
         <button
           onClick={close}
           aria-label="Close modal"
-          className="absolute right-4 top-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-[#2A0E61]/60 border border-[#6c4cff61] hover:bg-[#2A0E61]/80 md:hover:shadow-lg md:hover:shadow-[#2A0E61]/50 transition-all duration-200 flex-shrink-0"
+          className="absolute right-3 top-3 md:right-4 md:top-3 z-20 flex items-center justify-center w-10 h-10 bg-ink text-paper border border-ink hover:bg-signal hover:border-signal transition-colors duration-150 flex-shrink-0"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-white">
-            <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13 3L3 13M3 3L13 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square"/>
           </svg>
         </button>
         <div className="overflow-y-auto flex-1 min-h-0">

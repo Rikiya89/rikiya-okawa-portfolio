@@ -2,88 +2,14 @@
 
 import { ComponentType, useEffect } from "react";
 import ClientWorksHeroJp from "./ClientWorksHeroJp";
-import ClientWorksSkills from "./ClientWorksSkills";
+import ClientWorksStack from "./ClientWorksStack";
+import SectionHeading from "@/components/en/home/SectionHeading";
 import ClientProjectsList, { ClientProjectCard } from "./ClientProjectsList";
-import Footer from "./Footer";
-
-const JP_CLIENT_PROJECTS: ClientProjectCard[] = [
-  {
-    src: "/img/udemy-business.webp",
-    title: "Udemy Interview メディアサイト",
-    description:
-      "WordPressでインタビュー記事サイトを開発。\n複合絞り込み検索とUdemy REST API連携を実装。",
-    url: "https://www.udemybusiness.com/",
-    slug: "udemy-business",
-  },
-  {
-    src: "/img/timberland.webp",
-    title: "Timberland公式サイト",
-    description:
-      "Timberland Japanのサイト運用を担当。\n約3日でキャンペーンLPを制作し、ニュースを\n即日更新。",
-    url: "https://www.timberland.co.jp/",
-    slug: "timerland-official",
-  },
-  {
-    src: "/img/vans.webp",
-    title: "VANS公式サイト",
-    description:
-      "VANS Japanのサイトを継続運用。\nトレンドを捉えたLPと迅速なニュース更新を\n実現。",
-    url: "https://www.vans.co.jp/?srsltid=AfmBOoqG_8npx5qrTz7F4JvK7oWbCUnZXn9gySUwi0UjmycZez1zjvaJ",
-    slug: "vans-official",
-  },
-  {
-    src: "/img/vans-news-thumbnail.webp",
-    alt: "Astro開発システムで構築したVANS Japanニュースページ",
-    title: "VANS ニュース開発システム",
-    description:
-      "VANS Japanニュース向けのAstro開発環境を構築。\nレガシー出力、画像処理、プレビューを自動化。",
-    slug: "vans-news",
-  },
-  {
-    src: "/img/dickies.webp",
-    title: "Dickies公式サイト",
-    description:
-      "Dickies Japanの運用を支援。\n新商品のLPをレスポンシブに制作し、\n運用体制を整備。",
-    url: "https://www.dickies.jp/",
-    slug: "dickies-official",
-  },
-  {
-    src: "/img/lacoste.webp",
-    title: "Lacoste公式サイト",
-    description:
-      "Lacosteの洗練された世界観を\n保ちつつLPを制作。\nキャンペーンとセールを計画通りに公開。",
-    url: "https://www.lacoste.jp/",
-    slug: "lacoste-official",
-  },
-  {
-    src: "/img/mhd.webp",
-    title: "MHD公式サイト",
-    description:
-      "JavaScriptによるキャッシュ制御で\nMHDサイトを最適化。\n安定した表示と高速レスポンスを実現。",
-    url: "https://www.mhdkk.com/",
-    slug: "mhd-official",
-  },
-  {
-    src: "/img/meiji.webp",
-    title: "明治公式サイト",
-    description:
-      "明治公式サイトのキャンペーンLPを制作。\n家族に寄り添う温かな語り口を徹底。\nブランドの信頼感を支える更新設計を継続。",
-    url: "https://www.meiji.co.jp/",
-    slug: "meiji-official",
-  },
-  {
-    src: "/img/kikkoman.webp",
-    title: "キッコーマン公式サイト",
-    description:
-      "キッコーマンの\nレシピ / キャンペーンLPを制作。\n親しみやすいビジュアルと分かりやすい導線を両立。",
-    url: "https://www.kikkoman.co.jp/",
-    slug: "kikkoman-official",
-  },
-];
+import { jpClientProjects } from "@/lib/clientProjectsJp";
+import Footer from "@/components/jp/main/Footer";
 
 type ClientWorksPageProps = {
   HeroComponent?: ComponentType;
-  SkillTextComponent?: ComponentType;
   projects?: ClientProjectCard[];
   projectsHeading?: string;
   basePath?: string;
@@ -91,9 +17,8 @@ type ClientWorksPageProps = {
 
 const ClientWorksPageJp = ({
   HeroComponent = ClientWorksHeroJp,
-  SkillTextComponent,
-  projects = JP_CLIENT_PROJECTS,
-  projectsHeading = "Client Work",
+  projects = jpClientProjects,
+  projectsHeading = "Client Projects",
   basePath = "/clientworks_jp",
 }: ClientWorksPageProps) => {
   const Hero = HeroComponent;
@@ -143,15 +68,19 @@ const ClientWorksPageJp = ({
   }, []);
 
   return (
-    <main className="flex flex-col items-center w-full">
+    <main id="main" className="flex flex-col items-center w-full">
       <div className="w-full snap-section">
         <Hero />
       </div>
+      <section className="w-full snap-section section-space">
+        {/* Anchor sits outside the snap-section so only the page's 80px scroll padding applies */}
+        <div id="projects" className="scroll-mt-4">
+          <SectionHeading index="01" meta={`${String(projects.length).padStart(2, "0")} projects`} title={projectsHeading} intro="各カードから、担当範囲・技術スタック・制作プロセスの詳細をご覧いただけます。" />
+          <ClientProjectsList projects={projects} basePath={basePath} />
+        </div>
+      </section>
       <div className="w-full snap-section">
-        <ClientWorksSkills SkillTextComponent={SkillTextComponent} />
-      </div>
-      <div className="w-full snap-section">
-        <ClientProjectsList heading={projectsHeading} projects={projects} basePath={basePath} />
+        <ClientWorksStack intro="これらのクライアントサイトの制作・運用で使用した技術です。" />
       </div>
       <div className="w-full snap-section">
         <Footer />

@@ -2,15 +2,93 @@
 export type ProjectDetails = {
   title: string;
   intro?: string;
+  modalIntro?: string;
   role?: string;
   responsibilities?: string[];
   outcomes?: string[];
   techStack?: string[];
+  question?: string;
+  decisions?: string[];
+  process?: { title: string; body: string }[];
+  next?: string;
+  codeUrl?: string;
+  liveUrl?: string;
+  year?: string;
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "generative-brand-system": {
+    title: "SEED — Generative Brand System",
+    question: "What if a brand name were the seed for its whole identity?",
+    decisions: [
+      "The name and intent are hashed (FNV-1a → mulberry32) into a 17-parameter genome, so the same input always grows the same system",
+      "One strict normaliser sits between every source — seed, share URL and sliders — and the renderer; it clamps and snaps values and never throws",
+      "Every graphic is inline SVG drawn by pure functions, with no canvas or graphics library, so the mark exports as a standalone SVG",
+      "Palettes are built in OKLCH, and the primary is nudged until it reaches 3:1 WCAG non-text contrast; ink and paper stay above 7:1",
+    ],
+    role: "Role: Concept, Design & Development (Next.js, TypeScript, SVG)",
+    year: "2026",
+    intro:
+      "Built a one-page tool that turns a brand name and a one-line intent into a complete identity system: a sacred-geometry mark with its own motion, an OKLCH palette with contrast ratios, a type style, a lockup, a 1080×1350 poster and app icons.\nEvery parameter has a control, so the seeded result is a starting point the designer can override, and the exact board travels in a share link.",
+    responsibilities: [
+      "Designed the genome: 17 parameters across mark, palette, type and motion",
+      "Implemented rosette, vesica and {n/m} star geometry that always fits a fixed outer bound",
+      "Built loop-exact motion (breathe, orbit, unfold) that pauses off-screen and respects prefers-reduced-motion",
+      "Wrote an OKLCH → sRGB colour pipeline that maps out-of-gamut colours back by binary-searching chroma",
+      "Added share-URL state encoding and SVG export of the mark",
+      "Planned the system in a written spec first, then implemented it with Claude Code from that plan",
+    ],
+    outcomes: [
+      "Fully reproducible: the whole state fits in a share URL and redraws identically",
+      "Numeric self-checks cover the genome, colour, geometry, motion and share encoding",
+      "App icons stay legible down to 32px through optical stroke correction",
+      "Runs with no environment variables or API keys",
+    ],
+    techStack: ["Next.js", "TypeScript", "SVG", "OKLCH", "React", "SCSS Modules"],
+  },
+  "shibuya-french-festival-2026": {
+    "title": "Shibuya French Festival 2026 Website",
+    "role": "Role: Front-End Developer — Responsive UI Implementation / Interactive Development / WordPress Form Integration",
+    "modalIntro": "Developed the responsive multi-page website for Shibuya French Festival 2026. Implemented event pages, navigation, carousels, tabs, accordions, expandable cards, and data-driven venue content using semantic HTML, SCSS, and JavaScript. The Restaurant Week directory generates 56 restaurant cards and their wine pairings from structured data, with responsive Swiper pagination and accessibility state management. Shared headers, footers, and FAQ content use Server Side Includes, while a dedicated WordPress theme integrates Gravity Forms for validation, review, AJAX submission, and completion-page routing.",
+    "intro": "Developed a responsive event platform covering the festival overview, indoor and outdoor programs, Restaurant Week, retail promotions, sponsors, FAQs, and contact functionality. The architecture keeps content-heavy campaign pages static while using a focused WordPress theme for routes requiring form processing. Structured JavaScript data drives restaurant and exhibitor content, while shared SSI partials and SCSS systems maintain consistency across pages. Interactive features include responsive navigation, carousels, tabs, accordions, expandable profiles, scroll-triggered animation, and native dialog modals with accessibility and reduced-motion support.",
+    "responsibilities": [
+      "Developed responsive event pages using semantic HTML, BEM-oriented SCSS, and vanilla JavaScript",
+      "Built a structured data layer that renders 56 restaurants across eight venue groups and associates 112 wine pairings",
+      "Implemented accessible carousels, tabs, accordions, expandable cards, navigation, and native dialog modals",
+      "Structured shared headers, footers, FAQ content, design variables, breakpoints, and animation behavior for reuse",
+      "Integrated Gravity Forms into a classic WordPress theme with environment-specific form IDs, validation, review, AJAX submission, and completion routing",
+      "Configured Gulp-based SCSS compilation and a Docker environment containing WordPress, MariaDB, and local mail testing"
+    ],
+    "outcomes": [
+      "Replaced repetitive restaurant markup with automated rendering from a centralized data source",
+      "Delivered responsive carousel behavior with keyboard support, ARIA state updates, inactive-slide control, and reduced-motion handling",
+      "Improved cross-page consistency through shared SSI components and centralized SCSS foundations",
+      "Established a hybrid architecture that confines WordPress to dynamic contact routes while retaining static delivery for campaign content",
+      "Created an environment-aware form integration and scripted path for synchronizing shared assets with the WordPress theme"
+    ],
+    "techStack": [
+      "HTML5",
+      "SCSS",
+      "JavaScript (ES6)",
+      "WordPress",
+      "PHP",
+      "Gravity Forms",
+      "Swiper.js",
+      "Server Side Includes (SSI)",
+      "Gulp",
+      "Dart Sass",
+      "Docker",
+      "MariaDB"
+    ]
+  },
   "emotional-echoes-p5js": {
     title: "Emotional Echoes: Multilingual Typography Experiment",
+    question: "Can a feeling be read before the words are understood?",
+    decisions: [
+      "p5.js 2.0 for fast iteration on type-as-particles and a public, inspectable sketch",
+      "Typography carries the emotion through motion and colour, so meaning survives across scripts the viewer can't read",
+      "describe() exposes the canvas state to screen readers instead of leaving a silent visual",
+    ],
     role: "Role: Creative Coding / Generative Art (p5.js) — Concept, Visual Design, Interaction Design, Implementation",
     intro:
       "Created an interactive p5.js artwork that visualizes six emotions (happy, anxious, peaceful, angry, sad, hopeful) through multilingual typography and motion. Users can click anywhere on the canvas to cycle emotions, hover floating words to trigger text-particle bursts, and use the emotion wheel to jump directly to a selected feeling. The work was featured on the official p5.js Community page and aligns with the p5.js Community Sketch 2025 Open Call theme focused on multilingual typography and text experiments.",
@@ -181,6 +259,12 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   typevision: {
     title: "TypeVision",
+    question: "What if a typing trainer could notice where your eyes go?",
+    decisions: [
+      "MediaPipe FaceMesh runs in the browser, so no video leaves the device",
+      "Eye tracking is optional and calibrated per user; the core trainer works without a camera",
+      "localStorage-first progress keeps the app backend-free and instant",
+    ],
     role: "Role: Frontend Engineer — Design & Implementation",
     intro:
       "Built a browser-based touch-typing trainer using JavaScript, integrated with optional eye tracking, bilingual practice flows, and local-first progress storage.\nA focused UI lets users train in English and Japanese, track WPM and accuracy in real time, and replay or share challenge runs smoothly.",
@@ -218,6 +302,12 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "guardians-of-the-moon": {
     title: "GUARDIANS OF THE MOON",
+    question: "How do you make a visit to an AR/VR centre feel like a mission rather than a demo?",
+    decisions: [
+      "Unity + XR Interaction Toolkit for native controller haptics and grab interactions",
+      "Distance-based score bonus rewards risky long shots, giving play a skill curve in a one-minute session",
+      "TouchDesigner for the installation so visuals could be tuned live on site in a one-week build",
+    ],
     role: "Role: Unity (C#) Engineer — Design & Implementation",
     intro:
       "Developed a suite of scripts for a VR-ready asteroid shooting mini-game using Unity (C#). Implemented asteroid spawning and behavior, raycast shooting, score and timer management, popups, XR grab, and haptics to deliver an intuitive play experience.",
@@ -261,5 +351,5 @@ const detailsMap: Record<string, ProjectDetails> = {
 };
 
 export async function getProjectDetails(slug: string): Promise<ProjectDetails | null> {
-  return detailsMap[slug] ?? null;
+  return Object.hasOwn(detailsMap, slug) ? detailsMap[slug] : null;
 }
