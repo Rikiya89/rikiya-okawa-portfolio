@@ -11,56 +11,70 @@ export interface Props {
   alt?: string;
   title: string;
   description: string;
+  role?: string;  // optional: short role line under the title
   url?: string;   // optional
   slug?: string;  // optional
   centerText?: boolean; // optional: center description text
   basePath?: string; // optional: base path for routing (e.g., "/clientworks" or "/clientworks_jp")
+  index?: number;
 }
 
-export default function ClientProjects({ src, alt, title, description, url, slug, centerText, basePath = "/clientworks" }: Props) {
+const hostnameOf = (url?: string) => {
+  if (!url) return null;
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return null;
+  }
+};
+
+export default function ClientProjects({ src, alt, title, description, role, url, slug, basePath = "/clientworks", index }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
   const router = useRouter();
   const scrollKey = basePath === "/clientworks_jp" ? "clientworks:scrollY:jp" : "clientworks:scrollY:en";
   const isJp = basePath === "/clientworks_jp";
+  const host = hostnameOf(url);
 
   const CardInner = (
     <>
-      <div className="relative aspect-[16/9] w-full">
-        <div className="absolute inset-0 bg-black/15" />
+      <div className="work-card__media plate relative aspect-[16/9] w-full">
         <Image
           src={src}
           alt={alt ?? title}
           fill
           className="object-cover"
-          sizes="(min-width: 1536px) 384px, (min-width: 1024px) 384px, (min-width: 640px) 45vw, 90vw"
-          style={{ opacity: 0.72 }}
+          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 46vw, 92vw"
         />
       </div>
-      <div className="relative p-4 flex flex-col flex-1">
-        <h3 className="text-[21px] font-semibold text-white text-center font-panno">{title}</h3>
-        <p
-          className={`mt-2 text-base md:text-lg text-gray-300 font-panno ${
-            isJp ? "line-clamp-3 md:line-clamp-4 whitespace-normal" : "line-clamp-3 whitespace-pre-line"
-          } ${centerText ? "text-center" : ""}`}
-        >
-          {description}
-        </p>
+      <div className="flex items-baseline gap-4 border-b border-ink py-2.5 type-label">
+        {index ? (
+          <span className="work-card__index text-ink">{String(index).padStart(2, "0")}</span>
+        ) : null}
+        <span className="min-w-0 flex-1 truncate normal-case tracking-normal text-ink-2">{host ?? "—"}</span>
+        <span aria-hidden="true" className="work-card__arrow text-ink">{hasSlug ? "→" : hasUrl ? "↗" : ""}</span>
       </div>
+      <h3 className={`work-card__title type-title mt-4 text-[22px] lg:text-[24px] text-ink ${isJp ? "text-jp-wrap" : "text-balance"}`}>{title}</h3>
+      {role && (
+        <p className={`type-mono mt-2 text-ink-2 ${isJp ? "text-jp-wrap" : ""}`}>{role}</p>
+      )}
+      <p
+        className={`mt-2.5 text-ink-2 ${
+          isJp ? "text-[14px] leading-[1.85] line-clamp-3 md:line-clamp-4 text-jp-wrap" : "type-body line-clamp-3"
+        }`}
+      >
+        {description}
+      </p>
     </>
   );
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 16, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      whileHover={{
-        y: -2,
-        scale: 1.008,
-      }}
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      className="accent-card relative z-20 h-full w-full max-w-80 overflow-hidden rounded-lg border shadow-lg cursor-pointer will-change-transform lg:max-w-96"
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      className="work-card relative h-full w-full"
       aria-label={title}
     >
       {hasSlug ? (
@@ -68,7 +82,7 @@ export default function ClientProjects({ src, alt, title, description, url, slug
           href={`${basePath}/${slug}`}
           prefetch
           scroll={false}
-          className="flex flex-col h-full"
+          className="work-card__link flex flex-col h-full"
           onClick={(e) => {
             if (e.metaKey || e.ctrlKey) return; // allow open in new tab
             e.preventDefault();
@@ -85,7 +99,7 @@ export default function ClientProjects({ src, alt, title, description, url, slug
           {CardInner}
         </Link>
       ) : hasUrl ? (
-        <Link href={url!} target="_blank" rel="noopener noreferrer" className="flex flex-col h-full">
+        <Link href={url!} target="_blank" rel="noopener noreferrer" className="work-card__link flex flex-col h-full">
           {CardInner}
         </Link>
       ) : (

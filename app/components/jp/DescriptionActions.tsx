@@ -9,7 +9,7 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
   const ctx = usePageTransition();
   const searchParams = useSearchParams();
   const fromModal = (searchParams?.get("from") ?? "") === "modal";
-  const listTopHref = "/jp";
+  const listTopHref = "/jp#work";
 
   const leave = (fn: () => void) => {
     if (ctx) ctx.leaveWith(fn);
@@ -17,7 +17,7 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
   };
 
   const navigateTo = (href: string) => {
-    leave(() => navigateWithFallback(router, href));
+    leave(() => navigateWithFallback(router, href, { scroll: true }));
   };
 
   const handleBackToList = () => {
@@ -29,20 +29,20 @@ export default function DescriptionActionsJp({ slug, visitHref }: { slug: string
   };
 
   return (
-    <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3">
+    <div className="grid w-full max-w-[520px] grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2 md:gap-3 border-t border-ink pt-6">
       {visitHref && (
         <a
           href={visitHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
+          className="button-primary w-full inline-flex items-center justify-center px-6 py-3 min-h-[48px] whitespace-nowrap"
         >
           サイトを見る
         </a>
       )}
       <button
         onClick={handleBackToList}
-        className="button-primary text-center text-white cursor-pointer rounded-lg w-full font-panno text-lg inline-flex items-center justify-center px-6 py-2.5 min-h-[44px] whitespace-nowrap transition-transform duration-200 ease-out md:hover:scale-[1.02] active:scale-[0.98]"
+        className="button-secondary w-full inline-flex items-center justify-center px-6 py-3 min-h-[48px] whitespace-nowrap"
       >
         一覧に戻る
       </button>

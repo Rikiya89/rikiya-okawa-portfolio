@@ -14,7 +14,7 @@ const AboutMeContentJP = () => {
         <motion.div
             initial="hidden"
             animate="visible"
-            className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] md:px-8 sm:px-8"
+            className="relative flex flex-row items-center justify-center w-full max-w-[1440px] mx-auto px-[var(--margin)] pt-[calc(var(--nav-h)+56px)] pb-20 md:pt-[calc(var(--nav-h)+80px)]"
         >
             <div className="2xl:flex 2xl:flex-row-reverse 
                 xl:flex xl:flex-row-reverse 
@@ -33,13 +33,13 @@ const AboutMeContentJP = () => {
                         style={{ opacity: 0.8 }} 
                     />
                 </motion.div>
-                <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w[585px]">
+                <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w-[585px]">
                     <motion.div
                         variants={slideInFromLeft(0.9)}
-                        className="name-heading flex flex-col gap-6 mt-6
+                        className="name-heading type-headline flex flex-col gap-6 mt-6
                                     2xl:text-7xl xl:text-6xl
                                     lg:text-5xl md:text-4xl
-                                    sm:text-4xl font-bold
+                                    sm:text-4xl font-medium
                                     max-w-[600px]
                                     w-auto h-auto font-panno"
                         >
@@ -50,46 +50,46 @@ const AboutMeContentJP = () => {
 
                     <motion.p
                         variants={slideInFromLeft(0.8)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Professional Journey
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.7)}
-                        className="text-[15px] text-gray-400"
+                        className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap"
                     >
                         東京で学び、サンディエゴへ渡り、再び日本へ。国内外での学びと実務を重ねてきました。2015年に神田外語学院を卒業し、2017年に Grossmont College でデジタルアートの学位を取得。帰国後はコストコで約1年、アコーホテルズで3年勤務し、2022年にデジタルハリウッド東京本校で UI/UX デザインを修了しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Career Highlights
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
-                        className="text-[15px] text-gray-400"
+                        className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap"
                     >
                         強みは、コミュニケーション力とデジタルの融合です。アコーホテルズでは多言語での問い合わせ対応や課題解決に従事。株式会社 Tree Digital Studio では教育向け AR ゲームの UI/UX 改善に取り組み、ユーザーフィードバックを設計に反映。株式会社リトルプラネットでは AR/VR の体験設計を調査し、年齢層別のインタラクション特性を分析しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
-                        className="text-[15px] text-gray-400 py-3"
+                        className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap py-3"
                     >
                         現在は Web エンジニアとして、HTML5／CSS(SCSS)／JavaScript／Node.js を用い、レスポンシブかつパフォーマンスに優れたサイトを制作しています。クライアントの目的達成とユーザー体験の向上を両立させることを大切にしています。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Creative Passions and Vision
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.2)}
-                        className="text-[15px] text-gray-400 pb-9"
+                        className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap pb-9"
                     >
                         仕事の外では Unity、TouchDesigner、openFrameworks、p5.js などで創作を続けています。最近は Houdini による VFX／アニメーションにも注力。多様なデジタル表現を横断しながら、次のプロジェクトでも創造的に課題を解決し、体験の可能性を広げていきます。最新の制作は Instagram で公開中。<br/>
-                        <span className="font-bold font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold font-panno"> @ricky_o_369</a>
+                        <span className="font-medium font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold font-panno"> @ricky_o_369</a>
                     </motion.p>
                 </div>
             </div>

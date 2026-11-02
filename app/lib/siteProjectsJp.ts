@@ -8,20 +8,28 @@ export type SiteProject = {
 };
 
 const jpMap: Record<string, SiteProject> = {
+  "generative-brand-system": {
+    slug: "generative-brand-system",
+    title: "SEED — Generative Brand System",
+    description:
+      "Next.js と TypeScript で構築したジェネレーティブ・ブランドシステム。\nブランド名と一文の意図を入力すると、決定論的な SVG ジオメトリがマーク・OKLCH パレット・書体・ロックアップ・ポスター・アイコンを生成。編集と URL 共有に対応。",
+    src: "/img/generative_brand_system.webp",
+    url: "https://generative-brand-system.vercel.app/",
+  },
   typevision: {
     slug: "typevision",
     title: "TypeVision",
     description:
       "JavaScript と HTML/CSS で構築。\n英語/日本語のタイピング練習、任意の視線追跡、ローカル保存の進捗管理を統合し、リアルタイム分析と集中しやすい UI で提供。",
     src: "/img/typevision.webp",
-    url: "https://typevision-jubx4b2jp-rikiyadazo89-gmailcoms-projects.vercel.app/",
+    url: "https://typevision-ricky.vercel.app/",
   },
   "emotional-echoes-p5js": {
     slug: "emotional-echoes-p5js",
     title: "Emotional Echoes（p5.js）",
     description:
       "p5.js による多言語タイポグラフィの\nインタラクティブ作品。\n6つの感情を、文字アニメーションとホバー粒子、感情ホイールで体験可能。",
-    src: "/img/p5js_artwork.webp",
+    src: "/img/p5js_artwork.png",
     url: "https://p5js.org/sketches/2688829/",
   },
   "portfolio-website": {
@@ -80,10 +88,38 @@ const jpMap: Record<string, SiteProject> = {
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
+  "dinis-surface": {
+    slug: "dinis-surface",
+    title: "Dini's Surface",
+    description: "p5.js + GLSL の習作。ねじれは変わっても、曲率は変わらない。",
+    src: "/img/lab_dinis_surface_hd.webp",
+    url: "https://www.instagram.com/reel/DerNV-vT5xl/",
+  },
+  "manta-made-of-holes": {
+    slug: "manta-made-of-holes",
+    title: "A Manta Made of Holes",
+    description: "GLSL シェーダー作品。プロシージャルなマンタの内側にジャイロイドの格子を構築。メッシュもリグも不使用。",
+    src: "/img/lab_manta_gyroid_hd.webp",
+    url: "https://www.instagram.com/reel/Debwj98zAv3/",
+  },
+  "ascii-spider-lily": {
+    slug: "ascii-spider-lily",
+    title: "ASCII Spider Lily",
+    description: "TouchDesigner の習作。3D の花をすべて文字だけで描き直し。",
+    src: "/img/lab_ascii_spider_lily_hd.webp",
+    url: "https://www.instagram.com/reel/DfHiD_vzRIW/",
+  },
+  "neural-signals-unity": {
+    slug: "neural-signals-unity",
+    title: "Neural Signals → Light",
+    description: "Unity の習作。生体の神経信号が、プロシージャルな生命体と15万個の GPU パーティクルを動かす。",
+    src: "/img/lab_neural_signals_hd.webp",
+    url: "https://www.instagram.com/reel/DejfBANzoHt/",
+  },
 };
 
 export function getJpProject(slug: string) {
-  return jpMap[slug] ?? null;
+  return Object.hasOwn(jpMap, slug) ? jpMap[slug] : null;
 }
 
 export function listJpProjects(): SiteProject[] {

@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import RootDocument from "@/components/common/RootDocument";
+import { siteUrl } from "@/lib/siteUrl";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+};
+
+export default function EnRootLayout({ children }: { children: React.ReactNode }) {
+  return <RootDocument lang="en">{children}</RootDocument>;
+}

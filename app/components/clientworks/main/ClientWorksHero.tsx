@@ -1,16 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { MouseEvent } from "react";
-import Image from "next/image";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
-import ResponsiveVideo from "@/components/common/ResponsiveVideo";
+import { useRef, type MouseEvent } from "react";
+import dynamic from "next/dynamic";
+import FlowerAnchor from "@/components/en/home/FlowerAnchor";
+
+const FlowerField = dynamic(() => import("@/components/en/home/FlowerField"), {
+  ssr: false,
+  loading: () => null,
+});
 
 const ClientWorksHero = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const flowerAnchorRef = useRef<HTMLDivElement>(null);
   const handleScrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     const target = document.getElementById("projects");
@@ -24,79 +25,56 @@ const ClientWorksHero = () => {
   return (
     <section
       id="client-hero"
-      className="relative flex flex-col w-full overflow-hidden pt-[140px] pb-16"
+      ref={sectionRef}
+      className="relative w-full overflow-hidden scroll-mt-[var(--nav-h)]"
     >
-      <ResponsiveVideo
-        src="/blackhole.webm"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-      />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <FlowerField sectionRef={sectionRef} anchorRef={flowerAnchorRef} />
+      </div>
 
-      <div className="relative flex flex-row items-center justify-center w-full z-[20] max-w-[1366px] mx-auto px-6 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="flex w-full flex-col gap-5 text-start">
-          <motion.div
-            variants={slideInFromTop}
-            initial="hidden"
-            animate="visible"
-            className="Welcome-box flex items-center py-[8px] px-[10px] border backdrop-blur-md"
+      <div
+        className="page-grid relative z-10 pt-[calc(var(--nav-h)+56px)] xl:grid xl:items-center xl:gap-x-[var(--gutter)] xl:grid-cols-[minmax(0,720px)_minmax(0,1fr)]"
+      >
+        <div className="max-w-[720px] flex flex-col text-start">
+          <div
+            style={{ animationDelay: "0ms" }}
+            className="hero-in section-head__bar type-label"
           >
-            <p className="Welcome-text text-[16px] font-panno text-gray-100">
+            <p>
               Client Work Case Studies
             </p>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial="hidden"
-            animate="visible"
-            variants={slideInFromLeft(0.5)}
-            className="flex flex-col gap-2 font-bold font-panno
-              2xl:text-6xl xl:text-6xl lg:text-5xl md:text-4xl sm:text-4xl"
+          <h1
+            lang="en"
+            className="type-display mt-8 md:mt-10 text-[10.4vw] md:text-[7vw] lg:text-[clamp(52px,5.4vw,80px)] xl:text-[clamp(52px,4.6vw,76px)] text-balance"
           >
-            <span className="text-white">Reliable brand operations,</span>
-            <span className="hero-gradient-word">
-              campaign launches,
-            </span>
-            <span className="text-white">and landing page production.</span>
-          </motion.h1>
+            Reliable brand operations, <span>campaign launches,</span> and landing page production<span className="text-signal">.</span>
+          </h1>
 
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={slideInFromLeft(0.8)}
-            className="text-[20px] text-gray-300 max-w-[640px] font-panno leading-relaxed"
+          <p
+            style={{ animationDelay: "120ms" }}
+            className="hero-in mt-8 md:mt-10 text-[16px] md:text-[18px] leading-[1.65] fg-2 max-w-[56ch]"
           >
             From global brands to national manufacturers, I handle site operations, improvements,
             and rapid-turnaround landing pages. I collaborate in an 11-person team using Git
             and support spec checks plus issue investigations for the sites I build, while
             keeping accessibility and performance in focus.
-          </motion.p>
+          </p>
 
-          <motion.a
-            initial="hidden"
-            animate="visible"
-            variants={slideInFromLeft(1)}
-            href="#projects"
-            onClick={handleScrollToProjects}
-            className="button-primary cursor-pointer rounded-lg max-w-[220px] text-center text-white text-lg font-panno py-3 min-h-[44px]"
-          >
-            Browse All Work
-          </motion.a>
+          <div
+            style={{ animationDelay: "200ms" }}
+            className="hero-in mt-10 flex flex-wrap gap-3">
+            <a
+              href="#projects"
+              onClick={handleScrollToProjects}
+              className="button-primary px-6 py-3 min-h-[48px]"
+            >
+              Browse All Work
+            </a>
+          </div>
         </div>
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={slideInFromRight(0.8)}
-          className="w-full h-full 2xl:flex xl:flex lg:flex md:hidden sm:hidden justify-center items-center"
-        >
-          <Image
-            src="/img/mainIconsdark.svg"
-            alt="Creative technology icons"
-            width={520}
-            height={520}
-            sizes="(min-width: 1024px) 520px, 0px"
-            priority
-          />
-        </motion.div>
+        <FlowerAnchor ref={flowerAnchorRef} />
       </div>
     </section>
   );

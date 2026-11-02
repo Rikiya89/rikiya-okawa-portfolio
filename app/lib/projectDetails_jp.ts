@@ -2,6 +2,8 @@
 export type ProjectDetails = {
   title: string;
   intro?: string;
+  question?: string;
+  modalIntro?: string;
   role?: string;
   responsibilities?: string[];
   responsibilitiesHeading?: string;
@@ -10,8 +12,69 @@ export type ProjectDetails = {
 };
 
 const detailsMap: Record<string, ProjectDetails> = {
+  "generative-brand-system": {
+    title: "SEED — Generative Brand System",
+    question: "ブランド名ひとつを種に、アイデンティティ全体を育てられるか？",
+    role: "役割: 企画・デザイン・開発（Next.js / TypeScript / SVG）",
+    intro:
+      "ブランド名と一文の意図から、アイデンティティ一式を生成する1ページのツールを制作しました。神聖幾何学のマークとそのモーション、コントラスト比付きの OKLCH パレット、書体スタイル、ロックアップ、1080×1350 のポスター、アプリアイコンまでを一度に描画します。\nすべてのパラメータに操作 UI があり、生成結果を起点にデザイナーが調整でき、その状態をそのまま共有リンクで渡せます。",
+    responsibilitiesHeading: "主な内容",
+    responsibilities: [
+      "マーク・パレット・書体・モーションにまたがる17項目の「ゲノム」を設計",
+      "名前と意図を FNV-1a → mulberry32 でハッシュ化し、同じ入力から常に同じシステムを生成",
+      "シード・共有 URL・スライダーのすべてを1つの厳密な正規化関数に通し、範囲外の値が描画に届かない構成を実装",
+      "ロゼット・ヴェシカ・{n/m} 星形のジオメトリを、固定の外枠に必ず収まるよう実装",
+      "breathe / orbit / unfold の継ぎ目のないループモーションを実装し、画面外での停止と prefers-reduced-motion に対応",
+      "OKLCH から sRGB への変換と、彩度の二分探索による色域内への補正を実装",
+      "仕様を先に文書化し、そのプランをもとに Claude Code で実装",
+    ],
+    outcomes: [
+      "状態全体が共有 URL に収まり、同じボードを完全に再現可能",
+      "メインカラーは WCAG の非テキスト基準 3:1 を確保し、本文色と背景は常に 7:1 以上",
+      "光学的な線幅補正により、32px のアプリアイコンでも線が潰れない",
+      "環境変数や API キーなしで動作",
+    ],
+    techStack: ["Next.js", "TypeScript", "SVG", "OKLCH", "React", "SCSS Modules"],
+  },
+  "shibuya-french-festival-2026": {
+    title: "渋谷フレンチフェスティバル2026 Webサイト",
+    role: "役割: フロントエンド開発 — レスポンシブUI実装／インタラクティブ機能開発／WordPressフォーム連携",
+    modalIntro: "渋谷フレンチフェスティバル2026のレスポンシブな複数ページ構成のWebサイトを開発しました。セマンティックHTML、SCSS、JavaScriptを用い、イベントページ、ナビゲーション、カルーセル、タブ、アコーディオン、開閉式カード、データ駆動の会場コンテンツを実装。レストランウィークの店舗一覧では、構造化データから56店舗のカードと各店舗のワインペアリングを生成し、Swiperによるレスポンシブなページネーションとアクセシビリティの状態管理を組み込みました。共通ヘッダー・フッター・FAQにはServer Side Includesを採用し、専用のWordPressテーマにGravity Formsを統合して、入力検証、確認、AJAX送信、完了ページへのルーティングを実装しました。",
+    intro: "フェスティバル概要、屋内・屋外プログラム、レストランウィーク、リテールプロモーション、協賛情報、FAQ、お問い合わせを網羅するレスポンシブなイベントサイトを開発しました。情報量の多いキャンペーンページは静的に配信し、フォーム処理が必要なルートには用途を絞ったWordPressテーマを使用する構成を採用。構造化したJavaScriptデータからレストラン・出展者情報を表示し、共通SSIパーツとSCSSの共通基盤でページ間の一貫性を維持しています。レスポンシブナビゲーション、カルーセル、タブ、アコーディオン、開閉式プロフィール、スクロール連動アニメーション、ネイティブdialog要素によるモーダルを実装し、アクセシビリティと動きを抑える設定にも対応しました。",
+    responsibilitiesHeading: "主な業務",
+    responsibilities: [
+      "セマンティックHTML、BEMに沿ったSCSS、バニラJavaScriptによるレスポンシブなイベントページの開発",
+      "8つの会場グループに属する56店舗を描画し、112件のワインペアリングを関連付ける構造化データ層の構築",
+      "アクセシビリティに配慮したカルーセル、タブ、アコーディオン、開閉式カード、ナビゲーション、ネイティブdialogモーダルの実装",
+      "共通ヘッダー・フッター・FAQ、デザイン変数、ブレークポイント、アニメーション処理の再利用可能な構成への整理",
+      "クラシックWordPressテーマへのGravity Forms統合と、環境別フォームID、入力検証、確認、AJAX送信、完了ページへのルーティングの実装",
+      "GulpによるSCSSコンパイルと、WordPress・MariaDB・ローカルメールテストを含むDocker環境の構築"
+    ],
+    outcomes: [
+      "店舗ごとに繰り返していたマークアップを、集約したデータソースからの自動描画に置き換え",
+      "キーボード操作、ARIA状態の更新、非表示スライドの制御、動きを抑える設定に対応したレスポンシブなカルーセルを実装",
+      "共通SSIコンポーネントと集約したSCSS基盤により、ページ間の一貫性を向上",
+      "WordPressの利用を動的なお問い合わせルートに限定し、キャンペーンコンテンツの静的配信を維持するハイブリッド構成を確立",
+      "環境に応じたフォーム連携と、共有アセットをWordPressテーマへ同期するスクリプトを整備"
+    ],
+    techStack: [
+      "HTML5",
+      "SCSS",
+      "JavaScript (ES6)",
+      "WordPress",
+      "PHP",
+      "Gravity Forms",
+      "Swiper.js",
+      "Server Side Includes (SSI)",
+      "Gulp",
+      "Dart Sass",
+      "Docker",
+      "MariaDB"
+    ]
+  },
   "emotional-echoes-p5js": {
     title: "Emotional Echoes: Multilingual Typography Experiment",
+    question: "言葉を理解する前に、感情は読み取れるのか？",
     role: "役割: Creative Coding / Generative Art（p5.js）— 企画・ビジュアル設計・インタラクション設計・実装",
     intro:
       "6つの感情（happy / anxious / peaceful / angry / sad / hopeful）を、多言語タイポグラフィと動きで可視化する p5.js 作品を制作しました。キャンバスクリックで感情を順番に切り替え、中央リングの単語ホバーで文字パーティクルを発生させ、右上の感情ホイールで任意の感情へ直接移動できます。本作は p5.js 公式 Community ページに掲載され、p5.js Community Sketch 2025 Open Call の「Multilingual Typography & Text Experiments with p5.js 2.0」というテーマに沿った作品です。",
@@ -186,6 +249,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   typevision: {
     title: "TypeVision",
+    question: "タイピング練習アプリが、視線の行き先に気づけたら？",
     role: "役割: フロントエンドエンジニア — 設計・実装",
     intro:
       "JavaScript を用いて、英語/日本語の練習と任意の視線追跡に対応したブラウザベースのタイピング学習アプリを開発。\n集中しやすい UI 上で、WPM・正確率のリアルタイム表示、チャレンジ共有、進捗のローカル保存まで一貫して提供。",
@@ -225,6 +289,7 @@ const detailsMap: Record<string, ProjectDetails> = {
   },
   "guardians-of-the-moon": {
     title: "GUARDIANS OF THE MOON",
+    question: "AR/VR施設での体験を、デモではなく“ミッション”に変えるには？",
     role: "役割: Unity (C#) エンジニア — 設計・実装",
     intro:
       "Unity（C#）を用いて、VR対応のアステロイド射撃ミニゲーム向けスクリプト群を開発。アステロイドの生成・挙動、レイキャスト射撃、スコア／タイマー管理、ポップアップ表示、XRグラブとハプティクスなどを実装し、直感的なプレイ体験を提供。",
@@ -269,5 +334,5 @@ const detailsMap: Record<string, ProjectDetails> = {
 };
 
 export async function getProjectDetails(slug: string): Promise<ProjectDetails | null> {
-  return detailsMap[slug] ?? null;
+  return Object.hasOwn(detailsMap, slug) ? detailsMap[slug] : null;
 }

@@ -10,6 +10,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    "slug": "shibuya-french-festival-2026",
+    "title": "Shibuya French Festival 2026 Website",
+    "description": "Developed a responsive festival website with data-driven venue listings, accessible interactive components, and a WordPress-powered contact workflow.",
+    "src": "/img/shibufre.webp",
+    url: "https://www.shibufre.info/",
+    "alt": "Shibuya French Festival 2026 website overview"
+  },
+  {
     slug: "udemy-business",
     title: "Udemy Interview Media Site",
     description: `Developed a WordPress interview media site with combined filtering search and Udemy REST API integration.`,

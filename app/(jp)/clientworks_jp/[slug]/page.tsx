@@ -1,0 +1,68 @@
+import type { Metadata } from "next";
+import ProjectDetailJp from "./ProjectDetailJp";
+import Modal from "@/components/common/Modal";
+import { getProject } from "@/lib/projects_jp";
+import { getProjectDetails } from "@/lib/projectDetails_jp";
+import { notFound } from "next/navigation";
+
+type Params = { params: Promise<{ slug: string }>; searchParams?: Promise<{ m?: string }> };
+type PageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<{ m?: string | string[] }>;
+};
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  try {
+    const p = await getProject(slug);
+    const title = `${p.title} | クライアントワーク`;
+    const description = p.description;
+    const url = `/clientworks_jp/${slug}`;
+    return {
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url,
+        siteName: "Rikiya Okawa Portfolio",
+        images: [{ url: p.src }],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: [p.src],
+        creator: "@rikiya_okawa",
+      },
+    };
+  } catch {
+    return { title: `クライアントワーク`, description: `プロジェクトが見つかりませんでした` };
+  }
+}
+
+export default async function Page({ params, searchParams }: PageProps) {
+  const { slug } = await params;
+  const { m } = (searchParams ? await searchParams : {}) as { m?: string | string[] };
+  let p;
+  try {
+    p = await getProject(slug);
+  } catch {
+    notFound();
+  }
+  const details = await getProjectDetails(slug);
+  const modalToken = Array.isArray(m) ? m[0] : m;
+  if (modalToken) {
+    return (
+      <Modal key={`${slug}-${modalToken}`} resetPath="/clientworks_jp">
+        <ProjectDetailJp project={p} details={details} inModal />
+      </Modal>
+    );
+  }
+  return (
+    <main id="main" className="page-grid max-w-[1100px] pt-[calc(var(--nav-h)+32px)] pb-20">
+      <ProjectDetailJp project={p} details={details} inModal={false} />
+    </main>
+  );
+}

@@ -14,7 +14,7 @@ const AboutMeContent = () => {
         <motion.div
             initial="hidden"
             animate="visible"
-            className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] md:px-8 sm:px-8"
+            className="relative flex flex-row items-center justify-center w-full max-w-[1440px] mx-auto px-[var(--margin)] pt-[calc(var(--nav-h)+56px)] pb-20 md:pt-[calc(var(--nav-h)+80px)]"
         >
             <div className="2xl:flex 2xl:flex-row-reverse 
                 xl:flex xl:flex-row-reverse 
@@ -33,13 +33,13 @@ const AboutMeContent = () => {
                         style={{ opacity: 0.8 }} 
                     />
                 </motion.div>
-                <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w[585px]">
+                <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w-[585px]">
                     <motion.div
                         variants={slideInFromLeft(0.9)}
-                        className="name-heading flex flex-col gap-6 mt-6
+                        className="name-heading type-headline flex flex-col gap-6 mt-6
                                     2xl:text-7xl xl:text-6xl
                                     lg:text-5xl md:text-4xl
-                                    sm:text-4xl font-bold
+                                    sm:text-4xl font-medium
                                     max-w-[600px]
                                     w-auto h-auto font-panno"
                         >
@@ -50,43 +50,43 @@ const AboutMeContent = () => {
 
                     <motion.p
                         variants={slideInFromLeft(0.8)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Professional Journey
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.7)}
-                        className="text-[18px] text-gray-400 font-panno"
+                        className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2"
                     >
                         Based in Tokyo, I studied in San Diego and later returned to Japan. I graduated from Kanda Foreign Language College in Nov 2015, earned a Digital Arts degree from Grossmont College in June 2017, and completed a UI/UX program at Digital Hollywood Tokyo in Sept 2022.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Career Highlights
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.5)}
-                        className="text-[18px] text-gray-400 font-panno"
+                        className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2"
                     > 
                         I combine communication and digital design. At Accor Hotels I improved international guest relations, handling multilingual inquiries and complex cases. At Tree Digital Studio I refined UI/UX for educational AR games using user feedback. At Little Planet I researched AR/VR interaction patterns across age groups.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
-                        className="text-[18px] text-gray-400 font-panno py-3"
+                        className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 py-3"
                     >
                         Today I build responsive, performant websites with HTML5, CSS/SCSS, JavaScript, and Node.js — balancing business goals with great UX.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
-                        className="accent-subheading text-[21px] font-panno font-bold py-3"
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
                     >
                         Creative Passions and Vision
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.2)}
-                        className="text-[18px] text-gray-400 font-panno pb-9"
+                        className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 pb-9"
                     >
                         Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold">@ricky_o_369</a>.
                     </motion.p>

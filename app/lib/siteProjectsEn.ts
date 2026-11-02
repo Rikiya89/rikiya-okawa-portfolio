@@ -8,20 +8,28 @@ export type SiteProject = {
 };
 
 const enMap: Record<string, SiteProject> = {
+  "generative-brand-system": {
+    slug: "generative-brand-system",
+    title: "SEED — Generative Brand System",
+    description:
+      "A generative brand system built with Next.js and TypeScript.\nType a brand name and an intent, and deterministic SVG geometry draws the mark, OKLCH palette, type, lockup, poster and icons — editable, and shareable by URL.",
+    src: "/img/generative_brand_system.webp",
+    url: "https://generative-brand-system.vercel.app/",
+  },
   typevision: {
     slug: "typevision",
     title: "TypeVision",
     description:
       "A browser-based typing trainer built with JavaScript, optional eye tracking, and local-first progress storage.\nPractice English and Japanese in a focused, responsive UI with real-time analytics, challenge modes, and shareable runs.",
     src: "/img/typevision.webp",
-    url: "https://typevision-jubx4b2jp-rikiyadazo89-gmailcoms-projects.vercel.app/",
+    url: "https://typevision-ricky.vercel.app/",
   },
   "emotional-echoes-p5js": {
     slug: "emotional-echoes-p5js",
     title: "Emotional Echoes (p5.js)",
     description:
       "Interactive multilingual typography artwork built with p5.js.\nExplore six emotions through animated text, hover particle bursts, and an emotion wheel.",
-    src: "/img/p5js_artwork.webp",
+    src: "/img/p5js_artwork.png",
     url: "https://p5js.org/sketches/2688829/",
   },
   "portfolio-website": {
@@ -80,10 +88,38 @@ const enMap: Record<string, SiteProject> = {
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
+  "dinis-surface": {
+    slug: "dinis-surface",
+    title: "Dini's Surface",
+    description: "p5.js + GLSL study: the twist changes, the curvature doesn't.",
+    src: "/img/lab_dinis_surface_hd.webp",
+    url: "https://www.instagram.com/reel/DerNV-vT5xl/",
+  },
+  "manta-made-of-holes": {
+    slug: "manta-made-of-holes",
+    title: "A Manta Made of Holes",
+    description: "GLSL shader: a gyroid lattice inside a procedural manta ray. No mesh, no rig.",
+    src: "/img/lab_manta_gyroid_hd.webp",
+    url: "https://www.instagram.com/reel/Debwj98zAv3/",
+  },
+  "ascii-spider-lily": {
+    slug: "ascii-spider-lily",
+    title: "ASCII Spider Lily",
+    description: "TouchDesigner study: a 3D flower redrawn entirely as characters.",
+    src: "/img/lab_ascii_spider_lily_hd.webp",
+    url: "https://www.instagram.com/reel/DfHiD_vzRIW/",
+  },
+  "neural-signals-unity": {
+    slug: "neural-signals-unity",
+    title: "Neural Signals → Light",
+    description: "Unity study: a live neural stream drives a procedural organism and 150,000 GPU particles.",
+    src: "/img/lab_neural_signals_hd.webp",
+    url: "https://www.instagram.com/reel/DejfBANzoHt/",
+  },
 };
 
 export function getEnProject(slug: string) {
-  return enMap[slug] ?? null;
+  return Object.hasOwn(enMap, slug) ? enMap[slug] : null;
 }
 
 export function listEnProjects(): SiteProject[] {

@@ -2,179 +2,567 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   Tokens — Neo-Swiss palette
+   Channels are exposed so Tailwind can apply alpha (e.g. text-paper/60).
+   ========================================================================== */
 :root {
-  --bg-void: #030014;
-  --bg-panel: #0a0025;
+  --c-paper: 244 243 239;   /* #F4F3EF  warm off-white */
+  --c-ink: 23 23 23;        /* #171717  near-black */
+  --c-ink-2: 92 92 87;      /* #5C5C57  secondary text — 6.0:1 on paper */
+  --c-mute: 133 133 128;    /* #858580  rules, large numerals (3.3:1 on paper: not for small text) */
+  --c-signal: 227 66 52;    /* #E34234  signal red — markers, focus, hover only */
+  --c-plate: 10 9 14;       /* dark ground behind artwork plates */
+  --signal-text: #C4321F;   /* signal red for small text — 4.95:1 on paper (AA) */
 
-  --accent-violet: #6c4cff;
-  --accent-ember: #ff7a45;
-  --accent-signal: #e8ff6b;
+  --paper: rgb(var(--c-paper));
+  --ink: rgb(var(--c-ink));
+  --ink-2: rgb(var(--c-ink-2));
+  --mute: rgb(var(--c-mute));
+  --signal: rgb(var(--c-signal));
+  --plate: rgb(var(--c-plate));
+  --rule: rgb(var(--c-ink) / 0.16);
 
-  --text-heading: #edebff;
-  --text-body: #9c99b4;
+  /* Modular spacing: 4px base, grid margins step with breakpoints */
+  --margin: 16px;
+  --gutter: 16px;
+  --nav-h: 56px;
+  /* Space between home/listing sections (applied once, as top padding) */
+  --section-space: 72px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --star-bright: #8c7aff;
-  --star-sparkle: #ff7a45;
+  /* Legacy tokens, remapped so older markup inherits the new system */
+  --bg-void: var(--paper);
+  --bg-panel: var(--paper);
+  --accent-violet: var(--ink);
+  --accent-ember: var(--signal);
+  --accent-signal: var(--signal);
+  --text-heading: var(--ink);
+  --text-body: var(--ink-2);
+  --star-bright: var(--ink);
+  --star-sparkle: var(--signal);
+  --nav-border: var(--ink);
+  --nav-shadow-deep: var(--ink);
+  --accent-border: var(--rule);
+  --accent-border-strong: var(--ink);
+  --accent-surface: var(--paper);
+  --accent-surface-strong: var(--paper);
+  --accent-shadow: transparent;
 
-  --nav-border: #6c4cff;
-  --nav-shadow-deep: #2a0e61;
-
-  --accent-border: color-mix(in srgb, var(--accent-violet) 38%, transparent);
-  --accent-border-strong: color-mix(in srgb, var(--accent-violet) 90%, transparent);
-  --accent-surface: color-mix(in srgb, var(--bg-void) 37%, transparent);
-  --accent-surface-strong: color-mix(in srgb, var(--bg-void) 95%, transparent);
-  --accent-shadow: color-mix(in srgb, var(--nav-shadow-deep) 50%, transparent);
+  /* Flower-of-Life hero sizing (portfolio-en) */
+  --flower-size: clamp(400px, min(70svh, 100svh - 256px), 760px);
 }
 
+@media (min-width: 768px) {
+  :root { --margin: 24px; --gutter: 24px; --section-space: 96px; }
+}
+
+@media (min-width: 1024px) {
+  :root { --margin: 40px; --section-space: 128px; }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/* NOTE: <html> deliberately has no background so body's background propagates
+   to the viewport; the fixed particle canvas (z-index -1) relies on that. */
 body {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
+  --stack-text: var(--font-sans), "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  --stack-display: var(--font-panno), "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  --stack-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, "Hiragino Sans", "Noto Sans JP", monospace;
+  font-family: var(--stack-text);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Flat heading/badge/subhead color — no gradient on small text */
-.Welcome-text {
-  color: var(--text-heading);
+::selection {
+  background: var(--signal);
+  color: var(--paper);
 }
 
-/* 2-stop gradient reserved for the name heading only */
-.name-heading {
-  color: var(--text-heading);
-  background: linear-gradient(90deg, var(--accent-violet) 0%, var(--text-heading) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* 2-stop gradient reserved for the large hero display word only */
-.hero-gradient-word {
-  color: var(--text-heading);
-  background: linear-gradient(90deg, var(--accent-violet) 0%, var(--accent-ember) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.Welcome-box {
-  isolation: isolate;
-  overflow: hidden;
-  align-items: center;
-  border-color: color-mix(in srgb, var(--accent-violet) 80%, transparent);
-  background: color-mix(in srgb, var(--bg-void) 60%, transparent);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border-radius: 32px;
-  box-shadow: inset 0 -7px 11px color-mix(in srgb, var(--accent-violet) 12%, transparent);
-  display: flex;
-
-  position: relative;
-  width: -moz-max-content;
-  width: max-content;
-  transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
-}
-
-.button-primary {
-  background: linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in srgb, var(--nav-shadow-deep) 32%, transparent) 100%
-    ),
-    color-mix(in srgb, var(--accent-violet) 12%, transparent);
-  box-shadow: inset 0 0 12px color-mix(in srgb, var(--accent-violet) 24%, transparent);
-}
-.button-primary:hover {
-  background: linear-gradient(
-      180deg,
-      transparent 0%,
-      color-mix(in srgb, var(--nav-shadow-deep) 42%, transparent) 100%
-    ),
-    color-mix(in srgb, var(--accent-violet) 24%, transparent);
-  box-shadow:
-    inset 0 0 12px color-mix(in srgb, var(--accent-ember) 45%, transparent),
-    0 0 16px color-mix(in srgb, var(--accent-violet) 35%, transparent);
-}
-
-.button-primary:focus-visible,
-.accent-link:focus-visible,
-.site-nav-link:focus-visible,
-.site-social-link:focus-visible {
-  outline: 2px solid var(--accent-ember);
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--signal);
   outline-offset: 3px;
 }
 
+/* ==========================================================================
+   Type system + layout primitives (BEM blocks)
+   Placed in the components layer so responsive utilities can still adjust them.
+   ========================================================================== */
+@layer components {
+  /* Sections pad only their top so neighbouring sections don't double the gap;
+     the last section before the footer adds .section-space--end. */
+  .section-space {
+    padding-top: var(--section-space);
+  }
+  .section-space--end {
+    padding-bottom: var(--section-space);
+  }
+
+  .page-grid {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: var(--margin);
+  }
+
+  /* Display: oversized neo-grotesk, tight tracking (Latin only) */
+  .type-display {
+    font-family: var(--stack-display);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .type-headline {
+    font-family: var(--stack-display);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .type-title {
+    font-family: var(--stack-display);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+  }
+
+  /* Compact editorial labels */
+  .type-label {
+    font-family: var(--stack-mono);
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .type-mono {
+    font-family: var(--stack-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+
+  .type-body {
+    font-family: var(--stack-text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  @media (min-width: 1024px) {
+    .type-body { font-size: 16px; }
+  }
+
+  /* Section header: index + label on a hairline, then headline */
+  .section-head__bar {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .section-head__index {
+    color: var(--signal-text);
+    margin-right: 0.9em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Text link with arrow — understated interaction */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding-block: 8px;
+    border-bottom: 1px solid currentColor;
+    transition: color 160ms ease-out, border-color 160ms ease-out;
+  }
+
+  .link-arrow__glyph {
+    display: inline-block;
+    transition: transform 240ms var(--ease-out);
+  }
+
+  .link-arrow:hover,
+  .link-arrow:focus-visible {
+    color: var(--signal);
+  }
+
+  .link-arrow:hover .link-arrow__glyph,
+  .link-arrow:focus-visible .link-arrow__glyph {
+    transform: translateX(4px);
+  }
+
+  /* Artwork plate: dark ground so generative pieces keep their full impact */
+  .plate {
+    position: relative;
+    overflow: hidden;
+    background: var(--plate);
+  }
+
+  /* Project card — editorial presentation */
+  .work-card__media img {
+    transition: transform 700ms var(--ease-out);
+  }
+
+  .work-card:hover .work-card__media img,
+  .work-card:focus-within .work-card__media img {
+    transform: scale(1.025);
+  }
+
+  .work-card__index {
+    font-variant-numeric: tabular-nums;
+    transition: color 160ms ease-out;
+  }
+
+  .work-card:hover .work-card__index,
+  .work-card:focus-within .work-card__index {
+    color: var(--signal);
+  }
+
+  .work-card__arrow {
+    transition: transform 240ms var(--ease-out);
+  }
+
+  .work-card:hover .work-card__arrow,
+  .work-card:focus-within .work-card__arrow {
+    transform: translateX(4px);
+  }
+
+  .work-card__title {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    transition: text-decoration-color 160ms ease-out;
+  }
+
+  .work-card:hover .work-card__title,
+  .work-card:focus-within .work-card__title {
+    text-decoration-color: currentColor;
+  }
+
+  .work-card__title-link {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  .work-card__link:focus-visible {
+    outline-offset: 6px;
+  }
+
+  /* Toolkit band: feather the artwork so the plate has no hard video edge */
+  .skills__art {
+    opacity: 0.85;
+    -webkit-mask-image: radial-gradient(closest-side at 50% 50%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(closest-side at 50% 50%, #000 35%, transparent 100%);
+  }
+
+  /* Toolkit specimen grid */
+  .skill-cell__logo {
+    filter: grayscale(1) contrast(1.05);
+    opacity: 0.9;
+    transition: filter 220ms ease-out, opacity 220ms ease-out;
+  }
+
+  .skill-cell:hover .skill-cell__logo {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Legacy component classes — restyled.
+   Unlayered and after utilities on purpose: these must win over the
+   rounded, text-white and shadow utilities still present in older markup.
+   ========================================================================== */
+
+/* Former pill badge → compact editorial label */
+.Welcome-text {
+  color: var(--ink);
+}
+
+.Welcome-box {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  border: 0;
+  border-left: 2px solid var(--signal);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  padding: 0 0 0 10px;
+}
+
+/* Former gradient headings → solid ink */
+.name-heading,
+.hero-gradient-word {
+  color: var(--ink);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Buttons: flat, square, ink — red on hover */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--stack-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 160ms ease-out, border-color 160ms ease-out, color 160ms ease-out;
+}
+
+.button-primary:hover {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--paper);
+  box-shadow: none;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  font-family: var(--stack-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 160ms ease-out, color 160ms ease-out;
+}
+
+.button-secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* --- Secondary text helper (shared by home sections) ---------------------- */
+.fg-2 { color: var(--ink-2); }
+
+.button-primary:focus-visible,
+.button-secondary:focus-visible,
+.accent-link:focus-visible,
+.site-nav-link:focus-visible,
+.site-social-link:focus-visible,
+.portfolio-footer a:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
 .site-nav-shell {
-  background: var(--accent-surface);
-  box-shadow: 0 10px 15px -3px var(--accent-shadow);
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.site-nav-shell > div > a:first-child {
+  min-height: 44px;
+}
+
+.site-nav-shell .name-heading {
+  font-family: var(--stack-display);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+/* No `display` here: it would outrank the md:hidden utility on the toggle */
+.site-nav-shell button {
+  min-width: 44px;
+  min-height: 44px;
+  margin-right: -10px;
+}
+
+.site-nav-shell button svg {
+  margin-inline: auto;
+}
+
+.site-nav-shell button svg {
+  color: var(--ink);
 }
 
 .site-nav-pill {
-  border-color: var(--accent-border);
-  background: var(--accent-surface);
+  counter-reset: nav;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ink);
 }
 
 .site-nav-link {
-  opacity: 0.78;
-  transition: opacity 120ms ease-out;
+  font-family: var(--stack-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 1;
+  transition: color 140ms ease-out;
+}
+
+.site-nav-link::before {
+  counter-increment: nav;
+  content: counter(nav, decimal-leading-zero) / "";
+  color: var(--ink-2);
+  margin-right: 0.6em;
+}
+
+/* Links 1–3 are home sections (Work, Lab, Client Work) and carry their section
+   number; About and the language switch are page links and stay unnumbered. */
+.site-nav-link:nth-child(n + 4)::before {
+  content: none;
+}
+
+.site-nav-link:last-child {
+  padding-left: 18px;
+  border-left: 1px solid var(--rule);
 }
 
 .site-nav-link:hover,
 .site-nav-link:focus-visible {
   opacity: 1;
+  color: var(--signal);
 }
 
 .site-nav-mobile {
-  border-color: var(--accent-border);
-  background: var(--accent-surface-strong);
-  box-shadow: 0 10px 15px -3px var(--accent-shadow);
+  counter-reset: nav-m;
+  border-color: var(--ink);
+  background: var(--paper);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
-.accent-link,
-.portfolio-footer a {
-  transition: color 180ms ease, opacity 180ms ease;
+.site-nav-mobile-link {
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
 }
 
-.portfolio-footer a:focus-visible {
-  outline: 2px solid var(--accent-ember);
-  outline-offset: 3px;
+.site-nav-mobile-link::before {
+  counter-increment: nav-m;
+  content: counter(nav-m, decimal-leading-zero) / "";
+  display: inline-block;
+  min-width: 2.6em;
+  font-family: var(--stack-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+  vertical-align: 0.35em;
+}
+
+.site-nav-mobile-link:nth-child(n + 4)::before {
+  content: "\2192" / "";
 }
 
 .site-nav-mobile-link:hover,
 .site-nav-mobile-link:focus-visible,
 .site-nav-mobile-link:active {
-  background: color-mix(in srgb, var(--accent-violet) 14%, transparent);
-  color: var(--text-heading);
+  background: var(--ink);
+  color: var(--paper);
 }
 
-.site-social-link:hover,
-.site-social-link:active {
-  opacity: 0.72;
+.site-social-link img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0);
+  opacity: 0.88;
+  transition: opacity 140ms ease-out;
 }
 
+.site-social-link:hover img,
+.site-social-link:active img {
+  opacity: 0.5;
+}
+
+/* --- Links, footer ------------------------------------------------------- */
+.accent-link,
+.portfolio-footer a {
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.accent-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.accent-link:hover {
+  color: var(--signal);
+}
+
+.portfolio-footer a:hover {
+  color: var(--signal);
+}
+
+/* --- Cards, headings, lists, chips (secondary pages) --------------------- */
 .accent-card {
-  border-color: var(--accent-violet);
-  transition: border-color 450ms ease-out, box-shadow 450ms ease-out;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
 }
 
 .accent-card:hover,
 .accent-card:focus-within {
-  border-color: var(--accent-border-strong);
-  box-shadow: 0 12px 24px -16px color-mix(in srgb, var(--accent-violet) 55%, transparent);
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .accent-subheading {
-  color: var(--accent-ember);
+  color: var(--ink);
+  font-family: var(--stack-display);
+  font-weight: 500;
+  letter-spacing: -0.012em;
 }
 
 .accent-section-heading {
-  color: var(--accent-ember);
+  color: var(--ink);
+  font-family: var(--stack-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
 }
 
 .accent-list ::marker {
-  color: var(--accent-violet);
+  color: var(--signal);
 }
 
 .accent-chip {
-  border-color: var(--accent-border);
-  color: var(--text-heading);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  font-family: var(--stack-mono);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
@@ -186,99 +574,70 @@ body {
   display: none;
 }
 
+/* Static particle fallback (reduced motion / save-data): graphite grain */
 .starfield-fallback {
   position: fixed;
   inset: 0;
-  z-index: 15;
+  z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.35) 1px, transparent 0),
-    radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.25) 1px, transparent 0),
-    radial-gradient(1.5px 1.5px at 50px 90px, rgba(156, 178, 255, 0.4) 1px, transparent 0),
-    radial-gradient(2px 2px at 110px 40px, rgba(201, 183, 255, 0.35) 1px, transparent 0);
-  background-size: 160px 160px, 220px 220px, 260px 260px, 320px 320px;
+    radial-gradient(1px 1px at 20px 30px, rgb(var(--c-ink) / 0.22) 1px, transparent 0),
+    radial-gradient(1px 1px at 80px 120px, rgb(var(--c-ink) / 0.16) 1px, transparent 0),
+    radial-gradient(1.5px 1.5px at 50px 90px, rgb(var(--c-mute) / 0.4) 1px, transparent 0);
+  background-size: 160px 160px, 220px 220px, 260px 260px;
   background-repeat: repeat;
-  opacity: 0.6;
 }
-
-
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
 }
 
 html.scroll-snap-y {
   scroll-snap-type: y proximity;
-  scroll-padding-top: 80px;
+  scroll-padding-top: var(--nav-h);
 }
 
 html.scroll-snap-y .snap-section {
   scroll-snap-align: start;
-  scroll-margin-top: 80px;
+  scroll-margin-top: var(--nav-h);
 }
 
-/* Modal animations: beautiful yet performant */
+/* Modal: short, linear-feeling entrance — no overshoot */
 @keyframes modalIn {
-  0% { opacity: 0; transform: scale(0.96); }
-  60% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes modalOut {
-  0% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.03); }
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(8px); }
 }
 
 .modal-panel-in {
-  animation: modalIn 280ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: modalIn 280ms var(--ease-out) forwards;
 }
 
 .modal-panel-out {
-  animation: modalOut 220ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: modalOut 220ms var(--ease-out) forwards;
 }
 
-@keyframes shimmerSwipe {
-  0% { transform: translateX(-120%) skewX(-10deg); opacity: 0; }
-  15% { opacity: 0.35; }
-  100% { transform: translateX(120%) skewX(-10deg); opacity: 0; }
-}
-
-.modal-shimmer {
-  position: absolute;
-  top: 0;
-  left: -20%;
-  width: 140%;
-  height: 60%;
-  pointer-events: none;
-  border-radius: inherit;
-  background: linear-gradient(120deg,
-    rgba(255, 255, 255, 0) 30%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  mix-blend-mode: screen;
-  filter: blur(1px);
-  animation: shimmerSwipe 720ms cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-/* Hamburger Menu Animations */
+/* Mobile menu */
 @keyframes slideDown {
   0% {
     opacity: 0;
-    transform: translateY(-10px);
-    max-height: 0;
+    transform: translateY(-6px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
-    max-height: 400px;
   }
 }
 
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
   100% {
     opacity: 1;
@@ -287,12 +646,49 @@ html.scroll-snap-y .snap-section {
 }
 
 .animate-slideDown {
-  animation: slideDown 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: slideDown 0.24s var(--ease-out) forwards;
 }
 
 .animate-fadeInUp {
   opacity: 0;
-  animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: fadeInUp 0.3s var(--ease-out) forwards;
+}
+
+/* Skip link: hidden until keyboard focus, then sits above the nav */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 80;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--stack-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Hero entrance: pure CSS so it never waits on JS. The h1 (LCP) is static. */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-in {
+  animation: heroIn 520ms var(--ease-out) both;
+}
+
+/* Phrase-aware line breaking for Japanese text (avoids mid-word breaks and orphan lines) */
+.text-jp-wrap {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 /* Respect reduced motion preferences */
@@ -300,7 +696,10 @@ html.scroll-snap-y .snap-section {
   html { scroll-behavior: auto; }
   .modal-panel-in,
   .modal-panel-out { animation: none !important; }
-  .modal-shimmer { display: none !important; animation: none !important; }
   .animate-slideDown,
-  .animate-fadeInUp { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .animate-fadeInUp,
+  .hero-in { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .work-card__media img,
+  .link-arrow__glyph,
+  .work-card__arrow { transition: none !important; transform: none !important; }
 }
