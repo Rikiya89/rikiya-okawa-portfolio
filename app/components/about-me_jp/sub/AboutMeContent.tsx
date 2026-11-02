@@ -58,7 +58,7 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap"
                     >
-                        東京で学び、サンディエゴへ渡り、再び日本へ。国内外での学びと実務を重ねてきました。2015年に神田外語学院を卒業し、2017年に Grossmont College でデジタルアートの学位を取得。帰国後はコストコで約1年、アコーホテルズで3年勤務し、2022年にデジタルハリウッド東京本校で UI/UX デザインを修了しました。
+                        東京の神田外語学院を2015年に卒業し、その後サンディエゴの Grossmont College でデジタルアートを学んで、2017年に学位を取得しました。帰国後はコストコで約1年、アコーホテルズで3年働き、2022年にデジタルハリウッド東京本校で UI/UX デザインを修了しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
@@ -70,13 +70,13 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.5)}
                         className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap"
                     >
-                        強みは、コミュニケーション力とデジタルの融合です。アコーホテルズでは多言語での問い合わせ対応や課題解決に従事。株式会社 Tree Digital Studio では教育向け AR ゲームの UI/UX 改善に取り組み、ユーザーフィードバックを設計に反映。株式会社リトルプラネットでは AR/VR の体験設計を調査し、年齢層別のインタラクション特性を分析しました。
+                        人と話す力と、デジタルのスキルを掛け合わせられるところが自分の強みです。アコーホテルズでは、多言語での問い合わせ対応やトラブル解決を担当しました。株式会社 Tree Digital Studio では、教育向け AR ゲームの UI/UX 改善に携わり、ユーザーの声をデザインに反映しました。株式会社リトルプラネットでは、AR/VR の体験設計を調べ、年齢層ごとのインタラクションの違いを分析しました。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap py-3"
                     >
-                        現在は Web エンジニアとして、HTML5／CSS(SCSS)／JavaScript／Node.js を用い、レスポンシブかつパフォーマンスに優れたサイトを制作しています。クライアントの目的達成とユーザー体験の向上を両立させることを大切にしています。
+                        現在は Web エンジニアとして、HTML5、CSS(SCSS)、JavaScript、Node.js を使い、レスポンシブで表示の速いサイトを作っています。クライアントの目的を叶えつつ、使う人にとっても心地よい体験にすることを大切にしています。
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
@@ -88,7 +88,7 @@ const AboutMeContentJP = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap pb-9"
                     >
-                        仕事の外では Unity、TouchDesigner、openFrameworks、p5.js などで創作を続けています。最近は Houdini による VFX／アニメーションにも注力。多様なデジタル表現を横断しながら、次のプロジェクトでも創造的に課題を解決し、体験の可能性を広げていきます。最新の制作は Instagram で公開中。<br/>
+                        仕事以外でも、Unity、TouchDesigner、openFrameworks、p5.js などで作品づくりを続けています。最近は Houdini を使った VFX やアニメーションにも力を入れています。いろいろなデジタル表現に触れながら、これからも課題を創造的に解決し、体験の可能性を広げていきたいです。最新の作品は Instagram で公開しています。<br/>
                         <span className="font-medium font-panno">Instagram:</span><a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold font-panno"> @ricky_o_369</a>
                     </motion.p>
                 </div>

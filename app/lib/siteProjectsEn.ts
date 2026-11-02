@@ -10,9 +10,9 @@ export type SiteProject = {
 const enMap: Record<string, SiteProject> = {
   "generative-brand-system": {
     slug: "generative-brand-system",
-    title: "SEED — Generative Brand System",
+    title: "SEED : Generative Brand System",
     description:
-      "A generative brand system built with Next.js and TypeScript.\nType a brand name and an intent, and deterministic SVG geometry draws the mark, OKLCH palette, type, lockup, poster and icons — editable, and shareable by URL.",
+      "A generative brand system built with Next.js and TypeScript.\nEnter a brand name and a one-line intent, and SVG geometry draws the mark, OKLCH palette, typography, lockup, poster and icons. The same input always gives the same result, and everything is editable and shareable by URL.",
     src: "/img/generative_brand_system.webp",
     url: "https://generative-brand-system.vercel.app/",
   },
@@ -20,7 +20,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "typevision",
     title: "TypeVision",
     description:
-      "A browser-based typing trainer built with JavaScript, optional eye tracking, and local-first progress storage.\nPractice English and Japanese in a focused, responsive UI with real-time analytics, challenge modes, and shareable runs.",
+      "A typing trainer that runs in the browser, built with JavaScript. It offers optional eye tracking and saves your progress locally.\nPractice in English or Japanese with real-time stats, challenge modes and shareable runs, in a focused, responsive UI.",
     src: "/img/typevision.webp",
     url: "https://typevision-ricky.vercel.app/",
   },
@@ -28,7 +28,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "emotional-echoes-p5js",
     title: "Emotional Echoes (p5.js)",
     description:
-      "Interactive multilingual typography artwork built with p5.js.\nExplore six emotions through animated text, hover particle bursts, and an emotion wheel.",
+      "An interactive typography artwork in several languages, made with p5.js.\nExplore six emotions through animated text, particle bursts on hover and an emotion wheel.",
     src: "/img/p5js_artwork.png",
     url: "https://p5js.org/sketches/2688829/",
   },
@@ -36,7 +36,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "portfolio-website",
     title: "Portfolio Website",
     description:
-      "HTML/SCSS/JavaScript portfolio with a clean, responsive UI.\nBrowse projects through intuitive navigation and engaging visuals.",
+      "A portfolio site built with HTML, SCSS and JavaScript, with a clean, responsive layout.\nSimple navigation and visual touches make the projects easy to browse.",
     src: "/img/portfolio_no1.webp",
     url: "https://www.rikiya-okawa963.jp/index.html/",
   },
@@ -44,7 +44,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "react-weather-app",
     title: "React Weather App",
     description:
-      "Built with React and JavaScript.\nUses weather and geolocation APIs to deliver everything from city search to real-time conditions\nin a light, intuitive UI.",
+      "Built with React and JavaScript.\nUses weather and geolocation APIs for everything from city search to live conditions, in a light, easy-to-use UI.",
     src: "/img/weather_app.webp",
     url: "https://relaxed-youtiao-4c1124.netlify.app/",
   },
@@ -52,7 +52,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "iphone14-clone-3d",
     title: "3D iPhone Product Page",
     description:
-      "Built with React and JavaScript.\nAn interactive 3D model with a scroll-synced camera animation\nthat reveals product features step by step.",
+      "Built with React and JavaScript.\nAn interactive 3D model whose camera moves with the scroll, revealing the product's features one step at a time.",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },
@@ -60,7 +60,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "guardians-of-the-moon",
     title: "GUARDIANS OF THE MOON",
     description:
-      "Graduation project pairing a Unity VR shooter with a TouchDesigner installation.\nBuilt with an AR/VR center to stage a base-defense scenario using synchronized mission briefings and haptic VR feedback.\nDelivered on a one-month (VR) and one-week (installation) timeline.",
+      "A graduation project pairing a Unity VR shooter with a TouchDesigner installation.\nBuilt with an AR/VR center to stage a base-defense scenario, with synchronized mission briefings and haptic VR feedback.\nThe VR game took one month to build and the installation one week.",
     src: "/img/guardians.webp",
     url: "/guardians_en",
   },
@@ -68,7 +68,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "water-drop-effect",
     title: "Water Drop Effect",
     description:
-      "TouchDesigner study: GLSL shaders and TOPs capture the essence of water\nthrough procedural motion.",
+      "A TouchDesigner study that uses GLSL shaders and TOPs to capture the feel of water through procedural motion.",
     src: "/img/water_drops_culpture.webp",
     url: "https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -76,7 +76,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "the-art-of-dynamic-mesh",
     title: "The Art of Dynamic Mesh",
     description:
-      "An openFrameworks exploration of image processing and mesh dynamics,\nvisualizing light and movement.",
+      "An openFrameworks study of image processing and mesh dynamics that visualizes light and movement.",
     src: "/img/of.webp",
     url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -84,7 +84,7 @@ const enMap: Record<string, SiteProject> = {
     slug: "pulse-of-reflection",
     title: "Pulse of Reflection",
     description:
-      "TouchDesigner piece: CHOPs/TOPs animate a reflective heart;\nan exponential LFO adds a lifelike rhythm.",
+      "A TouchDesigner piece where CHOPs and TOPs animate a reflective heart, and an exponential LFO gives it a lifelike rhythm.",
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },

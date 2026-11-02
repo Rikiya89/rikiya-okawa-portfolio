@@ -48,7 +48,7 @@ export const toolkit: { title: string; items: string[] }[] = [
   },
   {
     title: "Design & AI",
-    items: ["Figma", "Adobe CC", "Claude Code", "Codex", "Vercel AI SDK"],
+    items: ["Figma", "Adobe CC", "Claude Code", "Codex"],
   },
 ];
 

@@ -472,7 +472,7 @@ body {
   font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--ink-2);
-  vertical-align: 0.35em;
+  vertical-align: 0.28em;
 }
 
 .site-nav-mobile-link:nth-child(n + 4)::before {

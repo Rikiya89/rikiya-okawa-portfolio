@@ -19,7 +19,7 @@ const SelectedWorkJp = async () => {
 
   return (
     <section id="work" className="relative section-space scroll-mt-[var(--nav-h)]">
-      <SectionHeading index="01" meta={`${String(items.length).padStart(2, "0")} case studies`} title="Selected Work" intro="ケーススタディ — 問い、設計判断、コード。" />
+      <SectionHeading index="01" meta={`${String(items.length).padStart(2, "0")} case studies`} title="Selected Work" intro="ケーススタディ : 問い、設計判断、コード。" />
       <div className="page-grid flex flex-col gap-12 md:gap-16 lg:gap-20">
         {items.map(({ project, details, enDetails }, i) =>
           project ? (

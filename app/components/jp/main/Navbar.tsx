@@ -141,23 +141,23 @@ const Navbar = () => {
           {/* Dropdown Menu Items for smaller screens */}
           {isMenuOpen && (
             <div id="mobile-menu" className="site-nav-mobile md:hidden absolute top-[var(--nav-h)] left-0 w-full border-b z-40 animate-slideDown">
-              <a href={workHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3.5 font-panno text-[26px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
+              <a href={workHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3 font-panno text-[20px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.05s' }}>
                 Work
               </a>
-              <a href={labHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3.5 font-panno text-[26px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
+              <a href={labHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3 font-panno text-[20px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.1s' }}>
                 Lab
               </a>
-              <Link href="/clientworks_jp" prefetch={false} className="site-nav-mobile-link block px-[var(--margin)] py-3.5 font-panno text-[26px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
+              <Link href="/clientworks_jp" prefetch={false} className="site-nav-mobile-link block px-[var(--margin)] py-3 font-panno text-[20px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.15s' }}>
                 Client Work
                 <span className="type-label inline-flex items-center gap-1 ml-3 align-middle text-ink-2">
                   <RxLockClosed aria-hidden="true" className="h-4 w-4" />
                   パスワード保護
                 </span>
               </Link>
-              <a href="/about-me_jp" onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3.5 font-panno text-[26px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
+              <a href="/about-me_jp" onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3 font-panno text-[20px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
                 About
               </a>
-              <a href={enHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3.5 font-panno text-[26px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
+              <a href={enHref} onClick={() => setIsMenuOpen(false)} className="site-nav-mobile-link block px-[var(--margin)] py-3 font-panno text-[20px] font-medium tracking-[-0.02em] animate-fadeInUp" style={{ animationDelay: '0.25s' }}>
                 English
               </a>
               <div className="flex gap-2 px-[calc(var(--margin)-6px)] py-2 border-t border-[var(--rule)] animate-fadeInUp" style={{ animationDelay: '0.3s' }}>

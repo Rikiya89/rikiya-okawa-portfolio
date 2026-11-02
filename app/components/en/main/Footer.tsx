@@ -12,7 +12,7 @@ const EMAIL = "rikiyadazo89@gmail.com";
 
 const Footer = () => {
   return (
-    <footer className="portfolio-footer relative w-full border-t-4 border-ink text-ink">
+    <footer className="portfolio-footer relative w-full border-t-1 border-ink text-ink">
       <div className="page-grid pt-14 pb-8 md:pt-20 lg:pt-24">
         <div className="section-head__bar type-label">
           <span><span className="section-head__index">05</span>Contact</span>

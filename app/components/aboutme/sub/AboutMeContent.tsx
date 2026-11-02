@@ -58,7 +58,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.7)}
                         className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2"
                     >
-                        Based in Tokyo, I studied in San Diego and later returned to Japan. I graduated from Kanda Foreign Language College in Nov 2015, earned a Digital Arts degree from Grossmont College in June 2017, and completed a UI/UX program at Digital Hollywood Tokyo in Sept 2022.
+                        I’m based in Tokyo, but I studied in San Diego before coming back to Japan. I graduated from Kanda Foreign Language College in November 2015, earned a Digital Arts degree from Grossmont College in June 2017, and completed a UI/UX program at Digital Hollywood Tokyo in September 2022.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.6)}
@@ -70,13 +70,13 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.5)}
                         className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2"
                     > 
-                        I combine communication and digital design. At Accor Hotels I improved international guest relations, handling multilingual inquiries and complex cases. At Tree Digital Studio I refined UI/UX for educational AR games using user feedback. At Little Planet I researched AR/VR interaction patterns across age groups.
+                        I work where communication meets digital design. At Accor Hotels I handled multilingual inquiries and complex cases from international guests. At Tree Digital Studio I improved the UI/UX of educational AR games using user feedback. At Little Planet I researched how people of different ages interact with AR and VR.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.4)}
                         className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 py-3"
                     >
-                        Today I build responsive, performant websites with HTML5, CSS/SCSS, JavaScript, and Node.js — balancing business goals with great UX.
+                        Today I build responsive, fast websites with HTML5, CSS/SCSS, JavaScript and Node.js, balancing what the client needs with a good experience for the people using them.
                     </motion.p>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
@@ -88,7 +88,7 @@ const AboutMeContent = () => {
                         variants={slideInFromLeft(0.2)}
                         className="text-[16px] md:text-[17px] leading-[1.7] text-ink-2 pb-9"
                     >
-                        Outside work, I create with Unity, TouchDesigner, openFrameworks, and p5.js; lately I’ve been exploring Houdini for VFX and animation. I aim to push interaction, motion, and craft through creative tooling. Follow my work on Instagram <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold">@ricky_o_369</a>.
+                        Outside work, I make things with Unity, TouchDesigner, openFrameworks and p5.js, and lately I’ve been exploring Houdini for VFX and animation. I like pushing interaction, motion and craft through creative tools. You can follow my work on Instagram: <a href="https://www.instagram.com/ricky_o_369/" target="_blank" rel="noopener noreferrer" className="accent-link font-bold">@ricky_o_369</a>.
                     </motion.p>
                 </div>
             </div>

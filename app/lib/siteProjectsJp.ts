@@ -10,9 +10,9 @@ export type SiteProject = {
 const jpMap: Record<string, SiteProject> = {
   "generative-brand-system": {
     slug: "generative-brand-system",
-    title: "SEED — Generative Brand System",
+    title: "SEED : Generative Brand System",
     description:
-      "Next.js と TypeScript で構築したジェネレーティブ・ブランドシステム。\nブランド名と一文の意図を入力すると、決定論的な SVG ジオメトリがマーク・OKLCH パレット・書体・ロックアップ・ポスター・アイコンを生成。編集と URL 共有に対応。",
+      "Next.js と TypeScript で作ったジェネレーティブ・ブランドシステム。\nブランド名と一文の意図を入力すると、SVG のジオメトリがマーク、OKLCH パレット、書体、ロックアップ、ポスター、アイコンを描き出します。同じ入力なら必ず同じ結果になり、編集も URL での共有もできます。",
     src: "/img/generative_brand_system.webp",
     url: "https://generative-brand-system.vercel.app/",
   },
@@ -20,7 +20,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "typevision",
     title: "TypeVision",
     description:
-      "JavaScript と HTML/CSS で構築。\n英語/日本語のタイピング練習、任意の視線追跡、ローカル保存の進捗管理を統合し、リアルタイム分析と集中しやすい UI で提供。",
+      "JavaScript と HTML/CSS で作ったタイピング練習アプリ。\n英語・日本語の練習、任意の視線追跡、進捗のローカル保存に対応。リアルタイム分析つきの、集中しやすい UI で使えます。",
     src: "/img/typevision.webp",
     url: "https://typevision-ricky.vercel.app/",
   },
@@ -28,7 +28,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "emotional-echoes-p5js",
     title: "Emotional Echoes（p5.js）",
     description:
-      "p5.js による多言語タイポグラフィの\nインタラクティブ作品。\n6つの感情を、文字アニメーションとホバー粒子、感情ホイールで体験可能。",
+      "p5.js で作った多言語タイポグラフィのインタラクティブ作品。\n文字のアニメーション、ホバー時のパーティクル、感情ホイールを通して、6つの感情を体験できます。",
     src: "/img/p5js_artwork.png",
     url: "https://p5js.org/sketches/2688829/",
   },
@@ -36,7 +36,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "portfolio-website",
     title: "Portfolio Website",
     description:
-      "インタラクティブなポートフォリオ。\nHTML/SCSS/JavaScript で構築し、直感的なナビゲーションと視覚的な演出で作品をわかりやすく\n紹介。",
+      "HTML/SCSS/JavaScript で作ったポートフォリオサイト。\nわかりやすいナビゲーションと視覚的な演出で、作品を見やすく紹介しています。",
     src: "/img/portfolio_no1.webp",
     url: "https://www.rikiya-okawa963.jp/index.html/",
   },
@@ -44,7 +44,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "react-weather-app",
     title: "React Weather App",
     description:
-      "React と JavaScript で構築。\n天気/位置情報 API を活用し、都市検索からリアルタイムの気象情報まで、軽快で直感的な UI で\n提供。",
+      "React と JavaScript で作った天気アプリ。\n天気と位置情報の API を使い、都市検索からリアルタイムの気象情報まで、軽快で使いやすい UI で確認できます。",
     src: "/img/weather_app.webp",
     url: "https://relaxed-youtiao-4c1124.netlify.app/",
   },
@@ -52,7 +52,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "iphone14-clone-3d",
     title: "3D iPhone Product Page",
     description:
-      "React と JavaScript で構築。\n3DモデルをWeb上でインタラクティブに表示し、スクロール連動のカメラアニメーションで\n製品の特徴を段階的に紹介。",
+      "React と JavaScript で作成。\n3D モデルを Web 上で動かせるようにし、スクロールに合わせてカメラが動くことで、製品の特徴を順番に紹介します。",
     src: "/img/iphone14_clonewebsite.webp",
     url: "https://apple-iphone3d-website.netlify.app/",
   },
@@ -60,7 +60,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "guardians-of-the-moon",
     title: "GUARDIANS OF THE MOON",
     description:
-      "Unity × TouchDesigner の卒業制作。\n月面基地防衛 VR を約1カ月で構築し、没入演出で AR/VR 施設の滞在時間を拡張。",
+      "Unity と TouchDesigner による卒業制作。\n月面基地を守る VR を約1カ月で作り、没入感のある演出で AR/VR 施設での滞在時間を延ばしました。",
     src: "/img/guardians.webp",
     url: "/guardians_jp",
   },
@@ -68,7 +68,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "water-drop-effect",
     title: "Water Drop Effect",
     description:
-      "TouchDesigner 作品。\nGLSL と TOP を用い、水の質感と流動性を\nプロシージャルに表現。",
+      "TouchDesigner 作品。GLSL と TOP を使い、水の質感と流れをプロシージャルに表現しました。",
     src: "/img/water_drops_culpture.webp",
     url: "https://www.instagram.com/reel/C5I0TBkSrk6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -76,7 +76,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "the-art-of-dynamic-mesh",
     title: "The Art of Dynamic Mesh",
     description:
-      "openFrameworks による表現研究。\n画像処理とメッシュダイナミクスで光と動きを\n可視化。",
+      "openFrameworks による表現の研究。画像処理とメッシュダイナミクスを使って、光と動きを可視化しました。",
     src: "/img/of.webp",
     url: "https://www.instagram.com/p/Ctv2k7Nvcrb/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -84,7 +84,7 @@ const jpMap: Record<string, SiteProject> = {
     slug: "pulse-of-reflection",
     title: "Pulse of Reflection",
     description:
-      "TouchDesigner 作品。\nCHOP/TOP で反射するハートをアニメーション化し、指数 LFO で鼓動のようなリズムを付与。",
+      "TouchDesigner 作品。CHOP と TOP で反射するハートを動かし、指数 LFO で鼓動のようなリズムを加えました。",
     src: "/img/heart.webp",
     url: "https://www.instagram.com/p/C8PaH0kSQ2Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
@@ -98,7 +98,7 @@ const jpMap: Record<string, SiteProject> = {
   "manta-made-of-holes": {
     slug: "manta-made-of-holes",
     title: "A Manta Made of Holes",
-    description: "GLSL シェーダー作品。プロシージャルなマンタの内側にジャイロイドの格子を構築。メッシュもリグも不使用。",
+    description: "GLSL シェーダー作品。プロシージャルなマンタの内側に、ジャイロイドの格子を組み上げています。メッシュもリグも使っていません。",
     src: "/img/lab_manta_gyroid_hd.webp",
     url: "https://www.instagram.com/reel/Debwj98zAv3/",
   },
