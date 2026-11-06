@@ -31,7 +31,7 @@ const Lab = ({
 
   return (
     <section id="lab" className="relative section-space scroll-mt-[var(--nav-h)]">
-      <SectionHeading index="02" title="Lab" intro={intro} meta={`${String(items.length).padStart(2, "0")} studies`} />
+      <SectionHeading index="02" title="Lab" intro={intro} meta="studies" />
       <div className="page-grid">
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-[var(--gutter)] gap-y-12">
           {items.map((p, i) => (

@@ -13,11 +13,11 @@ const Toolkit = ({ groups = toolkit, id = "toolkit", title = "Toolkit", index = 
   <section id={id} className="relative section-space section-space--end scroll-mt-[var(--nav-h)]">
     <SectionHeading index={index} title={title} />
     <div className="page-grid grid grid-cols-1 md:grid-cols-3 gap-x-[var(--gutter)] gap-y-12">
-      {groups.map((group, i) => (
+      {groups.map((group) => (
         <div key={group.title}>
           <h3 className="section-head__bar border-ink type-label">
             <span>{group.title}</span>
-            <span className="fg-2" aria-hidden="true">{String(Number(index) + i + 1).padStart(2, "0")}</span>
+            <span className="fg-2" aria-hidden="true">{String(group.items.length).padStart(2, "0")}</span>
           </h3>
           <ul>
             {group.items.map((item) => (

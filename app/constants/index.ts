@@ -6,6 +6,11 @@ export const Socials = [
     link: "https://www.instagram.com/ricky_o_369/"
   },
   {
+    name: "GitHub",
+    src: "/img/github.svg",
+    link: "https://github.com/Rikiya89"
+  },
+  {
     name: "X",
     src: "/img/x.svg",
     link: "https://twitter.com/recodinghewold"
