@@ -1,6 +1,10 @@
-# Space Portfolio（日本語版）
+# Rikiya Okawa Portfolio（日本語版）
 
-Next.js（App Router）+ TypeScript + Tailwind CSS で構築した個人ポートフォリオサイトです。
+大川力也のフロントエンド開発・クリエイティブコーディングの個人ポートフォリオサイトです。Next.js（App Router）+ TypeScript + Tailwind CSS で構築しています。
+
+現在はオフホワイトの背景、黒を基調とした文字、赤のアクセントを使った Neo-Swiss デザインを採用しています。WebGL / GLSL による Flower of Life のヒーローと、制作事例、リアルタイム表現の実験、クライアントワークを掲載しています。
+
+English README: [`README.md`](README.md)
 
 このリポジトリは、応募・面接時の技術証跡としても利用しております。
 - 英語/日本語のポートフォリオページ（`/en`, `/jp`）
@@ -15,6 +19,15 @@ Next.js（App Router）+ TypeScript + Tailwind CSS で構築した個人ポー�
 - 同一アプリを複数のクラウド環境へデプロイ
 - Secret / IAM を含むクラウド設定とトラブル対応の経験
 - 再現可能なセットアップ手順とデプロイ手順を Markdown 化
+
+## デザインとコンテンツ
+
+- **Flower of Life ヒーロー** — ポインターに反応する raw WebGL / GLSL シェーダー。画面幅に応じたサイズ調整と、動きを減らす設定への対応を実装。
+- **Selected Work** — 制作事例と、詳細ページ・モーダルによる閲覧。
+- **Lab** — クリエイティブコーディングやリアルタイム表現の実験。作品や Instagram へのリンクを掲載。
+- **Client Work** — 公開プレビューから Basic 認証付きの実績ページへ誘導。
+- **Toolkit** — Web開発、リアルタイムグラフィックス、デザイン・AIの使用ツール。
+- **タイポグラフィ** — Inter、Inter Tight、JetBrains Mono と日本語フォールバックフォント。
 
 ## 主な機能
 
@@ -32,7 +45,8 @@ Next.js（App Router）+ TypeScript + Tailwind CSS で構築した個人ポー�
 - `TypeScript`
 - `Tailwind CSS`
 - `Framer Motion`
-- `Three.js` / `react-three-fiber`
+- `WebGL` / `GLSL`（Flower of Life ヒーロー）
+- `Three.js` / `@react-three/fiber`
 
 ## CI（GitHub Actions）
 
@@ -53,7 +67,20 @@ cp .env.example .env.local
 npm run dev
 ```
 
-`http://localhost:3000` を開いて確認してください。
+`package.json` の指定に合わせ、Node.js 20〜22 を使用してください。
+
+`http://localhost:3000` を開いて確認してください。ルートはブラウザーの `Accept-Language` に日本語が含まれる場合 `/jp`、それ以外は `/en` にリダイレクトします。各ルートを直接開くこともできます。
+
+## 主なソースファイル
+
+- `app/(en)/en/page.tsx` / `app/(jp)/jp/page.tsx` — 英語・日本語のホームページ。
+- `app/components/en/home/` / `app/components/jp/home/` — ホームページの各セクション。
+- `app/components/en/home/FlowerField.tsx` / `flowerField.glsl.ts` — ヒーローのレンダラーとシェーダー（同じディレクトリ内）。
+- `app/globals.css` — デザイントークン、文字組み、レイアウト、共通スタイル。
+- `app/lib/homeEn.ts` — Selected Work・Lab の表示順、注目クライアント、Toolkit のデータ。
+- `app/lib/siteProjectsEn.ts` / `siteProjectsJp.ts` — 作品一覧（いずれも `app/lib/` 内）。
+- `app/lib/projectDetails.ts` / `projectDetails_jp.ts` — 制作事例の詳細（いずれも `app/lib/` 内）。
+- `middleware.ts` — クライアントワークの認証とセキュリティヘッダー。
 
 ## 環境変数
 
@@ -112,7 +139,7 @@ npm run dev
 - `_REGION`: `asia-northeast1`
 - `_SERVICE_NAME`: `rikiya-okawa-369`
 - `_AR_REPOSITORY`: `cloud-run-source-deploy`
-- `_IMAGE_NAME`: `space-portfolio`
+- `_IMAGE_NAME`: `space-portfolio`（`cloudbuild.yaml` に設定されている既存のコンテナイメージ識別子）
 
 必要ロール（最小構成の目安）:
 - `roles/run.admin`

@@ -1,6 +1,8 @@
-# Space Portfolio
+# Rikiya Okawa Portfolio
 
-Personal portfolio site built with Next.js (App Router) + TypeScript + Tailwind CSS.
+Personal portfolio of Rikiya Okawa, a front-end engineer and creative developer, built with Next.js (App Router), TypeScript, and Tailwind CSS.
+
+The current design uses a Neo-Swiss layout: warm off-white backgrounds, near-black typography, signal-red accents, and an interactive Flower of Life hero rendered with WebGL / GLSL. The portfolio brings together selected case studies, real-time graphics experiments, and client work.
 
 Japanese README: [`README_JP.md`](README_JP.md)
 
@@ -18,6 +20,15 @@ This repository is also used as a job application proof project:
 - Worked with cloud secrets/IAM and deployment troubleshooting (documented in this repo).
 - Added reproducible setup, deployment notes, and CI workflow for reviewer confidence.
 
+## Design and Content
+
+- **Flower of Life hero** — a pointer-responsive shader built with raw WebGL / GLSL, with responsive sizing and reduced-motion handling.
+- **Selected Work** — project case studies with detail pages and modal navigation.
+- **Lab** — creative-coding and real-time graphics studies, with links to experiments and Instagram.
+- **Client Work** — a public preview leading to Basic Auth-protected project pages.
+- **Toolkit** — tools used across web development, real-time graphics, design, and AI.
+- **Typography** — Inter, Inter Tight, and JetBrains Mono, with Japanese font fallbacks.
+
 ## Key Features
 
 - Next.js App Router + TypeScript
@@ -34,7 +45,8 @@ This repository is also used as a job application proof project:
 - `TypeScript`
 - `Tailwind CSS`
 - `Framer Motion`
-- `Three.js` / `react-three-fiber`
+- `WebGL` / `GLSL` (Flower of Life hero)
+- `Three.js` / `@react-three/fiber`
 
 ## CI (GitHub Actions)
 
@@ -53,7 +65,20 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Use Node.js 20–22, as specified in `package.json`.
+
+Open `http://localhost:3000`. The root route redirects to `/jp` when the browser’s `Accept-Language` header includes Japanese; otherwise it redirects to `/en`. You can also open either route directly.
+
+## Main Source Files
+
+- `app/(en)/en/page.tsx` / `app/(jp)/jp/page.tsx` — English and Japanese homepages.
+- `app/components/en/home/` / `app/components/jp/home/` — homepage sections.
+- `app/components/en/home/FlowerField.tsx` / `flowerField.glsl.ts` — hero renderer and shader (both in the same directory).
+- `app/globals.css` — design tokens, typography, layout, and shared styles.
+- `app/lib/homeEn.ts` — selected-work and Lab ordering, featured client, and toolkit data.
+- `app/lib/siteProjectsEn.ts` / `siteProjectsJp.ts` — project listings (both in `app/lib/`).
+- `app/lib/projectDetails.ts` / `projectDetails_jp.ts` — project case-study content (both in `app/lib/`).
+- `middleware.ts` — client-work authentication and security headers.
 
 ## Environment Variables
 
@@ -112,7 +137,7 @@ This repo includes:
 - `_REGION`: `asia-northeast1`
 - `_SERVICE_NAME`: `rikiya-okawa-369`
 - `_AR_REPOSITORY`: `cloud-run-source-deploy`
-- `_IMAGE_NAME`: `space-portfolio`
+- `_IMAGE_NAME`: `space-portfolio` (existing container image identifier in `cloudbuild.yaml`)
 
 Required roles (minimum, for deploy flow):
 - `roles/run.admin`
@@ -139,7 +164,9 @@ Detailed daily logs are kept in the working repository. For this application rep
 
 ## 日本語（応募用サマリー）
 
-Next.js（App Router）+ TypeScript + Tailwind CSS で構築した個人ポートフォリオです。
+大川力也のフロントエンド開発・クリエイティブコーディングの個人ポートフォリオです。Next.js（App Router）+ TypeScript + Tailwind CSS で構築しています。
+
+現在はオフホワイト・黒・赤を基調とした Neo-Swiss デザインを採用し、WebGL / GLSL の Flower of Life ヒーロー、制作事例、Lab、クライアントワーク、Toolkit を掲載しています。
 
 応募・面接向けの強み:
 - 英語/日本語のページ構成（`/en`, `/jp`）
