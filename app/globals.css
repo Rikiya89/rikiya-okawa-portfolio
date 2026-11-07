@@ -217,16 +217,6 @@ body {
     transform: scale(1.025);
   }
 
-  .work-card__index {
-    font-variant-numeric: tabular-nums;
-    transition: color 160ms ease-out;
-  }
-
-  .work-card:hover .work-card__index,
-  .work-card:focus-within .work-card__index {
-    color: var(--signal);
-  }
-
   .work-card__arrow {
     transition: transform 240ms var(--ease-out);
   }
@@ -407,7 +397,6 @@ body {
 }
 
 .site-nav-pill {
-  counter-reset: nav;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -425,19 +414,6 @@ body {
   transition: color 140ms ease-out;
 }
 
-.site-nav-link::before {
-  counter-increment: nav;
-  content: counter(nav, decimal-leading-zero) / "";
-  color: var(--ink-2);
-  margin-right: 0.6em;
-}
-
-/* Links 1–3 are home sections (Work, Lab, Client Work) and carry their section
-   number; About and the language switch are page links and stay unnumbered. */
-.site-nav-link:nth-child(n + 4)::before {
-  content: none;
-}
-
 .site-nav-link:last-child {
   padding-left: 18px;
   border-left: 1px solid var(--rule);
@@ -450,7 +426,6 @@ body {
 }
 
 .site-nav-mobile {
-  counter-reset: nav-m;
   border-color: var(--ink);
   background: var(--paper);
   box-shadow: none;
@@ -464,8 +439,7 @@ body {
 }
 
 .site-nav-mobile-link::before {
-  counter-increment: nav-m;
-  content: counter(nav-m, decimal-leading-zero) / "";
+  content: "";
   display: inline-block;
   min-width: 2.6em;
   font-family: var(--stack-mono);
@@ -475,6 +449,7 @@ body {
   vertical-align: 0.28em;
 }
 
+/* Links 1–3 jump to home sections; About and the language switch are page links. */
 .site-nav-mobile-link:nth-child(n + 4)::before {
   content: "\2192" / "";
 }

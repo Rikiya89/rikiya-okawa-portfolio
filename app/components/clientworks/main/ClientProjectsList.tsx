@@ -39,10 +39,9 @@ const ClientProjectsList = ({ heading, projects, basePath = "/clientworks" }: Cl
       )}
       {heading && <div className="absolute top-[-30px] left-0" id="projects"></div>}
       <div className="page-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[var(--gutter)] gap-y-14 md:gap-y-16 xl:[&>*:nth-child(3n+2)]:mt-16">
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <ClientProjects
             key={project.slug ?? project.title}
-            index={i + 1}
             src={project.src}
             alt={project.alt}
             title={project.title}

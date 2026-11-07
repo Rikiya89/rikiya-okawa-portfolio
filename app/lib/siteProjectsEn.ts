@@ -10,7 +10,7 @@ export type SiteProject = {
 const enMap: Record<string, SiteProject> = {
   "generative-brand-system": {
     slug: "generative-brand-system",
-    title: "SEED : Generative Brand System",
+    title: "SEED: Generative Brand System",
     description:
       "A generative brand system built with Next.js and TypeScript.\nEnter a brand name and a one-line intent, and SVG geometry draws the mark, OKLCH palette, typography, lockup, poster and icons. The same input always gives the same result, and everything is editable and shareable by URL.",
     src: "/img/generative_brand_system.webp",
@@ -58,7 +58,7 @@ const enMap: Record<string, SiteProject> = {
   },
   "guardians-of-the-moon": {
     slug: "guardians-of-the-moon",
-    title: "GUARDIANS OF THE MOON",
+    title: "Guardians of the Moon",
     description:
       "A graduation project pairing a Unity VR shooter with a TouchDesigner installation.\nBuilt with an AR/VR center to stage a base-defense scenario, with synchronized mission briefings and haptic VR feedback.\nThe VR game took one month to build and the installation one week.",
     src: "/img/guardians.webp",

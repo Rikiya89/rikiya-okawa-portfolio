@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { externalLinkProps } from "@/utils/externalLink";
+import type { MetaItem } from "@/utils/projectMeta";
 
 type Props = {
   index: number;
@@ -12,6 +13,7 @@ type Props = {
   title: string;
   question?: string;
   tags: string[];
+  meta?: MetaItem[];
   src: string;
   liveUrl?: string;
   codeUrl?: string;
@@ -26,6 +28,7 @@ const WorkCard = ({
   slug,
   title,
   question,
+  meta = [],
   tags,
   src,
   liveUrl,
@@ -44,9 +47,8 @@ const WorkCard = ({
       transition={{ duration: reducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
       className="work-card grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-[var(--gutter)] gap-y-6 border-t border-ink pt-3"
     >
-      {/* Running bar: index + stack */}
+      {/* Running bar: stack */}
       <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-baseline gap-4 type-label">
-        <span className="work-card__index">{String(index + 1).padStart(2, "0")}</span>
         {tags.length > 0 ? (
           <span className="min-w-0 flex-1 truncate normal-case tracking-normal text-ink-2 type-mono">
             {tags.join(" / ")}
@@ -79,27 +81,39 @@ const WorkCard = ({
             {question}
           </p>
         )}
-        <div className="mt-8 lg:mt-auto lg:pt-10 flex flex-wrap gap-x-6 gap-y-1">
-          <Link href={caseHref} className="link-arrow type-label text-ink">
-            {labels.case}
-            <span className="sr-only">: {title}</span>
-          </Link>
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              {...(liveUrl.startsWith("/") ? {} : externalLinkProps)}
-              className="link-arrow type-label text-ink"
-            >
-              {labels.live}
-              <span className="sr-only">: {title}</span>
-            </a>
+        <div className="mt-8 lg:mt-auto lg:pt-10">
+          {meta.length > 0 && (
+            <dl className="mb-6 border-t border-[var(--rule)]">
+              {meta.map((m) => (
+                <div key={m.label} className="flex items-baseline gap-4 border-b border-[var(--rule)] py-2.5">
+                  <dt className="type-label text-ink-2 w-16 shrink-0">{m.label}</dt>
+                  <dd className="type-body text-ink min-w-0">{m.value}</dd>
+                </div>
+              ))}
+            </dl>
           )}
-          {codeUrl && (
-            <a href={codeUrl} {...externalLinkProps} className="link-arrow type-label text-ink">
-              {labels.code}
+          <div className="flex flex-wrap gap-x-6 gap-y-1">
+            <Link href={caseHref} className="link-arrow type-label text-ink">
+              {labels.case}
               <span className="sr-only">: {title}</span>
-            </a>
-          )}
+            </Link>
+            {liveUrl && (
+              <a
+                href={liveUrl}
+                {...(liveUrl.startsWith("/") ? {} : externalLinkProps)}
+                className="link-arrow type-label text-ink"
+              >
+                {labels.live}
+                <span className="sr-only">: {title}</span>
+              </a>
+            )}
+            {codeUrl && (
+              <a href={codeUrl} {...externalLinkProps} className="link-arrow type-label text-ink">
+                {labels.code}
+                <span className="sr-only">: {title}</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </motion.article>

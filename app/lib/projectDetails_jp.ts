@@ -13,7 +13,7 @@ export type ProjectDetails = {
 
 const detailsMap: Record<string, ProjectDetails> = {
   "generative-brand-system": {
-    title: "SEED : Generative Brand System",
+    title: "SEED: Generative Brand System",
     question: "ブランド名ひとつを種に、アイデンティティ全体を育てられるか？",
     role: "役割: 企画・デザイン・開発（Next.js / TypeScript / SVG）",
     intro:
@@ -288,7 +288,7 @@ const detailsMap: Record<string, ProjectDetails> = {
     techStack: ["React", "JavaScript", "WebGi（3D）", "GSAP / ScrollTrigger", "CSS", "Vite"],
   },
   "guardians-of-the-moon": {
-    title: "GUARDIANS OF THE MOON",
+    title: "Guardians of the Moon",
     question: "AR/VR施設での体験を、デモではなく“ミッション”に変えるには？",
     role: "役割: Unity (C#) エンジニア — 設計・実装",
     intro:

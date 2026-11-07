@@ -17,7 +17,7 @@ const Toolkit = ({ groups = toolkit, id = "toolkit", title = "Toolkit", index = 
         <div key={group.title}>
           <h3 className="section-head__bar border-ink type-label">
             <span>{group.title}</span>
-            <span className="fg-2" aria-hidden="true">{String(group.items.length).padStart(2, "0")}</span>
+            <span className="fg-2">{group.items.length} {group.items.length === 1 ? "tool" : "tools"}</span>
           </h3>
           <ul>
             {group.items.map((item) => (

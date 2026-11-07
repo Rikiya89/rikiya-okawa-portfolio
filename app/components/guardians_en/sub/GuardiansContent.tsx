@@ -49,7 +49,7 @@ const GuardiansContent = () => {
                                     w-auto h-auto font-panno text-center pb-3"
                     >
                         <span>
-                            Graduation Project<br /> - GUARDIANS OF THE MOON -
+                            Graduation Project<br /> - <span className="uppercase">Guardians of the Moon</span> -
                         </span>
                     </motion.div>
                 </div>

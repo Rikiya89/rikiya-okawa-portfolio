@@ -16,7 +16,6 @@ export interface Props {
   slug?: string;  // optional
   centerText?: boolean; // optional: center description text
   basePath?: string; // optional: base path for routing (e.g., "/clientworks" or "/clientworks_jp")
-  index?: number;
 }
 
 const hostnameOf = (url?: string) => {
@@ -28,7 +27,7 @@ const hostnameOf = (url?: string) => {
   }
 };
 
-export default function ClientProjects({ src, alt, title, description, role, url, slug, basePath = "/clientworks", index }: Props) {
+export default function ClientProjects({ src, alt, title, description, role, url, slug, basePath = "/clientworks" }: Props) {
   const hasSlug = typeof slug === "string" && slug.length > 0;
   const hasUrl  = typeof url  === "string" && url.length  > 0;
   const router = useRouter();
@@ -48,9 +47,6 @@ export default function ClientProjects({ src, alt, title, description, role, url
         />
       </div>
       <div className="flex items-baseline gap-4 border-b border-ink py-2.5 type-label">
-        {index ? (
-          <span className="work-card__index text-ink">{String(index).padStart(2, "0")}</span>
-        ) : null}
         <span className="min-w-0 flex-1 truncate normal-case tracking-normal text-ink-2">{host ?? "—"}</span>
         <span aria-hidden="true" className="work-card__arrow text-ink">{hasSlug ? "→" : hasUrl ? "↗" : ""}</span>
       </div>

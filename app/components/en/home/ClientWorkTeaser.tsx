@@ -20,7 +20,6 @@ const ClientWorkTeaser = () => {
             className="work-card work-card__link grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-[var(--gutter)] gap-y-6 border-t border-ink pt-3"
           >
             <div className="col-span-4 md:col-span-8 lg:col-span-12 flex items-baseline gap-4 type-label">
-              <span className="work-card__index">01</span>
               <span className="fg-2">Featured</span>
             </div>
             <div className="work-card__media plate relative block aspect-[16/10] col-span-4 md:col-span-8 lg:col-span-7">

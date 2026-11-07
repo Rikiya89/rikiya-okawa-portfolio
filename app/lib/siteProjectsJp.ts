@@ -10,7 +10,7 @@ export type SiteProject = {
 const jpMap: Record<string, SiteProject> = {
   "generative-brand-system": {
     slug: "generative-brand-system",
-    title: "SEED : Generative Brand System",
+    title: "SEED: Generative Brand System",
     description:
       "Next.js と TypeScript で作ったジェネレーティブ・ブランドシステム。\nブランド名と一文の意図を入力すると、SVG のジオメトリがマーク、OKLCH パレット、書体、ロックアップ、ポスター、アイコンを描き出します。同じ入力なら必ず同じ結果になり、編集も URL での共有もできます。",
     src: "/img/generative_brand_system.webp",
@@ -58,7 +58,7 @@ const jpMap: Record<string, SiteProject> = {
   },
   "guardians-of-the-moon": {
     slug: "guardians-of-the-moon",
-    title: "GUARDIANS OF THE MOON",
+    title: "Guardians of the Moon",
     description:
       "Unity と TouchDesigner による卒業制作。\n月面基地を守る VR を約1カ月で作り、没入感のある演出で AR/VR 施設での滞在時間を延ばしました。",
     src: "/img/guardians.webp",

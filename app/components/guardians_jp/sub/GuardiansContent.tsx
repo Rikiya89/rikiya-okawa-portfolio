@@ -49,7 +49,7 @@ const GuardiansContent = () => {
                                     w-auto h-auto font-panno text-center pb-3"
                     >
                         <span>
-                            卒業プロジェクト<br /> - GUARDIANS OF THE MOON -
+                            卒業プロジェクト<br /> - <span className="uppercase">Guardians of the Moon</span> -
                         </span>
                     </motion.div>
                 </div>

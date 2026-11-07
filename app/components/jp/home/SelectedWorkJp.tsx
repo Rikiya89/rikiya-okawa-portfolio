@@ -5,6 +5,7 @@ import { getProjectDetails } from "@/lib/projectDetails_jp";
 import { getProjectDetails as getEnProjectDetails } from "@/lib/projectDetails";
 import SectionHeading from "@/components/en/home/SectionHeading";
 import WorkCard from "@/components/en/home/WorkCard";
+import { buildMeta, shortRole } from "@/utils/projectMeta";
 
 const JP_LABELS = { case: "詳細を見る →", caseAria: "詳細", live: "サイト ↗", code: "コード ↗" };
 
@@ -19,7 +20,7 @@ const SelectedWorkJp = async () => {
 
   return (
     <section id="work" className="relative section-space scroll-mt-[var(--nav-h)]">
-      <SectionHeading index="01" meta="case studies" title="Selected Work" intro="ケーススタディ : 問い、設計判断、コード。" />
+      <SectionHeading index="01" meta="case studies" title="Selected Work" intro="ケーススタディ：問い、設計判断、コード。" />
       <div className="page-grid flex flex-col gap-12 md:gap-16 lg:gap-20">
         {items.map(({ project, details, enDetails }, i) =>
           project ? (
@@ -30,6 +31,7 @@ const SelectedWorkJp = async () => {
               title={project.title}
               question={details?.question}
               tags={details?.techStack?.slice(0, 3) ?? []}
+              meta={buildMeta([["役割", shortRole(details?.role)], ["制作年", enDetails?.year]])}
               src={project.src}
               liveUrl={project.url || undefined}
               codeUrl={enDetails?.codeUrl}

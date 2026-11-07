@@ -34,7 +34,7 @@ const Lab = ({
       <SectionHeading index="02" title="Lab" intro={intro} meta="studies" />
       <div className="page-grid">
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-[var(--gutter)] gap-y-12">
-          {items.map((p, i) => (
+          {items.map((p) => (
             <li key={p.slug}>
               <a
                 href={p.url}
@@ -53,7 +53,6 @@ const Lab = ({
                   />
                 </div>
                 <div className="flex items-baseline gap-4 border-b border-ink py-2.5 type-label">
-                  <span className="work-card__index">{String(i + 1).padStart(2, "0")}</span>
                   <span className="min-w-0 flex-1 truncate normal-case tracking-normal fg-2">{hostOf(p.url)}</span>
                   <span aria-hidden="true" className="work-card__arrow">↗</span>
                 </div>

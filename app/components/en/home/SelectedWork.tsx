@@ -4,6 +4,7 @@ import { getEnProject } from "@/lib/siteProjectsEn";
 import { getProjectDetails } from "@/lib/projectDetails";
 import SectionHeading from "./SectionHeading";
 import WorkCard from "./WorkCard";
+import { buildMeta, shortRole } from "@/utils/projectMeta";
 
 const SelectedWork = async () => {
   const items = await Promise.all(
@@ -26,6 +27,7 @@ const SelectedWork = async () => {
               title={project.title}
               question={details?.question}
               tags={details?.techStack?.slice(0, 3) ?? []}
+              meta={buildMeta([["Role", shortRole(details?.role)], ["Year", details?.year]])}
               src={project.src}
               liveUrl={details?.liveUrl ?? (project.url || undefined)}
               codeUrl={details?.codeUrl}

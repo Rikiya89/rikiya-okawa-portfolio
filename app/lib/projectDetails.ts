@@ -18,7 +18,7 @@ export type ProjectDetails = {
 
 const detailsMap: Record<string, ProjectDetails> = {
   "generative-brand-system": {
-    title: "SEED : Generative Brand System",
+    title: "SEED: Generative Brand System",
     question: "What if a brand name were the seed for its whole identity?",
     decisions: [
       "The name and intent are hashed (FNV-1a → mulberry32) into a 17-parameter genome, so the same input always grows the same system",
@@ -301,7 +301,7 @@ const detailsMap: Record<string, ProjectDetails> = {
     techStack: ["React", "JavaScript", "WebGi (3D)", "GSAP / ScrollTrigger", "CSS", "Vite"],
   },
   "guardians-of-the-moon": {
-    title: "GUARDIANS OF THE MOON",
+    title: "Guardians of the Moon",
     question: "How do you make a visit to an AR/VR centre feel like a mission rather than a demo?",
     decisions: [
       "Unity + XR Interaction Toolkit for native controller haptics and grab interactions",
