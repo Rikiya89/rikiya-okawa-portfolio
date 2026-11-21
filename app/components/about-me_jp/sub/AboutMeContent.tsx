@@ -34,19 +34,20 @@ const AboutMeContentJP = () => {
                     />
                 </motion.div>
                 <div className="2xl:max-w-[645px] xl:max-w-[600px] lg:max-w-[585px]">
-                    <motion.div
+                    <motion.h1
                         variants={slideInFromLeft(0.9)}
-                        className="name-heading type-headline flex flex-col gap-6 mt-6
+                        className="name-heading type-headline flex flex-col gap-3 mt-6
                                     2xl:text-7xl xl:text-6xl
                                     lg:text-5xl md:text-4xl
                                     sm:text-4xl font-medium
                                     max-w-[600px]
                                     w-auto h-auto font-panno"
                         >
-                        <span>
+                        <span>大川力也</span>
+                        <span lang="en" className="text-[0.45em] fg-2">
                             Rikiya Okawa
                         </span>
-                    </motion.div>
+                    </motion.h1>
 
                     <motion.p
                         variants={slideInFromLeft(0.8)}

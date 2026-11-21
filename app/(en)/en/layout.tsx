@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/en/main/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import PersonJsonLd from "@/components/common/PersonJsonLd";
 
 const title = "Rikiya Okawa — Creative Developer";
 const description = "Creative developer working across Next.js, TypeScript, WebGL/GLSL, p5.js and TouchDesigner — generative systems, interactive prototypes and production front-end. Japanese / English.";
@@ -41,6 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <div lang="en">
+      <PersonJsonLd lang="en" />
       <Navbar />
       <Analytics />
       <SpeedInsights />

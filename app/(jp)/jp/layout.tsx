@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Navbar from "@/components/jp/main/Navbar";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import PersonJsonLd from "@/components/common/PersonJsonLd";
 
-const title = "Rikiya Okawa Portfolio";
+const title = "大川力也 (Rikiya Okawa) | フロントエンドエンジニア ポートフォリオ";
 const description = "フロントエンドエンジニア 大川力也のポートフォリオ。グローバルブランドから国内メーカーまでのサイト運用・改善・LP制作と、Next.js/TypeScript・GLSLによる個人制作を掲載しています。";
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: "/jp",
-    siteName: "Rikiya Okawa Portfolio",
+    siteName: "大川力也 Rikiya Okawa Portfolio",
     locale: "ja_JP",
     type: "website",
   },
@@ -38,6 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <div lang="ja">
+      <PersonJsonLd lang="ja" />
       <Navbar />
       <Analytics />
       <SpeedInsights />

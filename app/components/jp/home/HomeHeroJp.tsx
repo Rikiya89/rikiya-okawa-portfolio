@@ -32,7 +32,11 @@ const HomeHeroJp = () => {
             style={{ animationDelay: "0ms" }}
             className="hero-in section-head__bar type-label"
           >
-            <span>Front-end Engineer / Creative Developer</span>
+            <span>
+              <span className="whitespace-nowrap">Front-end Engineer /</span>{" "}
+              <span className="whitespace-nowrap">Creative Developer</span>
+            </span>
+            <span lang="ja" className="shrink-0 whitespace-nowrap">大川力也</span>
           </p>
 
           <h1
