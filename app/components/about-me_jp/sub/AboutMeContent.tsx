@@ -9,6 +9,13 @@ import {
 } from "@/utils/motion";
 import Image from "next/image";
 
+const skills = [
+    { label: "実務", items: "HTML / SCSS / JavaScript、WordPress、Astro" },
+    { label: "個人制作", items: "Next.js / TypeScript、GLSL" },
+    { label: "クリエイティブ", items: "Unity、TouchDesigner、openFrameworks、p5.js、Houdini" },
+    { label: "デザイン", items: "UI/UX デザイン（デジタルハリウッド修了）" },
+];
+
 const AboutMeContentJP = () => {
     return (
         <motion.div
@@ -27,7 +34,7 @@ const AboutMeContentJP = () => {
                 >
                     <Image
                         src="/img/profile.webp"
-                        alt="profile icons"
+                        alt="大川力也（Rikiya Okawa）のプロフィール写真"
                         height={650}
                         width={650}
                         style={{ opacity: 0.8 }} 
@@ -79,6 +86,29 @@ const AboutMeContentJP = () => {
                     >
                         現在は Web エンジニアとして、HTML5、CSS(SCSS)、JavaScript、Node.js を使い、レスポンシブで表示の速いサイトを作っています。クライアントの目的を叶えつつ、使う人にとっても心地よい体験にすることを大切にしています。
                     </motion.p>
+                    <motion.p
+                        variants={slideInFromLeft(0.4)}
+                        className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
+                    >
+                        Skills &amp; Tools
+                    </motion.p>
+                    <motion.p
+                        variants={slideInFromLeft(0.35)}
+                        className="text-[15px] leading-[1.9] text-ink-2 text-jp-wrap pb-3"
+                    >
+                        大川力也は、グローバルブランドから国内メーカーまでの Web サイトで、運用・改善・LP 制作を担当しています。パフォーマンスとアクセシビリティを両立した実装を得意としています。
+                    </motion.p>
+                    <motion.dl
+                        variants={slideInFromLeft(0.3)}
+                        className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-[15px] leading-[1.9] text-ink-2"
+                    >
+                        {skills.map(({ label, items }) => (
+                            <React.Fragment key={label}>
+                                <dt className="font-medium whitespace-nowrap">{label}</dt>
+                                <dd className="text-jp-wrap">{items}</dd>
+                            </React.Fragment>
+                        ))}
+                    </motion.dl>
                     <motion.p
                         variants={slideInFromLeft(0.3)}
                         className="accent-subheading text-[22px] md:text-[26px] font-panno pt-8 pb-3"
